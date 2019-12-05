@@ -20,7 +20,7 @@ sub SYUUGOU {
 				open(IN,"./charalog/main/$uid.cgi");
 				@E_DATA = <IN>;
 				close(IN);
-				($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);								
+				($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
 				$epos = $kpos;
 				if($eid ne ""){
 					&E_LOG2("$mmonthåé:$uunit_nameïîë‡ÇÕë‡í∑ÇÃñΩóﬂÇ…ÇÊÇË$town_name[$kpos]Ç…èWçáÇ≥ÇπÇÁÇÍÇ‹ÇµÇΩÅB");

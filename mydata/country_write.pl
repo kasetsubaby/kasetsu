@@ -53,6 +53,6 @@ sub COUNTRY_WRITE{
 EOM
 	&FOOTER;
 	exit;
-	
+
 }
 1;

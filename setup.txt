@@ -17,13 +17,13 @@
 Eƒ`ƒƒƒbƒgAƒQ[ƒ€ƒvƒƒOƒ‰ƒ€‚ð‹ÖŽ~‚µ‚Ä‚¢‚éƒT[ƒo‚Ö‚ÌÝ’u‚ð‹ÖŽ~
 EƒAƒ_ƒ‹ƒgƒTƒCƒgAˆá–@ƒTƒCƒg‚Ö‚ÌÝ’u‚ð‹ÖŽ~
 E‰æ‘œA‚»‚Ì‘¼’˜ì•¨‚Ì–³’fŽg—p‚Ì‹ÖŽ~
-E—˜—pŽÒ‚ÍA’˜ìŒ •\Ž¦Aƒo[ƒWƒ‡ƒ“î•ñ‚ðíœ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB‚±‚ê‚ðíœ‚·‚é‚ÆA’˜ìŒ –@‚Éˆá”½‚·‚é‚±‚Æ‚É‚È‚è‚Ü‚·B 
+E—˜—pŽÒ‚ÍA’˜ìŒ •\Ž¦Aƒo[ƒWƒ‡ƒ“î•ñ‚ðíœ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB‚±‚ê‚ðíœ‚·‚é‚ÆA’˜ìŒ –@‚Éˆá”½‚·‚é‚±‚Æ‚É‚È‚è‚Ü‚·B
 EÝ’u‚ÉŠÖ‚·‚éŽ¿–â‚Í‚·‚×‚ÄƒTƒ|[ƒgƒR[ƒi[‚Å‚¨Žó‚¯‚µ‚Ü‚·B‚½‚¾‚µA•K‚¸‚µ‚à‰ñ“š‚ª‚ ‚é‚Æ‚ÍŒÀ‚è‚Ü‚¹‚ñ‚Ì‚ÅA‚ ‚ç‚©‚¶‚ß‚²—¹‰ð‚­‚¾‚³‚¢i‰ñ“š‚Ì‹`–±‚Í‚È‚¢‚à‚Ì‚Æ‚µ‚Ü‚·jB’¼Úƒ[ƒ‹‚É‚æ‚éÝ’uã‚ÌŽ¿–â‚É‚Í‚¨“š‚¦‚Í‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB
-EƒTƒ|[ƒg‚ÉŠÖ‚µ‚Ä‚Í‚ ‚é’ö“x‚Ì‚b‚f‚h‚Ì’mŽ¯‚ª‚ ‚é‚à‚Ì‚Æ‚µ‚ÄƒTƒ|[ƒg‚µ‚Ü‚·B‚b‚f‚h‚ðÝ’u‚µ‚½Ž–‚ª–³‚¢•û‚Í‚Ü‚¸‚ÍŠÈ’P‚È‚b‚f‚h‚©‚çÝ’u‚ðŽŽ‚µ‚Ä‚©‚çƒRƒ`ƒ‰‚ðÝ’u‚µ‚Ä‚­‚¾‚³‚¢B 
+EƒTƒ|[ƒg‚ÉŠÖ‚µ‚Ä‚Í‚ ‚é’ö“x‚Ì‚b‚f‚h‚Ì’mŽ¯‚ª‚ ‚é‚à‚Ì‚Æ‚µ‚ÄƒTƒ|[ƒg‚µ‚Ü‚·B‚b‚f‚h‚ðÝ’u‚µ‚½Ž–‚ª–³‚¢•û‚Í‚Ü‚¸‚ÍŠÈ’P‚È‚b‚f‚h‚©‚çÝ’u‚ðŽŽ‚µ‚Ä‚©‚çƒRƒ`ƒ‰‚ðÝ’u‚µ‚Ä‚­‚¾‚³‚¢B
 EÄ”z•z‚ÉŠÖ‚µ‚Ä‚Í‹ÖŽ~‚µ‚Ü‚·Bi‚Ç‚¤‚µ‚Ä‚à‚Æ‚¢‚¤ê‡‚ÍŠJ”­ŽÒimaccyuj‚Ü‚ÅŒä˜A—‚­‚¾‚³‚¢Bj
 EŒ´‘¥“I‚ÉÝ’u‚·‚éê‡‚ÍŠÇ—ŽÒ‚ÌÓ”C‰º‚É’u‚¢‚ÄÝ’u‚ð‚µ‚Ä‰º‚³‚¢B‚±‚ÌƒXƒNƒŠƒvƒg‚ðŽg—p‚µ‚Ä”­¶‚µ‚½‚¢‚©‚È‚é–â‘è‚É‚à‘Î‰ž’v‚µ‚Ü‚¹‚ñB‘S‚ÄŽ©ŒÈÓ”C‚Å‚ÌŽg—p‚ð‚¨Šè‚¢‚µ‚Ü‚·B
 ¦‰æ‘œ‚Í‚a‚aŽ‚É‚æ‚Á‚Ä“Á•Ê‚É”z•z‚³‚¹‚Ä’¸‚¢‚½‚à‚Ì‚Å‚·B‘¼‚Ì–Ú“I‚Å‚ÌŽg—p‚âÄ”z•z‚È‚Ç‚ÍŒµ‹Ö‚Å‚·B
-E‚±‚Ìu—˜—p‹K’èv‚Í—\‚È‚­‰ü•ÒE‰Á•M‚ðs‚¤‚±‚Æ‚ª‚ ‚è‚Ü‚·B 
+E‚±‚Ìu—˜—p‹K’èv‚Í—\‚È‚­‰ü•ÒE‰Á•M‚ðs‚¤‚±‚Æ‚ª‚ ‚è‚Ü‚·B
 
 yÝ’èz
 public_html / index.html (ƒgƒbƒvƒy[ƒW)
@@ -140,4 +140,3 @@ A.Ý’èƒtƒ@ƒCƒ‹ini_file‚Ìindex.ini‚ª³‚µ‚­Ý’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ª‚ ‚è‚Ü‚·BÝ’è‚ðŠ
 
 Q.Ý’u‚µ‚½‚¯‚Ç‚È‚©‚È‚©ƒTƒCƒg‚Él‚ªW‚Ü‚ç‚È‚¢EEB
 A.komatsuo@mail.goo.ne.jp‚Ü‚Åƒ[ƒ‹‚ð’¸‚¯‚ê‚ÎÝ’uƒTƒCƒg‚ðf’f‚ÌŒ‹‰Ê‚±‚¿‚ç‚©‚çŽO‘ŽuNETLINK‚É“o˜^‚ð‚³‚¹‚Ä’¸‚­ê‡‚ª‚ ‚è‚Ü‚·B‹CŒy‚É‚²“o˜^‰º‚³‚¢B
-

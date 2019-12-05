@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   【免責事項】                                                #
@@ -49,4 +49,3 @@ elsif($mode eq '28') { require 'command/syuugou.pl';&SYUUGOU; }
 elsif($mode eq '29') { require 'command/tec.pl';&TEC; }
 elsif($mode eq '30') { require 'command/shiro_tai.pl';&SHIRO_TAI; }
 else { &ERR("不正なアクセスです。"); }
-

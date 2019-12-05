@@ -50,7 +50,7 @@ EOM
 	open(IN,"$COUNTRY_LIST") or &ERR2('ファイルを開けませんでした。err no :country');
 	@COU_NO = <IN>;
 	close(IN);
-	
+
 	foreach(@COU_NO){
 		($xxcid,$xxname,$xxele,$xxnum,$xxins,$xxind,$xxall,$xxgold,$xxhp,$xxmaxhp,$xxstr,$xxvit,$xxagi,$xxat)=split(/<>/);
 		print "<option>==== $xxname ====\n";

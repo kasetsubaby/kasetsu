@@ -19,7 +19,7 @@ sub GET_SOL {
 	foreach(@no){
 		$no_list .= "<input type=hidden name=no value=$_>"
 	}
-	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){ 
+	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){
 	print <<"EOM";
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>

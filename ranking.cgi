@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   y–ÆÓ–€z                                                #
@@ -150,7 +150,7 @@ print<<"EOM";
 <TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=5 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR><TR><TH bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>‰¤</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD><TD bgcolor=$ELE_C[$xele]><a href=./$FILE_RANK?mode=C_RAN&con_no=$xcid>•«ˆê——</a></TD></TR><TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_g_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>‘å«ŒR</TH><TH colspan=2 bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH></TR><TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>x”z“ss”</TD><TD colspan=4 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>$town_c[$c_c]“ss($mes[$c_c])</TD></TR></TBODY></TABLE><BR>
       <TABLE bgcolor=$ELE_BG[$xele] border="0">
         <TBODY bgcolor=$ELE_C[$xele]>
-$l_rank $list[$c_i] 
+$l_rank $list[$c_i]
          </TR>
 		<TR><TD bgcolor=$ELE_C[$xele] align=center colspan=20><font color=$ELE_BG[$xele]>$lista[$c_i]
 		</TD></TR>
@@ -244,7 +244,7 @@ sub C_RAN{
 		$chit=0;
 		for($j=0;$j<$country_no;$j++){
 			if($kcon eq "$c_no[$j]"){
-				
+
 			}
 			if($kcon eq "$in{'con_no'}"){
 			$chit=1;
@@ -324,7 +324,7 @@ EOM
 	<TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=4 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR><TR><TH bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>‰¤</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD></TR></TBODY></TABLE><BR>
 	      <TABLE bgcolor=$ELE_BG[$xele] border="0">
 	        <TBODY bgcolor=$ELE_C[$xele]>
-	$l_rank $list[$c_c] 
+	$l_rank $list[$c_c]
 	         </TR>
 			<TR><TD bgcolor=$ELE_C[$xxele] align=center colspan=20><font color=$ELE_BG[$xxele]>$lista[0]
 			</TD></TR>
@@ -343,7 +343,7 @@ EOM
 	<TABLE bgcolor=$ELE_BG[$xxele] width=60%><TBODY><TR><TD colspan=2 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>–³Š‘®</font></TD></TR><TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD></TR></TBODY></TABLE><BR>
 	      <TABLE bgcolor=$ELE_BG[$xele] border="0">
 	        <TBODY bgcolor=$ELE_C[$xele]>
-	$l_rank $list[$c_c] 
+	$l_rank $list[$c_c]
 	         </TR>
 	        </TBODY>
 	      </TABLE><br><br><br><br><br>
@@ -355,7 +355,7 @@ EOM
 		$next_mes .= "\[<a href=./$FILE_RANK?mode=C_RAN&con_no=$in{'con_no'}&c_num=$p>$q</a>\] ";
 		$q++;
 	}
-	
+
 print <<"EOM";
 $next_mes
 <form action="$FILE_RANK" method="post">

@@ -184,7 +184,7 @@ sub COUNTRY_DATA_INPUT {
 
 	if("$xcid" ne "0" && "$xcid" ne ""){
 		splice(@COU_DATA,$country_no,1,"$xcid<>$xname<>$xele<>$xmark<>$xking<>$xmes<>$xsub<>$xpri<>\n");
-		
+
 		open(OUT,">$COUNTRY_LIST") or &ERR('COUNTRY データを書き込めません。');
 		print OUT @COU_DATA;
 		close(OUT);
@@ -502,7 +502,7 @@ sub MAKE_GUEST_LIST {
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SERVER_STOP {
-	
+
 	&HOST_NAME;
 	open(GUEST,"$LOG_DIR/stop.cgi") or &ERR2('ファイルを開けませんでした。');
 	@STOP=<GUEST>;close(GUEST);
@@ -534,9 +534,9 @@ sub SERVER_STOP {
 
 	if($phit && $SERVER_REDUCTION){
 		if($in{'id'} eq ""){
-			&ERR2("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host"); 
+			&ERR2("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host");
 		}else{
-			&ERR("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host"); 
+			&ERR("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host");
 		}
 	}
 
@@ -544,4 +544,3 @@ sub SERVER_STOP {
 
 
 1;
-

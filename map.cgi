@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   【免責事項】                                                #
@@ -18,4 +18,3 @@ if($MENTE) { &ERR2("メンテナンス中です。しばらくお待ちください。"); }
 if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("アドレスバーに値を入力しないでください。"); }
 
 require 'map/open_map.pl';&OPEN_MAP;
-

@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   【免責事項】                                                #
@@ -428,14 +428,14 @@ sub CHANGE {
 	}
 	@page = <page>;
 	close(page);
-	
+
 		($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$page[0]);
 	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday) = localtime($edate);
 	$year += 1900;
 	$mon++;
 	$ww = (Sun,Mon,Tue,Wed,Thu,Fri,Sat)[$wday];
 	$daytime = sprintf("%4d\/%02d\/%02d\/(%s) %02d:%02d:%02d", $year,$mon,$mday,$ww,$hour,$min,$sec);
-	
+
 	&HEADER;
 	print <<"EOM";
 <form method="post" action="admin.cgi">
@@ -537,14 +537,14 @@ sub CHANGE2 {
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
 	&ERR2("ＩＤ、パスワードエラー $num ");}
 	$dir="./charalog/main";
-	
+
 	$newdata = "$in{'eid'}<>$in{'epass'}<>$in{'ename'}<>$in{'echara'}<>$in{'estr'}<>$in{'eint'}<>$in{'elea'}<>$in{'echa'}<>$in{'esol'}<>$in{'egat'}<>$in{'econ'}<>$in{'egold'}<>$in{'erice'}<>$in{'ecex'}<>$in{'eclass'}<>$in{'earm'}<>$in{'ebook'}<>$in{'ebank'}<>$in{'esub1'}<>$in{'esub2'}<>$in{'epos'}<>$in{'emes'}<>$in{'ehost'}<>$in{'edate'}<>$in{'email'}<>$in{'eos'}<>\n";
 
 	open(page,">$dir/$in{'fileno'}");
 	print page $newdata;
 	close(page);
 	&HOST_NAME;
-		
+
 	&ADMIN_LOG("<font color=blue>$in{'ename'} $dir/$in{'fileno'}を更新しました。「$host」</font>");
 	&HEADER;
 	print <<"EOM";
@@ -712,7 +712,7 @@ sub INIT_DATA {
 	&HOST_NAME;
 
 	&ADMIN_LOG("全データを初期化しました。[$host]");
-	
+
 	&HEADER;
 	print <<"EOM";
 <h2><font color=red>全データを初期化しました。</h2></font>

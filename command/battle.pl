@@ -24,7 +24,7 @@ sub BATTLE {
 <font color=ffffff> - êÌ ëà - </font>
 </TH></TR>
 EOM
-	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){ 
+	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){
 
 print <<"EOM";
 

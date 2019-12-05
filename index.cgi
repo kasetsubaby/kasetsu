@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   y–ÆÓ–€z                                                #
@@ -226,9 +226,9 @@ sub INDEX {
 <TR><TH bgcolor=$TD_C2 height=5>USER ID</TH><td><input type="text" size="10" name="id" value="$_id"></td></TR>
 <TR><TH bgcolor=$TD_C2 height=5>PASS WORD</tH><td><input type="password" size="10" name="pass" value="$_pass"></TD></TR>
 <TR><td bgcolor=$TD_C1 align=center colspan=2><input type="submit" value="ƒƒOƒCƒ“"></td></tr></table></form>
-$MESS2 
-<A href="$FILE_RANK">y“o˜^•«ˆê——z</A> 
-<A href="./manual.html">yà–¾‘z</A> 
+$MESS2
+<A href="$FILE_RANK">y“o˜^•«ˆê——z</A>
+<A href="./manual.html">yà–¾‘z</A>
 <A href="./map.cgi">y¨—Í}z</A> <p>
 <A href="$HOME_URL">y$HOMEz</A>
 <A href="$BBS1_URL">y$BBS1z</A>

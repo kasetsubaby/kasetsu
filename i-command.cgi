@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   【免責事項】                                                #
@@ -51,4 +51,3 @@ elsif($mode eq '30') { require 'command/shiro_tai.pl';&SHIRO_TAI; }
 elsif($mode eq 'COUNTRY_TALK') { require 'mydata/i-country_talk.pl';&COUNTRY_TALK; }
 elsif($mode eq 'COUNTRY_WRITE') { require 'mydata/i-country_write.pl';&COUNTRY_WRITE; }
 else { &ERR("不正なアクセスです。"); }
-

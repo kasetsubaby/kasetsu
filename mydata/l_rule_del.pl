@@ -45,6 +45,6 @@ sub L_RULE_DEL{
 EOM
 	&FOOTER;
 	exit;
-	
+
 }
 1;

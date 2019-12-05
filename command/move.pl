@@ -25,7 +25,7 @@ sub MOVE {
 <font color=ffffff> - ˆÚ “® - </font>
 </TH></TR>
 EOM
-	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){ 
+	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){
 
 print <<"EOM";
 

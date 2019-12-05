@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   Åyñ∆ê”éñçÄÅz                                                #
@@ -22,4 +22,3 @@ elsif($mode eq 'RESISDENTS') { require 'entry/resisdents.pl';&RESISDENTS; }
 elsif($mode eq 'ATTESTATION') { require 'entry/attestation.cgi';&ATTESTATION; }
 elsif($mode eq 'SET_ENTRY') { require 'entry/attestation.cgi';&SET_ENTRY; }
 else{require 'entry/entry.pl';&ENTRY;}
-

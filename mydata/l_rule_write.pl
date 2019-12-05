@@ -46,6 +46,6 @@ sub L_RULE_WRITE{
 EOM
 	&FOOTER;
 	exit;
-	
+
 }
 1;

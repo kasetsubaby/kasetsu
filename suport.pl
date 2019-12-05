@@ -574,9 +574,9 @@ if($host eq ""){&ERR("ホスト名を有効にしてください。");}
 
 	if($phit && $SERVER_REDUCTION){
 		if($in{'id'} eq ""){
-			&ERR2("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host"); 
+			&ERR2("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host");
 		}else{
-			&ERR("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host"); 
+			&ERR("サーバへの不可防止の為、更新してから<BR>5秒以上間隔をあけて実行してください。<BR>Your host name : $host");
 		}
 	}
 
@@ -584,4 +584,3 @@ if($host eq ""){&ERR("ホスト名を有効にしてください。");}
 
 
 1;
-

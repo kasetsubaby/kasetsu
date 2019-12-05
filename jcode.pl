@@ -356,7 +356,7 @@ sub tr {
     local(@from, @to, %table);
     local($jis, $n) = (0, 0);
     local($ascii) = '(\\\\[\\-\\\\]|[\0-\133\135-\177])';
-    
+
     &jis2euc(*_),   $jis++ if $_    =~ /$re_jp/o;
     &jis2euc(*to),  $jis++ if $to   =~ /$re_jp/o;
     &jis2euc(*from)	   if $from =~ /$re_jp/o;

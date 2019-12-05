@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 #################################################################
 #   Åyñ∆ê”éñçÄÅz                                                #
@@ -40,4 +40,3 @@ elsif($mode eq 'UNIT_DELETE') { require 'mydata/unit_delete.pl';&UNIT_DELETE; }
 elsif($mode eq 'UNIT_CHANGE') { require 'mydata/unit_change.pl';&UNIT_CHANGE; }
 
 else{&ERR('ê≥ÇµÇ≠ëIëÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒÅB');}
-

@@ -127,7 +127,7 @@ sub BATTLE {
 				if($kdmg <= 0){$kdmg=1;}
 				$wsol = $esol;
 				$esol -= $kdmg;
-				
+
 				$kex_add += ($wsol - $esol);
 				if($esol <= 0){
 					$esol=0;
