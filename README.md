@@ -19,6 +19,7 @@ issuesに、無改造状態からの表示・機能改修項目を登録して�
 
 ### ブックマーク
 
+・[Twitterアカウント](https://twitter.com/kasebebii)
 ・[伝説の三国志NET](http://densetu.sakura.ne.jp/index.cgi)  
 ・[過去の更新履歴](https://w.atwiki.jp/densetu0net/sp/pages/208.html)  
 ・[伝説のcaptureと出力済のhtmlソース関連](https://github.com/kasetsubaby/kasetsu/tree/develop/densetu)  
