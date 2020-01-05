@@ -8,3 +8,9 @@ issuesに、無改造状態からの機能改修項目を登録していきま�
 
 連絡は今のところは、なぜか伝説の三国志ＮＥＴの部隊宛で進めます。
 後で落ち着いたらTwitterかブログか何かのアカウントを作ります。
+
+
+
+伝説の三国志NET：http://densetu.sakura.ne.jp/index.cgi
+
+Slackのワークスペース：https://join.slack.com/t/densetu-3n/shared_invite/enQtODk1ODc3NzIyNjc4LWIyZmFlMDkzYmY2YjM2OTFlOTAyODNjNDA1MjJhNzJiMGIxNDUwMDBiODEwNmExNzc3OTE2MmFlYzhjYjU4NzE
