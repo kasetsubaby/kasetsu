@@ -24,3 +24,6 @@ developをpull修正後のファイルをpushまたは、コピーして各作�
 issuesに、無改造状態からの表示・機能改修項目を登録していきますので、対応できるのがある方はお願いします。
 （他に良い方法があれば変更します）
 
+### 伝説のcaptureと出力済のhtmlソース関連
+
+https://github.com/kasetsubaby/kasetsu/tree/develop/densetu
