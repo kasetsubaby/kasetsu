@@ -18,7 +18,9 @@ Slackのワークスペース：https://join.slack.com/t/densetu-3n/shared_invit
 ## 現状の改修フロー
 
 初期リリースまではdevelop branchをメインとして使用します。
+
 developをpull修正後のファイルをpushまたは、コピーして各作業者用のbranchを作成して作業を行いdevelopにマージリクエストをするなどで進めたいと思います。
+
 issuesに、無改造状態からの表示・機能改修項目を登録していきますので、対応できるのがある方はお願いします。
 （他に良い方法があれば変更します）
 
