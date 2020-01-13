@@ -108,7 +108,7 @@ sub RANKING {
 				}else{
 					$rm = "<font color=blue>$ldate</font>";
 				}
-				$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD>$kname</TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD>$LANK[$s_num]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
+				$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href=ranking6.cgi?id= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$klea</TD><TD>$LANK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
 				}else{
 					$lista[$j] .= "$kname($LANK[$s_num]) ";
 				}
@@ -122,7 +122,7 @@ sub RANKING {
 	}
 
 	&HEADER;
-	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>•ºm”</TH><TH>ŠK‹‰</TH><TH>íœ‚Ü‚Å</TH></TR>";
+	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>l–]</TH><TH>ŠK‹‰</TH><TH>‘•”õ</TH><TH>íœ‚Ü‚Å</TH></TR>";
 
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100% bgcolor=$TABLE_C>
@@ -147,7 +147,10 @@ EOM
 			$c_k_name[$c_c] = "$lname";
 		}
 print<<"EOM";
-<TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=5 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR><TR><TH bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>‰¤</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD><TD bgcolor=$ELE_C[$xele]><a href=./$FILE_RANK?mode=C_RAN&con_no=$xcid>•«ˆê——</a></TD></TR><TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_g_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>‘å«ŒR</TH><TH colspan=2 bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH></TR><TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>x”z“ss”</TD><TD colspan=4 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>$town_c[$c_c]“ss($mes[$c_c])</TD></TR></TBODY></TABLE><BR>
+<TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=6 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR>
+<TR><TH colspan=2 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>ŒNå</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD><TD bgcolor=$ELE_C[$xele]><a href=./$FILE_RANK?mode=C_RAN&con_no=$xcid>•«ˆê——</a></TD></TR>
+<TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_g_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt•â²</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>‘å«ŒR</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH></TR>
+<TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>x”z“ss”</TD><TD colspan=5 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>$town_c[$c_c]“ss($mes[$c_c])</TD></TR></TBODY></TABLE><BR>
       <TABLE bgcolor=$ELE_BG[$xele] border="0">
         <TBODY bgcolor=$ELE_C[$xele]>
 $l_rank $list[$c_i]
@@ -257,7 +260,7 @@ sub C_RAN{
 			}else{
 				$rm = "<font color=blue>$ldate</font>";
 			}
-			$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD>$kname</TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD>$LAMK[$s_num]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
+			$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD>$LAMK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
 			$c[$j]++;
 			}
 
@@ -285,7 +288,7 @@ sub C_RAN{
 
 			if(!$chit){
 			if($c[0] >= $c_num && $c[0] < $c_num + $C_NEXT_NUM){
-			$list[0] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD>$kname</TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD></TD><TD>$rmƒ^[ƒ“</TD></TR>";
+			$list[0] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD></TD><TD>$rmƒ^[ƒ“</TD></TR>";
 			}
 				$c[0]++;
 			}
@@ -294,7 +297,7 @@ sub C_RAN{
 
 	&HEADER;
 
-	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>•ºm”</TH><TH>ŠK‹‰</TH><TH>íœ‚Ü‚Å</TH></TR>";
+	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>l–]</TH><TH>ŠK‹‰</TH><TH>‘•”õ</TH><TH>íœ‚Ü‚Å</TH></TR>";
 
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100% bgcolor=$TABLE_C>
