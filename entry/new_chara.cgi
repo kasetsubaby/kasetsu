@@ -9,11 +9,12 @@ sub NEW_CHARA {
 	if ($in{'id'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("IDに半角英数字以外の文字が含まれています。"); }
 	if ($in{'pass'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("パスワードに半角英数字以外の文字が含まれています。"); }
 	if ($in{'mail'} =~ /yahoo/ || $in{'mail'} =~ /hotmail/) { &E_ERR("そのメールアドレスは使用できません。"); }
-	if ($in{'mail'} eq "" || $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("メールの入力が不正です。");}
+# if ($in{'mail'} eq "" || $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("メールの入力が不正です。");}
+  if ($in{'mail'} eq $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("メールの入力が不正です。");}
 	if ($in{'id'} eq "" or length($in{'id'}) < 4 or length($in{'id'}) > 8) { &E_ERR("IDは、4文字以上、8文字以下で入力して下さい。"); }
 	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 8) { &E_ERR("パスワードは、4文字以上、8文字以下で入力して下さい。"); }
 	elsif($in{'con'} eq "") { &E_ERR("初期位置が選択されていません。"); }
-	elsif($in{'mail'} eq "\@" || $in{'mail'} eq "") { &E_ERR("メールの入力が不正です"); }
+#	elsif($in{'mail'} eq "\@" || $in{'mail'} eq "") { &E_ERR("メールの入力が不正です"); }
 	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 16) { &E_ERR("キャラクターのパスワードが正しく入力されていません。"); }
 	elsif($in{'chara_name'} eq "" || length($in{'chara_name'}) < 4 || length($in{'chara_name'}) > 12) { &E_ERR("キャラクターの名前が正しく入力されていません。"); }
 	elsif($in{'id'} eq $in{'pass'}) { &E_ERR("IDとパスワードが同じ場合、登録はできません"); }
@@ -110,7 +111,7 @@ sub NEW_CHARA {
 		if($rkname eq "$in{'chara_name'}"){
 			&E_ERR("その名前は既に登録されています。違う名前で登録してください。");
 		}
-		if($rkmail eq "$in{'mail'}"){
+		if($rkmail eq !"\@" && "$in{'mail'}"){
 			&E_ERR("そのメールアドレスは既に登録されています。");
 		}
 		if($kcon eq $rkcon){

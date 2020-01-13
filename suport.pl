@@ -462,9 +462,10 @@ EOM
 sub FOOTER {
 	# 可変、削除禁止
 	print "<CENTER><HR SIZE=0>\n";
-	print "<font color=998877>三国志NET $VER <a href=\"http://www3.to/maccyu2/\" target=\"_top\">maccyu</a><br>\n";
-	print "ADMINISTARTOR <a href=\"./index.cgi\" target=\"_top\">HOME</a><br>\n";
-    print "</body></html>\n";
+	print "<font color=#987>CGI配布サイト 三国志NET $VER <a>maccyu</a><br>\n";
+	print "オリジナル： <a href=\"http://densetu.sakura.ne.jp/index.cgi\" target=\"_blank\">伝説の三国志NET</a>　管理者：<a href=\"http://densetu.sakura.ne.jp/manual.html#15\" target=\"_blank\">伝説じじい</a> 副管理者：FS 史記更新：さやか<br>\n";
+	print "<a href=\"./index.cgi\" target=\"_top\">HOME</a>&nbsp;<a href=\"https://twitter.com/kasebebii\" target=\"_blank\">_</a><br>\n";
+  print "</body></html>\n";
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/_/#

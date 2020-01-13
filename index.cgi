@@ -212,43 +212,192 @@ sub INDEX {
 
 	&HEADER;
 	print <<"EOM";
-[<a href=./i-index.cgi>携帯用</a>]<CENTER>
-<TABLE WIDTH="100%" height=100% cellpadding="0" cellspacing="0" border=0><tr><td align=center>
-<TABLE border=0 width=80% height=100% cellspacing=1><TBODY>
-<TR><TD align=center><p><TABLE width=80% height=140 bgcolor=#DECCA8>
-<TR><TD align=center bgcolor=EFE0C0><h1><font color=442200>$GAME_TITLE</font></h1><p>
-<font size=2 color=#9c5a4b><p><B>[$new_date]</b><BR>次回の更新まで <B>$next_time</B> 分<BR></font>
-</TD></TR></TABLE>
-
-<p align="center">
-<table bgcolor=$TABLE_C align=center border=0><form action="$FILE_STATUS" method="POST">
-<input type="hidden" name="mode" value="STATUS">
-<TR><TH bgcolor=$TD_C2 height=5>USER ID</TH><td><input type="text" size="10" name="id" value="$_id"></td></TR>
-<TR><TH bgcolor=$TD_C2 height=5>PASS WORD</tH><td><input type="password" size="10" name="pass" value="$_pass"></TD></TR>
-<TR><td bgcolor=$TD_C1 align=center colspan=2><input type="submit" value="ログイン"></td></tr></table></form>
-$MESS2
-<A href="$FILE_RANK">【登録武将一覧】</A>
-<A href="./manual.html">【説明書】</A>
-<A href="./map.cgi">【勢力図】</A> <p>
-<A href="$HOME_URL">【$HOME】</A>
-<A href="$BBS1_URL">【$BBS1】</A>
-<A href="$LINK2_URL">【$LINK2】</A>
-最大登録人数($ENTRY_MAX人)</font><BR>
-
-<TABLE width=100% BGCOLOR=$TABLE_C  cellspacing=1><TBODY>$mess</TBODY></TABLE>
-<CENTER><HR size=0><p align=right>[<font color=8E6C68>TOTAL ACCESS<font color=red><B> $total_count </font></B>HIT</font>]<BR>
-</TD></TR>
-<TR><TD bgcolor=#EFE0C0 colspan="2" width=80% height=20><font color=#8E4C28 size=2>$S_MES</font></TD></TR>
-<TR><TD bgcolor=#EFE0C0 colspan="2" width=80% height=20><font color=#8E4C28 size=2>$D_MES</font></TD></TR>
-$ACT_MES
-</TBODY></TABLE>
-</TR></TD></TABLE>
+<br>
+<center>
+  <table width="100%" height=100% cellpadding="0" cellspacing="0" border=0>
+    <tr>
+      <td align=center>
+        <table border=0 width=80% height=100% cellspacing=1>
+          <tbody>
+            <tr>
+              <td align=center>
+                <p>
+                  <table width=80% height=140 bgcolor=#DECCA8>
+                    <tr>
+                      <td align=center bgcolor=#EFE0C0>
+                        <h1><div style="position:relative;"><s><font color=442200>$GAME_TITLE</font></s></div><div style="margin-bottom:-40px;padding:10px;border:1px solid #999;display:inline-block;position:relative;top:-40px;left:-100px;background:#fff;font-size:12px;transform:rotate(-15deg);">仮設の三国志NET</div></h1>
+                        <p><font size=2 color=#9c5a4b></font></p>
+                        <p><font size=2 color=#9c5a4b><b>[$new_date]</b><br>
+                          次回の更新まで <b>$next_time</b> 分<br>
+                          <table bgcolor="#fff">
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <font size="2">新規登録（無料）はこちら！→</font><a href="entry.cgi"><b><font size="4">【★新規登録★】</font></b></a><br>
+                                  <a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">伝説の三国志NETwiki-初心者指南</a><br>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </font></p>
+                      </td>
+                      <td align="center" bgcolor="#EFE0C0">
+                        [<s>携帯用</s>]<br><br><br><br>
+                      </td>
+                    </tr>
+                  </table>
+                </p>
+                <p align="center">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <table bgcolor="#842" border="0">
+                            <tbody>
+                              <tr>
+                                <td bgcolor="#EFE0C0">
+                                  <b>■ゲーム詳細</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td bgcolor="#EFE0C0">
+                                  <s>【HOME(伝説.NET)】</s><br><br>
+                                  <a href="entry.cgi">【新規登録】</a> <br><br>
+                                  <a href="ranking.cgi" target="_blank">【登録武将一覧】</a><br> <br>
+                                  <a href="manual.html" target="_blank">【説明書】</a> <br><br>
+                                  <a href="./map.cgi" target="_blank">【勢力図】</a><br><br>
+                                  <a href="./ranking2.cgi" target="_blank">【名将一覧】</a><br><br>
+                                  <a href="ranking5.cgi" target="_blank">【統計情報】</a><br><br>
+                                  <s>【史記】</s> <br><br>
+                                  <a href="https://jbbs.shitaraba.net/bbs/subject.cgi/netgame/16486/" target="_blank">専用ＢＢＳ</a><br><br>
+                                  <a href="http://www35.atwiki.jp/densetu0net/" target="_blank">伝説鯖wiki</a><br><br>
+                                  <s>三国志NETランキング</s><br><br>
+                                  <s>無料ブラウザゲーム</s><br>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td>
+                          <table bgcolor="#842" border="0">
+                            <tbody>
+                              <tr>
+                                <td bgcolor="#EFE0C0">
+                                  <b>■お知らせ＆更新履歴</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td bgcolor="#EFE0C0">
+                                  <b>/*２０１４年*/</b><br>
+                                  <font size="2">５/２３：<s>来期の改造について</s>。←こんな感じで進めていこうと思います。<br>
+                                  </font><br><br>
+                                  <font size="3" color="red">７/７：道場で得られる技能の詳細をまとめてみました。遅くなって申し訳なすでした。→ <s>■道場特殊技能の一覧■</s></font><br><br>
+                                  <b>/*２０１５年*/</b><br><br><br>
+                                  <font size="3" color="red">８/１０：第７４期<b>重要</b>な変更点</font><br>
+                                  <table bgcolor="#ffffff">
+                                    <tbody>
+                                      <tr>
+                                        <td>■へんこうてんなど<br><br>
+                                          <font color="red" size="5">→<s>７４期改造一覧</s></font><br><br><br>
+                                          以前の更新履歴<br>
+                                          <a href="kousinnrireki.txt" target="_blank">こちら</a><br>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  ■お知らせ<br><br>
+                                  <table bgcolor="#fff">
+                                    <tbody>
+                                      <tr>
+                                        <td>■新着情報！（<a href="./ranking7.cgi" target="_blank">過去ログ</a>）<br>
+                                          ・<a href="ranking6.cgi?id=monamona" target="_blank">モナくん</a>がプロフィールを更新しました。 (12日0時0分)<br>
+                                          ・<a href="ranking6.cgi?id=erwin" target="_blank">ロンメル将軍</a>がプロフィールを更新しました。 (11日21時17分)<br>
+                                          ・<a href="ranking6.cgi?id=monamona" target="_blank">モナくん</a>がプロフィールを更新しました。 (11日19時14分)<br>
+                                          ・<a href="ranking6.cgi?id=monamona" target="_blank">モナくん</a>がプロフィールを更新しました。 (9日1時40分)<br>
+                                          ・<a href="ranking6.cgi?id=shian" target="_blank">しあーん</a>がプロフィールを更新しました。 (8日19時19分)<br>
+                                          ・<a href="ranking6.cgi?id=monamona" target="_blank">モナくん</a>がプロフィールを更新しました。 (8日0時36分)<br>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <font size="4" color="red">１/２５：２月１日２１時頃にリセットを予定しております。よろしくお願いいたします</font><br>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table bgcolor="#fff">
+                    <tr>
+                      <td valign="top">
+                        <table bgcolor=$TABLE_C align=center border=0>
+                          <form action="$FILE_STATUS" method="post">
+                            <input type="hidden" name="mode" value="STATUS">
+                            <tr>
+                              <th bgcolor=$TD_C2 height=5>USER ID</th>
+                              <td><input type="text" size="10" name="id" value="$_id"></td>
+                            </tr>
+                            <tr>
+                              <th bgcolor=$TD_C2 height=5>PASS WORD</th>
+                              <td><input type="password" size="10" name="pass" value="$_pass"></td>
+                            </tr>
+                            <tr>
+                              <td bgcolor=$TD_C1 align=center colspan=2><input type="submit" value="ログイン"></td>
+                            </tr>
+                          </form>
+                        </table>
+                      </td>
+                      <td valign="top">
+                        <table bgcolor="#842" align="center" border="0">
+                          <tbody>
+                            <tr>
+                              <td bgcolor="#EFE0C0">
+                                現在残り<b>1</b>国<br>
+                                現在のログイン人数：<b>2</b>人<br>
+                                手紙速度：<b>1401</b>秒（手紙１通につき平均何秒であるか）<br>
+                                手紙速度：<b>1</b>通（過去１時間に何通の手紙が行き交ったか）<br>
+                                <table bgcolor="#fff">
+                                  <tbody>
+                                    <tr>
+                                      <td>【？】<a href="./manual.html#14" target="_blank">困ったときは</a><br>
+                                        <font size="1">・ＩＤ、ＰＷを忘れたとき<br>
+                                          ・長期間プレイできない場合の削除停止措置、などなど<br>
+                                        </font>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <table width=100% BGCOLOR=$TABLE_C  cellspacing=1>
+                      <tbody>$mess</tbody>
+                    </table>
+                    <br>
+                  </td></tr>
+                  <tr>
+                    <td bgcolor=#EFE0C0 colspan="2" width=80% height=20><font color=#8E4C28 size=2>$S_MES</font></td>
+                  </tr>
+                  <tr>
+                    <td bgcolor=#EFE0C0 colspan="2" width=80% height=20><font color=#8E4C28 size=2>$D_MES</font></td>
+                  </tr>
+                  $ACT_MES
+                </tbody></table>
+              </tr>
+            </table>
 
 <form method=post action=./admin.cgi>
 ID:<input type=text name=id size=7>
 PASS:<input type=pass name=pass size=7>
 <input type=submit value=管理者>
 </form>
+
+</center>
 
 EOM
 
