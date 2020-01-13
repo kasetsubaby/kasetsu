@@ -50,13 +50,6 @@ print <<"EOM";
   <TBODY>
     <TR>
       <TD bgcolor=$TD_C4 width=40%>
-      <TABLE width=70% border="0">
-        <TBODY>
-          <TR>
-            <TH><font color=$table_font><font size=4>$GAME_TITLE</font> <BR>- Се Ч§ Тn Р} -</font></TH>
-          </TR>
-        </TBODY>
-      </TABLE>
       <TABLE bgcolor=$TD_C2 background="$IMG/mapbg.gif" width=100% height=5 border="0" cellspacing=1>
         <TBODY>
           <TR>
