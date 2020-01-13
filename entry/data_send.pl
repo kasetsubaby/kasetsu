@@ -36,7 +36,12 @@ PASS ：<font color=red>$in{'pass'}</font><BR>
 <input type="hidden" name=num value="0">
 <input type="hidden" name=pass value="$in{'pass'}">
 <input type="submit" value="ゲームの説明">
-</form><p>
+</form><br>
+<font size="5" color="red">
+初心者さんはこのwiki読むといいかも！<br>
+すごいよく出来てる！！<a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">伝説の三国志NETwiki-初心者指南</a><br>
+</font>
+<p>
 経験者向け<form action="$FILE_STATUS" method="post">
 <input type="hidden" name=mode value=STATUS>
 <input type="hidden" name=id value="$in{'id'}">

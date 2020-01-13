@@ -16,7 +16,7 @@ sub NEW_CHARA {
 	elsif($in{'con'} eq "") { &E_ERR("初期位置が選択されていません。"); }
 #	elsif($in{'mail'} eq "\@" || $in{'mail'} eq "") { &E_ERR("メールの入力が不正です"); }
 	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 16) { &E_ERR("キャラクターのパスワードが正しく入力されていません。"); }
-	elsif($in{'chara_name'} eq "" || length($in{'chara_name'}) < 4 || length($in{'chara_name'}) > 12) { &E_ERR("キャラクターの名前が正しく入力されていません。"); }
+	elsif($in{'chara_name'} eq "" || length($in{'chara_name'}) < 1 || length($in{'chara_name'}) > 20) { &E_ERR("キャラクターの名前が正しく入力されていません。"); }
 	elsif($in{'id'} eq $in{'pass'}) { &E_ERR("IDとパスワードが同じ場合、登録はできません"); }
 	if ($in{'str'} =~ m/[^0-9]/) { &E_ERR("力に数字以外の文字が含まれています。"); }
 	if ($in{'str'} eq "" || $in{'str'} < 5 || $in{'str'} > 100) { &E_ERR("力が正しく入力されていません。");}
