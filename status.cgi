@@ -119,13 +119,13 @@ sub STATUS {
 		$wmonth = $mmonth;
 	}
 
-	for($i=0;$i<$MAX_COM;$i++){
+	for($i=0;$i<50;$i++){
 		($cid,$cno,$cname,$ctime,$csub,$cnum,$cend) = split(/<>/,$COM_DATA[$i]);
 		$no = $i+1;
 		if($cid eq ""){
-			$com_list .= "<TR><TH>[$wyear年$wmonth月]</TH><TH> - </TH></TR>";
+			$com_list .= "<TR><TH>$no</TH><TH>【$wyear年$wmonth月（13日23時7分19秒）】</TH><TH> - </TH></TR>";
 		}else{
-			$com_list .= "<TR><TH>[$wyear年$wmonth月]</TH><TH>$cname</TH></TR>";
+			$com_list .= "<TR><TH>$no</TH><TH>【$wyear年$wmonth月（13日23時7分19秒）】</TH><TH>$cname</TH></TR>";
 		}
 		$wmonth++;
 		if($wmonth > 12){
@@ -253,7 +253,15 @@ sub STATUS {
 	&HEADER;
 print <<"EOM";
 <TABLE border=0 width=100% height=100%><TR><TD>
-[<a href=$BBS1_URL>$BBS1</a>]
+[ <a href=$BBS1_URL>$BBS1</a> ]
+[<a href="manual.html" target="_blank">説明書</a>][<a href="ranking.cgi" target="_blank">登録武将一覧</a>]
+[<a href="./ranking2.cgi" target="_blank">名将</a>] [<a href="ranking5.cgi" target="_blank">統計情報</a>]
+[<a href="./map.cgi" target="_blank">勢力図</a>][<s>史記</s>]
+
+[ <s>全国BBS</s> ]
+[【<s>お問い合わせ</s>】]
+
+【<a href="./index.cgi" target="_top">ログアウト</a>】<br>
 <TABLE border=0 width=100%>
 <TR><TD bgcolor=$ELE_BG[$cou_ele[$zcon]] colspan=2><font color=$ELE_C[$cou_ele[$zcon]] size=2>$xname国指令:$xmes</font></TD></TR><TR><TD width=50%>
 <TABLE width=100%><TR><TD width=50%>
@@ -340,6 +348,49 @@ $king_com
 </TD></TR>
 <TR><TD>
 
+<TABLE width=100% bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
+<TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname$rank_mes</font></TH></TR>
+
+<TR><TD rowspan=4 width=5><img src=$IMG/$kchara.gif></TD><TD>武力</TD><TH>$kstr</TH><TD>知力</TD><TH>$kint</TH><TD>統率力</TD><TH>$klea</TH></TR>
+<TR><TD>武EX</TD><TH>$kstr_ex</TH><TD>知EX</TD><TH>$kint_ex</TH><TD>統EX</TD><TH>$klea_ex</TH></TR>
+<TR><TD>金</TD><TH>$kgold</TH><TD>米</TD><TH>$krice</TH><TD>人望</TD><TH>$kcha</TH></TR>
+<TR><TD>階級</TD><TH>$LANK[$klank]</TH><TD>貢献</TD><TH>$kcex</TH><TD>階級値</TD><TH>$kclass</TH></TR>
+<TR><TD>所属国</TD><TH colspan=2>$cou_name[$kcon]国</TH><TD>部隊</TD><TH colspan=3>$uunit_name</TH></TR>
+<TR><TD>兵種</TD><TH colspan=2>$SOL_TYPE[$ksub1_ex]</TH><TD>兵士</TD><TH>$ksol</TH><TD>訓練</TD><TH>$kgat</TH></TR>
+<TR><TD>武器</TD><TH colspan=5>$karmname</TH><TH>$karmdmg</TH></TR>
+<TR><TD>書物</TD><TH colspan=5>$kproname</TH><TH>$kprodmg</TH></TR>
+<form action="./mydata.cgi" method="post"><TR><TD>忠誠度</TD><TH>$kbank</TH><TH colspan=5>
+<input type=hidden name=id value=$kid>
+<input type=hidden name=pass value=$kpass>
+<input type=hidden name=mode value=CYUUSEI>
+<input type=text name=cyuu size=5>
+<input type=submit value="忠誠">
+</TH></TR></form>
+<form action="./mydata.cgi" method="post"><TR><TH colspan=7>
+<input type=hidden name=id value=$kid>
+<input type=hidden name=pass value=$kpass>
+<select name=mode>
+<option value=LETTER>個人当て手紙
+<option value=UNIT_SELECT>部隊編成
+<input type=submit value="実行">
+
+</TH></TR></form>
+</TBODY></TABLE>
+
+</TD></TR>
+</TABLE>
+
+</TD><TD width=100%>
+
+<TABLE width=100%><TR><TD width=100%>
+<TABLE width=100% bgcolor=$TABLE_C cellspacing=1><TBODY BGCOLOR=$TD_C2>
+<TR><TH bgcolor=#000000 colspan=2><font color=#FFFFFF>コマンドリスト（上から順に実行されていきます。）</font></TH></TR>
+$com_list
+</TABLE>
+
+</TD></TR>
+<TR><TD>
+
 <form action="./command.cgi" method="POST"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
 <TABLE bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>コマンド</font></TH></TR>
@@ -398,49 +449,6 @@ $add_com
 <TR><TH><input type=submit value="画面RELODE">
 </TH></TR></form>
 </TBODY></TABLE><CENTER>
-</TD></TR>
-</TABLE>
-
-</TD><TD width=100%>
-
-<TABLE width=100%><TR><TD width=100%>
-<TABLE width=100% bgcolor=$TABLE_C cellspacing=1><TBODY BGCOLOR=$TD_C2>
-<TR><TH bgcolor=#000000 colspan=2><font color=#FFFFFF>コマンドリスト</font></TH></TR>
-$com_list
-</TABLE>
-
-</TD></TR>
-<TR><TD>
-
-<TABLE width=100% bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
-<TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname$rank_mes</font></TH></TR>
-
-<TR><TD rowspan=4 width=5><img src=$IMG/$kchara.gif></TD><TD>武力</TD><TH>$kstr</TH><TD>知力</TD><TH>$kint</TH><TD>統率力</TD><TH>$klea</TH></TR>
-<TR><TD>武EX</TD><TH>$kstr_ex</TH><TD>知EX</TD><TH>$kint_ex</TH><TD>統EX</TD><TH>$klea_ex</TH></TR>
-<TR><TD>金</TD><TH>$kgold</TH><TD>米</TD><TH>$krice</TH><TD>人望</TD><TH>$kcha</TH></TR>
-<TR><TD>階級</TD><TH>$LANK[$klank]</TH><TD>貢献</TD><TH>$kcex</TH><TD>階級値</TD><TH>$kclass</TH></TR>
-<TR><TD>所属国</TD><TH colspan=2>$cou_name[$kcon]国</TH><TD>部隊</TD><TH colspan=3>$uunit_name</TH></TR>
-<TR><TD>兵種</TD><TH colspan=2>$SOL_TYPE[$ksub1_ex]</TH><TD>兵士</TD><TH>$ksol</TH><TD>訓練</TD><TH>$kgat</TH></TR>
-<TR><TD>武器</TD><TH colspan=5>$karmname</TH><TH>$karmdmg</TH></TR>
-<TR><TD>書物</TD><TH colspan=5>$kproname</TH><TH>$kprodmg</TH></TR>
-<form action="./mydata.cgi" method="post"><TR><TD>忠誠度</TD><TH>$kbank</TH><TH colspan=5>
-<input type=hidden name=id value=$kid>
-<input type=hidden name=pass value=$kpass>
-<input type=hidden name=mode value=CYUUSEI>
-<input type=text name=cyuu size=5>
-<input type=submit value="忠誠">
-</TH></TR></form>
-<form action="./mydata.cgi" method="post"><TR><TH colspan=7>
-<input type=hidden name=id value=$kid>
-<input type=hidden name=pass value=$kpass>
-<select name=mode>
-<option value=LETTER>個人当て手紙
-<option value=UNIT_SELECT>部隊編成
-<input type=submit value="実行">
-
-</TH></TR></form>
-</TBODY></TABLE>
-
 </TD></TR>
 </TABLE>
 </TD></TR>
