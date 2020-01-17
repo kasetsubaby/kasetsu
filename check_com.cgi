@@ -1,6 +1,11 @@
 # _/_/_/_/_/_/_/_ #
 #     更新処理    #
 # _/_/_/_/_/_/_/_ #
+
+
+use FindBin;
+use lib $FindBin::Bin;
+
 sub CHECK_COM{
 
 	# Command list
