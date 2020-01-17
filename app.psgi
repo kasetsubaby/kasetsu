@@ -10,7 +10,7 @@ my $base_dir = dirname __FILE__;
 builder {
 
   enable 'Plack::Middleware::Static' => (
-    path => qr!^/image!,
+    path => qr!^/image|\.html$!,
     root => $base_dir,
   );
 
