@@ -1,11 +1,12 @@
 use v5.20;
 use warnings;
 
-use File::Basename 'dirname';
+use FindBin;
+use File::Spec;
 use Plack::Builder;
 use Plack::App::CGIBin;
-
-my $base_dir = dirname __FILE__;
+ 
+my $base_dir = File::Spec->catfile($FindBin::Bin, 'script');
 
 builder {
 
