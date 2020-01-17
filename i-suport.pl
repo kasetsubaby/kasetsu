@@ -408,7 +408,7 @@ sub HEADER {
 
 	print "Cache-Control: no-cache\n";
 	print "Pragma: no-cache\n";
-	print "Content-type: text/html; charset=Shift_JIS;\n\n";
+	print "Content-type: text/html; charset=UTF8;\n\n";
 	print <<"EOM";
 <html>
 <head>

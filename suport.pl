@@ -426,7 +426,7 @@ sub HEADER {
 	print <<"EOM";
 <html>
 <head>
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=Shift_JIS">
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF8">
 EOM
 	print <<"EOM";
 <STYLE type="text/css">
