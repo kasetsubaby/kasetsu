@@ -5,10 +5,10 @@ use Path::Tiny qw( path );
 use Encode qw( encode_utf8 decode );
 
 sub collect_files {
-    my $iter = path('./')->iterator({ recurse => 1 });
-    my @convert_files = ('./kousinnrireki.txt', 'manual.html');
+    my $iter = path('./log_file')->iterator({ recurse => 1 });
+    my @convert_files;
     while ( my $filename = $iter->() ) {
-        if ( $filename =~ /(\.pl|\.cgi|\.htm|\.html|\.ini)$/ && $filename ne __FILE__ ) {
+        if ( $filename =~ /(\.cgi|\.html)$/ && $filename ne __FILE__ ) {
             push @convert_files, $filename;
         }
     }
