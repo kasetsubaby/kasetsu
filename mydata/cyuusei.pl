@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/_/#
-#      ���ύX      #
+#      国変更      #
 #_/_/_/_/_/_/_/_/_/#
 
 sub CYUUSEI {
 
-	if($in{'cyuu'} eq "") { &ERR("���͂���Ă��܂���"); }
-	if ($in{'cyuu'} =~ m/[^0-9]/){&ERR("�����ȊO�̕������܂܂�Ă��܂��B"); }
-	if($in{'cyuu'} < 0 || $in{'cyuu'} > 100 ) { &ERR("0�`100�̊Ԃœ��͂��Ă��������B"); }
+	if($in{'cyuu'} eq "") { &ERR("入力されていません"); }
+	if ($in{'cyuu'} =~ m/[^0-9]/){&ERR("数字以外の文字が含まれています。"); }
+	if($in{'cyuu'} < 0 || $in{'cyuu'} > 100 ) { &ERR("0〜100の間で入力してください。"); }
 
 
 	$cyuu = $in{'cyuu'}+0;
@@ -16,7 +16,7 @@ sub CYUUSEI {
 	&TIME_DATA;
 
 	$kbank = $cyuu;
-	$res_mes = "$kname�͒����x��$cyuu�ɐݒ肵�܂����B";
+	$res_mes = "$knameは忠誠度を$cyuuに設定しました。";
 
 	&CHARA_MAIN_INPUT;
 	&HEADER;
@@ -27,7 +27,7 @@ sub CYUUSEI {
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="�n�j"></form></CENTER>
+<input type=submit value="ＯＫ"></form></CENTER>
 EOM
 	&FOOTER;
 

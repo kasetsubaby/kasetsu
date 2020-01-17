@@ -1,22 +1,22 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        “o—p‚Q      #
+#        ç™»ç”¨ï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub GET_MAN2 {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} eq ""){&ERR("‘Šè‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if(length($in{'mes'}) > 120) { &ERR("è†‚ÍA‘SŠp‚U‚O•¶šˆÈ‰º‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B"); }
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} eq ""){&ERR("ç›¸æ‰‹ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if(length($in{'mes'}) > 120) { &ERR("æ‰‹ç´™ã¯ã€å…¨è§’ï¼–ï¼æ–‡å­—ä»¥ä¸‹ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"); }
 
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN($kcon);
-	if($kgold < 100){&ERR("‹à‚ª‘«‚è‚Ü‚¹‚ñB");}
+	if($kgold < 100){&ERR("é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚");}
 	require 'ini_file/com_list.ini';
 
 	$num = $in{'num'};
 	$hit=0;
 
-	open(IN,"./charalog/main/$num\.cgi") or &ERR('‚»‚ÌƒLƒƒƒ‰‚Í“o—p‚Å‚«‚Ü‚¹‚ñB');
+	open(IN,"./charalog/main/$num\.cgi") or &ERR('ãã®ã‚­ãƒ£ãƒ©ã¯ç™»ç”¨ã§ãã¾ã›ã‚“ã€‚');
 	@E_DATA = <IN>;
 	close(IN);
 	($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
@@ -30,12 +30,12 @@ sub GET_MAN2 {
 
 	if($mes_num > $MAX_COM) { pop(@COM_DATA); }
 
-	$add_mes = "$xname‘‚ÌgÒ";
+	$add_mes = "$xnameå›½ã®ä½¿è€…";
 
 	@NEW_COM_DATA=();$i=0;
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-				push(@NEW_COM_DATA,"$in{'mode'}<>$ename<>$ename‚ğ“o—p<>9999<>$add_mes:$in{'mes'}<>$in{'num'}<>$kcon<>\n");
+				push(@NEW_COM_DATA,"$in{'mode'}<>$ename<>$enameã‚’ç™»ç”¨<>9999<>$add_mes:$in{'mes'}<>$in{'num'}<>$kcon<>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -45,7 +45,7 @@ sub GET_MAN2 {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-					push(@NEW_COM_DATA,"$in{'mode'}<>$ename<>$ename‚ğ“o—p<>9999<>$add_mes:$in{'mes'}<>$in{'num'}<>$kcon<>\n");
+					push(@NEW_COM_DATA,"$in{'mode'}<>$ename<>$enameã‚’ç™»ç”¨<>9999<>$add_mes:$in{'mes'}<>$in{'num'}<>$kcon<>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -56,19 +56,19 @@ sub GET_MAN2 {
 			$i++;
 		}
 	}
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚É$ename‚ğ“o—p‚ğ“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«$enameã‚’ç™»ç”¨ã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

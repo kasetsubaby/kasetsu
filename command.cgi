@@ -1,21 +1,21 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   �y�Ɛӎ����z                                                #
-#    ���̃X�N���v�g�̓t���[�\�t�g�ł��B���̃X�N���v�g���g�p���� #
-#    �����Ȃ鑹�Q�ɑ΂��č�҂͈�؂̐ӔC�𕉂��܂���B         #
-#    �܂��ݒu�Ɋւ��鎿��̓T�|�[�g�f���ɂ��肢�������܂��B   #
-#    ���ڃ��[���ɂ�鎿��͈�؂��󂯂������Ă���܂���B       #
+#   【免責事項】                                                #
+#    このスクリプトはフリーソフトです。このスクリプトを使用した #
+#    いかなる損害に対して作者は一切の責任を負いません。         #
+#    また設置に関する質問はサポート掲示板にお願いいたします。   #
+#    直接メールによる質問は一切お受けいたしておりません。       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("�����e�i���X���ł��B���΂炭���҂����������B"); }
+if($MENTE) { &ERR2("メンテナンス中です。しばらくお待ちください。"); }
 &DECODE;
 &SERVER_STOP;
-if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("�A�h���X�o�[�ɒl����͂��Ȃ��ł��������B"); }
+if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("アドレスバーに値を入力しないでください。"); }
 
 if($mode eq '0') { require 'command/none.pl';&NONE; }
 elsif($mode eq '1') { require 'command/nougyou.pl';&NOUGYOU; }
@@ -48,4 +48,4 @@ elsif($mode eq '27') { require 'command/tanren2.pl';&TANREN2; }
 elsif($mode eq '28') { require 'command/syuugou.pl';&SYUUGOU; }
 elsif($mode eq '29') { require 'command/tec.pl';&TEC; }
 elsif($mode eq '30') { require 'command/shiro_tai.pl';&SHIRO_TAI; }
-else { &ERR("�s���ȃA�N�Z�X�ł��B"); }
+else { &ERR("不正なアクセスです。"); }

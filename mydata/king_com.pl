@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/#
-#      ’¥•º      #
+#      å¾´å…µ      #
 #_/_/_/_/_/_/_/_/#
 
 sub KING_COM {
@@ -55,7 +55,7 @@ sub KING_COM {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -77,42 +77,42 @@ sub KING_COM {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - i—ß•” - </font>
+<font color=ffffff> - å¸ä»¤éƒ¨ - </font>
 </TH></TR>
 <TR><TD>
 
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±ç‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±å›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>ŒNåAŒRtê—p‚ÌƒRƒ}ƒ“ƒh‚Å‚·B</font>
+<font color=white>å›ä¸»ã€è»å¸«å°‚ç”¨ã®ã‚³ãƒãƒ³ãƒ‰ã§ã™ã€‚</font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
 
 <TABLE bgcolor=$TABLE_C><TBODY bgcolor=$TD_C4>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>‰ğŒÙ</TH><TD colspan=2>‘‚Ì•«‚ğ‰ğŒÙ‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM4><input type=hidden name=type value=5><input type=submit value=\"‰ğŒÙ\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>w—ß</TH><TH colspan=3><input type=text name=mes size=60></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM2><input type=submit value=\"Às\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>ŒRt”C–½</TH><TH>$tname[0]</TH><TD>w—ß‚â‘¼‘‚Ö‚Ìè†‚ª‰Â\”\\‚É‚È‚è‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=0><input type=submit value=\"”C–½\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>‘å«ŒR”C–½</TH><TH>$tname[1]</TH><TD>‘S‚Ä‚ÌŒR–\”\\—Í\‚ªƒAƒbƒv‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=1><input type=submit value=\"”C–½\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>‹R•º«ŒR”C–½</TH><TH>$tname[2]</TH><TD>‹R”n•º‚Ì\”\\—Í‚ªƒAƒbƒv‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=2><input type=submit value=\"”C–½\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>Œì‰q«ŒR”C–½</TH><TH>$tname[3]</TH><TD>Œì‰q•º‚Ì\”\\—Í‚ªƒAƒbƒv‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=3><input type=submit value=\"”C–½\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>‹|«ŒR”C–½</TH><TH>$tname[4]</TH><TD>‹|•º‚Ì\”\\—Í‚ªƒAƒbƒv‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=4><input type=submit value=\"”C–½\"></TH></TR></form>
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>«ŒR”C–½</TH><TH>$tname[5]</TH><TD>G•º‚Ì\”\\—Í‚ªƒAƒbƒv‚µ‚Ü‚·B</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=5><input type=submit value=\"”C–½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>è§£é›‡</TH><TD colspan=2>å›½ã®æ­¦å°†ã‚’è§£é›‡ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM4><input type=hidden name=type value=5><input type=submit value=\"è§£é›‡\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>æŒ‡ä»¤</TH><TH colspan=3><input type=text name=mes size=60></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM2><input type=submit value=\"å®Ÿè¡Œ\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>è»å¸«ä»»å‘½</TH><TH>$tname[0]</TH><TD>æŒ‡ä»¤ã‚„ä»–å›½ã¸ã®æ‰‹ç´™ãŒå¯\èƒ½\ã«ãªã‚Šã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=0><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>å¤§å°†è»ä»»å‘½</TH><TH>$tname[1]</TH><TD>å…¨ã¦ã®è»äº‹\èƒ½\åŠ›\ãŒã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=1><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>é¨å…µå°†è»ä»»å‘½</TH><TH>$tname[2]</TH><TD>é¨é¦¬å…µã®\èƒ½\åŠ›ãŒã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=2><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>è­·è¡›å°†è»ä»»å‘½</TH><TH>$tname[3]</TH><TD>è­·è¡›å…µã®\èƒ½\åŠ›ãŒã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=3><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>å¼“å°†è»ä»»å‘½</TH><TH>$tname[4]</TH><TD>å¼“å…µã®\èƒ½\åŠ›ãŒã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=4><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>å°†è»ä»»å‘½</TH><TH>$tname[5]</TH><TD>é›‘å…µã®\èƒ½\åŠ›ãŒã‚¢ãƒƒãƒ—ã—ã¾ã™ã€‚</TD><TH><select name=sel>$list</select></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM3><input type=hidden name=type value=5><input type=submit value=\"ä»»å‘½\"></TH></TR></form>
 
-<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>V‹K“ü‘Ò‚Ö<BR>‚ÌŠ©—U•¶</TH><TH colspan=3><input type=text name=mes size=60></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM5><input type=submit value=\"Às\"></TH></TR></form>
+<form action=\"./mydata.cgi\" method=\"post\"><TR><TH>æ–°è¦å…¥å›½è€…ã¸<BR>ã®å‹§èª˜æ–‡</TH><TH colspan=3><input type=text name=mes size=60></TH><TH><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM5><input type=submit value=\"å®Ÿè¡Œ\"></TH></TR></form>
 </TBODY></TABLE>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 

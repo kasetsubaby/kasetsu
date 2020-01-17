@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#       d  Š¯       #
+#       ä»•  å®˜       #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SHIKAN {
@@ -8,7 +8,7 @@ sub SHIKAN {
 	&COUNTRY_DATA_OPEN($kcon);
 	if($xcid eq 0){
 		if($cou_name[$cnum] eq ""){
-			&K_LOG("$mmonthŒ:‚»‚Ì‘‚Ö‚ÍdŠ¯‚Å‚«‚Ü‚¹‚ñB");
+			&K_LOG("$mmonthæœˆ:ãã®å›½ã¸ã¯ä»•å®˜ã§ãã¾ã›ã‚“ã€‚");
 		}else{
 			if(@B_LIST eq "0"){
 				open(IN,"$LOG_DIR/black_list.cgi");
@@ -23,15 +23,15 @@ sub SHIKAN {
 				}
 			}
 			if($b_hit){
-				&K_LOG("$mmonthŒ:$cou_name[$cnum]‚ÖdŠ¯‚Í‹‘”Û‚³‚ê‚Ü‚µ‚½");
+				&K_LOG("$mmonthæœˆ:$cou_name[$cnum]ã¸ä»•å®˜ã¯æ‹’å¦ã•ã‚Œã¾ã—ãŸ");
 			}else{
 				$kcon = $cnum;
-				&K_LOG("$mmonthŒ:$cou_name[$cnum]‚ÖdŠ¯‚µ‚Ü‚µ‚½B");
-				&MAP_LOG("$mmonthŒ:$kname‚Í$cou_name[$cnum]‚ÖdŠ¯‚µ‚Ü‚µ‚½B");
+				&K_LOG("$mmonthæœˆ:$cou_name[$cnum]ã¸ä»•å®˜ã—ã¾ã—ãŸã€‚");
+				&MAP_LOG("$mmonthæœˆ:$knameã¯$cou_name[$cnum]ã¸ä»•å®˜ã—ã¾ã—ãŸã€‚");
 			}
 		}
 	}else{
-		&K_LOG("$mmonthŒ:–³Š‘®‘‚Å‚È‚¯‚ê‚ÎdŠ¯‚Å‚«‚Ü‚¹‚ñB");
+		&K_LOG("$mmonthæœˆ:ç„¡æ‰€å±å›½ã§ãªã‘ã‚Œã°ä»•å®˜ã§ãã¾ã›ã‚“ã€‚");
 	}
 
 }

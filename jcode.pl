@@ -94,9 +94,9 @@ sub convert {
     return (undef, $icode) if $icode eq 'binary';
     $ocode = 'jis' unless $ocode;
     $ocode = $icode if $ocode eq 'noconv';
-    local(*convf) = $convf{$icode, $ocode};
-    do convf(*_, $opt);
-    (*convf, $icode);
+    local(*f) = $convf{$icode, $ocode};
+    &f(*_, $opt);
+    (*f, $icode);
 }
 
 sub jis  { &to('jis',  @_); }
@@ -320,14 +320,14 @@ sub __z2h_jis {
 
 sub z2h_euc {
     local(*_, $n) = @_;
-    &init_z2h_euc unless defined %z2h_euc;
+    &init_z2h_euc unless %z2h_euc;
     s/$re_euc_c|$re_euc_kana/$z2h_euc{$&} ? ($n++, $z2h_euc{$&}) : $&/geo;
     $n;
 }
 
 sub z2h_sjis {
     local(*_, $n) = @_;
-    &init_z2h_sjis unless defined %z2h_sjis;
+    &init_z2h_sjis unless %z2h_sjis;
     s/$re_sjis_c/$z2h_sjis{$&} ? ($n++, $z2h_sjis{$&}) : $&/geo;
     $n;
 }

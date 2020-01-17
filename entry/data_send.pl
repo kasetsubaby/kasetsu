@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/     NEW CHARA DATA ì¬    _/#
+#_/     NEW CHARA DATA ä½œæˆ    _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub DATA_SEND {
 
-	open(IN,"$TOWN_LIST") or &ERR2("Žw’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$TOWN_LIST") or &ERR2("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@TOWN = <IN>;
 	close(IN);
 
@@ -12,41 +12,41 @@ sub DATA_SEND {
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><h3>„„“o˜^Š®—¹ƒƒ</h3>
+<CENTER><h3>ï¼žï¼žç™»éŒ²å®Œäº†ï¼œï¼œ</h3>
 <hr size=0>
-$kname‚Å$GAME_TITLE‚Ì¢ŠE‚É“o˜^‚³‚ê‚Ü‚µ‚½B<BR>ID‚ÆPASS‚ð–Y‚ê‚È‚¢‚æ‚¤‚Éƒƒ‚‚µ‚Ä’u‚¢‚Ä‰º‚³‚¢B
+$knameã§$GAME_TITLEã®ä¸–ç•Œã«ç™»éŒ²ã•ã‚Œã¾ã—ãŸã€‚<BR>IDã¨PASSã‚’å¿˜ã‚Œãªã„ã‚ˆã†ã«ãƒ¡ãƒ¢ã—ã¦ç½®ã„ã¦ä¸‹ã•ã„ã€‚
 <hr size=0>
-IDF<font color=red>$in{'id'}</font><BR>
-PASS F<font color=red>$in{'pass'}</font><BR>
+IDï¼š<font color=red>$in{'id'}</font><BR>
+PASS ï¼š<font color=red>$in{'pass'}</font><BR>
 <p>
-ƒXƒe[ƒ^ƒX<BR><table border=0 bgcolor=$TABLE_C cellspacing=1><TBODY bgcolor=$TD_C4>
+ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<BR><table border=0 bgcolor=$TABLE_C cellspacing=1><TBODY bgcolor=$TD_C4>
 <tr><td rowspan="8" align="center"><img src="$IMG/$in{'chara'}.gif"></td>
-<td class="b1">–¼‘O</td><td>$in{'chara_name'}</td>
-<td class="b1">‘</td><td>$cou_name</td></tr>
-<tr><td class="b1">ŠK‹‰</td><td>$LANK[0]</td>
-<td class="b1">‰ŠúˆÊ’u</td><td>$z2name</td></tr>
-<tr><td class="b1">•—Í</td><td>$in{'str'}</td>
-<td class="b1">’m—Í</td><td>$in{'int'}</td></tr>
-<tr><td>“—¦—Í</td><td>$in{'tou'}</td>
+<td class="b1">åå‰</td><td>$in{'chara_name'}</td>
+<td class="b1">å›½</td><td>$cou_name</td></tr>
+<tr><td class="b1">éšŽç´š</td><td>$LANK[0]</td>
+<td class="b1">åˆæœŸä½ç½®</td><td>$z2name</td></tr>
+<tr><td class="b1">æ­¦åŠ›</td><td>$in{'str'}</td>
+<td class="b1">çŸ¥åŠ›</td><td>$in{'int'}</td></tr>
+<tr><td>çµ±çŽ‡åŠ›</td><td>$in{'tou'}</td>
 <td>mail</td><td>$in{'mail'}</td></tr>
 </table><p>
-‰SŽÒŒü‚¯<form action="$FILE_ENTRY" method="post">
+åˆå¿ƒè€…å‘ã‘<form action="$FILE_ENTRY" method="post">
 <input type="hidden" name=mode value=RESISDENTS>
 <input type="hidden" name=id value="$in{'id'}">
 <input type="hidden" name=num value="0">
 <input type="hidden" name=pass value="$in{'pass'}">
-<input type="submit" value="ƒQ[ƒ€‚Ìà–¾">
+<input type="submit" value="ã‚²ãƒ¼ãƒ ã®èª¬æ˜Ž">
 </form><br>
 <font size="5" color="red">
-‰SŽÒ‚³‚ñ‚Í‚±‚Ìwiki“Ç‚Þ‚Æ‚¢‚¢‚©‚àI<br>
-‚·‚²‚¢‚æ‚­o—ˆ‚Ä‚éII<a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">“`à‚ÌŽO‘ŽuNETwiki-‰SŽÒŽw“ì</a><br>
+åˆå¿ƒè€…ã•ã‚“ã¯ã“ã®wikièª­ã‚€ã¨ã„ã„ã‹ã‚‚ï¼<br>
+ã™ã”ã„ã‚ˆãå‡ºæ¥ã¦ã‚‹ï¼ï¼<a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">ä¼èª¬ã®ä¸‰å›½å¿—NETwiki-åˆå¿ƒè€…æŒ‡å—</a><br>
 </font>
 <p>
-ŒoŒ±ŽÒŒü‚¯<form action="$FILE_STATUS" method="post">
+çµŒé¨“è€…å‘ã‘<form action="$FILE_STATUS" method="post">
 <input type="hidden" name=mode value=STATUS>
 <input type="hidden" name=id value="$in{'id'}">
 <input type="hidden" name=pass value="$in{'pass'}">
-<input type="submit" value="ƒQ[ƒ€‚ðŠJŽn">
+<input type="submit" value="ã‚²ãƒ¼ãƒ ã‚’é–‹å§‹">
 </form></CENTER>
 EOM
 

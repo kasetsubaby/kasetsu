@@ -1,13 +1,13 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        ’¥•º‚Q      #
+#        å¾´å…µï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub GET_SOL2 {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} eq ""){&ERR("’¥•º‚·‚él”‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'type'} eq ""){&ERR("’¥•º‚·‚éí—Ş‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} =~ m/[^0-9]/){&ERR("’¥•º‚·‚él”‚É”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} eq ""){&ERR("å¾´å…µã™ã‚‹äººæ•°ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'type'} eq ""){&ERR("å¾´å…µã™ã‚‹ç¨®é¡ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} =~ m/[^0-9]/){&ERR("å¾´å…µã™ã‚‹äººæ•°ã«æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
 	&CHARA_MAIN_OPEN;
 	&TIME_DATA;
 
@@ -22,7 +22,7 @@ sub GET_SOL2 {
 	@NEW_COM_DATA=();$i=0;
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-			push(@NEW_COM_DATA,"10<><>$SOL_TYPE[$in{'type'}]’¥•ºi$in{'num'}lj<>$tt<>$in{'type'}<>$in{'num'}<>$in{'gat'}<>\n");
+			push(@NEW_COM_DATA,"10<><>$SOL_TYPE[$in{'type'}]å¾´å…µï¼ˆ$in{'num'}äººï¼‰<>$tt<>$in{'type'}<>$in{'num'}<>$in{'gat'}<>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -32,7 +32,7 @@ sub GET_SOL2 {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-					push(@NEW_COM_DATA,"10<><>$SOL_TYPE[$in{'type'}]’¥•ºi$in{'num'}lj<>$tt<>$in{'type'}<>$in{'num'}<>$in{'gat'}<>\n");
+					push(@NEW_COM_DATA,"10<><>$SOL_TYPE[$in{'type'}]å¾´å…µï¼ˆ$in{'num'}äººï¼‰<>$tt<>$in{'type'}<>$in{'num'}<>$in{'gat'}<>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -45,18 +45,18 @@ sub GET_SOL2 {
 		}
 	}
 
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚É$mes$SOL_TYPE[$in{'type'}]i$in{'num'}lj’¥•º‚ğ“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«$mes$SOL_TYPE[$in{'type'}]ï¼ˆ$in{'num'}äººï¼‰å¾´å…µã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

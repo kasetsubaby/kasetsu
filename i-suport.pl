@@ -4,13 +4,13 @@
 
 sub CHARA_MAIN_OPEN {
 
-	open(IN,"./charalog/main/$in{'id'}.cgi") or &ERR2('ID‚ÆƒpƒX‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI');
+	open(IN,"./charalog/main/$in{'id'}.cgi") or &ERR2('IDã¨ãƒ‘ã‚¹ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼');
 	@CN_DATA = <IN>;
 	close(IN);
 
 	($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/,$CN_DATA[0]);
 
-	if($in{'id'} ne "$kid" or $in{'pass'} ne "$kpass"){&ERR2("ID‚ÆƒpƒX‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI");}
+	if($in{'id'} ne "$kid" or $in{'pass'} ne "$kpass"){&ERR2("IDã¨ãƒ‘ã‚¹ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼");}
 
 }
 
@@ -23,7 +23,7 @@ sub CHARA_MAIN_INPUT {
 	if($REFREE){
 		$r_str = length("$SANGOKU_URL");
 		$r_url = substr("$ENV{'HTTP_REFERER'}", 0, $r_str);
-		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>‚»‚ÌƒLƒƒƒ‰ƒNƒ^[‚Íì‚ê‚Ü‚¹‚ñB"); }
+		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>ãã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã¯ä½œã‚Œã¾ã›ã‚“ã€‚"); }
 	}
 
 	@NEW_DATA=();
@@ -38,11 +38,11 @@ sub CHARA_MAIN_INPUT {
 
 sub ENEMY_OPEN {
 
-	open(IN,"./charalog/main/$in{'eid'}.cgi") or &ERR2('ID‚ÆPASS‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI');
+	open(IN,"./charalog/main/$in{'eid'}.cgi") or &ERR2('IDã¨PASSãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼');
 	@E_DATA = <IN>;
 	close(IN);
 	($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
-	if($in{'eid'} ne "$eid" ){&ERR2("ID‚ÆPASS‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI");}
+	if($in{'eid'} ne "$eid" ){&ERR2("IDã¨PASSãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼");}
 
 }
 
@@ -54,7 +54,7 @@ sub ENEMY_INPUT {
 	if($REFREE){
 		$r_str = length("$SANGOKU_URL");
 		$r_url = substr("$ENV{'HTTP_REFERER'}", 0, $r_str);
-		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>‚»‚ÌƒLƒƒƒ‰ƒNƒ^[‚Íì‚ê‚Ü‚¹‚ñB<BR>ŠÇ—Ò‚É–â‚¢‡‚í‚¹‚Ä‰º‚³‚¢B<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
+		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>ãã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã¯ä½œã‚Œã¾ã›ã‚“ã€‚<BR>ç®¡ç†è€…ã«å•ã„åˆã‚ã›ã¦ä¸‹ã•ã„ã€‚<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
 	}
 
 	@NEW_DATA=();
@@ -65,7 +65,7 @@ sub ENEMY_INPUT {
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/       LOG‚Ì‘‚«‚İ      _/#
+#_/       LOGã®æ›¸ãè¾¼ã¿      _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub MAP_LOG {
@@ -75,18 +75,18 @@ sub MAP_LOG {
 	close(IN);
 	&TIME_DATA;
 
-	unshift(@S_MOVE,"$_[0]($mday“ú$hour$min•ª)\n");
+	unshift(@S_MOVE,"$_[0]($mdayæ—¥$houræ™‚$minåˆ†)\n");
 
 	splice(@S_MOVE,20);
 
-	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @S_MOVE;
 	close(OUT);
 
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/       LOG‚Ì‘‚«‚İ      _/#
+#_/       LOGã®æ›¸ãè¾¼ã¿      _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub K_LOG {
@@ -96,7 +96,7 @@ sub K_LOG {
 	close(IN);
 	&TIME_DATA;
 
-	unshift(@K_LOG,"$_[0]($mday“ú$hour$min•ª)\n");
+	unshift(@K_LOG,"$_[0]($mdayæ—¥$houræ™‚$minåˆ†)\n");
 
 	splice(@K_LOG,20);
 
@@ -112,10 +112,10 @@ sub K_LOG {
 
 sub CHARA_ITEM_OPEN {
 
-	open(IN,"$ARM_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$ARM_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@ARM_DATA = <IN>;
 	close(IN);
-	open(IN,"$PRO_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$PRO_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@PRO_DATA = <IN>;
 	close(IN);
 
@@ -130,7 +130,7 @@ sub CHARA_ITEM_OPEN {
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/_/#
-#       ŠÔ æ“¾        #
+#       æ™‚é–“ å–å¾—        #
 #_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub TIME_DATA {
@@ -147,7 +147,7 @@ sub TIME_DATA {
 
 sub COUNTRY_DATA_OPEN {
 
-	open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@COU_DATA = <IN>;
 	close(IN);
 	$country_no=0;$hit=0;
@@ -159,7 +159,7 @@ sub COUNTRY_DATA_OPEN {
 
 	if(!$hit){
 		$xcid=0;
-		$xname="–³Š‘®";
+		$xname="ç„¡æ‰€å±";
 		$xele=0;
 		$xmark=0;
 		$xking="";
@@ -185,14 +185,14 @@ sub COUNTRY_DATA_INPUT {
 	if("$xcid" ne "0" && "$xcid" ne ""){
 		splice(@COU_DATA,$country_no,1,"$xcid<>$xname<>$xele<>$xmark<>$xking<>$xmes<>$xsub<>$xpri<>\n");
 
-		open(OUT,">$COUNTRY_LIST") or &ERR('COUNTRY ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+		open(OUT,">$COUNTRY_LIST") or &ERR('COUNTRY ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 		print OUT @COU_DATA;
 		close(OUT);
 	}
 
 	$s_i = int(rand(100));
 	if($s_i eq "0" && $xxcid ne ""){
-		open(OUT,">$COUNTRY_LIST2") or &ERR('COUNTRY2 V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+		open(OUT,">$COUNTRY_LIST2") or &ERR('COUNTRY2 æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 		print OUT @COU_DATA;
 		close(OUT);
 	}
@@ -205,13 +205,13 @@ sub COUNTRY_DATA_INPUT {
 
 sub TOWN_DATA_OPEN {
 
-	open(IN,"$TOWN_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$TOWN_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@TOWN_DATA = <IN>;
 	close(IN);
 	$zid = $_[0];
 	($zname,$zcon,$znum,$znou,$zsyo,$zshiro,$znou_max,$zsyo_max,$zshiro_max,$zpri,$zx,$zy,$zsouba,$zdef_att,$zsub1,$zsub2,$z[0],$z[1],$z[2],$z[3],$z[4],$z[5],$z[6],$z[7])=split(/<>/,$TOWN_DATA[$_[0]]);
 
-	if($zname eq ""){&ERR("‚»‚ÌŠX‚Í‘¶İ‚µ‚Ü‚¹‚ñB");}
+	if($zname eq ""){&ERR("ãã®è¡—ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");}
 
 	$zc=0;
 	foreach(@TOWN_DATA){
@@ -251,7 +251,7 @@ sub TOWN_DATA_INPUT {
 sub DECODE {
 
 	if ($ENV{'REQUEST_METHOD'} eq "POST") {
-		if ($ENV{'CONTENT_LENGTH'} > 51200) { &ERR("“Še—Ê‚ª‘å‚«‚·‚¬‚Ü‚·"); }
+		if ($ENV{'CONTENT_LENGTH'} > 51200) { &ERR("æŠ•ç¨¿é‡ãŒå¤§ãã™ãã¾ã™"); }
 		read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
 	} else { $buffer = $ENV{'QUERY_STRING'}; }
 	@pairs = split(/&/, $buffer);
@@ -260,16 +260,16 @@ sub DECODE {
 		$value =~ tr/+/ /;
 		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 
-		# •¶šƒR[ƒh‚ğƒVƒtƒgJIS•ÏŠ·
+		# æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’ã‚·ãƒ•ãƒˆJISå¤‰æ›
 		&jcode'convert(*value, "sjis", "", "z");
 
-		# ƒ^ƒOˆ—
+		# ã‚¿ã‚°å‡¦ç†
 		$value =~ s/</&lt;/g;
 		$value =~ s/>/&gt;/g;
 		$value =~ s/\"/&quot;/g;
 
 
-		# ‰üs“™ˆ—
+		# æ”¹è¡Œç­‰å‡¦ç†
 		if ($name eq "ins") {
 			$value =~ s/\r\n/<br>/g;
 			$value =~ s/\r/<br>/g;
@@ -323,7 +323,7 @@ sub ERR {
 	&HEADER;
 	print "<center><hr size=0><h3>ERROR !</h3>\n";
 	print "<P><font color=red><B>$_[0]</B></font>\n";
-print "<form action=\"i-status.cgi\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"ŠX‚Ö–ß‚é\"></form>";
+print "<form action=\"i-status.cgi\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"è¡—ã¸æˆ»ã‚‹\"></form>";
 	print "<P><hr size=0></center>\n</body></html>\n";
 	exit;
 }
@@ -369,29 +369,29 @@ sub SAVE_DATA (\$\@){
 					unlink ("$tmpfile");
 					unlink ("$tmp_dummy");
 				}
-				&ERR2("ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚·B<br>LOCK‰ğœ‚Ü‚Å $at_last •b");
+				&ERR2("ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã™ã€‚<br>LOCKè§£é™¤ã¾ã§ $at_last ç§’");
 			}
 		}
 		if(!open(TMP,">$tmpfile")){
-			&ERR2("ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹‚ªì¬o—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆå‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!close(TMP)){
-			&ERR2("ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹‚ªƒNƒ[ƒYo—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¯ãƒ­ãƒ¼ã‚ºå‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!open(DMY,">$tmp_dummy")){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚ªì¬o—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆå‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!close(DMY)){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚ªƒNƒ[ƒYo—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¯ãƒ­ãƒ¼ã‚ºå‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!chmod (0666,"$tmp_dummy")){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚Ì‘®«‚ª•ÏXo—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ã®å±æ€§ãŒå¤‰æ›´å‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!open(DMY,">$tmp_dummy")){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚ªƒI[ƒvƒ“o—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}
 		print DMY @data;
 		if (!close(DMY)){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚ª•Û‘¶o—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ãŒä¿å­˜å‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!rename("$tmp_dummy" , "$datafile")){
-			&ERR2("Ši”[—pˆêƒtƒ@ƒCƒ‹‚ğƒf[ƒ^ƒtƒ@ƒCƒ‹‚ÉƒŠƒl[ƒ€o—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("æ ¼ç´ç”¨ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒªãƒãƒ¼ãƒ å‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}elsif(!unlink ("$tmpfile")){
-			&ERR2("ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹‚ªíœo—ˆ‚Ü‚¹‚ñB<br>");
+			&ERR2("ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ãŒå‰Šé™¤å‡ºæ¥ã¾ã›ã‚“ã€‚<br>");
 		}
 	}else{
 		open(OUT,">$_[0]");
@@ -408,7 +408,7 @@ sub HEADER {
 
 	print "Cache-Control: no-cache\n";
 	print "Pragma: no-cache\n";
-	print "Content-type: text/html; charset=Shift_JIS;\n\n";
+	print "Content-type: text/html; charset=UTF8;\n\n";
 	print <<"EOM";
 <html>
 <head>
@@ -424,13 +424,13 @@ EOM
 
 sub FOOTER {
 	print "<HR SIZE=0>\n";
-	print "O‘uNET $VER <a href=\"http://www3.to/maccyu2/\" target=\"_top\">maccyu</a><br>\n";
+	print "ä¸‰å›½å¿—NET $VER <a href=\"http://www3.to/maccyu2/\" target=\"_top\">maccyu</a><br>\n";
 	print "<a href=\"$HOME_URL\" target=\"_top\">HOME</a><br>\n";
     print "</body></html>\n";
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/_/#
-#    COOKIE î•ñæ“¾     #
+#    COOKIE æƒ…å ±å–å¾—     #
 #_/_/_/_/_/_/_/_/_/_/_/_/#
 sub GET_COOKIE {
 	@pairs = split(/;/, $ENV{'HTTP_COOKIE'});
@@ -462,13 +462,13 @@ sub SET_COOKIE {
 }
 
 #_/_/_/_/_/_/_/_/_/_/#
-#   GUESTî•ñûW    #
+#   GUESTæƒ…å ±åé›†    #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub MAKE_GUEST_LIST {
 
 	&HOST_NAME;
-	open(GUEST,"$GUEST_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(GUEST,"$GUEST_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@GUEST=<GUEST>;close(GUEST);
 
 	$times = time();@m_list = ();$hit=0;@New_guest_list=();
@@ -478,7 +478,7 @@ sub MAKE_GUEST_LIST {
 			next;
 		}elsif($kname eq $name){
 			if( $times - 5 <= $timer && $SERVER_REDUCTION){
-				&ERR("‘O‰ñXV‚µ‚Ä‚©‚ç‚T•bˆÈãŒo‰ß‚µ‚Ä‚¢‚Ü‚¹‚ñB<BR>ŠÔŠu‚ğ‚ ‚¯‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢B");
+				&ERR("å‰å›æ›´æ–°ã—ã¦ã‹ã‚‰ï¼•ç§’ä»¥ä¸ŠçµŒéã—ã¦ã„ã¾ã›ã‚“ã€‚<BR>é–“éš”ã‚’ã‚ã‘ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚");
 			}
 			push (@New_guest_list,"$times<>$kname<>$kcon<>$kpos<>\n");
 			$m_list .= "$kname/i/ |";
@@ -493,20 +493,20 @@ sub MAKE_GUEST_LIST {
 		push(@New_guest_list,"$times<>$kname<>$kcon<>$kpos<>\n");
 		$m_list .= "$kname/i/ |";
 	}
-	open(GUEST,">$GUEST_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(GUEST,">$GUEST_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print GUEST @New_guest_list;close(GUEST);
 }
 
 #_/_/_/_/_/_/_/_/_/_/#
-#   •‰‰×–h~‹@”\     #
+#   è² è·é˜²æ­¢æ©Ÿèƒ½     #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SERVER_STOP {
 
 	&HOST_NAME;
-	open(GUEST,"$LOG_DIR/stop.cgi") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(GUEST,"$LOG_DIR/stop.cgi") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@STOP=<GUEST>;close(GUEST);
-	if($host eq ""){&ERR("ƒzƒXƒg–¼‚ğ—LŒø‚É‚µ‚Ä‚­‚¾‚³‚¢B");}
+	if($host eq ""){&ERR("ãƒ›ã‚¹ãƒˆåã‚’æœ‰åŠ¹ã«ã—ã¦ãã ã•ã„ã€‚");}
 	$times = time();@m_list = ();$hit=0;@New_stop=();
 	$phit=0;
 	foreach (@STOP){
@@ -529,14 +529,14 @@ sub SERVER_STOP {
 		push(@New_stop,"$times<>$host<>\n");
 	}
 
-	open(GUEST,">$LOG_DIR/stop.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(GUEST,">$LOG_DIR/stop.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print GUEST @New_stop;close(GUEST);
 
 	if($phit && $SERVER_REDUCTION){
 		if($in{'id'} eq ""){
-			&ERR2("ƒT[ƒo‚Ö‚Ì•s‰Â–h~‚Ìˆ×AXV‚µ‚Ä‚©‚ç<BR>5•bˆÈãŠÔŠu‚ğ‚ ‚¯‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢B<BR>Your host name : $host");
+			&ERR2("ã‚µãƒ¼ãƒã¸ã®ä¸å¯é˜²æ­¢ã®ç‚ºã€æ›´æ–°ã—ã¦ã‹ã‚‰<BR>5ç§’ä»¥ä¸Šé–“éš”ã‚’ã‚ã‘ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚<BR>Your host name : $host");
 		}else{
-			&ERR("ƒT[ƒo‚Ö‚Ì•s‰Â–h~‚Ìˆ×AXV‚µ‚Ä‚©‚ç<BR>5•bˆÈãŠÔŠu‚ğ‚ ‚¯‚ÄÀs‚µ‚Ä‚­‚¾‚³‚¢B<BR>Your host name : $host");
+			&ERR("ã‚µãƒ¼ãƒã¸ã®ä¸å¯é˜²æ­¢ã®ç‚ºã€æ›´æ–°ã—ã¦ã‹ã‚‰<BR>5ç§’ä»¥ä¸Šé–“éš”ã‚’ã‚ã‘ã¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚<BR>Your host name : $host");
 		}
 	}
 

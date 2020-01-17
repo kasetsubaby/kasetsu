@@ -1,20 +1,20 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        w“ü‚Q      #
+#        è³¼å…¥ï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub ARM_BUY2 {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'select'} eq ""){&ERR("¤•i‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'select'} eq ""){&ERR("å•†å“ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
-	open(IN,"$ARM_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$ARM_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@ARM_DATA = <IN>;
 	close(IN);
 
 	$num = $in{'select'};
 	($earmname,$earmval,$earmdmg,$earmwei,$earmele,$earmsta,$earmclass,$earmtownid) = split(/<>/,$ARM_DATA[$num]);
 	$hit=0;
-	if($earmval > $kgold){&ERR("‚¨‹à‚ª‘«‚è‚Ü‚¹‚ñB");}
+	if($earmval > $kgold){&ERR("ãŠé‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚");}
 
 	open(IN,"./charalog/command/$kid.cgi");
 	@COM_DATA = <IN>;
@@ -28,7 +28,7 @@ sub ARM_BUY2 {
 
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-			push(@NEW_COM_DATA,"$in{'mode'}<><>•Ší:$earmname‚ğw“ü<>$tt<><>$num<><>\n");
+			push(@NEW_COM_DATA,"$in{'mode'}<><>æ­¦å™¨:$earmnameã‚’è³¼å…¥<>$tt<><>$num<><>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -38,7 +38,7 @@ sub ARM_BUY2 {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-					push(@NEW_COM_DATA,"$in{'mode'}<><>•Ší:$earmname‚ğw“ü<>$tt<><>$num<><>\n");
+					push(@NEW_COM_DATA,"$in{'mode'}<><>æ­¦å™¨:$earmnameã‚’è³¼å…¥<>$tt<><>$num<><>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -50,19 +50,19 @@ sub ARM_BUY2 {
 		}
 	}
 
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚É•Ší:$earmname‚ğw“ü‚ğ“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«æ­¦å™¨:$earmnameã‚’è³¼å…¥ã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

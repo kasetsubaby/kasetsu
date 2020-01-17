@@ -123,6 +123,6 @@ sub RESET_MODE{
 	close(OUT);
 
 
-	&MAP_LOG("‘Sƒf[ƒ^‚ð‰Šú‰»‚µ‚Ü‚µ‚½B");
+	&MAP_LOG("å…¨ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã—ã¾ã—ãŸã€‚");
 }
 1;

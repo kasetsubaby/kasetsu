@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/#
-#    •Ä”„”ƒ      #
+#    ç±³å£²è²·      #
 #_/_/_/_/_/_/_/_/#
 
 sub BUY {
@@ -18,22 +18,22 @@ sub BUY {
 				}
 				$kgold -= $cnum;
 				$krice += $kadd;
-				&K_LOG("$mmonthŒ:y¤lzF‹à$cnum‚ğx•¥‚Á‚Ä$kadd‚Ì•Ä‚ğ”ƒ‚¢‚Ü‚µ‚½B");
+				&K_LOG("$mmonthæœˆ:ã€å•†äººã€‘ï¼šé‡‘$cnumã‚’æ”¯æ‰•ã£ã¦$kaddã®ç±³ã‚’è²·ã„ã¾ã—ãŸã€‚");
 				$kint_ex++;
 				$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,$ktec1,$ktec2,$ktec3,$kvsub1,$kvsub2,";
 			}else{
-				&K_LOG("$mmonthŒ:y¤lzFŠ‹à‚ª‚½‚è‚Ü‚¹‚ñB");
+				&K_LOG("$mmonthæœˆ:ã€å•†äººã€‘ï¼šæ‰€æŒé‡‘ãŒãŸã‚Šã¾ã›ã‚“ã€‚");
 			}
 		}else{
 			if($krice > $cnum){
 				$kadd = int($cnum * $csub);
 				$krice -= $cnum;
 				$kgold += $kadd;
-				&K_LOG("$mmonthŒ:y¤lzF$cnum‚Ì•Ä‚ğ”„‚Á‚Ä$kadd‚Ì‹à‚ğ”ƒ‚¢‚Ü‚µ‚½B");
+				&K_LOG("$mmonthæœˆ:ã€å•†äººã€‘ï¼š$cnumã®ç±³ã‚’å£²ã£ã¦$kaddã®é‡‘ã‚’è²·ã„ã¾ã—ãŸã€‚");
 				$kint_ex++;
 				$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,$ktec1,$ktec2,$ktec3,$kvsub1,$kvsub2,";
 			}else{
-				&K_LOG("$mmonthŒ:y¤lzF•Ä‚ª‚½‚è‚Ü‚¹‚ñB");
+				&K_LOG("$mmonthæœˆ:ã€å•†äººã€‘ï¼šç±³ãŒãŸã‚Šã¾ã›ã‚“ã€‚");
 			}
 		}
 	}

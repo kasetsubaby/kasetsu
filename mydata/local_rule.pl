@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    ��c��    _/#
+#_/    会議室    _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub LOCAL_RULE {
@@ -7,12 +7,12 @@ sub LOCAL_RULE {
 	&CHARA_MAIN_OPEN;
 
 	&COUNTRY_DATA_OPEN("$kcon");
-	if($xcid eq "0"){&ERR("���������͎��s�ł��܂���B");}
+	if($xcid eq "0"){&ERR("無所属国は実行できません。");}
 	$sno = $kcex / $LANK;
 	if($sno > 20){$sno = 20;}
-	$xxins = "<font color=green size=1>$kunit�R $LANK[$sno] $kname</font>";
+	$xxins = "<font color=green size=1>$kunit軍 $LANK[$sno] $kname</font>";
 
-	open(IN,"$LOCAL_LIST") or &ERR('�t�@�C�����J���܂���ł����Berr no :country_bbs');
+	open(IN,"$LOCAL_LIST") or &ERR('ファイルを開けませんでした。err no :country_bbs');
 	@LOCAL_DATA = <IN>;
 	close(IN);
 
@@ -22,7 +22,7 @@ sub LOCAL_RULE {
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100%>
 <TBODY><TR>
-<TD BGCOLOR=$ELE_BG[$xxele] WIDTH=100% height=5>�@<font color=$ELE_C[$xxele] size=4>�@�@�@����<B> * $xname ���@�@ *</B>����</font></TD>
+<TD BGCOLOR=$ELE_BG[$xxele] WIDTH=100% height=5>　<font color=$ELE_C[$xxele] size=4>　　　＜＜<B> * $xname 国法　 *</B>＞＞</font></TD>
 </TR><TR>
 <TD height=5>
 
@@ -33,16 +33,16 @@ sub LOCAL_RULE {
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>����</TD><TH>$kstr</TH><TD>�m��</TD><TH>$kint</TH><TD>������</TD><TH>$klea</TH></TR>
-<TR><TD>��</TD><TH>$kgold</TH><TD>��</TD><TH>$krice</TH><TD>�v��</TD><TH>$kcex</TH></TR>
-<TR><TD>������</TD><TH colspan=2>$cou_name[$kcon]��</TH><TD>���m</TD><TH>$ksol</TH><TD>�P��</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>武力</TD><TH>$kstr</TH><TD>知力</TD><TH>$kint</TH><TD>統率力</TD><TH>$klea</TH></TR>
+<TR><TD>金</TD><TH>$kgold</TH><TD>米</TD><TH>$krice</TH><TD>貢献</TD><TH>$kcex</TH></TR>
+<TR><TD>所属国</TD><TH colspan=2>$cou_name[$kcon]国</TH><TD>兵士</TD><TH>$ksol</TH><TD>訓練</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="�X�ɖ߂�"></form>
+<input type=submit value="街に戻る"></form>
 </TD>
 </TR>
 </TBODY></TABLE>
@@ -51,7 +51,7 @@ sub LOCAL_RULE {
 <TR>
 <TD height="5">
 <TABLE border="0" width=100%><TBODY>
-<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>$xname�ɒ�߂�ꂽ���̍��Ǝ��̓��ʃ��[����d�v�ȏ����c���Ă������߂̏ꏊ�ł��B<BR>���̍��̎Q���҂�$xname�ɂ������͂��̃��[���ɏ]���čs�����Ȃ��Ă͂Ȃ�܂���B<BR>�悭�ǂ�Ŏ���Ȃǂ�����ꍇ�͂��̍��̒S���҂ɖ₢���킹�ĉ������B�i�ő�Q�O���j</font></TD>
+<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>$xnameに定められたその国独自の特別ルールや重要な情報を残しておくための場所です。<BR>その国の参加者は$xnameにいる限りはこのルールに従って行動しなくてはなりません。<BR>よく読んで質問などがある場合はその国の担当者に問い合わせて下さい。（最大２０件）</font></TD>
 </TR>
 </TBODY></TABLE>
 </TD>
@@ -65,7 +65,7 @@ EOM
 	foreach(@LOCAL_DATA){
 		($bbid,$bbno,$bbmes,$bbcharaimg,$bbname,$bbhost,$bbtime,$bbele,$bbcon,$bbtype)=split(/<>/);
 		if($kcon eq "$bbcon" && $bbtype eq "0"){
-            $mes .= "<TR><TD><input type=radio name=del_id value=$bbno></td><td width=100%><font size=2 color=FFFFFF>$bbmes <font size=1>$bbname���</TD></TR>\n";
+            $mes .= "<TR><TD><input type=radio name=del_id value=$bbno></td><td width=100%><font size=2 color=FFFFFF>$bbmes <font size=1>$bbnameより</TD></TR>\n";
 		$s_n++;
 		if($s_n > 15){last;}
 		}
@@ -90,7 +90,7 @@ print <<"EOM";
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=L_RULE_DEL>
-<input type=submit value="���@�̍폜">
+<input type=submit value="国法の削除">
 </form>
 
 <br><form action="$FILE_MYDATA" method="post">
@@ -100,7 +100,7 @@ print <<"EOM";
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=L_RULE_WRITE>
-<input type=submit value="���@�̐ݒ�">
+<input type=submit value="国法の設定">
 </form>
 </font>
 </CENTER>

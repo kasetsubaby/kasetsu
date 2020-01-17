@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/   “ü‘à‹‘”Û  _/#
+#_/   å…¥éšŠæ‹’å¦  _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub UNIT_CHANGE {
@@ -7,9 +7,9 @@ sub UNIT_CHANGE {
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN($kcon);
 
-	if($xcid eq "0"){&ERR("–³Š‘®‘‚ÍÀs‚Å‚«‚Ü‚¹‚ñB");}
+	if($xcid eq "0"){&ERR("ç„¡æ‰€å±å›½ã¯å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
 
-	open(IN,"$UNIT_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@UNI_DATA = <IN>;
 	close(IN);
 
@@ -21,10 +21,10 @@ sub UNIT_CHANGE {
 			$uni_name = $uunit_name;
 			if($uflg){
 				$uflg = 0;
-				$mess = "‚n‚j";
+				$mess = "ï¼¯ï¼«";
 			}else{
 				$uflg = 1;
-				$mess = "‹‘”Û";
+				$mess = "æ‹’å¦";
 			}
 			push(@NEW_UNI_DATA,"$unit_id<>$uunit_name<>$ucon<>$ureader<>$uid<>$uname<>$uchara<>$umes<>$uflg<>\n");
 		}else{
@@ -33,23 +33,23 @@ sub UNIT_CHANGE {
 	}
 
 	if(!$hit){
-		&ERR("‘à’·ˆÈŠO‚ÍÀs‚Å‚«‚Ü‚¹‚ñB");
+		&ERR("éšŠé•·ä»¥å¤–ã¯å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");
 	}
 
-	open(OUT,">$UNIT_LIST") or &ERR('UNIT2 V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$UNIT_LIST") or &ERR('UNIT2 æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @NEW_UNI_DATA;
 	close(OUT);
 
 	&CHARA_MAIN_INPUT;
 	&HEADER;
 	print <<"EOM";
-<CENTER><hr size=0><h2>$uni_name•”‘à‚ğ“ü‘à$mess‚É‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>$uni_nameéƒ¨éšŠã‚’å…¥éšŠ$messã«ã—ã¾ã—ãŸã€‚</h2><p>
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="ŠX‚É–ß‚é"></form></CENTER>
+<input type=submit value="è¡—ã«æˆ»ã‚‹"></form></CENTER>
 EOM
 	&FOOTER;
 	exit;

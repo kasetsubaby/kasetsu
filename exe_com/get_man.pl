@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/#
-#      “o—p      #
+#      ç™»ç”¨      #
 #_/_/_/_/_/_/_/_/#
 
 sub GET_MAN {
 
 	$ksub2=0;
 	if($kgold < 100){
-		&K_LOG("$mmonthŒ:‹à‚ª‘«‚è‚Ü‚¹‚ñB");
+		&K_LOG("$mmonthæœˆ:é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚");
 	}else{
 
 		$kgold-=100;
@@ -20,7 +20,7 @@ sub GET_MAN {
 		open(OUT,">$MESSAGE_LIST2");
 		print OUT @MES_REG2;
 		close(OUT);
-		&K_LOG("$mmonthŒ:$cno‚É–§‘‚ğ‘—‚è‚Ü‚µ‚½B");
+		&K_LOG("$mmonthæœˆ:$cnoã«å¯†æ›¸ã‚’é€ã‚Šã¾ã—ãŸã€‚");
 		$kcha_ex++;
 		$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,";
 	}

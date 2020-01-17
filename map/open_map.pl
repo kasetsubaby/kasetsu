@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/_/#
-#_/    F MAP ‰æ–Ê    _/#
+#_/    F MAP ç”»é¢    _/#
 #_/_/_/_/_/_/_/_/_/_/_/#
 
 sub OPEN_MAP {
@@ -11,7 +11,7 @@ sub OPEN_MAP {
 
 	$p=0;
 	while($p<15){
-		$S_MES .= "E$S_MOVE[$p]<BR>";
+		$S_MES .= "ãƒ»$S_MOVE[$p]<BR>";
 		$p++;
 	}
 
@@ -21,7 +21,7 @@ sub OPEN_MAP {
 
 	$p=0;
 	while($p<20){
-		$D_MES .= "E$S_MOVE[$p]<BR>";
+		$D_MES .= "ãƒ»$S_MOVE[$p]<BR>";
 		$p++;
 	}
 
@@ -32,7 +32,7 @@ sub OPEN_MAP {
 	}elsif($hour > 12){$time_img = 1;$table_font = "#000000";$table_color = "#FFFFDC";
 	}else{$time_img = 0;$table_font = "#000000";$table_color = "#FFEFCC";}
 
-	open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@COU_DATA = <IN>;
 	close(IN);
 	foreach(@COU_DATA){
@@ -55,7 +55,7 @@ print <<"EOM";
           <TR>
             <TD width=20 bgcolor=$TD_C2>-</TD>
 EOM
-	open(IN,"$TOWN_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$TOWN_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@TOWN_DATA = <IN>;
 	close(IN);
 
@@ -73,10 +73,10 @@ EOM
 					if("$zzx" eq "$j" && "$zzy" eq "$i"){$m_hit=1;last;}
 				}
 				if($m_hit){
-					if($zzname eq "—Œ—z" || $zzname eq "Œš‹Æ" || $zzname eq "¬“s" || $zzname eq "‹Æ" ){
-						print "<TH bgcolor=$ELE_BG[$cou_ele[$zzcon]]><img src=$IMG/m_1.gif width=16 height=16 border=0 alt=$zznamey$cou_name[$zzcon]z></TH>";
+					if($zzname eq "æ´›é™½" || $zzname eq "å»ºæ¥­" || $zzname eq "æˆéƒ½" || $zzname eq "æ¥­" ){
+						print "<TH bgcolor=$ELE_BG[$cou_ele[$zzcon]]><img src=$IMG/m_1.gif width=16 height=16 border=0 alt=$zznameã€$cou_name[$zzcon]ã€‘></TH>";
 					}else{
-						print "<TH bgcolor=$ELE_BG[$cou_ele[$zzcon]]><img src=$IMG/m_4.gif width=16 height=16 border=0 alt=$zznamey$cou_name[$zzcon]z></TH>";
+						print "<TH bgcolor=$ELE_BG[$cou_ele[$zzcon]]><img src=$IMG/m_4.gif width=16 height=16 border=0 alt=$zznameã€$cou_name[$zzcon]ã€‘></TH>";
 					}
 				}else{
 					print "<TH>&nbsp;</TH>";
@@ -104,7 +104,7 @@ print <<"EOM";
       <TABLE width=100% border="0">
         <TBODY>
           <TR>
-            <TH bgcolor=$TD_C4>j‹L</TH></TR><TR>
+            <TH bgcolor=$TD_C4>å²è¨˜</TH></TR><TR>
 <TD bgcolor=$TD_1>$D_MES</TD>
           </TR>
         </TBODY>
@@ -113,7 +113,7 @@ print <<"EOM";
     </TR>
   </TBODY>
 </TABLE>
-¦ŠX‚ÉƒJ\[\ƒ\\ƒ‹\‚ğ\‡‚í‚¹‚é‚ÆŠX‚Ì–¼‘O‚ª\•\\¦‚³‚ê‚Ü‚·B
+â€»è¡—ã«ã‚«\ãƒ¼\ã‚½\ãƒ«\ã‚’\åˆã‚ã›ã‚‹ã¨è¡—ã®åå‰ãŒ\è¡¨\ç¤ºã•ã‚Œã¾ã™ã€‚
 <p>
 $daytime
 EOM

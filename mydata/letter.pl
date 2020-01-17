@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#      ‘¼‚ÌƒvƒŒƒCƒ„[‚ÉƒƒbƒZ[ƒW‘—M      #
+#      ä»–ã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é€ä¿¡      #
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub LETTER {
@@ -10,14 +10,14 @@ sub LETTER {
 	&HEADER;
 	print <<"EOM";
 <form action="$FILE_MYDATA" method="post">
-<hr size=0><h2>‘¼‚Ì•«‚Éè†‚ğ‘—‚é<BR></h2><hr size=0>
+<hr size=0><h2>ä»–ã®æ­¦å°†ã«æ‰‹ç´™ã‚’é€ã‚‹<BR></h2><hr size=0>
 <CENTER><BR>
-<BR>‘¼‚Ì•«‚Éè†‚ğ‘—‚ê‚Ü‚·B<BR>
-<font size=1>(¦Œ™‚ª‚ç‚¹‚ÌƒƒbƒZ[ƒW‚ğ‘—‚ç‚ê‚½•û‚ÍŠÇ—l‚Ü‚Å˜A—‚µ‚Ä‰º‚³‚¢B)</font><BR>
+<BR>ä»–ã®æ­¦å°†ã«æ‰‹ç´™ã‚’é€ã‚Œã¾ã™ã€‚<BR>
+<font size=1>(â€»å«ŒãŒã‚‰ã›ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ã‚‰ã‚ŒãŸæ–¹ã¯ç®¡ç†äººã¾ã§é€£çµ¡ã—ã¦ä¸‹ã•ã„ã€‚)</font><BR>
 <BR>
 <input type="text" name=message size=65><br>
 <select name=mes_id>
-<option value="">‘—‚é‘Šè‚ğ‘I‘ğ
+<option value="">é€ã‚‹ç›¸æ‰‹ã‚’é¸æŠ
 EOM
 
 	$dir="./charalog/main";
@@ -25,7 +25,7 @@ EOM
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -41,13 +41,13 @@ EOM
 		($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/);
 		if($eid eq $kid) { next; }
 		if($cou_name[$econ] eq ""){
-			$con[0] .= "<option value=$eid>$ename‚³‚ñ‚Ö\n";
+			$con[0] .= "<option value=$eid>$enameã•ã‚“ã¸\n";
 		}else{
-			$con[$econ] .= "<option value=$eid>$ename‚³‚ñ‚Ö\n";
+			$con[$econ] .= "<option value=$eid>$enameã•ã‚“ã¸\n";
 		}
 	}
 
-	open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@COU_NO = <IN>;
 	close(IN);
 
@@ -58,7 +58,7 @@ EOM
 	}
 	$c_num = @COU_DATA;
 print <<"EOM";
-<option>==== –³Š‘®‘ ====\n
+<option>==== ç„¡æ‰€å±å›½ ====\n
 $con[0]
 </select>
 
@@ -66,7 +66,7 @@ $con[0]
 <input type=hidden name=name value=$kname>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=MES_SEND>
-<input type=submit value="è†‚ğ‘—‚é"><br>
+<input type=submit value="æ‰‹ç´™ã‚’é€ã‚‹"><br>
 </form>
 <HR size=0>
 
@@ -74,7 +74,7 @@ $con[0]
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="ŠX‚É–ß‚é"></form>
+<input type=submit value="è¡—ã«æˆ»ã‚‹"></form>
 EOM
 	&FOOTER;
 	exit;

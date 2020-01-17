@@ -1,11 +1,11 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
@@ -13,12 +13,12 @@ require './ini_file/index.ini';
 require './ini_file/i-index.ini';
 require 'i-suport.pl';
 
-if($MENTE) { &ERR("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
 &TOP;
 
 #_/_/_/_/_/_/_/_/_/#
-#_/    TOP‰æ–Ê   _/#
+#_/    TOPç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub TOP {
@@ -32,14 +32,14 @@ sub TOP {
 
 	$p=0;
 	foreach(@LOG_DATA){
-		$log_list .= "<font color=navy>œ</font>$LOG_DATA[$p]<BR>";$p++;
+		$log_list .= "<font color=navy>â—</font>$LOG_DATA[$p]<BR>";$p++;
 	}
 
 	opendir(dirlist,"./charalog/main");
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"./charalog/main/$file")){
-				&ERR2("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR2("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -50,7 +50,7 @@ sub TOP {
 
 
 
-	$list = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>•ºm”</TH><TH>‘–¼</TH></TR>";
+	$list = "<TR><TD></TD><TH>åå‰</TH><TH>æ­¦åŠ›</TH><TH>çŸ¥åŠ›</TH><TH>çµ±ç‡åŠ›</TH><TH>å…µå£«æ•°</TH><TH>å›½å</TH></TR>";
 	$num=0;
 	foreach(@CL_DATA){
 		($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/);
@@ -64,7 +64,7 @@ sub TOP {
 	&HEADER;
 	print <<"EOM";
 $log_list
-<form action=\"i-status.cgi\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"ŠX‚Ö–ß‚é\"></form>
+<form action=\"i-status.cgi\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"è¡—ã¸æˆ»ã‚‹\"></form>
 EOM
 
 	&FOOTER;

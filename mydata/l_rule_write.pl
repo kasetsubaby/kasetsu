@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/         ‘–@  Ý’è       _/#
+#_/         å›½æ³•  è¨­å®š       _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub L_RULE_WRITE{
@@ -9,12 +9,12 @@ sub L_RULE_WRITE{
 	&HOST_NAME;
 	&COUNTRY_DATA_OPEN("$kcon");
 
-	if($xcid eq "0"){&ERR("–³Š‘®‘‚ÍŽÀs‚Å‚«‚Ü‚¹‚ñB");}
-	if(length($in{'title'}) > 40 || length($in{'ins'}) > 500) { &ERR("‚à‚Á‚ÆŽè’Z‚É‘–@‚ð“`‚¦‚Ä‚­‚¾‚³‚¢"); }
-	if($in{'ins'} eq "") { &ERR("ƒƒbƒZ[ƒW‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
-	if($kclass < 500){&ERR("‘‚Ö‚ÌvŒ£’l‚ª‘«‚è‚Ü‚¹‚ñ(500ˆÈã)");}
+	if($xcid eq "0"){&ERR("ç„¡æ‰€å±žå›½ã¯å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
+	if(length($in{'title'}) > 40 || length($in{'ins'}) > 500) { &ERR("ã‚‚ã£ã¨æ‰‹çŸ­ã«å›½æ³•ã‚’ä¼ãˆã¦ãã ã•ã„"); }
+	if($in{'ins'} eq "") { &ERR("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
+	if($kclass < 500){&ERR("å›½ã¸ã®è²¢çŒ®å€¤ãŒè¶³ã‚Šã¾ã›ã‚“(500ä»¥ä¸Š)");}
 
-	open(IN,"$LOCAL_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$LOCAL_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@LOCAL_DATA = <IN>;
 	close(IN);
 
@@ -30,19 +30,19 @@ sub L_RULE_WRITE{
 	if($in{"type"} eq "all"){$bbtype = 1;}else{$bbtype = 0;}
 	unshift(@LOCAL_DATA,"$kid<>$s_no<>$in{'ins'}<>$kchara<>$bbname<>$host<>$daytime<>$kele<>$kcon<>$bbtype<>\n");
 
-	open(OUT,">$LOCAL_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">$LOCAL_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @LOCAL_DATA;
 	close(OUT);
 
 	&HEADER;
 	print <<"EOM";
-<CENTER><hr size=0><h2>‘”Å‚É‘‚«ž‚Ý‚ð‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>å›½ç‰ˆã«æ›¸ãè¾¼ã¿ã‚’ã—ã¾ã—ãŸã€‚</h2><p>
 
 <form action="$FILE_MYDATA" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=LOCAL_RULE>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 	&FOOTER;
 	exit;

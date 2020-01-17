@@ -1,35 +1,35 @@
 #_/_/_/_/_/_/_/_/_/#
-#      ‘•ÏX      #
+#      å›½å¤‰æ›´      #
 #_/_/_/_/_/_/_/_/_/#
 
 sub KING_COM4 {
 
-	if($in{'sel'} eq "") { &ERR("‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ"); }
+	if($in{'sel'} eq "") { &ERR("é¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“"); }
 
 	if($REFREE){
 		$r_str = length("$SANGOKU_URL");
 		$r_url = substr("$ENV{'HTTP_REFERER'}", 0, $r_str);
-		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>‚»‚ÌƒLƒƒƒ‰ƒNƒ^[‚Íì‚ê‚Ü‚¹‚ñB<BR>ŠÇ—Ò‚É–â‚¢‡‚í‚¹‚Ä‰º‚³‚¢B<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
+		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>ãã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã¯ä½œã‚Œã¾ã›ã‚“ã€‚<BR>ç®¡ç†è€…ã«å•ã„åˆã‚ã›ã¦ä¸‹ã•ã„ã€‚<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
 	}
 
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN($kcon);
 
-	if($xking ne $kid){&ERR("‰¤‚Å‚È‚¯‚ê‚ÎÀs‚Å‚«‚Ü‚¹‚ñB");}
+	if($xking ne $kid){&ERR("ç‹ã§ãªã‘ã‚Œã°å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
 
 	$sel = $in{'sel'};
-	open(IN,"./charalog/main/$sel\.cgi") or &ERR2('ID‚ÆPASS‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI');
+	open(IN,"./charalog/main/$sel\.cgi") or &ERR2('IDã¨PASSãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼');
 	@E_DATA = <IN>;
 	close(IN);
-	($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);	if($kcon ne "$econ") { &ERR("•s³‚Èˆ—‚Å‚·B"); }
-	if($kid eq "$eid") { &ERR("•s³‚Èˆ—‚Å‚·B"); }
+	($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);	if($kcon ne "$econ") { &ERR("ä¸æ­£ãªå‡¦ç†ã§ã™ã€‚"); }
+	if($kid eq "$eid") { &ERR("ä¸æ­£ãªå‡¦ç†ã§ã™ã€‚"); }
 
 	&TIME_DATA;
 
 	if($sel){
 		$econ = 0;
-		$res_mes = "$ename‚Í$xname‘‚©‚ç‰ğŒÙ‚³‚ê‚Ü‚µ‚½B";
-		&MAP_LOG("<font color=880088><b>y‰ğŒÙz</b></font>$ename‚Í$xname‘‚©‚ç‰ğŒÙ‚³‚ê‚Ü‚µ‚½B");
+		$res_mes = "$enameã¯$xnameå›½ã‹ã‚‰è§£é›‡ã•ã‚Œã¾ã—ãŸã€‚";
+		&MAP_LOG("<font color=880088><b>ã€è§£é›‡ã€‘</b></font>$enameã¯$xnameå›½ã‹ã‚‰è§£é›‡ã•ã‚Œã¾ã—ãŸã€‚");
 	}
 
 	open(IN,"$LOG_DIR/black_list.cgi");
@@ -65,7 +65,7 @@ sub KING_COM4 {
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 	&FOOTER;
 

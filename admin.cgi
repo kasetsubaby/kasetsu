@@ -1,21 +1,21 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR2("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
 
-if(!$ADMIN_SET) { &ERR2("ŠÇ—ƒc[ƒ‹‚ğg—p‚·‚éİ’è‚É‚È‚Á‚Ä‚¢‚Ü‚¹‚ñB"); }
+if(!$ADMIN_SET) { &ERR2("ç®¡ç†ãƒ„ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹è¨­å®šã«ãªã£ã¦ã„ã¾ã›ã‚“ã€‚"); }
 	$adminid = "xxxx";
 	$adminpass = "xxxx2";
 
@@ -33,41 +33,41 @@ else{&TOP;}
 
 
 #_/_/_/_/_/_/_/_/_/#
-#_/   MAIN‰æ–Ê   _/#
+#_/   MAINç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub TOP {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 
 
 	&HEADER;
 
 	print <<"EOM";
 
-<h2>ŠÇ—ƒc[ƒ‹</h2>
+<h2>ç®¡ç†ãƒ„ãƒ¼ãƒ«</h2>
 <CENTER>
 <table width=80% cellspacing=1 border=0 bgcolor=$TABLE_C><TBODY bgcolor=$TD_C4>
-<TR><TH colspan=2>ŠÇ—ƒƒjƒ…[</TH></TR>
+<TR><TH colspan=2>ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼</TH></TR>
 <form method="post" action="admin.cgi">
 <TR><Th>
 <input type=hidden name=mode value=MENTE>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='ƒLƒƒƒ‰•ÒW‚P'>
+<input type=submit value='ã‚­ãƒ£ãƒ©ç·¨é›†ï¼‘'>
 </Th></form><TD>
-E“o˜^Ò‚Ìƒf[ƒ^‚ğ•ÒW‚µ‚Ü‚·B’Êí‚Í‚±‚¿‚ç‚Å•ÒW‚µ‚Ä‚­‚¾‚³‚¢B
-Q‰ÁÒ‚Ì”‚ª‘‚¦‚é‚Æg‚¦‚È‚­‚È‚é‰Â\”\\«‚ª‚ ‚è‚Ü‚·B
+ãƒ»ç™»éŒ²è€…ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç·¨é›†ã—ã¾ã™ã€‚é€šå¸¸ã¯ã“ã¡ã‚‰ã§ç·¨é›†ã—ã¦ãã ã•ã„ã€‚
+å‚åŠ è€…ã®æ•°ãŒå¢—ãˆã‚‹ã¨ä½¿ãˆãªããªã‚‹å¯\èƒ½\æ€§ãŒã‚ã‚Šã¾ã™ã€‚
 </TD></TR>
 <form method="post" action="admin.cgi">
 <TR><Th>
 <input type=hidden name=mode value=INIT_DATA>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='‰Šú‰»'>
+<input type=submit value='åˆæœŸåŒ–'>
 </Th></form><TD>
-E‚·‚×‚Ä‚Ìƒf[ƒ^‚ğ‰Šú‰»‚µ‚Ü‚·B
+ãƒ»ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã—ã¾ã™ã€‚
 </TD></TD></TR>
 
 </TBODY></TABLE>
@@ -78,11 +78,11 @@ MEMO:<input type=text name=message size=40>
 NAME:<input type=text name=name size=10>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='ƒƒ‚'>
+<input type=submit value='ãƒ¡ãƒ¢'>
 <br></form>
 
 <form method="post" action="index.cgi">
-</select><input type=submit value='•ÒW‚ğI‚¦‚é'>
+</select><input type=submit value='ç·¨é›†ã‚’çµ‚ãˆã‚‹'>
 <br></form>
 </CENTER>
 
@@ -91,7 +91,7 @@ EOM
 	@A_BBS = <IN>;
 	close(IN);
 
-	# ŠÇ—Òƒƒ‚
+	# ç®¡ç†è€…ãƒ¡ãƒ¢
 	print "<center><table width=80% border=0 >@A_BBS</table></center>";
 
 	&FOOTER;
@@ -99,22 +99,22 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/  MENTE‰æ–Ê   _/#
+#_/  MENTEç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub MENTE {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 
 	$dir="./charalog/main";
 	opendir(dirlist,"$dir");
 	$i=0;
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
-			$datames = "ŒŸõF$dir/$file<br>\n";
+			$datames = "æ¤œç´¢ï¼š$dir/$file<br>\n";
 			if(!open(page,"$dir/$file")){
-				$datames .= "$dir/$file‚ª‚İ‚Â‚©‚è‚Ü‚¹‚ñB<br>\n";
+				$datames .= "$dir/$fileãŒã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚<br>\n";
 				return 1;
 			}
 			@page = <page>;
@@ -154,11 +154,11 @@ sub MENTE {
 
 	&HEADER;
 	print <<"EOM";
-<h2>ƒLƒƒƒ‰ŠÇ—ƒc[ƒ‹</h2><br>
-EID‚Íƒtƒ@ƒCƒ‹–¼‚Æ“¯‚¶‚É‚È‚Á‚Ä‚¢‚é‚Ì‚Å•ÏX‚µ‚È‚¢‚Å‰º‚³‚¢B<br>
-EƒzƒXƒg–¼‚ÍXV‚µ‚Ä‚¢‚Ü‚·B<br>
+<h2>ã‚­ãƒ£ãƒ©ç®¡ç†ãƒ„ãƒ¼ãƒ«</h2><br>
+ãƒ»IDã¯ãƒ•ã‚¡ã‚¤ãƒ«åã¨åŒã˜ã«ãªã£ã¦ã„ã‚‹ã®ã§å¤‰æ›´ã—ãªã„ã§ä¸‹ã•ã„ã€‚<br>
+ãƒ»ãƒ›ã‚¹ãƒˆåã¯éšæ™‚æ›´æ–°ã—ã¦ã„ã¾ã™ã€‚<br>
 <form method="post" action="admin.cgi">
-<input type=hidden name=mode value=CHANGE>•ÒW‚·‚éƒtƒ@ƒCƒ‹F
+<input type=hidden name=mode value=CHANGE>ç·¨é›†ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ï¼š
 <select name=fileno>
 EOM
 	$i=0;$w_host="";
@@ -183,32 +183,32 @@ EOM
 print <<"EOM";
 </select><input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='•ÒW'>
+<input type=submit value='ç·¨é›†'>
 <br></form>
 
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
 <input type=hidden name=mode value=MENTE>
-<br><input type=radio name=no value="1">ƒzƒXƒg–¼‡i<font color=red>2d“o˜^ƒ`ƒFƒbƒN</font>j<br>
-<input type=radio name=no value="2">–¼‘O‡<br>
-<input type=radio name=no value="3">‚h‚c‡<br>
-–¼‘OŒŸõ<input type=text name=serch size=20><br>
-<input type=submit value='‡•ÏX'>
+<br><input type=radio name=no value="1">ãƒ›ã‚¹ãƒˆåé †ï¼ˆ<font color=red>2é‡ç™»éŒ²ãƒã‚§ãƒƒã‚¯</font>ï¼‰<br>
+<input type=radio name=no value="2">åå‰é †<br>
+<input type=radio name=no value="3">ï¼©ï¼¤é †<br>
+åå‰æ¤œç´¢<input type=text name=serch size=20><br>
+<input type=submit value='é †å¤‰æ›´'>
 <br></form>
 
-<h2>ƒtƒ@ƒCƒ‹Á‹</h2>
-E‚Qd“o˜^Ò‚ğ‹­§íœ‚µ‚Ü‚·B<BR>
+<h2>ãƒ•ã‚¡ã‚¤ãƒ«æ¶ˆå»</h2>
+ãƒ»ï¼’é‡ç™»éŒ²è€…ã‚’å¼·åˆ¶å‰Šé™¤ã—ã¾ã™ã€‚<BR>
 
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
 <input type=hidden name=mode value=DEL_LIST>
-<input type=submit value='íœÒƒŠƒXƒg'>
+<input type=submit value='å‰Šé™¤è€…ãƒªã‚¹ãƒˆ'>
 <br></form>
 
 
-‚Qd“o˜^‹^˜fÒ<p>
+ï¼’é‡ç™»éŒ²ç–‘æƒ‘è€…<p>
 <font color=red>$mess</font>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
@@ -227,13 +227,13 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/_/_/#
-#_/   DEL LIST‰æ–Ê   _/#
+#_/   DEL LISTç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/_/_/#
 
 sub DEL_LIST {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 
 	$tt = time - (60 * 60 * 24 * 34);
 	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday) = localtime($tt);
@@ -247,9 +247,9 @@ sub DEL_LIST {
 	$i=0;
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
-			$datames = "ŒŸõF$dir/$file<br>\n";
+			$datames = "æ¤œç´¢ï¼š$dir/$file<br>\n";
 			if(!open(page,"$dir/$file")){
-				$datames .= "$dir/$file‚ª‚İ‚Â‚©‚è‚Ü‚¹‚ñB<br>\n";
+				$datames .= "$dir/$fileãŒã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚<br>\n";
 				return 1;
 			}
 			@page = <page>;
@@ -261,7 +261,7 @@ sub DEL_LIST {
 			$i++;
 			($sec2,$min2,$hour2,$mday2,$mon2,$year2,$wday2,$yday2) = localtime($edate);
 			$mon2++;
-			$last_login = "$mon2Œ$mday2“ú$hour2$min2•ª";
+			$last_login = "$mon2æœˆ$mday2æ—¥$hour2æ™‚$min2åˆ†";
 			$LIST .= "<TR><TD>$ename</TD><TD>$eid</TD><TD>$email</TD><TD>$last_login</TD></TR>";
 			}
 		}
@@ -275,27 +275,27 @@ sub DEL_LIST {
 
 	&HEADER;
 	print <<"EOM";
-<h2>ƒLƒƒƒ‰ŠÇ—ƒc[ƒ‹</h2>
+<h2>ã‚­ãƒ£ãƒ©ç®¡ç†ãƒ„ãƒ¼ãƒ«</h2>
 <br>
 
-<h2>ƒtƒ@ƒCƒ‹Á‹</h2>
+<h2>ãƒ•ã‚¡ã‚¤ãƒ«æ¶ˆå»</h2>
 <TABLE><TBODY>
-<TR><TD>–¼‘O</TD><TD>ID</TD><TD>MAIL</TD><TD>ÅIXV</TD></TR>
+<TR><TD>åå‰</TD><TD>ID</TD><TD>MAIL</TD><TD>æœ€çµ‚æ›´æ–°</TD></TR>
 $LIST
 </TBODY></TABLE>
 
-„„ˆÈã‚Ìl‚ğíœ‚µ‚Ü‚·B‹X‚µ‚¢‚Å‚·‚©H<BR>
+ï¼ï¼ä»¥ä¸Šã®äººã‚’å‰Šé™¤ã—ã¾ã™ã€‚å®œã—ã„ã§ã™ã‹ï¼Ÿ<BR>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
 <input type=hidden name=mode value=ALL_DEL>
-<input type=submit value='íœ'>
+<input type=submit value='å‰Šé™¤'>
 <br></form>
 
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 <br></form>
 
 
@@ -306,13 +306,13 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/ ƒtƒ@ƒCƒ‹íœ _/#
+#_/ ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤ _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub ALL_DEL {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 	$tt = time - (60 * 60 * 24 * 34);
 
 	$dir="./charalog/main";
@@ -320,9 +320,9 @@ sub ALL_DEL {
 	$i=0;
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
-			$datames = "ŒŸõF$dir/$file<br>\n";
+			$datames = "æ¤œç´¢ï¼š$dir/$file<br>\n";
 			if(!open(page,"$dir/$file")){
-				$datames .= "$dir/$file‚ª‚İ‚Â‚©‚è‚Ü‚¹‚ñB<br>\n";
+				$datames .= "$dir/$fileãŒã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚<br>\n";
 			}
 			@page = <page>;
 			close(page);
@@ -353,20 +353,20 @@ sub ALL_DEL {
 
 	&TIME_DATA;
 
-	unshift(@S_MOVE,"<font color=red><B>\[íœ\]</B></font> ‚R‚S“úˆÈ~ƒƒOƒCƒ“‚Ì‚È‚¢•û‚ğíœ‚µ‚Ü‚µ‚½B($mday“ú$hour$min•ª)<BR>\n");
+	unshift(@S_MOVE,"<font color=red><B>\[å‰Šé™¤\]</B></font> ï¼“ï¼”æ—¥ä»¥é™ãƒ­ã‚°ã‚¤ãƒ³ã®ãªã„æ–¹ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚($mdayæ—¥$houræ™‚$minåˆ†)<BR>\n");
 	splice(@S_MOVE,20);
 
-	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @S_MOVE;
 	close(OUT);
 
 	&HEADER;
 	print <<"EOM";
-<center><h2><font color=red>‚R‚S“úˆÈ~ƒƒOƒCƒ“‚Ì‚È‚¢•û(<font color=red>$i–¼</font>)‚ğíœ‚µ‚Ü‚µ‚½B</font></h2><hr size=0>
+<center><h2><font color=red>ï¼“ï¼”æ—¥ä»¥é™ãƒ­ã‚°ã‚¤ãƒ³ã®ãªã„æ–¹(<font color=red>$iå</font>)ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚</font></h2><hr size=0>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 <br></form>
 EOM
 
@@ -375,25 +375,25 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/  WRITE‰æ–Ê   _/#
+#_/  WRITEç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub BBS {
 
 	&TIME_DATA;
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 
 	open(IN,"$ADMIN_BBS");
 	@AD_DATA = <IN>;
 	close(IN);
 
-	if($in{'message'} eq "") { &ERR2("ƒƒbƒZ[ƒW‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
+	if($in{'message'} eq "") { &ERR2("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
 
 	$bbs_num = @AD_DATA;
 	if($bbs_num > 40) { pop(@AD_DATA); }
 
-	unshift(@AD_DATA,"<font color=red>$in{'message'}</font> $in{'name'}‚æ‚è($mday“ú$hour$min•ª)<BR><hr size=0>\n");
+	unshift(@AD_DATA,"<font color=red>$in{'message'}</font> $in{'name'}ã‚ˆã‚Š($mdayæ—¥$houræ™‚$minåˆ†)<BR><hr size=0>\n");
 
 	open(OUT,">$ADMIN_BBS");
 	print OUT @AD_DATA;
@@ -401,11 +401,11 @@ sub BBS {
 
 	&HEADER;
 	print <<"EOM";
-<h2>‘‚«‚İ‚Ü‚µ‚½B</h2>
+<h2>æ›¸ãè¾¼ã¿ã¾ã—ãŸã€‚</h2>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-</select><input type=submit value='–ß‚é'>
+</select><input type=submit value='æˆ»ã‚‹'>
 <br></form>
 EOM
 	&FOOTER;
@@ -414,16 +414,16 @@ EOM
 
 
 #_/_/_/_/_/_/_/_/_/#
-#_/   •ÒW‰æ–Ê   _/#
+#_/   ç·¨é›†ç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub CHANGE {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 	$dir="./charalog/main";
 	if(!open(page,"$dir/$in{'fileno'}")){
-		$datames .= "$dir/$file‚ª‚İ‚Â‚©‚è‚Ü‚¹‚ñB<br>\n";
+		$datames .= "$dir/$fileãŒã¿ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚<br>\n";
 		return 1;
 	}
 	@page = <page>;
@@ -439,46 +439,46 @@ sub CHANGE {
 	&HEADER;
 	print <<"EOM";
 <form method="post" action="admin.cgi">
-<h3><img src="$IMG/$echara.gif" width="$img_wid" height="$img_height" border=0> <font size=5 color=orange>$ename</font> ƒtƒ@ƒCƒ‹</h3>
+<h3><img src="$IMG/$echara.gif" width="$img_wid" height="$img_height" border=0> <font size=5 color=orange>$ename</font> ãƒ•ã‚¡ã‚¤ãƒ«</h3>
 <table>
 <tr>
 <th>ID</th><td><input type=text name=eid value='$eid'></td>
 <th>PASS</th><td><input type=text name=epass value='$epass'></td>
 <th>NAME</th><td><input type=text name=ename value='$ename'></td>
-<th>‰æ‘œID</th><td><input type=text name=echara value='$echara'></td>
+<th>ç”»åƒID</th><td><input type=text name=echara value='$echara'></td>
 <tr>
-<th>•—Í</th><td><input type=text name=estr value='$estr'></td>
-<th>’m—Í</th><td><input type=text name=eint value='$eint'></td>
-<th>“—¦—Í</th><td><input type=text name=elea value='$elea'></td>
-<th>l–]</th><td><input type=text name=echa value='$echa'></td>
+<th>æ­¦åŠ›</th><td><input type=text name=estr value='$estr'></td>
+<th>çŸ¥åŠ›</th><td><input type=text name=eint value='$eint'></td>
+<th>çµ±ç‡åŠ›</th><td><input type=text name=elea value='$elea'></td>
+<th>äººæœ›</th><td><input type=text name=echa value='$echa'></td>
 </TR>
 <tr>
-<th>•ºm”</th><td><input type=text name=esol value='$esol'></td>
-<th>ŒP—û</th><td><input type=text name=egat value='$egat'></td>
-<th>‘</th><td><input type=text name=econ value='$econ'></td>
-<th>‹à</th><td><input type=text name=egold value='$egold'></td>
+<th>å…µå£«æ•°</th><td><input type=text name=esol value='$esol'></td>
+<th>è¨“ç·´</th><td><input type=text name=egat value='$egat'></td>
+<th>å›½</th><td><input type=text name=econ value='$econ'></td>
+<th>é‡‘</th><td><input type=text name=egold value='$egold'></td>
 </TR>
 <tr>
-<th>•Ä</th><td><input type=text name=erice value='$erice'></td>
-<th>vŒ£</th><td><input type=text name=ecex value='$ecex'></td>
-<th>ŠK‹‰’l</th><td><input type=text name=eclass value='$eclass'></td>
-<th>•Ší</th><td><input type=text name=earm value='$earm'></td>
+<th>ç±³</th><td><input type=text name=erice value='$erice'></td>
+<th>è²¢çŒ®</th><td><input type=text name=ecex value='$ecex'></td>
+<th>éšç´šå€¤</th><td><input type=text name=eclass value='$eclass'></td>
+<th>æ­¦å™¨</th><td><input type=text name=earm value='$earm'></td>
 </TR>
 <tr>
-<th>‘Ğ</th><td><input type=text name=ebook value='$ebook'></td>
-<th>’‰½</th><td><input type=text name=ebank value='$ebank'></td>
-<th>ƒTƒu‚P</th><td><input type=text name=esub1 value='$esub1'></td>
-<th>ƒTƒu‚Q</th><td><input type=text name=esub2 value='$esub2'></td>
+<th>æ›¸ç±</th><td><input type=text name=ebook value='$ebook'></td>
+<th>å¿ èª </th><td><input type=text name=ebank value='$ebank'></td>
+<th>ã‚µãƒ–ï¼‘</th><td><input type=text name=esub1 value='$esub1'></td>
+<th>ã‚µãƒ–ï¼’</th><td><input type=text name=esub2 value='$esub2'></td>
 </TR>
 <tr>
-<th>Œ»İˆÊ’u</th><td><input type=text name=epos value='$epos'></td>
-<th>ƒƒbƒZ[ƒW</th><td><input type=text name=emes value='$emes'></td>
-<th>ƒzƒXƒg</th><td><input type=text name=ehost value='$ehost'></td>
-<th>XV“ú</th><td><input type=text name=edate value='$edate'></td>
+<th>ç¾åœ¨ä½ç½®</th><td><input type=text name=epos value='$epos'></td>
+<th>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</th><td><input type=text name=emes value='$emes'></td>
+<th>ãƒ›ã‚¹ãƒˆ</th><td><input type=text name=ehost value='$ehost'></td>
+<th>æ›´æ–°æ—¥æ™‚</th><td><input type=text name=edate value='$edate'></td>
 </TR>
 <tr>
 <th>MAIL</th><td><input type=text name=email value='$email'></td>
-<th>s“®ƒ`ƒFƒbƒN</th><td><input type=text name=eos value='$eos'></td>
+<th>è¡Œå‹•ãƒã‚§ãƒƒã‚¯</th><td><input type=text name=eos value='$eos'></td>
 <th></th><td></td>
 <th></th><td></td>
 </TR>
@@ -490,36 +490,36 @@ sub CHANGE {
 <input type=hidden name=fileno value=$in{'fileno'}>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='•ÒW'>
+<input type=submit value='ç·¨é›†'>
 <br></form>
 <br>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='•ÒW‚ğ~‚ß‚é'>
+<input type=submit value='ç·¨é›†ã‚’æ­¢ã‚ã‚‹'>
 </form>
 <br>
 <br>
 <br>
 <br>
-MAPƒƒO‚ ‚è<br>
+MAPãƒ­ã‚°ã‚ã‚Š<br>
 <form method="post" action="admin.cgi">
 <input type=hidden name=filename value=$in{'fileno'}>
 <input type=hidden name=mode value=DEL>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='‚±‚Ìƒtƒ@ƒCƒ‹‚ğíœ'>
+<input type=submit value='ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤'>
 </form>
 <br>
 <br>
 <br>
-MAPƒƒO‚È‚µ<br>
+MAPãƒ­ã‚°ãªã—<br>
 <form method="post" action="admin.cgi">
 <input type=hidden name=filename value=$in{'fileno'}>
 <input type=hidden name=mode value=DEL2>
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='‚±‚Ìƒtƒ@ƒCƒ‹‚ğíœ'>
+<input type=submit value='ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤'>
 </form>
 <br>
 EOM
@@ -529,13 +529,13 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/   •ÒW‰æ–Ê   _/#
+#_/   ç·¨é›†ç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub CHANGE2 {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 	$dir="./charalog/main";
 
 	$newdata = "$in{'eid'}<>$in{'epass'}<>$in{'ename'}<>$in{'echara'}<>$in{'estr'}<>$in{'eint'}<>$in{'elea'}<>$in{'echa'}<>$in{'esol'}<>$in{'egat'}<>$in{'econ'}<>$in{'egold'}<>$in{'erice'}<>$in{'ecex'}<>$in{'eclass'}<>$in{'earm'}<>$in{'ebook'}<>$in{'ebank'}<>$in{'esub1'}<>$in{'esub2'}<>$in{'epos'}<>$in{'emes'}<>$in{'ehost'}<>$in{'edate'}<>$in{'email'}<>$in{'eos'}<>\n";
@@ -545,15 +545,15 @@ sub CHANGE2 {
 	close(page);
 	&HOST_NAME;
 
-	&ADMIN_LOG("<font color=blue>$in{'ename'} $dir/$in{'fileno'}‚ğXV‚µ‚Ü‚µ‚½Bu$hostv</font>");
+	&ADMIN_LOG("<font color=blue>$in{'ename'} $dir/$in{'fileno'}ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ã€Œ$hostã€</font>");
 	&HEADER;
 	print <<"EOM";
-<center><h2><font color=blue>$in{'ename'} ‚Ìƒtƒ@ƒCƒ‹$dir/$in{'fileno'}‚ğXV‚µ‚Ü‚µ‚½B</font></h2><hr size=0>
+<center><h2><font color=blue>$in{'ename'} ã®ãƒ•ã‚¡ã‚¤ãƒ«$dir/$in{'fileno'}ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚</font></h2><hr size=0>
 <br>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 </form>
 EOM
 
@@ -563,15 +563,15 @@ EOM
 
 
 #_/_/_/_/_/_/_/_/_/#
-#_/ ƒtƒ@ƒCƒ‹íœ _/#
+#_/ ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤ _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub DEL {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 	&HOST_NAME;
-	open(IN,"./charalog/main/$in{'filename'}") or &ERR2('ƒtƒ@ƒCƒ‹‚ğíœ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"./charalog/main/$in{'filename'}") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@CN_DATA = <IN>;
 	close(IN);
 	($kid,$kpass,$kname) = split(/<>/,$CN_DATA[0]);
@@ -583,7 +583,7 @@ sub DEL {
 	$dir2="./charalog/command";
 	unlink("$dir2/$in{'filename'}");
 
-	&ADMIN_LOG("<font color=red>$kname‚ğíœ‚µ‚Ü‚µ‚½Bu$hostv </font>");
+	&ADMIN_LOG("<font color=red>$knameã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚ã€Œ$hostã€ </font>");
 
 	open(IN,"$MAP_LOG_LIST");
 	@S_MOVE = <IN>;
@@ -605,20 +605,20 @@ sub DEL {
 	print OUT @NEW_DEF_LIST_DEL;
 	close(OUT);
 
-	unshift(@S_MOVE,"<font color=red><B>\[íœ\]</B></font> $kname‚Ííœ‚³‚ê‚Ü‚µ‚½B($mday“ú$hour$min•ª)<BR>\n");
+	unshift(@S_MOVE,"<font color=red><B>\[å‰Šé™¤\]</B></font> $knameã¯å‰Šé™¤ã•ã‚Œã¾ã—ãŸã€‚($mdayæ—¥$houræ™‚$minåˆ†)<BR>\n");
 	splice(@S_MOVE,20);
 
-	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @S_MOVE;
 	close(OUT);
 
 	&HEADER;
 	print <<"EOM";
-<center><h2><font color=red>$kname‚ğíœ‚µ‚Ü‚µ‚½B</font></h2><hr size=0>
+<center><h2><font color=red>$knameã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚</font></h2><hr size=0>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 <br></form>
 EOM
 
@@ -627,15 +627,15 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/ ƒtƒ@ƒCƒ‹íœ _/#
+#_/ ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤ _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub DEL2 {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 &HOST_NAME;
-	open(IN,"./charalog/main/$in{'filename'}") or &ERR2('ƒtƒ@ƒCƒ‹‚ğíœ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"./charalog/main/$in{'filename'}") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@CN_DATA = <IN>;
 	close(IN);
 	($kid,$kpass,$kname) = split(/<>/,$CN_DATA[0]);
@@ -646,7 +646,7 @@ sub DEL2 {
 	unlink("$dir2/$in{'filename'}");
 	$dir2="./charalog/command";
 	unlink("$dir2/$in{'filename'}");
-	&ADMIN_LOG("<font color=red>$kname‚ğíœ‚µ‚Ü‚µ‚½Bu$hostv </font>");
+	&ADMIN_LOG("<font color=red>$knameã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚ã€Œ$hostã€ </font>");
 
 	open(IN,"$DEF_LIST");
 	@DEF_LIST = <IN>;
@@ -666,11 +666,11 @@ sub DEL2 {
 
 	&HEADER;
 	print <<"EOM";
-<center><h2><font color=red>$kname‚ğíœ‚µ‚Ü‚µ‚½B</font></h2><hr size=0>
+<center><h2><font color=red>$knameã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚</font></h2><hr size=0>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 <br></form>
 EOM
 
@@ -679,7 +679,7 @@ EOM
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/ ŠÇ—ÒƒƒO   _/#
+#_/ ç®¡ç†è€…ãƒ­ã‚°   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub ADMIN_LOG {
@@ -689,39 +689,39 @@ sub ADMIN_LOG {
 	close(IN);
 	&TIME_DATA;
 
-	unshift(@A_LOG,"$_[0]($mday“ú$hour$min•ª)<BR>\n");
+	unshift(@A_LOG,"$_[0]($mdayæ—¥$houræ™‚$minåˆ†)<BR>\n");
 	splice(@A_LOG,20);
 
-	open(OUT,">$ADMIN_LIST") or &ERR2('LOG V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$ADMIN_LIST") or &ERR2('LOG æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @A_LOG;
 	close(OUT);
 
 }
 
 #_/_/_/_/_/_/_/_/_/#
-#_/   ‰Šú‰»     _/#
+#_/   åˆæœŸåŒ–     _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub INIT_DATA {
 
 	if($in{'id'} ne "$adminid" || $in{'pass'} ne "$adminpass"){
-	&ERR2("‚h‚cAƒpƒXƒ[ƒhƒGƒ‰[ $num ");}
+	&ERR2("ï¼©ï¼¤ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼ $num ");}
 
 	require "reset.cgi";
 	&RESET_MODE;
 	&HOST_NAME;
 
-	&ADMIN_LOG("‘Sƒf[ƒ^‚ğ‰Šú‰»‚µ‚Ü‚µ‚½B[$host]");
+	&ADMIN_LOG("å…¨ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã—ã¾ã—ãŸã€‚[$host]");
 
 	&HEADER;
 	print <<"EOM";
-<h2><font color=red>‘Sƒf[ƒ^‚ğ‰Šú‰»‚µ‚Ü‚µ‚½B</h2></font>
+<h2><font color=red>å…¨ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã—ã¾ã—ãŸã€‚</h2></font>
 <br>
 <br>
 <form method="post" action="admin.cgi">
 <input type=hidden name=id value="$in{id}">
 <input type=hidden name=pass value="$in{pass}">
-<input type=submit value='–ß‚é'>
+<input type=submit value='æˆ»ã‚‹'>
 </form>
 <br>
 EOM

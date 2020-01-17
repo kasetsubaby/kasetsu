@@ -1,16 +1,16 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    ‰ï‹cŽº    _/#
+#_/    ä¼šè­°å®¤    _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub COUNTRY_TALK {
 
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN("$kcon");
-    if($xcid eq 0){&ERR("–³Š‘®‘‚ÍŽg—p‚Å‚«‚Ü‚¹‚ñB");}
+    if($xcid eq 0){&ERR("ç„¡æ‰€å±žå›½ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚");}
 	$sno = $kclass / 500;
 	if($sno > 20){$sno = 20;}
 
-	open(IN,"$BBS_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country_bbs');
+	open(IN,"$BBS_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country_bbs');
 	@BBS_DATA = <IN>;
 	close(IN);
 
@@ -20,7 +20,7 @@ sub COUNTRY_TALK {
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100%>
 <TBODY><TR>
-<TD BGCOLOR=$ELE_BG[$xele] WIDTH=100% height=5>@<font color=$ELE_C[$xele] size=4>@@@ƒƒ<B> * $xname ‰ï‹cŽº *</B>„„</font></TD>
+<TD BGCOLOR=$ELE_BG[$xele] WIDTH=100% height=5>ã€€<font color=$ELE_C[$xele] size=4>ã€€ã€€ã€€ï¼œï¼œ<B> * $xname ä¼šè­°å®¤ *</B>ï¼žï¼ž</font></TD>
 </TR><TR>
 <TD height=5>
 <TABLE border="0"><TBODY>
@@ -30,15 +30,15 @@ sub COUNTRY_TALK {
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºŽm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±çŽ‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±žå›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="“sŽs‚É–ß‚é"></form>
+<input type=submit value="éƒ½å¸‚ã«æˆ»ã‚‹"></form>
 </TD>
 </TR>
 </TBODY></TABLE>
@@ -47,7 +47,7 @@ sub COUNTRY_TALK {
 <TR>
 <TD height="5">
 <TABLE border="0" width=100%><TBODY>
-<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>Ž©‘ê—p‚ÌŒfŽ¦”Â‚Å‚·B<BR>“¯‚¶ŒR‚Ì•û‚Æ‚ÌƒRƒ~ƒ…ƒjƒP[ƒVƒ‡ƒ“‚ÉŒäŽg‚¢‚­‚¾‚³‚¢B</font></TD>
+<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>è‡ªå›½å°‚ç”¨ã®æŽ²ç¤ºæ¿ã§ã™ã€‚<BR>åŒã˜è»ã®æ–¹ã¨ã®ã‚³ãƒŸãƒ¥ãƒ‹ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã«å¾¡ä½¿ã„ãã ã•ã„ã€‚</font></TD>
 </TR>
 </TBODY></TABLE>
 </TD>
@@ -56,14 +56,14 @@ sub COUNTRY_TALK {
 <TD align=center>
 
 <br><form action="./mydata.cgi" method="post">
-‘è–¼<input type=text name=title size=40><p>
+é¡Œå<input type=text name=title size=40><p>
 <textarea name=ins cols=40 rows=7>
 </TEXTAREA> <img src="$IMG/$kchara.gif"><p>
 
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=COUNTRY_WRITE>
-<input type=submit value="ŒfŽ¦">
+<input type=submit value="æŽ²ç¤º">
 </form>
 </font>
 EOM
@@ -89,7 +89,7 @@ EOM
 
   <TBODY>
     <TR>
-      <TD colspan=2 bgcolor=$ELE_BG[$xele]><B><font size=3 color=$ELE_C[$bbele]>$bno ¥$bbtitle</font></B></TD>
+      <TD colspan=2 bgcolor=$ELE_BG[$xele]><B><font size=3 color=$ELE_C[$bbele]>$bno â–¼$bbtitle</font></B></TD>
     </TR>
     <TR>
       <TD width=80 rowspan=3 valign=middle align=center><img src=$IMG/$bbcharaimg.gif></TD>
@@ -118,7 +118,7 @@ EOM
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=b_no value=$bbno>
 <input type=hidden name=mode value=COUNTRY_WRITE>
-<input type=submit value=•ÔM>
+<input type=submit value=è¿”ä¿¡>
 </TD></TR></form>";
 				}
 			$s_n++;
@@ -163,7 +163,7 @@ EOM
 <input type=hidden name=bbs_no value=$n_bbs>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
-<input type=submit value=\"ŽŸ‚Ì$BBS_NEXT_NUMŒ\">
+<input type=submit value=\"æ¬¡ã®$BBS_NEXT_NUMä»¶\">
 </form>";
 	}
 print <<"EOM";

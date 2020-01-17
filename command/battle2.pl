@@ -1,11 +1,11 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        í‘ˆ‚Q      #
+#        æˆ¦äº‰ï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub BATTLE2 {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} eq ""){&ERR("U‚ß‚Şæ‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} eq ""){&ERR("æ”»ã‚è¾¼ã‚€å…ˆãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 	&TIME_DATA;
@@ -23,7 +23,7 @@ sub BATTLE2 {
 	@NEW_COM_DATA=();$i=0;
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-			push(@NEW_COM_DATA,"18<><>$town_name[$num]‚Öo•º<>$tt<><>$in{'num'}<><>\n");
+			push(@NEW_COM_DATA,"18<><>$town_name[$num]ã¸å‡ºå…µ<>$tt<><>$in{'num'}<><>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -34,7 +34,7 @@ sub BATTLE2 {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-					push(@NEW_COM_DATA,"18<><>$town_name[$num]‚Öo•º<>$tt<><>$in{'num'}<><>\n");
+					push(@NEW_COM_DATA,"18<><>$town_name[$num]ã¸å‡ºå…µ<>$tt<><>$in{'num'}<><>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -48,7 +48,7 @@ sub BATTLE2 {
 
 	}
 
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
@@ -56,12 +56,12 @@ sub BATTLE2 {
 
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚É$town_name[$num]‚Öo•º‚ğ“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«$town_name[$num]ã¸å‡ºå…µã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#       Žd  Š¯       #
+#       ä»•  å®˜       #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SHIKAN {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN($kpos);
 	&COUNTRY_DATA_OPEN($zcon);
@@ -20,7 +20,7 @@ sub SHIKAN {
 	@NEW_COM_DATA=();$i=0;
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-			push(@NEW_COM_DATA,"$in{'mode'}<><>ŽdŠ¯<>$tt<><>$zcon<><>\n");
+			push(@NEW_COM_DATA,"$in{'mode'}<><>ä»•å®˜<>$tt<><>$zcon<><>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -30,7 +30,7 @@ sub SHIKAN {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-				push(@NEW_COM_DATA,"$in{'mode'}<><>ŽdŠ¯<>$tt<><>$zcon<><>\n");
+				push(@NEW_COM_DATA,"$in{'mode'}<><>ä»•å®˜<>$tt<><>$zcon<><>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -42,19 +42,19 @@ sub SHIKAN {
 			$i++;
 		}
 	}
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚ÉŽdŠ¯‚ð“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«ä»•å®˜ã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

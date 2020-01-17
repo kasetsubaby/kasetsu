@@ -1,13 +1,13 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#      •Ä”„”ƒ        #
+#      ç±³å£²è²·        #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub BUY2 {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} eq "" || $in{'num'} eq "0"){&ERR("”„”ƒ‚·‚é”‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'type'} eq ""){&ERR("”„‚è”ƒ‚¢‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'num'} =~ m/[^0-9]/){&ERR("”„”ƒ‚·‚é”‚É”ŽšˆÈŠO‚Ì•¶Žš‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} eq "" || $in{'num'} eq "0"){&ERR("å£²è²·ã™ã‚‹æ•°ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'type'} eq ""){&ERR("å£²ã‚Šè²·ã„ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'num'} =~ m/[^0-9]/){&ERR("å£²è²·ã™ã‚‹æ•°ã«æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 
@@ -23,9 +23,9 @@ sub BUY2 {
 	$sou2 = int((2-$zsouba)*$in{'num'});
 	$pnum = $in{'num'} + 0;
 	if($in{'type'}){
-		$title_name = "•Ä‚ð$pnum”„‚é\[‹à$sou1\]";
+		$title_name = "ç±³ã‚’$pnumå£²ã‚‹\[é‡‘$sou1\]";
 	}else{
-		$title_name = "‹à‚ð$pnum”„‚é\[•Ä$sou2\]";
+		$title_name = "é‡‘ã‚’$pnumå£²ã‚‹\[ç±³$sou2\]";
 	}
 
 	@NEW_COM_DATA=();$i=0;
@@ -53,19 +53,19 @@ sub BUY2 {
 			$i++;
 		}
 	}
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no‚É$title_name‚ð“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>NO:$noã«$title_nameã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;
