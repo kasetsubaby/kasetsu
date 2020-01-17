@@ -1,34 +1,34 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        w—ß‚Q      #
+#        æŒ‡ä»¤ï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub KING_COM2 {
 
-	if($in{'mes'} eq ""){&ERR("w—ß‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if(length($in{'mes'}) > 100) { &ERR("è†‚ÍA‘SŠp50•¶šˆÈ‰º‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B"); }
+	if($in{'mes'} eq ""){&ERR("æŒ‡ä»¤ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if(length($in{'mes'}) > 100) { &ERR("æ‰‹ç´™ã¯ã€å…¨è§’50æ–‡å­—ä»¥ä¸‹ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"); }
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN($kcon);
 
-	if($xking ne $kid && $xgunshi ne $kid){&ERR("‰¤‚©ŒRt‚Å‚È‚¯‚ê‚ÎÀs‚Å‚«‚Ü‚¹‚ñB");}
+	if($xking ne $kid && $xgunshi ne $kid){&ERR("ç‹ã‹è»å¸«ã§ãªã‘ã‚Œã°å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
 
 	if($xking eq $kid){
-		$add = "ŒNå";
+		$add = "å›ä¸»";
 	}elsif($xgunshi eq $kid){
-		$add = "ŒRt";
+		$add = "è»å¸«";
 	}
 
-	$xmes = "$in{'mes'}($add:$kname‚æ‚è)";
+	$xmes = "$in{'mes'}($add:$knameã‚ˆã‚Š)";
 	&COUNTRY_DATA_INPUT;
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>w—ß‚ğ“ü—Í‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>æŒ‡ä»¤ã‚’å…¥åŠ›ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

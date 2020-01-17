@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/#
-#      ’b˜B      #
+#      é›éŒ¬      #
 #_/_/_/_/_/_/_/_/#
 
 sub TANREN {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 	&TIME_DATA;
@@ -20,41 +20,41 @@ sub TANREN {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - ’b ˜B - </font>
+<font color=ffffff> - é› éŒ¬ - </font>
 </TH></TR>
 <TR><TD>
 
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºŽm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±çŽ‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±žå›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>’b˜B‚ð‚Â‚ÞŽ–‚ÅŒoŒ±‚ª‚ ‚ª‚è‚Ü‚·B<BR>’b˜B‚ð‚Â‚Þˆ×‚É‚Í‚T‚OG•K—v‚Å‚·B<BR>ŒoŒ±‚ª‚ ‚éˆê’èˆÈã‚ð’´‚¦‚é‚Æ\”\\—Í‚ªã¸‚µ‚Ü‚·B</font>
+<font color=white>é›éŒ¬ã‚’ã¤ã‚€äº‹ã§çµŒé¨“ãŒã‚ãŒã‚Šã¾ã™ã€‚<BR>é›éŒ¬ã‚’ã¤ã‚€ç‚ºã«ã¯ï¼•ï¼Gå¿…è¦ã§ã™ã€‚<BR>çµŒé¨“ãŒã‚ã‚‹ä¸€å®šä»¥ä¸Šã‚’è¶…ãˆã‚‹ã¨\èƒ½\åŠ›ãŒä¸Šæ˜‡ã—ã¾ã™ã€‚</font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
-‚Ç‚Ì\”\\—Í\‚ð’b‚¦‚Ü‚·‚©H
+ã©ã®\èƒ½\åŠ›\ã‚’é›ãˆã¾ã™ã‹ï¼Ÿ
 <form action="$COMMAND" method="POST"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
 <select name=num>
-<option value=1>•—Í
-<option value=2>’m—Í
-<option value=3>“—¦—Í
+<option value=1>æ­¦åŠ›
+<option value=2>çŸ¥åŠ›
+<option value=3>çµ±çŽ‡åŠ›
 </select>
 $no_list
 <input type=hidden name=mode value=27>
-<input type=submit value=\"’b‚¦‚é\"></form>
+<input type=submit value=\"é›ãˆã‚‹\"></form>
 
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 

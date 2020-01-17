@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#      ���Ɣ��W      #
+#      商業発展      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SYOUGYOU {
 
-	if($in{'no'} eq ""){&ERR("NO:�����͂���Ă��܂���B");}
+	if($in{'no'} eq ""){&ERR("NO:が入力されていません。");}
 	&CHARA_MAIN_OPEN;
 	&TIME_DATA;
 
@@ -19,7 +19,7 @@ sub SYOUGYOU {
 	@NEW_COM_DATA=();$i=0;
 	if($in{'no'} eq "all"){
 		while(@NEW_COM_DATA < $MAX_COM){
-			push(@NEW_COM_DATA,"$in{'mode'}<><>���Ɣ��W<>$tt<><><><>\n");
+			push(@NEW_COM_DATA,"$in{'mode'}<><>商業発展<>$tt<><><><>\n");
 		}
 		$no = $in{'no'};
 	}else{
@@ -29,7 +29,7 @@ sub SYOUGYOU {
 			foreach(@no){
 				if($i eq $_){
 					$ahit=1;
-				push(@NEW_COM_DATA,"$in{'mode'}<><>���Ɣ��W<>$tt<><><><>\n");
+				push(@NEW_COM_DATA,"$in{'mode'}<><>商業発展<>$tt<><><><>\n");
 					$lno = $_ + 1;
 					$no .= "$lno,";
 				}
@@ -42,19 +42,19 @@ sub SYOUGYOU {
 		}
 	}
 
-	open(OUT,">./charalog/command/$kid.cgi") or &ERR('�t�@�C�����J���܂���ł����B');
+	open(OUT,">./charalog/command/$kid.cgi") or &ERR('ファイルを開けませんでした。');
 	print OUT @NEW_COM_DATA;
 	close(OUT);
 
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>NO:$no�ɏ��Ɣ��W����͂��܂����B</h2><p>
+<CENTER><hr size=0><h2>NO:$noに商業発展を入力しました。</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="�n�j"></form></CENTER>
+<input type=submit value="ＯＫ"></form></CENTER>
 EOM
 
 	&FOOTER;

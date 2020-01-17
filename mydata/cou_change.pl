@@ -1,16 +1,16 @@
 #_/_/_/_/_/_/_/_/_/#
-#      ‘•ÏX      #
+#      å›½å¤‰æ›´      #
 #_/_/_/_/_/_/_/_/_/#
 
 sub COU_CHANGE {
 
-	if($in{'sel'} eq "") { &ERR("‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ"); }
-	if($in{'hcon'} eq "$kcon") { &ERR("©•ª‚Ì‘‚Å‚·B"); }
+	if($in{'sel'} eq "") { &ERR("é¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“"); }
+	if($in{'hcon'} eq "$kcon") { &ERR("è‡ªåˆ†ã®å›½ã§ã™ã€‚"); }
 
 	if($REFREE){
 		$r_str = length("$SANGOKU_URL");
 		$r_url = substr("$ENV{'HTTP_REFERER'}", 0, $r_str);
-		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>‚»‚ÌƒLƒƒƒ‰ƒNƒ^[‚Íì‚ê‚Ü‚¹‚ñB<BR>ŠÇ—Ò‚É–â‚¢‡‚í‚¹‚Ä‰º‚³‚¢B<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
+		if($r_url ne $SANGOKU_URL){ &ERR2("ERR No.002<BR>ãã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã¯ä½œã‚Œã¾ã›ã‚“ã€‚<BR>ç®¡ç†è€…ã«å•ã„åˆã‚ã›ã¦ä¸‹ã•ã„ã€‚<BR>P1:$ROSER_URL <BR>P2:$r_url"); }
 	}
 
 	$sel = $in{'sel'};
@@ -24,7 +24,7 @@ sub COU_CHANGE {
 	foreach(@B_LIST){
 		($bid,$bcon,$bname,$bsub) = split(/<>/);
 		if($bid eq $kid && $bcon eq $kcon && $in{'hid'} ne $xking){
-			&ERR("‚»‚Ì‘‚Ö‚ÌdŠ¯‚Í‹‘”Û‚³‚ê‚Ü‚µ‚½B");
+			&ERR("ãã®å›½ã¸ã®ä»•å®˜ã¯æ‹’å¦ã•ã‚Œã¾ã—ãŸã€‚");
 		}
 	}
 
@@ -34,10 +34,10 @@ sub COU_CHANGE {
 		$kgold += 100;
 		$kpos = $in{'hpos'};
 		$kcon = $in{'hcon'};
-		$res_mes = "$kname‚Í$cou_name[$kcon]‘‚ÉQ•Ô‚è‚Ü‚µ‚½B";
-		&MAP_LOG("$kname‚Í$cou_name[$kcon]‘‚ÉQ•Ô‚è‚Ü‚µ‚½B");
+		$res_mes = "$knameã¯$cou_name[$kcon]å›½ã«å¯è¿”ã‚Šã¾ã—ãŸã€‚";
+		&MAP_LOG("$knameã¯$cou_name[$kcon]å›½ã«å¯è¿”ã‚Šã¾ã—ãŸã€‚");
 	}else{
-		$res_mes = "$kname‚Í’šd‚É’f‚è‚Ü‚µ‚½B";
+		$res_mes = "$knameã¯ä¸é‡ã«æ–­ã‚Šã¾ã—ãŸã€‚";
 	}
 
 	open(IN,"$MESSAGE_LIST2");
@@ -48,7 +48,7 @@ sub COU_CHANGE {
 	foreach(@MES){
 		($pid,$hid,$hpos,$hname,$hmessage,$pname,$htime,$hchara,$hcon) = split(/<>/);
 		if($in{'hcon'} eq $hcon && $in{'hpos'} eq $hpos && $pid eq $kid && $htime eq "9999"){
-			open(IN,"./charalog/main/$hid\.cgi") or &ERR('‚»‚ÌƒLƒƒƒ‰‚Í“o—p‚Å‚«‚Ü‚¹‚ñB');
+			open(IN,"./charalog/main/$hid\.cgi") or &ERR('ãã®ã‚­ãƒ£ãƒ©ã¯ç™»ç”¨ã§ãã¾ã›ã‚“ã€‚');
 			@E_DATA = <IN>;
 			close(IN);
 			($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
@@ -71,7 +71,7 @@ sub COU_CHANGE {
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 	&FOOTER;
 

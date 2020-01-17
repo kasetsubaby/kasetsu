@@ -1,14 +1,14 @@
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#      ƒƒbƒZ[ƒW‘—Mˆ—      #
+#      ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é€ä¿¡å‡¦ç†      #
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub MES_SEND {
 
-	if($in{'message'} eq "") { &ERR("ƒƒbƒZ[ƒW‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ"); }
-	if($in{'mes_id'} eq "") { &ERR("‘Šè‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ"); }
-	if(length($in{'message'}) > 200) { &ERR("è†‚ÍA‘SŠp‚P‚O‚O•¶šˆÈ‰º‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B"); }
+	if($in{'message'} eq "") { &ERR("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“"); }
+	if($in{'mes_id'} eq "") { &ERR("ç›¸æ‰‹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã›ã‚“"); }
+	if(length($in{'message'}) > 200) { &ERR("æ‰‹ç´™ã¯ã€å…¨è§’ï¼‘ï¼ï¼æ–‡å­—ä»¥ä¸‹ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"); }
 	&CHARA_MAIN_OPEN;
-	if($in{'mes_id'} eq "$kid") { &ERR("©•ª‚É‚Í‘—‚ê‚Ü‚¹‚ñB"); }
+	if($in{'mes_id'} eq "$kid") { &ERR("è‡ªåˆ†ã«ã¯é€ã‚Œã¾ã›ã‚“ã€‚"); }
 	&TOWN_DATA_OPEN($kpos);
 	&COUNTRY_DATA_OPEN($kcon);
 
@@ -18,7 +18,7 @@ sub MES_SEND {
 
 	$bum = length($mes_id);
 
-	open(IN,"$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@MES_REG = <IN>;
 	close(IN);
 
@@ -26,7 +26,7 @@ sub MES_SEND {
 		$jname = "$zname";
 	}elsif($in{'mes_id'} eq "333"){
 
-		open(IN,"$UNIT_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+		open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 		@UNI_DATA = <IN>;
 		close(IN);
 
@@ -35,16 +35,16 @@ sub MES_SEND {
 			($unit_id,$uunit_name,$ucon,$ureader,$uid,$uname,$uchara,$umes,$uflg)=split(/<>/);
 			if("$uid" eq "$kid"){$uhit=1;last;}
 		}
-		if(!$uhit || "$xcid" eq "0"){&ERR("–³Š‘®‚Í•”‘à‚Ö‘—‚ê‚Ü‚¹‚ñB");}
-		$jname = "$uunit_name•”‘à";
+		if(!$uhit || "$xcid" eq "0"){&ERR("ç„¡æ‰€å±ã¯éƒ¨éšŠã¸é€ã‚Œã¾ã›ã‚“ã€‚");}
+		$jname = "$uunit_nameéƒ¨éšŠ";
 		$hunit = $unit_id;
 		if($unit_id eq $kid){
-		$u_add ="<font color=FFCC33><B>[‘à’·]</b></font>";
+		$u_add ="<font color=FFCC33><B>[éšŠé•·]</b></font>";
 		}else{
-		$u_add ="<font color=33CCFF><B>[‘àˆõ]</b></font>";
+		$u_add ="<font color=33CCFF><B>[éšŠå“¡]</b></font>";
 		}
 	}elsif($bum < 4){
-		$jname = "$cou_name[$mes_id]‘";
+		$jname = "$cou_name[$mes_id]å›½";
 	}else{
 		open(IN,"./charalog/main/$in{'mes_id'}.cgi");
 		@C_DATA = <IN>;
@@ -63,12 +63,12 @@ sub MES_SEND {
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>$jname‚Öè†‚ğ‘—‚è‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>$jnameã¸æ‰‹ç´™ã‚’é€ã‚Šã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 	&FOOTER;
 

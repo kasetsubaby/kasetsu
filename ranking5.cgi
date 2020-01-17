@@ -1,31 +1,31 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR2("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
-#if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ƒAƒhƒŒƒXƒo[‚É’l‚ğ“ü—Í‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B"); }
+#if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒãƒ¼ã«å€¤ã‚’å…¥åŠ›ã—ãªã„ã§ãã ã•ã„ã€‚"); }
 &RANKING;
 
 
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#      Q‰ÁÒƒŠƒXƒg‚n‚o‚d‚m      #
+#      å‚åŠ è€…ãƒªã‚¹ãƒˆï¼¯ï¼°ï¼¥ï¼®      #
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub RANKING {
 
 	&SERVER_STOP;
-	open(IN,"$COUNTRY_NO_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$COUNTRY_NO_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@COU_DATA = <IN>;
 	close(IN);
 	$country_no=1;
@@ -41,7 +41,7 @@ sub RANKING {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -60,21 +60,21 @@ sub RANKING {
 
 	$i=1;
 
-	$best_list = "<TR><TD align=center>ƒ^ƒCƒgƒ‹</TD><TD align=center>”’l</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$best_list = "<TR><TD align=center>ã‚¿ã‚¤ãƒˆãƒ«</TD><TD align=center>æ•°å€¤</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 
-	$point_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>‘‡</TD><TD align=center>•—Í</TD><TD align=center>’m—Í</TD><TD align=center>“—¦—Í</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$point_list = "<TR><TD align=center>é †ä½</TD><TD align=center>ç·åˆ</TD><TD align=center>æ­¦åŠ›</TD><TD align=center>çŸ¥åŠ›</TD><TD align=center>çµ±ç‡åŠ›</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@POINT){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#1'>‘‡\”\\—ÍNo.1</a></TH><TH>$klpoint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-			$point_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$klpoint</TH><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#1'>ç·åˆ\èƒ½\åŠ›No.1</a></TH><TH>$klpoint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+			$point_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$klpoint</TH><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$point_list .= "<TR><TD align=center>$i</TD><TH>$klpoint</TH><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$point_list .= "<TR><TD align=center>$i</TD><TH>$klpoint</TH><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -85,19 +85,19 @@ sub RANKING {
 	@STR = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$str_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>•—Í</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$str_list = "<TR><TD align=center>é †ä½</TD><TD align=center>æ­¦åŠ›</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@STR){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#2'>•—ÍNo.1</a></TH><TH>$kstr</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$str_list .= "<TR><TH><font color=blue>y$iz</font></TD><TH>$kstr</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#2'>æ­¦åŠ›No.1</a></TH><TH>$kstr</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$str_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TD><TH>$kstr</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$str_list .= "<TR><TD align=center>$i</TD><TH>$kstr</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$str_list .= "<TR><TD align=center>$i</TD><TH>$kstr</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -108,19 +108,19 @@ sub RANKING {
 	@INT = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$int_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>’m—Í</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$int_list = "<TR><TD align=center>é †ä½</TD><TD align=center>çŸ¥åŠ›</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@INT){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#3'>’m—ÍNo.1</a></TH><TH>$kint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-			$int_list .= "<TR><TH><font color=blue>y$iz</TH><TH>$kint</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#3'>çŸ¥åŠ›No.1</a></TH><TH>$kint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+			$int_list .= "<TR><TH><font color=blue>ã€$iã€‘</TH><TH>$kint</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$int_list .= "<TR><TD align=center>$i</TD><TH>$kint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$int_list .= "<TR><TD align=center>$i</TD><TH>$kint</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -130,19 +130,19 @@ sub RANKING {
 	@LER = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$lea_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“—¦—Í</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$lea_list = "<TR><TD align=center>é †ä½</TD><TD align=center>çµ±ç‡åŠ›</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@LER){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-		$lea_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$klea</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#4'>“—¦—ÍNo.1</a></TH><TH>$klea</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$lea_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$klea</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#4'>çµ±ç‡åŠ›No.1</a></TH><TH>$klea</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$lea_list .= "<TR><TD align=center>$i</TD><TH>$klea</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$lea_list .= "<TR><TD align=center>$i</TD><TH>$klea</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -152,19 +152,19 @@ sub RANKING {
 	@CHA = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$cha_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>l–]</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$cha_list = "<TR><TD align=center>é †ä½</TD><TD align=center>äººæœ›</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@CHA){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#5'>l–]No.1</a></TH><TH>$kcha</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$cha_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$kcha</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#5'>äººæœ›No.1</a></TH><TH>$kcha</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$cha_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$kcha</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$cha_list .= "<TR><TD align=center>$i</TD><TH>$kcha</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$cha_list .= "<TR><TD align=center>$i</TD><TH>$kcha</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -174,19 +174,19 @@ sub RANKING {
 	@GOLD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$gold_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>‹à</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$gold_list = "<TR><TD align=center>é †ä½</TD><TD align=center>é‡‘</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@GOLD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#6'>Š‹àNo.1</a></TH><TH>‹à:$kgold</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$gold_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>‹à:$kgold</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#6'>æ‰€æŒé‡‘No.1</a></TH><TH>é‡‘:$kgold</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$gold_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>é‡‘:$kgold</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$gold_list .= "<TR><TD align=center>$i</TD><TH>‹à:$kgold</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$gold_list .= "<TR><TD align=center>$i</TD><TH>é‡‘:$kgold</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -197,19 +197,19 @@ sub RANKING {
 	@RICE = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$rice_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>•Ä</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$rice_list = "<TR><TD align=center>é †ä½</TD><TD align=center>ç±³</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@RICE){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#7'>’•¨No.1</a></TH><TH>•Ä:$krice</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$rice_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>•Ä:$krice</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#7'>ç©€ç‰©No.1</a></TH><TH>ç±³:$krice</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$rice_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>ç±³:$krice</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$rice_list .= "<TR><TD align=center>$i</TD><TH>•Ä:$krice</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$rice_list .= "<TR><TD align=center>$i</TD><TH>ç±³:$krice</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -220,19 +220,19 @@ sub RANKING {
 	@CLASS = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$class_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>ŠK‹‰’l</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$class_list = "<TR><TD align=center>é †ä½</TD><TD align=center>éšç´šå€¤</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@CLASS){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#8'>ŠK‹‰’lNo.1</a></TH><TH>$kclass</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$class_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$kclass</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#8'>éšç´šå€¤No.1</a></TH><TH>$kclass</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$class_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$kclass</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$class_list .= "<TR><TD align=center>$i</TD><TH>$kclass</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$class_list .= "<TR><TD align=center>$i</TD><TH>$kclass</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -242,11 +242,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -254,10 +254,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#9'>NU¬Œ÷No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#9'>ä¾µæ”»æˆåŠŸNo.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -267,11 +267,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -279,10 +279,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#10'>çŒì¬Œ÷No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#10'>å®ˆè­·æˆåŠŸNo.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -292,11 +292,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -304,10 +304,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#11'>NU¸”sNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#11'>ä¾µæ”»å¤±æ•—No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -317,11 +317,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -329,10 +329,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#12'>ç”õ¸”sNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#12'>å®ˆå‚™å¤±æ•—No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -342,11 +342,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -354,10 +354,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#13'>éU‚ßNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#13'>åŸæ”»ã‚No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -367,11 +367,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -379,10 +379,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#14'>é•Ç”j‰óNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#14'>åŸå£ç ´å£ŠNo.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -392,11 +392,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -404,10 +404,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#15'>“ssx”zNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#15'>éƒ½å¸‚æ”¯é…No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -417,11 +417,11 @@ sub RANKING {
   @DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
   $i=1;
-  $dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•º”No.1</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+  $dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸå…µæ•°No.1</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
   foreach(@DEAD){
     ($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
     if($cou_name[$kcon] eq ""){
-      $kcon_name= "–³Š‘®";
+      $kcon_name= "ç„¡æ‰€å±";
     }else{
       $kcon_name= "$cou_name[$kcon]";
     }
@@ -429,10 +429,10 @@ sub RANKING {
       $knum=0;
     }
     if($i eq 1){
-      $best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#16'>“|‚µ‚½•º”No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-    $dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+      $best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#16'>å€’ã—ãŸå…µæ•°No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+    $dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
     }else{
-    $dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+    $dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
     }
     $i++;
     if($i>10){last;}
@@ -442,11 +442,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•º”No.1</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸå…µæ•°No.1</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -454,10 +454,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#16'>“|‚³‚ê‚½•º”No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#16'>å€’ã•ã‚ŒãŸå…µæ•°No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -467,11 +467,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -479,10 +479,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#17'>‘¹ŠQ‘ŠzNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#17'>æå®³ç·é¡No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -492,11 +492,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -504,10 +504,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#18'>”íŠQ‘ŠzNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#18'>è¢«å®³ç·é¡No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -517,11 +517,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -529,10 +529,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#19'>•ŠíNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#19'>æ­¦å™¨No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -542,11 +542,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -554,10 +554,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#20'>–h‹ïNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#20'>é˜²å…·No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -567,11 +567,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -579,10 +579,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#21'>‘•¨No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#21'>æ›¸ç‰©No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -592,11 +592,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -604,10 +604,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#22'>ŠøNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#22'>æ——No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -617,11 +617,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -629,10 +629,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#23'>Œ£‹à‘ŠzNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#23'>çŒ®é‡‘ç·é¡No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -642,11 +642,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -654,10 +654,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#24'>”plNo.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#24'>å»ƒäººNo.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -667,11 +667,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -679,10 +679,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#25'>U‚ß‘¤Ÿ—¦No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#25'>æ”»ã‚å´å‹ç‡No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -692,11 +692,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -704,10 +704,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#26'>ç”õ‘¤Ÿ—¦No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#26'>å®ˆå‚™å´å‹ç‡No.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -717,11 +717,11 @@ sub RANKING {
 	@DEAD = @CL_DATA[sort {$tmp[$b] <=> $tmp[$a]} 0 .. $#tmp];
 
 	$i=1;
-	$dead_list = "<TR><TD align=center>‡ˆÊ</TD><TD align=center>“|‚µ‚½•«”</TD><TD align=center colspan=2>–¼‘O</TD><TD align=center>‘</TD></TR>";
+	$dead_list = "<TR><TD align=center>é †ä½</TD><TD align=center>å€’ã—ãŸæ­¦å°†æ•°</TD><TD align=center colspan=2>åå‰</TD><TD align=center>å›½</TD></TR>";
 	foreach(@DEAD){
 		($kid,$kpass,$kname,$kchara,$kstr,$kint,$klea,$kcha,$ksol,$kgat,$kcon,$kgold,$krice,$kcex,$kclass,$karm,$kbook,$kbank,$ksub1,$ksub2,$kpos,$kmes,$khost,$kdate,$kmail,$kos,$klpoint,$knum) = split(/<>/);
 		if($cou_name[$kcon] eq ""){
-			$kcon_name= "–³Š‘®";
+			$kcon_name= "ç„¡æ‰€å±";
 		}else{
 			$kcon_name= "$cou_name[$kcon]";
 		}
@@ -729,10 +729,10 @@ sub RANKING {
 			$knum=0;
 		}
 		if($i eq 1){
-			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#27'>“o—p¬Œ÷No.1</a></TH><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
-		$dead_list .= "<TR><TH><font color=blue>y$iz</font></TH><TH>$knuml</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+			$best_list .= "<TR><TH bgcolor=664422><a href='./ranking2.cgi#27'>ç™»ç”¨æˆåŠŸNo.1</a></TH><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
+		$dead_list .= "<TR><TH><font color=blue>ã€$iã€‘</font></TH><TH>$knumäºº</TH><TH><font color=AA0000>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}else{
-		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knuml</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_name‘</TD></TR>";
+		$dead_list .= "<TR><TD align=center>$i</TD><TH>$knumäºº</TH><TH><font color=885522>$kname</TH><TD width=5><img src=$IMG/$kchara.gif></TD><TD align=center>$kcon_nameå›½</TD></TR>";
 		}
 		$i++;
 		if($i>10){last;}
@@ -742,39 +742,39 @@ sub RANKING {
 	&HEADER;
 
 	print <<"EOM";
-  <b>Šeí€–Ú‚É‚¨‚¯‚é•«ƒ^ƒCƒv•Ê‚Ì•½‹Ï</b>
+  <b>å„ç¨®é …ç›®ã«ãŠã‘ã‚‹æ­¦å°†ã‚¿ã‚¤ãƒ—åˆ¥ã®å¹³å‡</b>
   <table border="1">
-  <tr><td>l”i‘S‘Ì89lj</td><td>Ÿ—¦</td><td>–hŒä—¦</td><td>—^‚¦‚½‘¹ŠQ€ó‚¯‚½‘¹ŠQi¦‘å‚«‚¢•û‚ª—Ç‚¢j‘S‘Ì(1)</td><td>‚n‚m—¦ ‘S‘Ì(37“)</td></tr>
+  <tr><td>äººæ•°ï¼ˆå…¨ä½“89äººï¼‰</td><td>å‹ç‡</td><td>é˜²å¾¡ç‡</td><td>ä¸ãˆãŸæå®³Ã·å—ã‘ãŸæå®³ï¼ˆâ€»å¤§ãã„æ–¹ãŒè‰¯ã„ï¼‰å…¨ä½“(1)</td><td>ï¼¯ï¼®ç‡ å…¨ä½“(37ï¼…)</td></tr>
   <tr><td>
-  •Š¯15l<br>
-  •¶Š¯26l<br>
-  l–]Š¯27l<br>
-  “—¦Š¯21l<br>
+  æ­¦å®˜15äºº<br>
+  æ–‡å®˜26äºº<br>
+  äººæœ›å®˜27äºº<br>
+  çµ±ç‡å®˜21äºº<br>
 
 
   </td><td>
-  •Š¯47“<br>
+  æ­¦å®˜47ï¼…<br>
 
-  •¶Š¯24“<br>
+  æ–‡å®˜24ï¼…<br>
 
-  l–]Š¯27“<br>
+  äººæœ›å®˜27ï¼…<br>
 
-  “—¦Š¯48“<br>
+  çµ±ç‡å®˜48ï¼…<br>
   </td><td>
-  •Š¯29“<br>
-  •¶Š¯18“<br>
-  l–]Š¯19“<br>
-  “—¦Š¯38“<br>
+  æ­¦å®˜29ï¼…<br>
+  æ–‡å®˜18ï¼…<br>
+  äººæœ›å®˜19ï¼…<br>
+  çµ±ç‡å®˜38ï¼…<br>
   </td><td>
-  •Š¯1.25<br>
-  •¶Š¯0.91<br>
-  l–]Š¯0.76<br>
-  “—¦Š¯0.95<br>
+  æ­¦å®˜1.25<br>
+  æ–‡å®˜0.91<br>
+  äººæœ›å®˜0.76<br>
+  çµ±ç‡å®˜0.95<br>
   </td><td>
-  •Š¯45“<br>
-  •¶Š¯35“<br>
-  l–]Š¯36“<br>
-  “—¦Š¯37“<br>
+  æ­¦å®˜45ï¼…<br>
+  æ–‡å®˜35ï¼…<br>
+  äººæœ›å®˜36ï¼…<br>
+  çµ±ç‡å®˜37ï¼…<br>
   </td></tr>
   </table>
 
@@ -782,306 +782,306 @@ sub RANKING {
   <table><tr><td>
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>•Š¯‚ÌŸ—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>æ­¦å®˜ã®å‹ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>Ÿ—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>å‹ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
   <br>
 
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>•¶Š¯‚ÌŸ—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>æ–‡å®˜ã®å‹ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>Ÿ—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>å‹ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
 
   <br>
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>l–]Š¯‚ÌŸ—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>äººæœ›å®˜ã®å‹ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>Ÿ—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>å‹ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
   <br>
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>“—¦Š¯‚ÌŸ—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>çµ±ç‡å®˜ã®å‹ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>Ÿ—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>å‹ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
   <br>
 
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>‘S‘Ì‚ÌŸ—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚Q‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>å…¨ä½“ã®å‹ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼’ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>Ÿ—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>å‹ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
 
 
 
@@ -1089,336 +1089,336 @@ sub RANKING {
 
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>•Š¯‚Ì–h‰q—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>æ­¦å®˜ã®é˜²è¡›ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=50% width=5><br><img src="./image/img/bar3.gif" height=40% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=50% width=5><br><img src="./image/img/bar3.gif" height=40% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>–hŒä—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>é˜²å¾¡ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
   <br>
 
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>•¶Š¯‚Ì–hŒä—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>æ–‡å®˜ã®é˜²å¾¡ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>–hŒä—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>é˜²å¾¡ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
 
   <br>
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>l–]Š¯‚Ì–hŒä—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>äººæœ›å®˜ã®é˜²å¾¡ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>–hŒä—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>é˜²å¾¡ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
 
   <br>
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>“—¦Š¯‚Ì–hŒä—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚P‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>çµ±ç‡å®˜ã®é˜²å¾¡ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼‘ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=60% width=5><br><img src="./image/img/bar3.gif" height=30% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>–hŒä—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>é˜²å¾¡ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
   <br>
 
 
   <table border=1>
-  <tr><td></td><td colspan="1" align="center"><b>‘S‘Ì‚Ì–h‰q—¦•ª•z</b></td></tr>
-  <tr><td><div><p>i‚Q‚Ol`‚Olj<br><b>l”[l]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
+  <tr><td></td><td colspan="1" align="center"><b>å…¨ä½“ã®é˜²è¡›ç‡åˆ†å¸ƒ</b></td></tr>
+  <tr><td><div><p>ï¼ˆï¼’ï¼äººã€œï¼äººï¼‰<br><b>äººæ•°[äºº]</b></p></div></td><td bgcolor="#ffffff" colspan="1">
   <table cellpadding=0 cellspacing="0" height=150 width=400><tr valign="bottom">
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>1</font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>21</font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1>41</font></td>
-  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>61</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>81</font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1></font></td>
-  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0l"><br><font size=1>99</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>1</font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>21</font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1>41</font></td>
+  <td><img src="./image/img/bar4.gif" height=70% width=5><br><img src="./image/img/bar3.gif" height=20% width=7 alt="4äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=65% width=5><br><img src="./image/img/bar3.gif" height=25% width=7 alt="5äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=75% width=5><br><img src="./image/img/bar3.gif" height=15% width=7 alt="3äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=80% width=5><br><img src="./image/img/bar3.gif" height=10% width=7 alt="2äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>61</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=85% width=5><br><img src="./image/img/bar3.gif" height=5% width=7 alt="1äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>81</font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1></font></td>
+  <td><img src="./image/img/bar4.gif" height=90% width=5><br><img src="./image/img/bar3.gif" height=0% width=7 alt="0äºº"><br><font size=1>99</font></td>
   </tr>
   </table>
   </td></tr>
-  <tr><td></td><td align="center" width=350><b>–hŒä—¦[%] </b>i0%`100%j</td></tr></table>
+  <tr><td></td><td align="center" width=350><b>é˜²å¾¡ç‡[%] </b>ï¼ˆ0%ã€œ100%ï¼‰</td></tr></table>
 
 
   </td></tr></table>
   <br>
-  <B>ŸwŒ`Ÿ—¦</b><br>
-  	‹›—Ø‚ÌwF51.02“<br>
-  	˜îŒ‚ÌwF22.56“<br>
-  	Šås‚ÌwF48.05“<br>
-  	’ß—ƒ‚ÌwF62.28“<br>
-  	–N–î‚ÌwF59.97“<br>
-  	Õçb‚ÌwF41.5“<br>
-  	’·Ö‚ÌwF52.06“<br>
-  	•û‰~‚ÌwF28.65“<br>
-  	ÔŒœ‚è‚ÌwF58.4“<br>
-  	ŒÕ‚ÌwF72.63“<br>
-  	”n‚ÌwF54.7“<br>
-  	“İn‚ÌwF34.49“<br>
-  	“`à‚ÌwF54.34“<br>
-  	ƒ`ƒƒƒŠƒIƒbƒgF35.29“<br>
-  	ƒtƒ@ƒ‰ƒ“ƒNƒXF“<br>
-  	ƒQƒŠƒ‰‘àŒ`F55.07“<br>
+  <B>â—†é™£å½¢å‹ç‡</b><br>
+  	é­šé±—ã®é™£ï¼š51.02ï¼…<br>
+  	åƒæœˆã®é™£ï¼š22.56ï¼…<br>
+  	é›è¡Œã®é™£ï¼š48.05ï¼…<br>
+  	é¶´ç¿¼ã®é™£ï¼š62.28ï¼…<br>
+  	é‹’çŸ¢ã®é™£ï¼š59.97ï¼…<br>
+  	è¡è»›ã®é™£ï¼š41.5ï¼…<br>
+  	é•·è›‡ã®é™£ï¼š52.06ï¼…<br>
+  	æ–¹å††ã®é™£ï¼š28.65ï¼…<br>
+  	è»Šæ‡¸ã‚Šã®é™£ï¼š58.4ï¼…<br>
+  	è™ã®é™£ï¼š72.63ï¼…<br>
+  	è«¸åˆƒã®é™£ï¼š54.7ï¼…<br>
+  	éˆåˆƒã®é™£ï¼š34.49ï¼…<br>
+  	ä¼èª¬ã®é™£ï¼š54.34ï¼…<br>
+  	ãƒãƒ£ãƒªã‚ªãƒƒãƒˆï¼š35.29ï¼…<br>
+  	ãƒ•ã‚¡ãƒ©ãƒ³ã‚¯ã‚¹ï¼šï¼…<br>
+  	ã‚²ãƒªãƒ©éšŠå½¢ï¼š55.07ï¼…<br>
   <br>
   <table border="1">
   <tr><td>
-  <b>¡ŠÔ•ÊTOPƒy[ƒWƒAƒNƒZƒX”</b><br>
-  <select><option value="">y2014”N5Œ5“ú0z<option value="">y2014”N5Œ5“ú1z<option value="">y2014”N5Œ5“ú2z<option value="">y2014”N5Œ5“ú3z<option value="">y2014”N5Œ5“ú4z<option value="">y2014”N5Œ5“ú5z<option value="">y2014”N5Œ5“ú6z<option value="">y2014”N5Œ5“ú7z<option value="">y2014”N5Œ5“ú8z<option value="">y2014”N5Œ5“ú9z<option value="">y2014”N5Œ5“ú10z53<option value="">y2014”N5Œ5“ú11z171<option value="">y2014”N5Œ5“ú12z151<option value="">y2014”N5Œ5“ú13z214<option value="">y2014”N5Œ5“ú14z140<option value="">y2014”N5Œ5“ú15z151<option value="">y2014”N5Œ5“ú16z132<option value="">y2014”N5Œ5“ú17z230<option value="">y2014”N5Œ5“ú18z272<option value="">y2014”N5Œ5“ú19z811<option value="">y2014”N5Œ5“ú20z181<option value="">y2014”N5Œ5“ú21z233<option value="">y2014”N5Œ5“ú22z338<option value="">y2014”N5Œ5“ú23z487</select><br>
+  <b>â– æ™‚é–“åˆ¥TOPãƒšãƒ¼ã‚¸ã‚¢ã‚¯ã‚»ã‚¹æ•°</b><br>
+  <select><option value="">ã€2014å¹´5æœˆ5æ—¥0æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥1æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥2æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥3æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥4æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥5æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥6æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥7æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥8æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥9æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥10æ™‚ã€‘53<option value="">ã€2014å¹´5æœˆ5æ—¥11æ™‚ã€‘171<option value="">ã€2014å¹´5æœˆ5æ—¥12æ™‚ã€‘151<option value="">ã€2014å¹´5æœˆ5æ—¥13æ™‚ã€‘214<option value="">ã€2014å¹´5æœˆ5æ—¥14æ™‚ã€‘140<option value="">ã€2014å¹´5æœˆ5æ—¥15æ™‚ã€‘151<option value="">ã€2014å¹´5æœˆ5æ—¥16æ™‚ã€‘132<option value="">ã€2014å¹´5æœˆ5æ—¥17æ™‚ã€‘230<option value="">ã€2014å¹´5æœˆ5æ—¥18æ™‚ã€‘272<option value="">ã€2014å¹´5æœˆ5æ—¥19æ™‚ã€‘811<option value="">ã€2014å¹´5æœˆ5æ—¥20æ™‚ã€‘181<option value="">ã€2014å¹´5æœˆ5æ—¥21æ™‚ã€‘233<option value="">ã€2014å¹´5æœˆ5æ—¥22æ™‚ã€‘338<option value="">ã€2014å¹´5æœˆ5æ—¥23æ™‚ã€‘487</select><br>
   </td>
   <td>
-  <b>¡ŠÔ•Êè†‘—M”</b><br>
-  <select><option value="">y2014”N5Œ5“ú0z<option value="">y2014”N5Œ5“ú1z<option value="">y2014”N5Œ5“ú2z<option value="">y2014”N5Œ5“ú3z<option value="">y2014”N5Œ5“ú4z<option value="">y2014”N5Œ5“ú5z<option value="">y2014”N5Œ5“ú6z<option value="">y2014”N5Œ5“ú7z<option value="">y2014”N5Œ5“ú8z<option value="">y2014”N5Œ5“ú9z<option value="">y2014”N5Œ5“ú10z53<option value="">y2014”N5Œ5“ú11z171<option value="">y2014”N5Œ5“ú12z151<option value="">y2014”N5Œ5“ú13z214<option value="">y2014”N5Œ5“ú14z140<option value="">y2014”N5Œ5“ú15z151<option value="">y2014”N5Œ5“ú16z132<option value="">y2014”N5Œ5“ú17z230<option value="">y2014”N5Œ5“ú18z272<option value="">y2014”N5Œ5“ú19z811<option value="">y2014”N5Œ5“ú20z181<option value="">y2014”N5Œ5“ú21z233<option value="">y2014”N5Œ5“ú22z338<option value="">y2014”N5Œ5“ú23z487</select
+  <b>â– æ™‚é–“åˆ¥æ‰‹ç´™é€ä¿¡æ•°</b><br>
+  <select><option value="">ã€2014å¹´5æœˆ5æ—¥0æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥1æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥2æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥3æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥4æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥5æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥6æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥7æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥8æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥9æ™‚ã€‘<option value="">ã€2014å¹´5æœˆ5æ—¥10æ™‚ã€‘53<option value="">ã€2014å¹´5æœˆ5æ—¥11æ™‚ã€‘171<option value="">ã€2014å¹´5æœˆ5æ—¥12æ™‚ã€‘151<option value="">ã€2014å¹´5æœˆ5æ—¥13æ™‚ã€‘214<option value="">ã€2014å¹´5æœˆ5æ—¥14æ™‚ã€‘140<option value="">ã€2014å¹´5æœˆ5æ—¥15æ™‚ã€‘151<option value="">ã€2014å¹´5æœˆ5æ—¥16æ™‚ã€‘132<option value="">ã€2014å¹´5æœˆ5æ—¥17æ™‚ã€‘230<option value="">ã€2014å¹´5æœˆ5æ—¥18æ™‚ã€‘272<option value="">ã€2014å¹´5æœˆ5æ—¥19æ™‚ã€‘811<option value="">ã€2014å¹´5æœˆ5æ—¥20æ™‚ã€‘181<option value="">ã€2014å¹´5æœˆ5æ—¥21æ™‚ã€‘233<option value="">ã€2014å¹´5æœˆ5æ—¥22æ™‚ã€‘338<option value="">ã€2014å¹´5æœˆ5æ—¥23æ™‚ã€‘487</select
   </td></tr></table>
 EOM
 

@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    •”‘à”z‘®  _/#
+#_/    éƒ¨éšŠé…å±ž  _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub UNIT_SELECT {
 
 	&CHARA_MAIN_OPEN;
 
-	open(IN,"$TOWN_LIST") or &ERR("Žw’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$TOWN_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@TOWN_DATA = <IN>;
 	close(IN);
 	foreach(@TOWN_DATA){
@@ -15,7 +15,7 @@ sub UNIT_SELECT {
 	}
 
 
-	open(IN,"$UNIT_LIST") or &ERR("Žw’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@UNI_DATA = <IN>;
 	close(IN);
 
@@ -48,11 +48,11 @@ sub UNIT_SELECT {
 				}
 			}
 			if($uflg eq "1"){
-				$u_mes = "“ü‘à‹‘”Û";
+				$u_mes = "å…¥éšŠæ‹’å¦";
 			}else{
-				$u_mes = "“ü‘à‚n‚j";
+				$u_mes = "å…¥éšŠï¼¯ï¼«";
 			}
-			$unit_party .= "<TR><TD bgcolor=$TD_C3><input type=radio name=unit_id value=$unit_id></TD><TD bgcolor=$TD_C2><img src=\"$IMG/$uchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$uname\"></TD><TD bgcolor=$TD_C1><font size=1>$uunit_name•”‘à<BR>($uname)</TD><td bgcolor=$TD_C1>$unit_list</td><td bgcolor=$TD_C2>$unit_numl</td><td bgcolor=$TD_C2>$umes</td><TD bgcolor=$TD_C1>$u_mes</TD></tr>";
+			$unit_party .= "<TR><TD bgcolor=$TD_C3><input type=radio name=unit_id value=$unit_id></TD><TD bgcolor=$TD_C2><img src=\"$IMG/$uchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$uname\"></TD><TD bgcolor=$TD_C1><font size=1>$uunit_nameéƒ¨éšŠ<BR>($uname)</TD><td bgcolor=$TD_C1>$unit_list</td><td bgcolor=$TD_C2>$unit_numäºº</td><td bgcolor=$TD_C2>$umes</td><TD bgcolor=$TD_C1>$u_mes</TD></tr>";
 		}
 
 		if($uid eq $kid){
@@ -62,7 +62,7 @@ sub UNIT_SELECT {
 	}
 
 	if(!$k_hit){
-		$kunit_name = "–³Š‘®";
+		$kunit_name = "ç„¡æ‰€å±ž";
 	}
 
 	&HEADER;
@@ -71,7 +71,7 @@ sub UNIT_SELECT {
 <table width="100%" cellpadding="0" cellspacing="0" border=0><tr><td>
 <TABLE WIDTH="100%" border=0>
 <TBODY><TR>
-<TD BGCOLOR=$ELE_BG[$kele] WIDTH=100% height=5>@<font color=$ELE_C[$kele] size=4>@@@ƒƒ<B> * •” ‘à ”z ‘® E •Ò ¬*</B>„„</font></TD>
+<TD BGCOLOR=$ELE_BG[$kele] WIDTH=100% height=5>ã€€<font color=$ELE_C[$kele] size=4>ã€€ã€€ã€€ï¼œï¼œ<B> * éƒ¨ éšŠ é… å±ž ãƒ» ç·¨ æˆ*</B>ï¼žï¼ž</font></TD>
 </TR><TR>
 <TD bgcolor=$TD_C4 height=5>
 <TABLE border="0"><TBODY>
@@ -84,19 +84,19 @@ sub UNIT_SELECT {
 <TABLE border="0" cellspacing="2">
 <TBODY>
 <TR>
-<TD bgcolor=$TD_C2>–¼‘O</TD>
-<TD bgcolor=$TD_C3>‚k‚u</TD>
-<TD bgcolor=$TD_C2>‘®«</TD>
-<TD bgcolor=$TD_C3>E‹Æ</TD>
+<TD bgcolor=$TD_C2>åå‰</TD>
+<TD bgcolor=$TD_C3>ï¼¬ï¼¶</TD>
+<TD bgcolor=$TD_C2>å±žæ€§</TD>
+<TD bgcolor=$TD_C3>è·æ¥­</TD>
 </TR>
 <TR>
 <TD bgcolor=$TD_C2>$kname</TD>
 <TD bgcolor=$TD_C3 align=right>$klv</TD>
-<TD bgcolor=$TD_C2>$ELE[$kele]‘®</TD>
+<TD bgcolor=$TD_C2>$ELE[$kele]å±ž</TD>
 <TD bgcolor=$TD_C3>$SYOKU[$kclass]</TD>
 </TR>
 <TR>
-<TD bgcolor=$TD_C2>ŠŽ‹à</TD>
+<TD bgcolor=$TD_C2>æ‰€æŒé‡‘</TD>
 <TD bgcolor=$TD_C1 colspan=3 align=right>$kgold GOLD</TD>
 </TR>
 </TBODY></TABLE>
@@ -109,7 +109,7 @@ sub UNIT_SELECT {
 <TR>
 <TD height="5">
 <TABLE  border="0"><TBODY>
-<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>‚±‚±‚Å‚ÍŽ©‘‚ÌŠ‘®‚·‚é•”‘à‚É”z‘®‚·‚éŽ–‚ªo—ˆ‚Ü‚·B<BR>‚ ‚È‚½‚ÍŒ»Ý<font color=red>$kunit_name</font>•”‘à‚ÉŠ‘®‚µ‚Ä‚¢‚Ü‚·B<BR>•”‘à‚ÉŠ‘®‚·‚é‚Æ•”‘àƒ`ƒƒƒbƒg‚âW‡ƒRƒ}ƒ“ƒh‚Å“§‚ªŽæ‚è‚â‚·‚­‚È‚è‚Ü‚·B</font></TD>
+<TR><TD width="100%" bgcolor=$TALK_BG><font color=$TALK_FONT>ã“ã“ã§ã¯è‡ªå›½ã®æ‰€å±žã™ã‚‹éƒ¨éšŠã«é…å±žã™ã‚‹äº‹ãŒå‡ºæ¥ã¾ã™ã€‚<BR>ã‚ãªãŸã¯ç¾åœ¨<font color=red>$kunit_name</font>éƒ¨éšŠã«æ‰€å±žã—ã¦ã„ã¾ã™ã€‚<BR>éƒ¨éšŠã«æ‰€å±žã™ã‚‹ã¨éƒ¨éšŠãƒãƒ£ãƒƒãƒˆã‚„é›†åˆã‚³ãƒžãƒ³ãƒ‰ã§çµ±åˆ¶ãŒå–ã‚Šã‚„ã™ããªã‚Šã¾ã™ã€‚</font></TD>
 <TD bgcolor=$TD_C4></TD>
 </TR>
 </TBODY></TABLE>
@@ -119,7 +119,7 @@ sub UNIT_SELECT {
 <TD><BR><BR>
 <form action="$FILE_MYDATA" method="post">
 <CENTER><TABLE bgcolor=$TABLE_C><TBODY><TR>
-<TD bgcolor=$TD_C3>‘I‘ð</TD><TD bgcolor=$TD_C2>‘à’·</TD><TD bgcolor=$TD_C1>•”‘à–¼(‘à’·)</TD><TD bgcolor=$TD_C1>”z‘®•”‘à</TD><TD bgcolor=$TD_C1>•”‘à”</TD><TD bgcolor=$TD_C2>•”‘à•åWƒƒbƒZ[ƒW</TD><TD bgcolor=$TD_C1>“ü‘àŽó•t</TD></TR>
+<TD bgcolor=$TD_C3>é¸æŠž</TD><TD bgcolor=$TD_C2>éšŠé•·</TD><TD bgcolor=$TD_C1>éƒ¨éšŠå(éšŠé•·)</TD><TD bgcolor=$TD_C1>é…å±žéƒ¨éšŠ</TD><TD bgcolor=$TD_C1>éƒ¨éšŠæ•°</TD><TD bgcolor=$TD_C2>éƒ¨éšŠå‹Ÿé›†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</TD><TD bgcolor=$TD_C1>å…¥éšŠå—ä»˜</TD></TR>
 EOM
 
 
@@ -131,43 +131,43 @@ $unit_party
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=UNIT_ENTRY>
-<input type=submit value="Š‘®"></form>
+<input type=submit value="æ‰€å±ž"></form>
 <HR size=0>
-<h3><font color=3355AA><b>•”‘à’·ƒRƒ}ƒ“ƒh</B></font></h3>
+<h3><font color=3355AA><b>éƒ¨éšŠé•·ã‚³ãƒžãƒ³ãƒ‰</B></font></h3>
 
 <form action="$FILE_MYDATA" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=UNIT_CHANGE>
-<input type=submit value="“ü‘à‹‘”ÛE‹–‰Â"></form>
-¦ŽÀs‚·‚é‚Æ‘¼‚Ìl‚Í‚»‚Ì•”‘à‚É“ü‘ào—ˆ‚È‚­‚È‚è‚Ü‚·B<p>
+<input type=submit value="å…¥éšŠæ‹’å¦ãƒ»è¨±å¯"></form>
+â€»å®Ÿè¡Œã™ã‚‹ã¨ä»–ã®äººã¯ãã®éƒ¨éšŠã«å…¥éšŠå‡ºæ¥ãªããªã‚Šã¾ã™ã€‚<p>
 
 <form action="$FILE_MYDATA" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <select name=did>$u_member</select>
 <input type=hidden name=mode value=UNIT_OUT>
-<input type=submit value="•”ˆõ‰ðŒÙ"></form>
-¦ŽÀs‚·‚é‚Æ‚»‚Ì•”ˆõ‚Í‘Þ‹Ž‚³‚¹‚ç‚ê‚Ü‚·B<p>
+<input type=submit value="éƒ¨å“¡è§£é›‡"></form>
+â€»å®Ÿè¡Œã™ã‚‹ã¨ãã®éƒ¨å“¡ã¯é€€åŽ»ã•ã›ã‚‰ã‚Œã¾ã™ã€‚<p>
 
 
 <HR size=0>
 
-<b class=\"clit\">V‹K•”‘àì¬</B></font>iŠK‹‰’l ‚T‚O‚OˆÈã•K—vj
+<b class=\"clit\">æ–°è¦éƒ¨éšŠä½œæˆ</B></font>ï¼ˆéšŽç´šå€¤ ï¼•ï¼ï¼ä»¥ä¸Šå¿…è¦ï¼‰
 <form action="$FILE_MYDATA" method="post">
-<TABLE bgcolor=$TABLE_C><TR><TD bgcolor=$TD_C3>•”‘à–¼</TD><TD bgcolor=$TD_C2><input type=text name=name size=30><BR>[‘SŠp‘å•¶Žš‚Å‚Q`‚W•¶ŽšˆÈ“à]</TD></TR>
-<TD bgcolor=$TD_C3>•”‘à•åW‚ÌƒRƒƒ“ƒg</TD><TD bgcolor=$TD_C2><input type=text name=mes size=30><BR>[‘SŠp‘å•¶Žš‚Å‚O`‚Q‚O•¶ŽšˆÈ“à]</TD>
+<TABLE bgcolor=$TABLE_C><TR><TD bgcolor=$TD_C3>éƒ¨éšŠå</TD><TD bgcolor=$TD_C2><input type=text name=name size=30><BR>[å…¨è§’å¤§æ–‡å­—ã§ï¼’ã€œï¼˜æ–‡å­—ä»¥å†…]</TD></TR>
+<TD bgcolor=$TD_C3>éƒ¨éšŠå‹Ÿé›†ã®ã‚³ãƒ¡ãƒ³ãƒˆ</TD><TD bgcolor=$TD_C2><input type=text name=mes size=30><BR>[å…¨è§’å¤§æ–‡å­—ã§ï¼ã€œï¼’ï¼æ–‡å­—ä»¥å†…]</TD>
 </TABLE>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=MAKE_UNIT>
-<input type=submit value="•”‘àì¬"></form>
+<input type=submit value="éƒ¨éšŠä½œæˆ"></form>
 <HR size=0>
 <form action="$FILE_MYDATA" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=UNIT_DELETE>
-<input type=submit value="•”‘à’E‘ÞE‰ðŽU"></form>
+<input type=submit value="éƒ¨éšŠè„±é€€ãƒ»è§£æ•£"></form>
 <HR size=0>
 
 
@@ -175,7 +175,7 @@ $unit_party
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="ŠX‚É–ß‚é"></form>
+<input type=submit value="è¡—ã«æˆ»ã‚‹"></form>
 </TD>
 </TR>
 </TBODY></TABLE>

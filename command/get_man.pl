@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/#
-#      “o—p      #
+#      ç™»ç”¨      #
 #_/_/_/_/_/_/_/_/#
 
 sub GET_MAN {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 	&COUNTRY_DATA_OPEN("$kcon");
@@ -15,7 +15,7 @@ sub GET_MAN {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -38,26 +38,26 @@ sub GET_MAN {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - “o —p - </font>
+<font color=ffffff> - ç™» ç”¨ - </font>
 </TH></TR>
 <TR><TD>
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±ç‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±å›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>‘¼‚Ì‘‚Ì•«‚ğ“o—p‚µ‚Ü‚·B<BR>“o—p‚·‚é‚Ì‚É‹à‚P‚O‚O•K—v‚Å‚·B<BR>(¦–§‘‚Ì•¶š”‚Í‘SŠp‚U‚O•¶šˆÈ“à)</font>
+<font color=white>ä»–ã®å›½ã®æ­¦å°†ã‚’ç™»ç”¨ã—ã¾ã™ã€‚<BR>ç™»ç”¨ã™ã‚‹ã®ã«é‡‘ï¼‘ï¼ï¼å¿…è¦ã§ã™ã€‚<BR>(â€»å¯†æ›¸ã®æ–‡å­—æ•°ã¯å…¨è§’ï¼–ï¼æ–‡å­—ä»¥å†…)</font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
 <form action="$COMMAND" method="POST"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<p>y“o—p‚·‚é‘Šè‚ğ‘I‘ğz<BR><select name=num>
-<option value="">= –¼‘O:•—Í:’m—Í:“—¦—Í(’‰½) =
+<p>ã€ç™»ç”¨ã™ã‚‹ç›¸æ‰‹ã‚’é¸æŠã€‘<BR><select name=num>
+<option value="">= åå‰:æ­¦åŠ›:çŸ¥åŠ›:çµ±ç‡åŠ›(å¿ èª ) =
 EOM
 
 	foreach(@COU_DATA){
@@ -65,7 +65,7 @@ EOM
 		$cou_king[$xccid] = "$xcking";
 	}
 
-	$con_l2 = "<option value=>=== –³Š‘® ===\n";
+	$con_l2 = "<option value=>=== ç„¡æ‰€å± ===\n";
 	foreach(@CL_DATA) {
 		($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/);
 		if($eid eq $kid) { next; }
@@ -88,18 +88,18 @@ $con_l2
 </select>
 
 $no_list
-<BR>–§‘F<BR>
+<BR>å¯†æ›¸ï¼š<BR>
 <textarea name=mes cols=38 rows=3>
 </TEXTAREA>
 <input type=hidden name=mode value=$GET_MAN2>
-<input type=submit value=\"“o—p\"></form>
+<input type=submit value=\"ç™»ç”¨\"></form>
 
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 

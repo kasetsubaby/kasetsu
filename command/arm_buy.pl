@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/#
-#      •Ší      #
+#      æ­¦å™¨      #
 #_/_/_/_/_/_/_/_/#
 
 sub ARM_BUY {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 	&TIME_DATA;
@@ -26,21 +26,21 @@ sub ARM_BUY {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - • Ší ‰® - </font>
+<font color=ffffff> - æ­¦ å™¨ å±‹ - </font>
 </TH></TR>
 <TR><TD>
 
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±ç‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±å›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>‚¢‚ç‚Á‚µ‚á‚¢B<BR>‚±‚±‚Å‚Í‚ß‚Á‚½‚É‚¨–Ú‚É‚©‚©‚ê‚È‚¢‹Md‚È•Ší‚ğ”„‚Á‚Ä‚é‚æB<BR>Œ»İ$kname‚ª‘•”õ‚µ‚Ä‚¢‚é$armname‚Í‹à<font color=red>$armval</font>‚Å‰ºæ‚é‚æB<BR>¥”ñè‚É‚Æ‚Á‚ÄŒ©‚Ä‚¨‚­‚êB<BR></font>
+<font color=white>ã„ã‚‰ã£ã—ã‚ƒã„ã€‚<BR>ã“ã“ã§ã¯ã‚ã£ãŸã«ãŠç›®ã«ã‹ã‹ã‚Œãªã„è²´é‡ãªæ­¦å™¨ã‚’å£²ã£ã¦ã‚‹ã‚ˆã€‚<BR>ç¾åœ¨$knameãŒè£…å‚™ã—ã¦ã„ã‚‹$armnameã¯é‡‘<font color=red>$armval</font>ã§ä¸‹å–ã‚‹ã‚ˆã€‚<BR>æ˜¯éæ‰‹ã«ã¨ã£ã¦è¦‹ã¦ãŠãã‚Œã€‚<BR></font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
@@ -48,17 +48,17 @@ sub ARM_BUY {
 <TABLE bgcolor=$TABLE_C>
 EOM
 
-	open(IN,"$ARM_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$ARM_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@ARM_DATA = <IN>;
 	close(IN);
 
-	$list = "<TR><TD bgcolor=$TD_C1>‘I‘ğ</TD><TD bgcolor=$TD_C2>–¼Ì</TD><TD align=right bgcolor=$TD_C3>’l’i</TD><TD bgcolor=$TD_C2>ˆĞ—Í</TD></TR>";
+	$list = "<TR><TD bgcolor=$TD_C1>é¸æŠ</TD><TD bgcolor=$TD_C2>åç§°</TD><TD align=right bgcolor=$TD_C3>å€¤æ®µ</TD><TD bgcolor=$TD_C2>å¨åŠ›</TD></TR>";
 	$s_i=0;
 	foreach(@ARM_DATA){
 		($armname,$armval,$armdmg,$armwei,$armele,$armsta,$armclass,$armtownid) = split(/<>/);
 		if($armtownid eq 0){
 			if($kvsub2 eq 0){$armval = int($armval / 10);}
-			$list .= "<TR><TD bgcolor=$TD_C1><input type=radio name=select value=$s_i></TD><TD bgcolor=$TD_C2>$armname</TD><TD align=right bgcolor=$TD_C3>‹à $armval</TD><TD bgcolor=$TD_C2>$armdmg</TD></TR>";
+			$list .= "<TR><TD bgcolor=$TD_C1><input type=radio name=select value=$s_i></TD><TD bgcolor=$TD_C2>$armname</TD><TD align=right bgcolor=$TD_C3>é‡‘ $armval</TD><TD bgcolor=$TD_C2>$armdmg</TD></TR>";
 		}
 		$s_i++;
 	}
@@ -69,14 +69,14 @@ $list
 </TABLE>
 $no_list
 <input type=hidden name=mode value=22>
-<input type=submit value=\"w“ü\"></form>
+<input type=submit value=\"è³¼å…¥\"></form>
 
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 

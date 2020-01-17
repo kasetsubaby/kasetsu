@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/#
-#      ˆÚ“®      #
+#      ç§»å‹•      #
 #_/_/_/_/_/_/_/_/#
 
 sub MOVE {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&TOWN_DATA_OPEN("$kpos");
 	&COUNTRY_DATA_OPEN($kcon);
@@ -22,7 +22,7 @@ sub MOVE {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - ˆÚ “® - </font>
+<font color=ffffff> - ç§» å‹• - </font>
 </TH></TR>
 EOM
 	if("$ENV{'HTTP_REFERER'}" eq "$SANGOKU_URL/status.cgi"){
@@ -33,9 +33,9 @@ print <<"EOM";
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºŽm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±çŽ‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±žå›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 EOM
@@ -44,11 +44,11 @@ print <<"EOM";
 
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>‘¼‚ÌŠX‚ÖˆÚ“®‚µ‚Ü‚·B<BR></font>
+<font color=white>ä»–ã®è¡—ã¸ç§»å‹•ã—ã¾ã™ã€‚<BR></font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
-‰½ˆ‚ÖˆÚ“®‚µ‚Ü‚·‚©H
+ä½•å‡¦ã¸ç§»å‹•ã—ã¾ã™ã‹ï¼Ÿ
 <form action="$COMMAND" method="POST"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
 <select name=num>
 EOM
@@ -66,17 +66,17 @@ EOM
 	}
 print <<"EOM";
 </select>
-<p>y$zname‚©‚çˆÚ“®\‰Â\”\\‚ÈŠXz<BR>$move_list
+<p>ã€$znameã‹ã‚‰ç§»å‹•\å¯\èƒ½\ãªè¡—ã€‘<BR>$move_list
 $no_list
 <input type=hidden name=mode value=20>
-<input type=submit value=\"ˆÚ“®\"></form>
+<input type=submit value=\"ç§»å‹•\"></form>
 
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 

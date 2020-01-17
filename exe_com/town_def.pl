@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#      é‚Ìç”õ      #
+#      åŸã®å®ˆå‚™      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub TOWN_DEF {
 
 	$ksub2=0;
 	if($ksol eq "0" || $ksol eq ""){
-		&K_LOG("$mmonthŒ:•º‚O‚Å‚Íç”õ‚É‚Â‚¯‚Ü‚¹‚ñB");
+		&K_LOG("$mmonthæœˆ:å…µï¼ã§ã¯å®ˆå‚™ã«ã¤ã‘ã¾ã›ã‚“ã€‚");
 	}else{
 		open(IN,"$DEF_LIST");
 		@DEF_LIST = <IN>;
@@ -25,7 +25,7 @@ sub TOWN_DEF {
 		print OUT @NEW_DEF_LIST2;
 		close(OUT);
 		$kcex += 25;
-		&K_LOG("$mmonthŒ:$zname‚Ìç”õ‚É‚Â‚«‚Ü‚µ‚½B");
+		&K_LOG("$mmonthæœˆ:$znameã®å®ˆå‚™ã«ã¤ãã¾ã—ãŸã€‚");
 		$klea_ex++;
 		$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,";
 	}

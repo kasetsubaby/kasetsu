@@ -1,10 +1,10 @@
 #_/_/_/_/_/_/_/_/#
-#      ’¥•º      #
+#      å¾´å…µ      #
 #_/_/_/_/_/_/_/_/#
 
 sub GET_SOL {
 
-	if($in{'no'} eq ""){&ERR("NO:‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'no'} eq ""){&ERR("NO:ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	require 'ini_file/com_list.ini';
 
 	&CHARA_MAIN_OPEN;
@@ -24,93 +24,93 @@ sub GET_SOL {
 <TABLE border=0 width=100% height=100%><TR><TD align=center>
 <TABLE border=0 width=100%>
 <TR><TH bgcolor=414141>
-<font color=ffffff> - ’¥ •º - </font>
+<font color=ffffff> - å¾´ å…µ - </font>
 </TH></TR>
 <TR><TD>
 $no_list
 <TABLE bgcolor=$ELE_BG[$xele]><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname</font></TH></TR>
 
-<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>vŒ£</TD><TH>$kcex</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•ºŽm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
+<TR><TD rowspan=2 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±çŽ‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH></TR>
+<TR><TD>æ‰€å±žå›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
 </TBODY></TABLE>
 </TD></TR>
 <TR><TD>
 <TABEL bgcolor=#AA0000><TR><TD bgcolor=#000000>
-<font color=white>•ºŽm‚ð’¥•º‚µ‚Ü‚·B<BR>Ží—Þ‚Ìˆá‚¤•º‚ðŒÙ‚¤‚ÆˆÈ‘O‚Ü‚ÅŒÙ‚Á‚Ä‚¢‚½•º‚Í‰ðŒÙ‚³‚ê‚Ü‚·B<BR>–ˆŒŽˆÛŽ”ï‚Æ‚µ‚Ä•º‚Pl‚É‚Â‚«•Ä‚P‚ðÁ”ï‚µ‚Ü‚·B</font>
+<font color=white>å…µå£«ã‚’å¾´å…µã—ã¾ã™ã€‚<BR>ç¨®é¡žã®é•ã†å…µã‚’é›‡ã†ã¨ä»¥å‰ã¾ã§é›‡ã£ã¦ã„ãŸå…µã¯è§£é›‡ã•ã‚Œã¾ã™ã€‚<BR>æ¯Žæœˆç¶­æŒè²»ã¨ã—ã¦å…µï¼‘äººã«ã¤ãç±³ï¼‘ã‚’æ¶ˆè²»ã—ã¾ã™ã€‚</font>
 </TD></TR></TABLE>
 </TD></TR>
 <TR><TD>
-‰½–¼ŒÙ‚¢‚Ü‚·‚©H(¦Å‘å$kleal)
+ä½•åé›‡ã„ã¾ã™ã‹ï¼Ÿ(â€»æœ€å¤§$kleaäºº)
 <TABLE bgcolor=$TABLE_C><TBODY bgcolor=$TD_C3>
-<TR><TH>Ží—Þ</TH><TH>UŒ‚—Í</TH><TH>–hŒä—Í</TH><TH>ŒÙ—p‹à</TH><TH>l”</TH><TD></TD></TR>
-<TR><TH>$SOL_TYPE[0]</TD><TH>¢</TH><TH>¢</TH><TH>‹à $SOL_PRICE[0]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>ç¨®é¡ž</TH><TH>æ”»æ’ƒåŠ›</TH><TH>é˜²å¾¡åŠ›</TH><TH>é›‡ç”¨é‡‘</TH><TH>äººæ•°</TH><TD></TD></TR>
+<TR><TH>$SOL_TYPE[0]</TD><TH>â–³</TH><TH>â–³</TH><TH>é‡‘ $SOL_PRICE[0]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=0>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 
 	if($zsub1 > 100){
 print <<"EOM";
-<TR><TH>$SOL_TYPE[1]</TD><TH>›</TH><TH>¢</TH><TH>‹à $SOL_PRICE[1]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>$SOL_TYPE[1]</TD><TH>â—‹</TH><TH>â–³</TH><TH>é‡‘ $SOL_PRICE[1]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=1>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 	}
 	if($zsub1 > 200){
 
 print <<"EOM";
-<TR><TH>$SOL_TYPE[2]</TD><TH>¢</TH><TH></TH><TH>‹à $SOL_PRICE[2]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>$SOL_TYPE[2]</TD><TH>â–³</TH><TH>â—Ž</TH><TH>é‡‘ $SOL_PRICE[2]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=2>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 	}
 	if($zsub1 > 300){
 
 print <<"EOM";
-<TR><TH>$SOL_TYPE[3]</TD><TH></TH><TH>›</TH><TH>‹à $SOL_PRICE[3]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>$SOL_TYPE[3]</TD><TH>â—Ž</TH><TH>â—‹</TH><TH>é‡‘ $SOL_PRICE[3]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=3>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 	}
 
 	if($zsub1 > 400){
 print <<"EOM";
-<TR><TH>$SOL_TYPE[4]</TD><TH>œ</TH><TH>¢</TH><TH>‹à $SOL_PRICE[4]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>$SOL_TYPE[4]</TD><TH>â—</TH><TH>â–³</TH><TH>é‡‘ $SOL_PRICE[4]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=4>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 	}
 	if($zsub1 > 500){
 
 print <<"EOM";
-<TR><TH>$SOL_TYPE[5]</TD><TH colspan=2>’m—Í‚ª•—Í‚É‰ÁŽZ</TH><TH>‹à $SOL_PRICE[5]</TH><form action="$COMMAND" method="POST"><TD>
+<TR><TH>$SOL_TYPE[5]</TD><TH colspan=2>çŸ¥åŠ›ãŒæ­¦åŠ›ã«åŠ ç®—</TH><TH>é‡‘ $SOL_PRICE[5]</TH><form action="$COMMAND" method="POST"><TD>
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 $no_list
 <input type=hidden name=type value=5>
 <input type=hidden name=mode value=$GET_SOL2>
-</TD><TD><input type=submit value=\"ŒÙ‚¤\"></TD></form></TR>
+</TD><TD><input type=submit value=\"é›‡ã†\"></TD></form></TR>
 EOM
 	}
 
@@ -121,89 +121,89 @@ print <<"EOM";
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form></CENTER>
+<input type=submit value="æˆ»ã‚‹"></form></CENTER>
 </TD></TR></TABLE>
 </TD></TR></TABLE>
 
 EOM
 	}else{
 print <<"EOM";
-<h3>- ’¥ •º - </h3>
+<h3>- å¾´ å…µ - </h3>
 [$kname]<BR>
-‹à:$kgold<BR>
-•Ä:$krice<BR>
-•ºŽm:$ksol<BR>
-ŒP—û:$kgat<BR>
+é‡‘:$kgold<BR>
+ç±³:$krice<BR>
+å…µå£«:$ksol<BR>
+è¨“ç·´:$kgat<BR>
 <p>
-‰½–¼ŒÙ‚¢‚Ü‚·‚©H(¦Å‘å$kleal)<BR><BR>
-Ží—Þ:UŒ‚—Í:–hŒä—Í:ŒÙ—p‹à:l”<BR><BR>
-$SOL_TYPE[0]:¢:¢:‹à $SOL_PRICE[0]:<form action="$COMMAND" method="POST">
+ä½•åé›‡ã„ã¾ã™ã‹ï¼Ÿ(â€»æœ€å¤§$kleaäºº)<BR><BR>
+ç¨®é¡ž:æ”»æ’ƒåŠ›:é˜²å¾¡åŠ›:é›‡ç”¨é‡‘:äººæ•°<BR><BR>
+$SOL_TYPE[0]:â–³:â–³:é‡‘ $SOL_PRICE[0]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=0>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 
 	if($zsub1 > 100){
 print <<"EOM";
 
-$SOL_TYPE[1]:›:¢:‹à $SOL_PRICE[1]:<form action="$COMMAND" method="POST">
+$SOL_TYPE[1]:â—‹:â–³:é‡‘ $SOL_PRICE[1]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=1>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 	}
 	if($zsub1 > 200){
 print <<"EOM";
 
-$SOL_TYPE[2]:¢::‹à $SOL_PRICE[2]:<form action="$COMMAND" method="POST">
+$SOL_TYPE[2]:â–³:â—Ž:é‡‘ $SOL_PRICE[2]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=2>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 	}
 	if($zsub1 > 300){
 print <<"EOM";
 
-$SOL_TYPE[3]::›:‹à $SOL_PRICE[3]:<form action="$COMMAND" method="POST">
+$SOL_TYPE[3]:â—Ž:â—‹:é‡‘ $SOL_PRICE[3]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=3>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 	}
 	if($zsub1 > 400){
 print <<"EOM";
 
-$SOL_TYPE[4]:œ:¢:‹à $SOL_PRICE[4]:<form action="$COMMAND" method="POST">
+$SOL_TYPE[4]:â—:â–³:é‡‘ $SOL_PRICE[4]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=4>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 	}
 	if($zsub1 > 500){
 print <<"EOM";
 
-$SOL_TYPE[5]:’m—Í‚ª•—Í‚É‰ÁŽZ:‹à $SOL_PRICE[5]:<form action="$COMMAND" method="POST">
+$SOL_TYPE[5]:çŸ¥åŠ›ãŒæ­¦åŠ›ã«åŠ ç®—:é‡‘ $SOL_PRICE[5]:<form action="$COMMAND" method="POST">
 <input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
-<input type=text name=num value=$get_sol size=4>l
+<input type=text name=num value=$get_sol size=4>äºº
 <input type=hidden name=no value=$in{'no'}>
 <input type=hidden name=type value=5>
 <input type=hidden name=mode value=$GET_SOL2>
-<input type=submit value=\"ŒÙ‚¤\"></form>
+<input type=submit value=\"é›‡ã†\"></form>
 EOM
 	}
 print <<"EOM";
@@ -214,7 +214,7 @@ print <<"EOM";
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="–ß‚é"></form>
+<input type=submit value="æˆ»ã‚‹"></form>
 
 EOM
 	}

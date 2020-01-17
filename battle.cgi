@@ -1,5 +1,5 @@
 
-# í“¬ˆ— #
+# æˆ¦é—˜å‡¦ç† #
 
 sub BATTLE {
 	open(IN,"$COUNTRY_LIST");
@@ -12,11 +12,11 @@ sub BATTLE {
 		if($xvcid eq $zcon){$zvhit=1;last;}
 	}
 	if($zvhit && $xvmark < $BATTLE_STOP){
-		&K_LOG("$mmonthŒ:$xvname‘‚É‚Í‚Ü‚¾U‚ß‚ç‚ê‚Ü‚¹‚ñBi$xvmarkƒ^[ƒ“j");
+		&K_LOG("$mmonthæœˆ:$xvnameå›½ã«ã¯ã¾ã æ”»ã‚ã‚‰ã‚Œã¾ã›ã‚“ã€‚ï¼ˆ$xvmarkã‚¿ãƒ¼ãƒ³ï¼‰");
 	}else{
 		&COUNTRY_DATA_OPEN("$kcon");
 		if($xmark < $BATTLE_STOP){
-			&K_LOG("$mmonthŒ:$xname‘‚Í‚Ü‚¾U‚ß‚ç‚ê‚Ü‚¹‚ñBi$xmarkƒ^[ƒ“j");
+			&K_LOG("$mmonthæœˆ:$xnameå›½ã¯ã¾ã æ”»ã‚ã‚‰ã‚Œã¾ã›ã‚“ã€‚ï¼ˆ$xmarkã‚¿ãƒ¼ãƒ³ï¼‰");
 		}else{
 			open(IN,"$DEF_LIST");
 			@DEF_LIST3 = <IN>;
@@ -50,7 +50,7 @@ sub BATTLE {
 			}
 
 			$kcex += 20;
-			&MAP_LOG("$xname‘‚Ì$kname‚Í$zname‚ÖU‚ß‚İ‚Ü‚µ‚½I");
+			&MAP_LOG("$xnameå›½ã®$knameã¯$znameã¸æ”»ã‚è¾¼ã¿ã¾ã—ãŸï¼");
 			$eid="";
 			if($d_hit){
 				open(IN,"./charalog/main/$mdid\.cgi");
@@ -60,7 +60,7 @@ sub BATTLE {
 ($estr_ex,$eint_ex,$elea_ex,$echa_ex,$esub1_ex,$esub2_ex) = split(/,/,$esub1);
 				$last_battle=0;
 			}else{
-				$ename = "é•Ç";
+				$ename = "åŸå£";
 				$esol = $zshiro;
 				$estr = int($zdef_att/15)+30;
 				$egat = 60;
@@ -68,8 +68,8 @@ sub BATTLE {
 				$esub1_ex="";
 			}
 
-			&K_LOG2("$mmonthŒ:$xname‘‚Ì$kname‚Í$zname‚ÖU‚ß‚İ‚Ü‚µ‚½I");
-			&E_LOG2("$mmonthŒ:$xname‘‚Ì$kname‚Í$ename‚Æí“¬‚µ‚Ü‚µ‚½I");
+			&K_LOG2("$mmonthæœˆ:$xnameå›½ã®$knameã¯$znameã¸æ”»ã‚è¾¼ã¿ã¾ã—ãŸï¼");
+			&E_LOG2("$mmonthæœˆ:$xnameå›½ã®$knameã¯$enameã¨æˆ¦é—˜ã—ã¾ã—ãŸï¼");
 
 			&CHARA_ITEM_OPEN;
 
@@ -131,8 +131,8 @@ sub BATTLE {
 				$kex_add += ($wsol - $esol);
 				if($esol <= 0){
 					$esol=0;
-					&K_LOG2("ƒ^[ƒ“<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoll «\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoll «\(-$kdmg\)");
-					&E_LOG2("ƒ^[ƒ“<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoll «\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoll «\(-$kdmg\)");
+					&K_LOG2("ã‚¿ãƒ¼ãƒ³<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoläºº â†“\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoläºº â†“\(-$kdmg\)");
+					&E_LOG2("ã‚¿ãƒ¼ãƒ³<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoläºº â†“\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoläºº â†“\(-$kdmg\)");
 					$win = 1;last;
 				}
 
@@ -143,11 +143,11 @@ sub BATTLE {
 				$eex_add += ($wsol - $ksol);
 				if($ksol <= 0){
 					$ksol=0;
-					&K_LOG2("ƒ^[ƒ“<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoll «\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoll «\(-$kdmg\)");
-					&E_LOG2("ƒ^[ƒ“<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoll «\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoll «\(-$kdmg\)");
+					&K_LOG2("ã‚¿ãƒ¼ãƒ³<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoläºº â†“\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoläºº â†“\(-$kdmg\)");
+					&E_LOG2("ã‚¿ãƒ¼ãƒ³<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoläºº â†“\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoläºº â†“\(-$kdmg\)");
 					last;
 				}
-				&K_LOG2("ƒ^[ƒ“<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoll «\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoll «\(-$kdmg\)");
+				&K_LOG2("ã‚¿ãƒ¼ãƒ³<font color=red>$count</font>:$kname $SOL_TYPE[$ksub1_ex] $ksoläºº â†“\(-$edmg\) |$ename $SOL_TYPE[$esub1_ex] $esoläºº â†“\(-$kdmg\)");
 			}
 
 			$eex_add = int($eex_add/2);
@@ -167,8 +167,8 @@ sub BATTLE {
 						open(OUT,">$COUNTRY_LIST");
 						print OUT @NEW_COU;
 						close(OUT);
-						&MAP_LOG2("<font color=red>y–Å–Sz</font>\[$old_date\]$cou_name[$zcon]‘‚Í–Å–S‚µ‚Ü‚µ‚½BB");
-						&MAP_LOG("<font color=red>y–Å–Sz</font>\[$old_date\]$cou_name[$zcon]‘‚Í–Å–S‚µ‚Ü‚µ‚½BB");
+						&MAP_LOG2("<font color=red>ã€æ»…äº¡ã€‘</font>\[$old_date\]$cou_name[$zcon]å›½ã¯æ»…äº¡ã—ã¾ã—ãŸã€‚ã€‚");
+						&MAP_LOG("<font color=red>ã€æ»…äº¡ã€‘</font>\[$old_date\]$cou_name[$zcon]å›½ã¯æ»…äº¡ã—ã¾ã—ãŸã€‚ã€‚");
 					}
 						$zcon = $kcon;
 						$znou = int($znou*0.8);
@@ -197,9 +197,9 @@ sub BATTLE {
 					}
 					&SAVE_DATA($DEF_LIST,@NEW_DEF_LIST3);
 
-					&K_LOG2("<font color=blue>$zname</font>‚ğè‚É“ü‚ê‚½I<font color=red>$kex_add</font>‚ÌvŒ£’l‚ğ“¾‚Ü‚µ‚½I");
-					&MAP_LOG2("<font color=blue>yx”zz</font>\[$old_date\]$cou_name[$kcon]‘‚Ì$kname‚Í$zname‚ğx”z‚µ‚Ü‚µ‚½B");
-					&MAP_LOG("<font color=blue>yx”zz</font>\[$old_date\]$cou_name[$kcon]‘‚Ì$kname‚Í$zname‚ğx”z‚µ‚Ü‚µ‚½B");
+					&K_LOG2("<font color=blue>$zname</font>ã‚’æ‰‹ã«å…¥ã‚ŒãŸï¼<font color=red>$kex_add</font>ã®è²¢çŒ®å€¤ã‚’å¾—ã¾ã—ãŸï¼");
+					&MAP_LOG2("<font color=blue>ã€æ”¯é…ã€‘</font>\[$old_date\]$cou_name[$kcon]å›½ã®$knameã¯$znameã‚’æ”¯é…ã—ã¾ã—ãŸã€‚");
+					&MAP_LOG("<font color=blue>ã€æ”¯é…ã€‘</font>\[$old_date\]$cou_name[$kcon]å›½ã®$knameã¯$znameã‚’æ”¯é…ã—ã¾ã—ãŸã€‚");
 				}else{
 					@NEW_DEF_LIST3=();
 					foreach(@DEF_LIST3){
@@ -214,16 +214,16 @@ sub BATTLE {
 					$kex_add += 30;
 					$kcex += $kex_add;
 					$ecex += $eex_add;
-					&K_LOG2("$kname‚Í$ename‚ğ“|‚µ‚½I<font color=blue>$kex_add</font>‚ÌvŒ£‚ğ“¾‚Ü‚µ‚½B");
-					&E_LOG2("$ename‚Í$kname‚É”s–k‚µ‚½BB<font color=red>$eex_add</font>‚ÌvŒ£‚ğ“¾‚Ü‚µ‚½B");
-					&MAP_LOG("<font color=blue>yŸ—˜z</font>$kname‚Í$ename‚ğ“|‚µ‚Ü‚µ‚½I");
+					&K_LOG2("$knameã¯$enameã‚’å€’ã—ãŸï¼<font color=blue>$kex_add</font>ã®è²¢çŒ®ã‚’å¾—ã¾ã—ãŸã€‚");
+					&E_LOG2("$enameã¯$knameã«æ•—åŒ—ã—ãŸã€‚ã€‚<font color=red>$eex_add</font>ã®è²¢çŒ®ã‚’å¾—ã¾ã—ãŸã€‚");
+					&MAP_LOG("<font color=blue>ã€å‹åˆ©ã€‘</font>$knameã¯$enameã‚’å€’ã—ã¾ã—ãŸï¼");
 				}
 			}else{
 				$eex_add += 30;
 				$ecex += $eex_add;
 				$kcex += $kex_add;
-				&K_LOG2("$kname‚Í$ename‚É”s–k‚µ‚½BB<font color=red>$kex_add</font>‚ÌvŒ£‚ğ“¾‚Ü‚µ‚½B");
-				&E_LOG2("$ename‚Í$kname‚ğ“|‚µ‚½I<font color=blue>$eex_add</font>‚ÌvŒ£‚ğ“¾‚Ü‚µ‚½B");
+				&K_LOG2("$knameã¯$enameã«æ•—åŒ—ã—ãŸã€‚ã€‚<font color=red>$kex_add</font>ã®è²¢çŒ®ã‚’å¾—ã¾ã—ãŸã€‚");
+				&E_LOG2("$enameã¯$knameã‚’å€’ã—ãŸï¼<font color=blue>$eex_add</font>ã®è²¢çŒ®ã‚’å¾—ã¾ã—ãŸã€‚");
 			}
 
 			if(!$last_battle){

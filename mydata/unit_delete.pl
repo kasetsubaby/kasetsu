@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    •”‘à“o˜^  _/#
+#_/    éƒ¨éšŠç™»éŒ²  _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub UNIT_DELETE {
 
 	&CHARA_MAIN_OPEN;
 
-	open(IN,"$UNIT_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@UNI_DATA = <IN>;
 	close(IN);
 
@@ -18,18 +18,18 @@ sub UNIT_DELETE {
 			if($kid eq "$unit_id"){
 				$mhit = 1;
 				$mid = $unit_id;
-				$mess = "$uunit_name•”‘à‚ğ‰ğU‚¢‚½‚µ‚Ü‚µ‚½B";
+				$mess = "$uunit_nameéƒ¨éšŠã‚’è§£æ•£ã„ãŸã—ã¾ã—ãŸã€‚";
 			}else{
-				$mess = "$uunit_name•”‘à‚©‚ç—£’E‚µ‚Ü‚µ‚½B";
+				$mess = "$uunit_nameéƒ¨éšŠã‹ã‚‰é›¢è„±ã—ã¾ã—ãŸã€‚";
 			}
-			open(IN,"$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+			open(IN,"$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 			@MES_REG = <IN>;
 			close(IN);
 
 			$mes_num = @MES_REG;
 			if($mes_num > $MES_MAX) { pop(@MES_REG); }
-			unshift(@MES_REG,"$unit_id<>$kid<>$kpos<>$kname<><font color=FF0000>î•ñF$mess<>$uname<>$daytime<>$kchara<>$kcon<>0<>\n");
-			open(OUT,">$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+			unshift(@MES_REG,"$unit_id<>$kid<>$kpos<>$kname<><font color=FF0000>æƒ…å ±ï¼š$mess<>$uname<>$daytime<>$kchara<>$kcon<>0<>\n");
+			open(OUT,">$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 			print OUT @MES_REG;
 			close(OUT);
 		}else{
@@ -51,11 +51,11 @@ sub UNIT_DELETE {
 
 	if(!$hit){
 		$kunit = "";
-		$mess = "$uunit_name•”‘à‚©‚ç—£’E‚µ‚Ü‚µ‚½B";
+		$mess = "$uunit_nameéƒ¨éšŠã‹ã‚‰é›¢è„±ã—ã¾ã—ãŸã€‚";
 	}
 
 
-	open(OUT,">$UNIT_LIST") or &ERR('UNIT3 V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$UNIT_LIST") or &ERR('UNIT3 æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @NEW_UNI_DATA;
 	close(OUT);
 
@@ -69,7 +69,7 @@ sub UNIT_DELETE {
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="ŠX‚É–ß‚é"></form></CENTER>
+<input type=submit value="è¡—ã«æˆ»ã‚‹"></form></CENTER>
 EOM
 	&FOOTER;
 	exit;

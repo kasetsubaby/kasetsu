@@ -1,43 +1,43 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#        ’¥•º‚Q      #
+#        å¾´å…µï¼’      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub KING_COM3 {
 
-	if($in{'sel'} eq ""){&ERR("”C–½‘Šè‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if($in{'type'} eq ""){&ERR("‘ÎÛ‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if($in{'sel'} eq ""){&ERR("ä»»å‘½ç›¸æ‰‹ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if($in{'type'} eq ""){&ERR("å¯¾è±¡ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN("$kcon");
 	&TIME_DATA;
 
-	open(IN,"./charalog/main/$in{'sel'}.cgi") || &ERR("‚»‚ÌID‚Í‘¶İ‚µ‚Ü‚¹‚ñB");
+	open(IN,"./charalog/main/$in{'sel'}.cgi") || &ERR("ãã®IDã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
 	@E_DATA = <IN>;
 	close(IN);
 
 	($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
 
 	if($econ ne $kcon){
-		&ERR("‘‚ªˆá‚¢‚Ü‚·B");
+		&ERR("å›½ãŒé•ã„ã¾ã™ã€‚");
 	}
 
 	if($in{'type'} eq "0"){
 		$xgunshi = $eid;
-		$tname = "ŒRt";
+		$tname = "è»å¸«";
 	}elsif($in{'type'} eq "1"){
 		$xdai = $eid;
-		$tname = "‘å«ŒR";
+		$tname = "å¤§å°†è»";
 	}elsif($in{'type'} eq "2"){
 		$xuma = $eid;
-		$tname = "‹R”n«ŒR";
+		$tname = "é¨é¦¬å°†è»";
 	}elsif($in{'type'} eq "3"){
 		$xgoei = $eid;
-		$tname = "Œì‰q«ŒR";
+		$tname = "è­·è¡›å°†è»";
 	}elsif($in{'type'} eq "4"){
 		$xyumi = $eid;
-		$tname = "‹|«ŒR";
+		$tname = "å¼“å°†è»";
 	}elsif($in{'type'} eq "5"){
 		$xhei = $eid;
-		$tname = "«ŒR";
+		$tname = "å°†è»";
 	}
 	$xsub = "$xgunshi,$xdai,$xuma,$xgoei,$xyumi,$xhei,$xxsub1,$xxsub2,";
 
@@ -45,12 +45,12 @@ sub KING_COM3 {
 	&HEADER;
 
 	print <<"EOM";
-<CENTER><hr size=0><h2>$tname‚É$ename‚ğ”C–½‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>$tnameã«$enameã‚’ä»»å‘½ã—ã¾ã—ãŸã€‚</h2><p>
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 
 	&FOOTER;

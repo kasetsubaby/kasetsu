@@ -1,26 +1,26 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR2("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
-if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ƒAƒhƒŒƒXƒo[‚É’l‚ğ“ü—Í‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B"); }
+if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒãƒ¼ã«å€¤ã‚’å…¥åŠ›ã—ãªã„ã§ãã ã•ã„ã€‚"); }
 if($mode eq 'C_RAN') { &C_RAN; }
 else{&RANKING;}
 
 
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#      Q‰ÁÒƒŠƒXƒg‚n‚o‚d‚m      #
+#      å‚åŠ è€…ãƒªã‚¹ãƒˆï¼¯ï¼°ï¼¥ï¼®      #
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub RANKING {
@@ -31,7 +31,7 @@ sub RANKING {
 	@DL_DATA = <IN>;
 	close(IN);
 
-	open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@COU_DATA = <IN>;
 	close(IN);
 	$country_no=0;
@@ -68,7 +68,7 @@ sub RANKING {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -104,11 +104,11 @@ sub RANKING {
 				if($c[$j] <= 10 && $kcon ne 0){
 				$ldate = $DEL_TURN - $ksub2;
 				if($ldate <= 0){
-					$rm = "<font color=red>íœ‘ÎÛ</font>";
+					$rm = "<font color=red>å‰Šé™¤å¯¾è±¡</font>";
 				}else{
 					$rm = "<font color=blue>$ldate</font>";
 				}
-				$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href=ranking6.cgi?id= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$klea</TD><TD>$LANK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
+				$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href=ranking6.cgi?id= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$klea</TD><TD>$LANK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmã‚¿ãƒ¼ãƒ³</TD></TR>";
 				}else{
 					$lista[$j] .= "$kname($LANK[$s_num]) ";
 				}
@@ -122,13 +122,13 @@ sub RANKING {
 	}
 
 	&HEADER;
-	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>l–]</TH><TH>ŠK‹‰</TH><TH>‘•”õ</TH><TH>íœ‚Ü‚Å</TH></TR>";
+	$l_rank = "<TR><TD></TD><TH>åå‰</TH><TH>æ­¦åŠ›</TH><TH>çŸ¥åŠ›</TH><TH>çµ±ç‡åŠ›</TH><TH>äººæœ›</TH><TH>éšç´š</TH><TH>è£…å‚™</TH><TH>å‰Šé™¤ã¾ã§</TH></TR>";
 
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100% bgcolor=$TABLE_C>
   <TBODY>
     <TR>
-      <TD BGCOLOR=$TD_C1 WIDTH=100% height=5>@<font size=4>@@@ƒƒ<B> @ - RANKING - @ </B>„„</font></TD>
+      <TD BGCOLOR=$TD_C1 WIDTH=100% height=5>ã€€<font size=4>ã€€ã€€ã€€ï¼œï¼œ<B> ã€€ - RANKING - ã€€ </B>ï¼ï¼</font></TD>
     </TR>
     <TR>
       <TD bgcolor=$TD_C4><CENTER>
@@ -148,9 +148,9 @@ EOM
 		}
 print<<"EOM";
 <TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=6 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR>
-<TR><TH colspan=2 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>ŒNå</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD><TD bgcolor=$ELE_C[$xele]><a href=./$FILE_RANK?mode=C_RAN&con_no=$xcid>•«ˆê——</a></TD></TR>
-<TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_g_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ŒRt•â²</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>‘å«ŒR</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH></TR>
-<TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>x”z“ss”</TD><TD colspan=5 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>$town_c[$c_c]“ss($mes[$c_c])</TD></TR></TBODY></TABLE><BR>
+<TR><TH colspan=2 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>å›ä¸»</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>æ­¦å°†æ•°</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] å</TD><TD bgcolor=$ELE_C[$xele]><a href=./$FILE_RANK?mode=C_RAN&con_no=$xcid>æ­¦å°†ä¸€è¦§</a></TD></TR>
+<TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>è»å¸«</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_g_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>è»å¸«è£œä½</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>å¤§å°†è»</TH><TH bgcolor=$ELE_C[$xele]><font size=2 color=$ELE_BG[$xele]>$c_d_name[$c_c]</TH></TR>
+<TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>æ”¯é…éƒ½å¸‚æ•°</TD><TD colspan=5 bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>$town_c[$c_c]éƒ½å¸‚($mes[$c_c])</TD></TR></TBODY></TABLE><BR>
       <TABLE bgcolor=$ELE_BG[$xele] border="0">
         <TBODY bgcolor=$ELE_C[$xele]>
 $l_rank $list[$c_i]
@@ -165,16 +165,16 @@ EOM
 	}
 
 print <<"EOM";
-<TABLE bgcolor=$ELE_BG[0] width=60%><TBODY><TR><TD colspan=5 bgcolor=$ELE_BG[0] align=center><font color=$ELE_C[0] size=4><B>–³Š‘®‘</font></TD></TR><TR><TD align=center bgcolor=$ELE_C[0]><a href=./$FILE_RANK?mode=C_RAN&con_no=0>•ú˜QÒˆê——</a></TD></TR></TBODY></TABLE><BR>
+<TABLE bgcolor=$ELE_BG[0] width=60%><TBODY><TR><TD colspan=5 bgcolor=$ELE_BG[0] align=center><font color=$ELE_C[0] size=4><B>ç„¡æ‰€å±å›½</font></TD></TR><TR><TD align=center bgcolor=$ELE_C[0]><a href=./$FILE_RANK?mode=C_RAN&con_no=0>æ”¾æµªè€…ä¸€è¦§</a></TD></TR></TBODY></TABLE><BR>
       <TABLE width=100% bgcolor=$ELE_BG[0] border="0">
         <TBODY bgcolor=$ELE_C[0]>
 		<TR><TD bgcolor=$ELE_C[0] align=center><font color=$ELE_BG[0]>$list_etc
 		</TD></TR>
         </TBODY>
       </TABLE><br><br><br><br><br>
-<p>Œ»İ‘lŒû $num –¼
+<p>ç¾åœ¨ç·äººå£ $num å
 <form action="$FILE_TOP" method="post">
-<input type=submit value="ƒƒjƒ…[‚É–ß‚é"></form>
+<input type=submit value="ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã«æˆ»ã‚‹"></form>
 
       </TD>
     </TR>
@@ -199,7 +199,7 @@ sub C_RAN{
 	close(IN);
 	$date = time;
 
-	open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@COU_DATA = <IN>;
 	close(IN);
 	$country_no=0;
@@ -217,7 +217,7 @@ sub C_RAN{
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -256,11 +256,11 @@ sub C_RAN{
 			}
 			$ldate = $DEL_TURN - $ksub2;
 			if($ldate <= 0){
-				$rm = "<font color=red>íœ‘ÎÛ</font>";
+				$rm = "<font color=red>å‰Šé™¤å¯¾è±¡</font>";
 			}else{
 				$rm = "<font color=blue>$ldate</font>";
 			}
-			$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD>$LAMK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmƒ^[ƒ“</TD></TR>";
+			$list[$j] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD>$LAMK[$s_num]</TD><TD>$ITEM_NO[0]</TD><TD>$rmã‚¿ãƒ¼ãƒ³</TD></TR>";
 			$c[$j]++;
 			}
 
@@ -281,14 +281,14 @@ sub C_RAN{
 			}
 			$ldate = $DEL_TURN - $ksub2;
 			if($ldate <= 0){
-				$rm = "<font color=red>íœ‘ÎÛ</font>";
+				$rm = "<font color=red>å‰Šé™¤å¯¾è±¡</font>";
 			}else{
 				$rm = "<font color=blue>$ldate</font>";
 			}
 
 			if(!$chit){
 			if($c[0] >= $c_num && $c[0] < $c_num + $C_NEXT_NUM){
-			$list[0] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD></TD><TD>$rmƒ^[ƒ“</TD></TR>";
+			$list[0] .= "<TR><TD><img src=$IMG/$kchara.gif></TD><TD><a href= target=_blank>$kname</a></TD><TD>$kstr</TD><TD>$kint</TD><TD>$klea</TD><TD>$ksol</TD><TD></TD><TD>$rmã‚¿ãƒ¼ãƒ³</TD></TR>";
 			}
 				$c[0]++;
 			}
@@ -297,13 +297,13 @@ sub C_RAN{
 
 	&HEADER;
 
-	$l_rank = "<TR><TD></TD><TH>–¼‘O</TH><TH>•—Í</TH><TH>’m—Í</TH><TH>“—¦—Í</TH><TH>l–]</TH><TH>ŠK‹‰</TH><TH>‘•”õ</TH><TH>íœ‚Ü‚Å</TH></TR>";
+	$l_rank = "<TR><TD></TD><TH>åå‰</TH><TH>æ­¦åŠ›</TH><TH>çŸ¥åŠ›</TH><TH>çµ±ç‡åŠ›</TH><TH>äººæœ›</TH><TH>éšç´š</TH><TH>è£…å‚™</TH><TH>å‰Šé™¤ã¾ã§</TH></TR>";
 
 	print <<"EOM";
 <TABLE WIDTH="100%" height=100% bgcolor=$TABLE_C>
   <TBODY>
     <TR>
-      <TD BGCOLOR=$TD_C1 WIDTH=100% height=5>@<font size=4>@@@ƒƒ<B> @ - RANKING - @ </B>„„</font></TD>
+      <TD BGCOLOR=$TD_C1 WIDTH=100% height=5>ã€€<font size=4>ã€€ã€€ã€€ï¼œï¼œ<B> ã€€ - RANKING - ã€€ </B>ï¼ï¼</font></TD>
     </TR>
     <TR>
       <TD bgcolor=$TD_C4><CENTER>
@@ -317,14 +317,14 @@ EOM
 		($xcid,$xname,$xele,$xmark,$xking,$xmes,$xsub,$xpri)=split(/<>/);
 			if($xcid eq $in{'con_no'}){
 			if($xking ne "" && $c_k_name[$c_c] eq ""){
-				open(IN,"./charalog/main/$xking.cgi") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :main_chara');
+				open(IN,"./charalog/main/$xking.cgi") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :main_chara');
 				@CN_DATA = <IN>;
 				close(IN);
 				($lid,$lpass,$lname) = split(/<>/,$CN_DATA[0]);
 				$c_k_name[$c_c] = "$lname";
 			}
 	print<<"EOM";
-	<TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=4 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR><TR><TH bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>‰¤</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD></TR></TBODY></TABLE><BR>
+	<TABLE bgcolor=$ELE_BG[$xele] width=60%><TBODY><TR><TD colspan=4 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>$xname</font></TD></TR><TR><TH bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>ç‹</TH><TH bgcolor=FFFFFF><font size=3 color=$ELE_BG[$xele]>$c_k_name[$c_c]</TH><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>æ­¦å°†æ•°</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] å</TD></TR></TBODY></TABLE><BR>
 	      <TABLE bgcolor=$ELE_BG[$xele] border="0">
 	        <TBODY bgcolor=$ELE_C[$xele]>
 	$l_rank $list[$c_c]
@@ -343,7 +343,7 @@ EOM
 	$xele=0;
 
 	print<<"EOM";
-	<TABLE bgcolor=$ELE_BG[$xxele] width=60%><TBODY><TR><TD colspan=2 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>–³Š‘®</font></TD></TR><TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>•«”</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] –¼</TD></TR></TBODY></TABLE><BR>
+	<TABLE bgcolor=$ELE_BG[$xxele] width=60%><TBODY><TR><TD colspan=2 bgcolor=$ELE_BG[$xele] align=center><font color=$ELE_C[$xele] size=4><B>ç„¡æ‰€å±</font></TD></TR><TR><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]>æ­¦å°†æ•°</TD><TD bgcolor=$ELE_C[$xele]><font color=$ELE_BG[$xele]> $c[$c_c] å</TD></TR></TBODY></TABLE><BR>
 	      <TABLE bgcolor=$ELE_BG[$xele] border="0">
 	        <TBODY bgcolor=$ELE_C[$xele]>
 	$l_rank $list[$c_c]

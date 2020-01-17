@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    •”‘à“o˜^  _/#
+#_/    éƒ¨éšŠç™»éŒ²  _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub UNIT_ENTRY {
@@ -7,17 +7,17 @@ sub UNIT_ENTRY {
 	&CHARA_MAIN_OPEN;
     &COUNTRY_DATA_OPEN("$kcon");
 
-	if($xcid eq "0"){&ERR("–³Š‘®‘‚ÍÀs‚Å‚«‚Ü‚¹‚ñB");}
-	if($in{'unit_id'} eq "") { &ERR("Š‘®‚·‚é•”‘à‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
+	if($xcid eq "0"){&ERR("ç„¡æ‰€å±å›½ã¯å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
+	if($in{'unit_id'} eq "") { &ERR("æ‰€å±ã™ã‚‹éƒ¨éšŠãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
 
-	open(IN,"$UNIT_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@UNI_DATA = <IN>;
 	close(IN);
 
 	$hit=0;
 	foreach(@UNI_DATA){
 		($unit_id,$uunit_name,$ucon,$ureader,$uid,$uname,$uchara,$umes,$uflg)=split(/<>/);
-		if($uid eq $kid){&ERR("Šù‚É$uunit_name•”‘à‚ÉŠ‘®‚µ‚Ä‚¢‚Ü‚·B");}
+		if($uid eq $kid){&ERR("æ—¢ã«$uunit_nameéƒ¨éšŠã«æ‰€å±ã—ã¦ã„ã¾ã™ã€‚");}
 	}
 
 	$hit=0;
@@ -27,25 +27,25 @@ sub UNIT_ENTRY {
 	}
 
 	if($uflg){
-		&ERR("“ü‘à‹‘”Û‚É‚È‚Á‚Ä‚¢‚Ü‚·B");
+		&ERR("å…¥éšŠæ‹’å¦ã«ãªã£ã¦ã„ã¾ã™ã€‚");
 	}
 
 	if(!$hit){
 		unshift(@UNI_DATA,"$unit_id<>$uunit_name<>$kcon<>0<>$kid<>$kname<>$kchara<>$umes<>$uflg<>\n");
-		open(IN,"$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+		open(IN,"$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 		@MES_REG = <IN>;
 		close(IN);
 
 		$mes_num = @MES_REG;
 		if($mes_num > $MES_MAX) { pop(@MES_REG); }
-		unshift(@MES_REG,"$unit_id<>$kid<>$kpos<>$kname<><font color=00FF00>î•ñF$kname‚ª$uunit_name•”‘à‚É“ü‘à‚µ‚Ü‚µ‚½B<>$uname<>$daytime<>$kchara<>$kcon<>0<>\n");
+		unshift(@MES_REG,"$unit_id<>$kid<>$kpos<>$kname<><font color=00FF00>æƒ…å ±ï¼š$knameãŒ$uunit_nameéƒ¨éšŠã«å…¥éšŠã—ã¾ã—ãŸã€‚<>$uname<>$daytime<>$kchara<>$kcon<>0<>\n");
 
-		open(OUT,">$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+		open(OUT,">$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 		print OUT @MES_REG;
 		close(OUT);
 	}
 
-	open(OUT,">$UNIT_LIST") or &ERR('UNIT4 V‚µ‚¢ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+	open(OUT,">$UNIT_LIST") or &ERR('UNIT4 æ–°ã—ã„ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 	print OUT @UNI_DATA;
 	close(OUT);
 
@@ -53,13 +53,13 @@ sub UNIT_ENTRY {
 
 	&HEADER;
 	print <<"EOM";
-<CENTER><hr size=0><h2>$uunit_name•”‘à‚É“ü‘à‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>$uunit_nameéƒ¨éšŠã«å…¥éšŠã—ã¾ã—ãŸã€‚</h2><p>
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<input type=submit value="ŠX‚É–ß‚é"></form></CENTER>
+<input type=submit value="è¡—ã«æˆ»ã‚‹"></form></CENTER>
 EOM
 	&FOOTER;
 	exit;

@@ -1,11 +1,11 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
@@ -13,15 +13,15 @@ require './ini_file/index.ini';
 require './ini_file/com_list.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR2("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
-if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ƒAƒhƒŒƒXƒo[‚É’l‚ğ“ü—Í‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B"); }
+if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("ã‚¢ãƒ‰ãƒ¬ã‚¹ãƒãƒ¼ã«å€¤ã‚’å…¥åŠ›ã—ãªã„ã§ãã ã•ã„ã€‚"); }
 if($mode eq 'STATUS') { &STATUS; }
-else { &ERR("•s³‚ÈƒAƒNƒZƒX‚Å‚·B"); }
+else { &ERR("ä¸æ­£ãªã‚¢ã‚¯ã‚»ã‚¹ã§ã™ã€‚"); }
 
 
 #_/_/_/_/_/_/_/_/_/_/_/#
-#_/  ƒXƒe[ƒ^ƒX‰æ–Ê  _/#
+#_/  ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ç”»é¢  _/#
 #_/_/_/_/_/_/_/_/_/_/_/#
 
 sub STATUS {
@@ -33,14 +33,14 @@ sub STATUS {
 	&MAKE_GUEST_LIST;
 	($kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex) = split(/,/,$ksub1);
 	if($kos ne 1){
-		&ERR2("”FØ‚ªÏ‚ñ‚Å‚¢‚Ü‚¹‚ñB“o˜^‚µ‚½ƒ[ƒ‹ƒAƒhƒŒƒX‚É”FØID‚ª“Y•t‚³‚ê‚Ä‚¢‚é‚Ì‚Å“o˜^‚µ‚Ä‚­‚¾‚³‚¢B");
+		&ERR2("èªè¨¼ãŒæ¸ˆã‚“ã§ã„ã¾ã›ã‚“ã€‚ç™»éŒ²ã—ãŸãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã«èªè¨¼IDãŒæ·»ä»˜ã•ã‚Œã¦ã„ã‚‹ã®ã§ç™»éŒ²ã—ã¦ãã ã•ã„ã€‚");
 	}
-	open(IN,"$LOG_DIR/date_count.cgi") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$LOG_DIR/date_count.cgi") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@MONTH_DATA = <IN>;
 	close(IN);
 
 	($myear,$mmonth,$mtime) = split(/<>/,$MONTH_DATA[0]);
-	$new_date = sprintf("%02d\”N%02d\Œ", $F_YEAR+$myear, $mmonth);
+	$new_date = sprintf("%02d\å¹´%02d\æœˆ", $F_YEAR+$myear, $mmonth);
 
 	if($mmonth < 4){
 		$bg_c = "#FFFFFF";
@@ -60,21 +60,21 @@ sub STATUS {
 		}
 	}
 	if($xking eq "$kid"){
-		$rank_mes = "yŒNåz";
+		$rank_mes = "ã€å›ä¸»ã€‘";
 	}elsif($xgunshi eq "$kid"){
-		$rank_mes = "yŒRtz";
+		$rank_mes = "ã€è»å¸«ã€‘";
 	}elsif($xdai eq "$kid"){
-		$rank_mes = "y‘å«ŒRz";
+		$rank_mes = "ã€å¤§å°†è»ã€‘";
 	}elsif($xuma eq "$kid"){
-		$rank_mes = "y‹R”n«ŒRz";
+		$rank_mes = "ã€é¨é¦¬å°†è»ã€‘";
 	}elsif($xgoei eq "$kid"){
-		$rank_mes = "yŒì‰q«ŒRz";
+		$rank_mes = "ã€è­·è¡›å°†è»ã€‘";
 	}elsif($xyumi eq "$kid"){
-		$rank_mes = "y‹|«ŒRz";
+		$rank_mes = "ã€å¼“å°†è»ã€‘";
 	}elsif($xhei eq "$kid"){
-		$rank_mes = "y«ŒRz";
+		$rank_mes = "ã€å°†è»ã€‘";
 	}
-	open(IN,"$UNIT_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$UNIT_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@UNI_DATA = <IN>;
 	close(IN);
 
@@ -85,16 +85,16 @@ sub STATUS {
 	}
 	if(!$uhit){
 		$unit_id="";
-		$uunit_name="–³Š‘®";
+		$uunit_name="ç„¡æ‰€å±";
 	}
 	if($unit_id eq $kid){
-		$add_com = "<option value=28>W‡";
+		$add_com = "<option value=28>é›†åˆ";
 	}
 	open(IN,"$MAP_LOG_LIST");
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$S_MES .= "<font color=green>œ</font>$S_MOVE[$p]<BR>";$p++;}
+	while($p<5){$S_MES .= "<font color=green>â—</font>$S_MOVE[$p]<BR>";$p++;}
 
 	&TIME_DATA;
 
@@ -102,7 +102,7 @@ sub STATUS {
 	@LOG_DATA = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$log_list .= "<font color=navy>œ</font>$LOG_DATA[$p]<BR>";$p++;}
+	while($p<5){$log_list .= "<font color=navy>â—</font>$LOG_DATA[$p]<BR>";$p++;}
 
 	open(IN,"./charalog/command/$kid.cgi");
 	@COM_DATA = <IN>;
@@ -123,9 +123,9 @@ sub STATUS {
 		($cid,$cno,$cname,$ctime,$csub,$cnum,$cend) = split(/<>/,$COM_DATA[$i]);
 		$no = $i+1;
 		if($cid eq ""){
-			$com_list .= "<TR><TH>$no</TH><TH>y$wyear”N$wmonthŒi13“ú237•ª19•bjz</TH><TH> - </TH></TR>";
+			$com_list .= "<TR><TH>$no</TH><TH>ã€$wyearå¹´$wmonthæœˆï¼ˆ13æ—¥23æ™‚7åˆ†19ç§’ï¼‰ã€‘</TH><TH> - </TH></TR>";
 		}else{
-			$com_list .= "<TR><TH>$no</TH><TH>y$wyear”N$wmonthŒi13“ú237•ª19•bjz</TH><TH>$cname</TH></TR>";
+			$com_list .= "<TR><TH>$no</TH><TH>ã€$wyearå¹´$wmonthæœˆï¼ˆ13æ—¥23æ™‚7åˆ†19ç§’ï¼‰ã€‘</TH><TH>$cname</TH></TR>";
 		}
 		$wmonth++;
 		if($wmonth > 12){
@@ -134,7 +134,7 @@ sub STATUS {
 		}
 	}
 
-	open(IN,"$DEF_LIST") or &ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$DEF_LIST") or &ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@DEF_DATA = <IN>;
 	close(IN);
 
@@ -163,38 +163,38 @@ sub STATUS {
 	$del_out = $DEL_TURN - $ksub2;
 
 	$dilect_mes = "";$m_hit=0;$i=1;$h=1;$j=1;$k=1;
-	open(IN,"$MESSAGE_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$MESSAGE_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	while (<IN>){
 		my ($pid,$hid,$hpos,$hname,$hmessage,$pname,$htime,$hchara,$hcon,$hunit) = split(/<>/);
 		if($MES_MAN < $i && $MES_ALL < $h && $MES_COU < $j && $MES_UNI < $k) { last; }
 		if(111 eq "$pid" && $kpos eq $hpos){
 			if($MES_ALL < $h ) { next; }
-			$all_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF><b>$hname\@$town_name[$hpos]‚©‚ç</b><BR>u<b>$hmessage</b>v<BR>$htime</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>\n";
+			$all_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF><b>$hname\@$town_name[$hpos]ã‹ã‚‰</b><BR>ã€Œ<b>$hmessage</b>ã€<BR>$htime</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>\n";
 			$h++;
 		}elsif($kcon eq "$pid"){
 			if($MES_COU < $j ) { next; }
-			$cou_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=FFCC33><b>	$hname\@$town_name[$hpos]‚©‚ç$pname‚Ö</b></font><BR><font size=2 color=#FFFFFF>  u<b>$hmessage</b>v</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
+			$cou_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=FFCC33><b>	$hname\@$town_name[$hpos]ã‹ã‚‰$pnameã¸</b></font><BR><font size=2 color=#FFFFFF>  ã€Œ<b>$hmessage</b>ã€</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
 			$j++;
 		}elsif($kid eq "$pid"){
 			if($MES_MAN < $i ) { next; }
-			$add_mes = "<b><font color=orange>$hname\@$town_name[$hpos]</font>‚©‚ç$pname‚Ö</b> <BR>";
-			$man_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF>$add_mesu<b>$hmessage</b>v</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>\n";
-			$dilect_mes .= "<option value=\"$hid\">$hname‚³‚ñ‚Ö";
+			$add_mes = "<b><font color=orange>$hname\@$town_name[$hpos]</font>ã‹ã‚‰$pnameã¸</b> <BR>";
+			$man_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF>$add_mesã€Œ<b>$hmessage</b>ã€</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>\n";
+			$dilect_mes .= "<option value=\"$hid\">$hnameã•ã‚“ã¸";
 			$i++;
 		}elsif(333 eq "$pid" && "$hunit" eq "$unit_id" && "$hcon" eq "$kcon" && "$xcid" ne "0"){
 			if($MES_UNI < $k ) { next; }
-			$unit_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=orange><b>$kname‚©‚ç$pname‚Ö</b></font><BR><font size=2 color=#FFFFFF>  u<b>$hmessage</b>v</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
+			$unit_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=orange><b>$knameã‹ã‚‰$pnameã¸</b></font><BR><font size=2 color=#FFFFFF>  ã€Œ<b>$hmessage</b>ã€</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
 			$k++;
 		}elsif($kid eq "$hid"){
 			if($MES_MAN < $i ) { next; }
-			$man_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=skyblue><b>$kname‚©‚ç$pname‚Ö</b></font><BR><font size=2 color=#FFFFFF>  u<b>$hmessage</b>v</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
+			$man_mes .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=skyblue><b>$knameã‹ã‚‰$pnameã¸</b></font><BR><font size=2 color=#FFFFFF>  ã€Œ<b>$hmessage</b>ã€</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
 			$i++;
 		}
 	}
 	close(IN);
 
 	$m_hit=0;$i=1;$h=1;$j=1;$k=1;
-	open(IN,"$MESSAGE_LIST2") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$MESSAGE_LIST2") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	while (<IN>){
 		my ($pid,$hid,$hpos,$hname,$hmessage,$pname,$htime,$hchara,$hcon) = split(/<>/);
 		if($MES_MAN < $i) { last; }
@@ -204,34 +204,34 @@ sub STATUS {
 			$add_form1="";
 			$add_form2="";
 			if($htime eq "9999"){
-			$add_mes = "<B><font color=skyblue>$hname‚ª$cou_name[$hcon]‘‚Ö‚ÌdŠ¯‚ğŠ©‚ß‚Ä‚¢‚Ü‚·B</font><BR></B>";
-			$add_sel = "<BR><input type=radio name=sel value=1>³‘ø‚·‚é<input type=radio name=sel value=0>’f‚é<input type=submit value=\"•Ô–\">";
+			$add_mes = "<B><font color=skyblue>$hnameãŒ$cou_name[$hcon]å›½ã¸ã®ä»•å®˜ã‚’å‹§ã‚ã¦ã„ã¾ã™ã€‚</font><BR></B>";
+			$add_sel = "<BR><input type=radio name=sel value=1>æ‰¿è«¾ã™ã‚‹<input type=radio name=sel value=0>æ–­ã‚‹<input type=submit value=\"è¿”äº‹\">";
 			$add_form1="<form action=\"./mydata.cgi\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=hcon value=$hcon><input type=hidden name=hid value=$hid><input type=hidden name=hpos value=$hpos><input type=hidden name=mode value=COU_CHANGE>";
 			$add_form2="</form>";
 			}else{
-			$add_mes = "<B><font color=skyblue>$hname‚©‚ç$pname‚Ö</font><BR></B>";
+			$add_mes = "<B><font color=skyblue>$hnameã‹ã‚‰$pnameã¸</font><BR></B>";
 			}
-			$man_mes2 .= "$add_form1<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF>$add_mesu<b>$hmessage</b>v$add_sel</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>$add_form2\n";
-			$dilect_mes .= "<option value=\"$hid\">$hname‚³‚ñ‚Ö";
+			$man_mes2 .= "$add_form1<TR><TD width=100% bgcolor=#000000><font size=2 color=#FFFFFF>$add_mesã€Œ<b>$hmessage</b>ã€$add_sel</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$hname\"></TD></TR>$add_form2\n";
+			$dilect_mes .= "<option value=\"$hid\">$hnameã•ã‚“ã¸";
 			$i++;
 		}elsif($kid eq "$hid"){
-			$man_mes2 .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=skyblue><b>$kname‚³‚ñ‚©‚ç$pname‚Ö</b></font><BR><font size=2 color=#FFFFFF>  u<b>$hmessage</b>v</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
+			$man_mes2 .= "<TR><TD width=100% bgcolor=#000000><font size=2 color=skyblue><b>$knameã•ã‚“ã‹ã‚‰$pnameã¸</b></font><BR><font size=2 color=#FFFFFF>  ã€Œ<b>$hmessage</b>ã€</font></TD><TD width=70 bgcolor=#000000><img src=\"$IMG/$hchara.gif\" width=\"$img_wid\" height=\"$img_height\" alt=\"$kname\"></TD></TR>";
 			$i++;
 		}
 	}
 	close(IN);
 
 	if($xking eq $kid || $xgunshi eq $kid){
-		$king_com = "<form action=\"./mydata.cgi\" method=\"post\"><TR><TH colspan=8><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM><input type=submit value=\"w—ß•”\"></TH></TR></form>";
+		$king_com = "<form action=\"./mydata.cgi\" method=\"post\"><TR><TH colspan=8><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=KING_COM><input type=submit value=\"æŒ‡ä»¤éƒ¨\"></TH></TR></form>";
 		foreach(@COU_DATA){
 			($xvcid,$xvname)=split(/<>/);
-			$dilect_mes .= "<option value=\"$xvcid\">$xvname‘‚Ö";
+			$dilect_mes .= "<option value=\"$xvcid\">$xvnameå›½ã¸";
 		}
 	}
 
 	if($xmark < $BATTLE_STOP){
 		$xc = $BATTLE_STOP - $xmark;
-		$xaddmes = "<BR>í“¬‰ğœ‚Ü‚Åc‚è <font color=red>$xc</font> ƒ^[ƒ“";
+		$xaddmes = "<BR>æˆ¦é—˜è§£é™¤ã¾ã§æ®‹ã‚Š <font color=red>$xc</font> ã‚¿ãƒ¼ãƒ³";
 	}
 
 	$klank = int($kclass / $LANK);
@@ -254,18 +254,18 @@ sub STATUS {
 print <<"EOM";
 <TABLE border=0 width=100% height=100%><TR><TD>
 [ <a href=$BBS1_URL>$BBS1</a> ]
-[<a href="manual.html" target="_blank">à–¾‘</a>][<a href="ranking.cgi" target="_blank">“o˜^•«ˆê——</a>]
-[<a href="./ranking2.cgi" target="_blank">–¼«</a>] [<a href="ranking5.cgi" target="_blank">“Œvî•ñ</a>]
-[<a href="./map.cgi" target="_blank">¨—Í}</a>][<s>j‹L</s>]
+[<a href="manual.html" target="_blank">èª¬æ˜æ›¸</a>][<a href="ranking.cgi" target="_blank">ç™»éŒ²æ­¦å°†ä¸€è¦§</a>]
+[<a href="./ranking2.cgi" target="_blank">åå°†</a>] [<a href="ranking5.cgi" target="_blank">çµ±è¨ˆæƒ…å ±</a>]
+[<a href="./map.cgi" target="_blank">å‹¢åŠ›å›³</a>][<s>å²è¨˜</s>]
 
-[ <s>‘S‘BBS</s> ]
-[y<s>‚¨–â‚¢‡‚í‚¹</s>z]
+[ <s>å…¨å›½BBS</s> ]
+[ã€<s>ãŠå•ã„åˆã‚ã›</s>ã€‘]
 
-y<a href="./index.cgi" target="_top">ƒƒOƒAƒEƒg</a>z<br>
+ã€<a href="./index.cgi" target="_top">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a>ã€‘<br>
 <TABLE border=0 width=100%>
-<TR><TD bgcolor=$ELE_BG[$cou_ele[$zcon]] colspan=2><font color=$ELE_C[$cou_ele[$zcon]] size=2>$xname‘w—ß:$xmes</font></TD></TR><TR><TD width=50%>
+<TR><TD bgcolor=$ELE_BG[$cou_ele[$zcon]] colspan=2><font color=$ELE_C[$cou_ele[$zcon]] size=2>$xnameå›½æŒ‡ä»¤:$xmes</font></TD></TR><TR><TD width=50%>
 <TABLE width=100%><TR><TD width=50%>
-<font color=AA8866><B>- ‘å—¤’n} -</B></font>
+<font color=AA8866><B>- å¤§é™¸åœ°å›³ -</B></font>
 <TABLE bgcolor=$bg_c width=100% height=5 border="0" cellspacing=1><TBODY>
 <TR><TH colspan= 11 bgcolor=442200><font color=FFFFFF>$new_date</TH></TR>
           <TR>
@@ -292,10 +292,10 @@ EOM
 					}else{
 						$col = $ELE_BG[$cou_ele[$zzcon]];
 					}
-					if($zzname eq "—Œ—z" || $zzname eq "Œš‹Æ" || $zzname eq "¬“s" || $zzname eq "‹Æ" ){
-						print "<TH bgcolor=$col><img src=\"$IMG/m_1.gif\" title=\"$zznamey$cou_name[$zzcon]z\"></TH>";
+					if($zzname eq "æ´›é™½" || $zzname eq "å»ºæ¥­" || $zzname eq "æˆéƒ½" || $zzname eq "æ¥­" ){
+						print "<TH bgcolor=$col><img src=\"$IMG/m_1.gif\" title=\"$zznameã€$cou_name[$zzcon]ã€‘\"></TH>";
 					}else{
-						print "<TH bgcolor=$col><img src=\"$IMG/m_4.gif\" title=\"$zznamey$cou_name[$zzcon]z\"></TH>";
+						print "<TH bgcolor=$col><img src=\"$IMG/m_4.gif\" title=\"$zznameã€$cou_name[$zzcon]ã€‘\"></TH>";
 					}
 				}else{
 					print "<TH> </TH>";
@@ -310,14 +310,14 @@ print <<"EOM";
 
 <TABLE width=100% bgcolor=$ELE_BG[$cou_ele[$zcon]] cellspacing=2><TBODY bgcolor=$ELE_C[$cou_ele[$zcon]]>
 <TR><TH bgcolor=$ELE_BG[$xele] colspan=2><font color=$ELE_C[$xele]>$zname</font></TH></TR>
-<TR><TD>x”z‘</TD><TH bgcolor$TD_C1>$cou_name[$zcon]‘</Th></TR>
-<TR><TD>”_–¯</TD><TD align=right>$znum</TD></TR>
-<TR><TD>–¯’‰</TD><TD align=right>$zpri</TD></TR>
-<TR><TD>”_‹Æ</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$nou_bar1\% height=5><img src=$IMG/img/bar2.gif width=$nou_bar2\% height=5><BR>$znou/$znou_max</TD></TR>
-<TR><TD>¤‹Æ</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$syo_bar1\% height=5><img src=$IMG/img/bar2.gif width=$syo_bar2\% height=5><BR>$zsyo/$zsyo_max</TD></TR>
-<TR><TD>‹Zp—Í</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$tec_bar1\% height=5><img src=$IMG/img/bar2.gif width=$tec_bar2\% height=5><BR>$zsub1/999</TD></TR>
-<TR><TD>é•Ç</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$shiro_bar1\% height=5><img src=$IMG/img/bar2.gif width=$shiro_bar2\% height=5><BR>$zshiro/$zshiro_max</TD></TR>
-<TR><TD>é•Ç‘Ï‹v—Í</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$Tshiro_bar1\% height=5><img src=$IMG/img/bar2.gif width=$Tshiro_bar2\% height=5><BR>$zdef_att/999</TD></TR>
+<TR><TD>æ”¯é…å›½</TD><TH bgcolor$TD_C1>$cou_name[$zcon]å›½</Th></TR>
+<TR><TD>è¾²æ°‘</TD><TD align=right>$znum</TD></TR>
+<TR><TD>æ°‘å¿ </TD><TD align=right>$zpri</TD></TR>
+<TR><TD>è¾²æ¥­</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$nou_bar1\% height=5><img src=$IMG/img/bar2.gif width=$nou_bar2\% height=5><BR>$znou/$znou_max</TD></TR>
+<TR><TD>å•†æ¥­</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$syo_bar1\% height=5><img src=$IMG/img/bar2.gif width=$syo_bar2\% height=5><BR>$zsyo/$zsyo_max</TD></TR>
+<TR><TD>æŠ€è¡“åŠ›</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$tec_bar1\% height=5><img src=$IMG/img/bar2.gif width=$tec_bar2\% height=5><BR>$zsub1/999</TD></TR>
+<TR><TD>åŸå£</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$shiro_bar1\% height=5><img src=$IMG/img/bar2.gif width=$shiro_bar2\% height=5><BR>$zshiro/$zshiro_max</TD></TR>
+<TR><TD>åŸå£è€ä¹…åŠ›</TD><TD align=right NOWRAP><img src=$IMG/img/bar1.gif width=$Tshiro_bar1\% height=5><img src=$IMG/img/bar2.gif width=$Tshiro_bar2\% height=5><BR>$zdef_att/999</TD></TR>
 </TBODY></TABLE>
 
 <TABLE width=100% bgcolor=$ELE_BG[$cou_ele[$zcon]] cellspacing=1><TBODY bgcolor=$ELE_C[$cou_ele[$zcon]]>
@@ -326,22 +326,22 @@ print <<"EOM";
 
 </TD></TR><TR><TD>
 <TABLE width=100% bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
-<TR><TH bgcolor=$ELE_BG[$xele] colspan=8><font color=$ELE_C[$xele]>$xname‘$xaddmes</font></TH></TR>
-<TR><TD>ŒNå</TD><TH colspan=2>$king_name</TH><TD>ŒRt</TD><TH colspan=2>$sub_name</TH></TR>
-<TD>x”z“ss</TD><TD align=right>$town_get[$kcon]</TD><TD>ûŠn</TD><TD align=right>$znou_sal</TD>
-<TD>Å‹à</TD><TD align=right>$zsyo_sal</TD></TR>
+<TR><TH bgcolor=$ELE_BG[$xele] colspan=8><font color=$ELE_C[$xele]>$xnameå›½$xaddmes</font></TH></TR>
+<TR><TD>å›ä¸»</TD><TH colspan=2>$king_name</TH><TD>è»å¸«</TD><TH colspan=2>$sub_name</TH></TR>
+<TD>æ”¯é…éƒ½å¸‚</TD><TD align=right>$town_get[$kcon]</TD><TD>åç©«</TD><TD align=right>$znou_sal</TD>
+<TD>ç¨é‡‘</TD><TD align=right>$zsyo_sal</TD></TR>
 
 <form action="./mydata.cgi" method="post"><TR><TH colspan=3>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=COUNTRY_TALK>
-<input type=submit value="‰ï‹cº">
+<input type=submit value="ä¼šè­°å®¤">
 </TH></form>
 <form action="./mydata.cgi" method="post"><TH colspan=3>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=LOCAL_RULE>
-<input type=submit value="‘–@">
+<input type=submit value="å›½æ³•">
 </TH></TR></form>
 $king_com
 </TBODY></TABLE>
@@ -351,28 +351,28 @@ $king_com
 <TABLE width=100% bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
 <TR><TH colspan=7 bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>$kname$rank_mes</font></TH></TR>
 
-<TR><TD rowspan=4 width=5><img src=$IMG/$kchara.gif></TD><TD>•—Í</TD><TH>$kstr</TH><TD>’m—Í</TD><TH>$kint</TH><TD>“—¦—Í</TD><TH>$klea</TH></TR>
-<TR><TD>•EX</TD><TH>$kstr_ex</TH><TD>’mEX</TD><TH>$kint_ex</TH><TD>“EX</TD><TH>$klea_ex</TH></TR>
-<TR><TD>‹à</TD><TH>$kgold</TH><TD>•Ä</TD><TH>$krice</TH><TD>l–]</TD><TH>$kcha</TH></TR>
-<TR><TD>ŠK‹‰</TD><TH>$LANK[$klank]</TH><TD>vŒ£</TD><TH>$kcex</TH><TD>ŠK‹‰’l</TD><TH>$kclass</TH></TR>
-<TR><TD>Š‘®‘</TD><TH colspan=2>$cou_name[$kcon]‘</TH><TD>•”‘à</TD><TH colspan=3>$uunit_name</TH></TR>
-<TR><TD>•ºí</TD><TH colspan=2>$SOL_TYPE[$ksub1_ex]</TH><TD>•ºm</TD><TH>$ksol</TH><TD>ŒP—û</TD><TH>$kgat</TH></TR>
-<TR><TD>•Ší</TD><TH colspan=5>$karmname</TH><TH>$karmdmg</TH></TR>
-<TR><TD>‘•¨</TD><TH colspan=5>$kproname</TH><TH>$kprodmg</TH></TR>
-<form action="./mydata.cgi" method="post"><TR><TD>’‰½“x</TD><TH>$kbank</TH><TH colspan=5>
+<TR><TD rowspan=4 width=5><img src=$IMG/$kchara.gif></TD><TD>æ­¦åŠ›</TD><TH>$kstr</TH><TD>çŸ¥åŠ›</TD><TH>$kint</TH><TD>çµ±ç‡åŠ›</TD><TH>$klea</TH></TR>
+<TR><TD>æ­¦EX</TD><TH>$kstr_ex</TH><TD>çŸ¥EX</TD><TH>$kint_ex</TH><TD>çµ±EX</TD><TH>$klea_ex</TH></TR>
+<TR><TD>é‡‘</TD><TH>$kgold</TH><TD>ç±³</TD><TH>$krice</TH><TD>äººæœ›</TD><TH>$kcha</TH></TR>
+<TR><TD>éšç´š</TD><TH>$LANK[$klank]</TH><TD>è²¢çŒ®</TD><TH>$kcex</TH><TD>éšç´šå€¤</TD><TH>$kclass</TH></TR>
+<TR><TD>æ‰€å±å›½</TD><TH colspan=2>$cou_name[$kcon]å›½</TH><TD>éƒ¨éšŠ</TD><TH colspan=3>$uunit_name</TH></TR>
+<TR><TD>å…µç¨®</TD><TH colspan=2>$SOL_TYPE[$ksub1_ex]</TH><TD>å…µå£«</TD><TH>$ksol</TH><TD>è¨“ç·´</TD><TH>$kgat</TH></TR>
+<TR><TD>æ­¦å™¨</TD><TH colspan=5>$karmname</TH><TH>$karmdmg</TH></TR>
+<TR><TD>æ›¸ç‰©</TD><TH colspan=5>$kproname</TH><TH>$kprodmg</TH></TR>
+<form action="./mydata.cgi" method="post"><TR><TD>å¿ èª åº¦</TD><TH>$kbank</TH><TH colspan=5>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=CYUUSEI>
 <input type=text name=cyuu size=5>
-<input type=submit value="’‰½">
+<input type=submit value="å¿ èª ">
 </TH></TR></form>
 <form action="./mydata.cgi" method="post"><TR><TH colspan=7>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <select name=mode>
-<option value=LETTER>ŒÂl“–‚Äè†
-<option value=UNIT_SELECT>•”‘à•Ò¬
-<input type=submit value="Às">
+<option value=LETTER>å€‹äººå½“ã¦æ‰‹ç´™
+<option value=UNIT_SELECT>éƒ¨éšŠç·¨æˆ
+<input type=submit value="å®Ÿè¡Œ">
 
 </TH></TR></form>
 </TBODY></TABLE>
@@ -384,7 +384,7 @@ $king_com
 
 <TABLE width=100%><TR><TD width=100%>
 <TABLE width=100% bgcolor=$TABLE_C cellspacing=1><TBODY BGCOLOR=$TD_C2>
-<TR><TH bgcolor=#000000 colspan=2><font color=#FFFFFF>ƒRƒ}ƒ“ƒhƒŠƒXƒgiã‚©‚ç‡‚ÉÀs‚³‚ê‚Ä‚¢‚«‚Ü‚·Bj</font></TH></TR>
+<TR><TH bgcolor=#000000 colspan=2><font color=#FFFFFF>ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆï¼ˆä¸Šã‹ã‚‰é †ã«å®Ÿè¡Œã•ã‚Œã¦ã„ãã¾ã™ã€‚ï¼‰</font></TH></TR>
 $com_list
 </TABLE>
 
@@ -393,7 +393,7 @@ $com_list
 
 <form action="./command.cgi" method="POST"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass>
 <TABLE bgcolor=$ELE_BG[$xele] cellspacing=1><TBODY bgcolor=$ELE_C[$xele]>
-<TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ƒRƒ}ƒ“ƒh</font></TH></TR>
+<TR><TH bgcolor=$ELE_BG[$xele]><font color=$ELE_C[$xele]>ã‚³ãƒãƒ³ãƒ‰</font></TH></TR>
 <TR><TD>
 No:<select name=no size=4 MULTIPLE>
 <option value="all">ALL
@@ -411,42 +411,42 @@ print <<"EOM";
 </select>
 
 <select name=mode>
-<option value=$NONE>‰½‚à‚µ‚È‚¢
-<option value="">== “à­ ==
-<option value=$NOUGYOU>”_‹ÆŠJ”­(50G)
-<option value=$SYOUGYOU>¤‹Æ”­“W(50G)
-<option value=$TEC>‹ZpŠJ”­(50G)
-<option value=$SHIRO>é•Ç‹­‰»(50G)
-<option value=$SHIRO_TAI>é•Ç‘Ï‹v—Í‹­‰»(50G)
-<option value=$RICE_GIVE>•Ä{‚µ(50R)
-<option value="">== ŒR– ==
-<option value=$GET_SOL>’¥•º
-<option value=$KUNREN>•ºmŒP—û
-<option value=$TOWN_DEF>é‚Ìç”õ
-<option value=$BATTLE>í‘ˆ
-<option value="">== ’³—ª ==
-<option value=$GET_MAN>“o—p(100G)
-<option value="">== ’b˜B ==
-<option value=$TANREN>\”\\—Í‹­‰»(50G)
-<option value="">== ¤l ==
-<option value=$BUY>•Ä”„”ƒ
-<option value=$ARM_BUY>•Šíw“ü
-<option value=$DEF_BUY>‘•¨w“ü
-<option value="">== ˆÚ“® ==
-<option value=$MOVE>ˆÚ“®
+<option value=$NONE>ä½•ã‚‚ã—ãªã„
+<option value="">== å†…æ”¿ ==
+<option value=$NOUGYOU>è¾²æ¥­é–‹ç™º(50G)
+<option value=$SYOUGYOU>å•†æ¥­ç™ºå±•(50G)
+<option value=$TEC>æŠ€è¡“é–‹ç™º(50G)
+<option value=$SHIRO>åŸå£å¼·åŒ–(50G)
+<option value=$SHIRO_TAI>åŸå£è€ä¹…åŠ›å¼·åŒ–(50G)
+<option value=$RICE_GIVE>ç±³æ–½ã—(50R)
+<option value="">== è»äº‹ ==
+<option value=$GET_SOL>å¾´å…µ
+<option value=$KUNREN>å…µå£«è¨“ç·´
+<option value=$TOWN_DEF>åŸã®å®ˆå‚™
+<option value=$BATTLE>æˆ¦äº‰
+<option value="">== è«œç•¥ ==
+<option value=$GET_MAN>ç™»ç”¨(100G)
+<option value="">== é›éŒ¬ ==
+<option value=$TANREN>\èƒ½\åŠ›å¼·åŒ–(50G)
+<option value="">== å•†äºº ==
+<option value=$BUY>ç±³å£²è²·
+<option value=$ARM_BUY>æ­¦å™¨è³¼å…¥
+<option value=$DEF_BUY>æ›¸ç‰©è³¼å…¥
+<option value="">== ç§»å‹• ==
+<option value=$MOVE>ç§»å‹•
 $add_com
-<option value=$SHIKAN>dŠ¯
-</select><input type=submit value=\"Às\">
-<BR>¦No‚ÍctrlƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‚·‚é‚Æ•¡”‘I‘ğ‚Å‚«‚Ü‚·B
+<option value=$SHIKAN>ä»•å®˜
+</select><input type=submit value=\"å®Ÿè¡Œ\">
+<BR>â€»Noã¯ctrlã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨è¤‡æ•°é¸æŠã§ãã¾ã™ã€‚
 </TD></form></TR>
-<TR><TH>Ÿ‚Ìƒ^[ƒ“‚Ü‚Å$next_time•ª</TH></TR>
-<TR><TH>•ú’uíœƒ^[ƒ“‚Ü‚Å<font color=red>$del_out</font>ƒ^[ƒ“</TH></TR>
+<TR><TH>æ¬¡ã®ã‚¿ãƒ¼ãƒ³ã¾ã§$next_timeåˆ†</TH></TR>
+<TR><TH>æ”¾ç½®å‰Šé™¤ã‚¿ãƒ¼ãƒ³ã¾ã§<font color=red>$del_out</font>ã‚¿ãƒ¼ãƒ³</TH></TR>
 
 <form action="$FILE_STATUS" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=STATUS>
-<TR><TH><input type=submit value="‰æ–ÊRELODE">
+<TR><TH><input type=submit value="ç”»é¢RELODE">
 </TH></TR></form>
 </TBODY></TABLE><CENTER>
 </TD></TR>
@@ -454,41 +454,41 @@ $add_com
 </TD></TR>
 
 <TR><TD colspan=2>
-<TABLE width=100% bgcolor=$ELE_BG[$cou_ele[$zcon]] cellspacing=1><TR><TD bgcolor=$ELE_C[$cou_ele[$zcon]]><font color=$ELE_BG[$cou_ele[$zcon]]>$zname‚Ìç”õ:$def_list</TD></TR></TABLE>
+<TABLE width=100% bgcolor=$ELE_BG[$cou_ele[$zcon]] cellspacing=1><TR><TD bgcolor=$ELE_C[$cou_ele[$zcon]]><font color=$ELE_BG[$cou_ele[$zcon]]>$znameã®å®ˆå‚™:$def_list</TD></TR></TABLE>
 </TD></TR>
 <TR><TD colspan=2>
 <TABLE width=100% bgcolor=$TABLE_C><TR><TD bgcolor=$TD_C1>$S_MES</TD></TR></TABLE>
 <form action="$FILE_MYDATA" method="post">
-è†F<input type="text" name=message size=60>
- <select name=mes_id><option value="$xcid">$xname‘‚Ö<option value="111">$zname‚Ìl‚Ö<option value="333">$uunit_name•”‘à‚Ìl‚Ö$dilect_mes</select>
+æ‰‹ç´™ï¼š<input type="text" name=message size=60>
+ <select name=mes_id><option value="$xcid">$xnameå›½ã¸<option value="111">$znameã®äººã¸<option value="333">$uunit_nameéƒ¨éšŠã®äººã¸$dilect_mes</select>
  <input type=hidden name=id value=$kid>
  <input type=hidden name=name value=$kname>
  <input type=hidden name=pass value=$kpass>
  <input type=hidden name=mode value=MES_SEND>
- <input type=submit value="‘—M"></form>
+ <input type=submit value="é€ä¿¡"></form>
 <TABLE width=100%><TBODY>
 <TR><TD width=50%>
-	$zname‚ÌlX‚Ö:($MES_ALLŒ)
+	$znameã®äººã€…ã¸:($MES_ALLä»¶)
 	<TABLE width=100% bgcolor=880000><TBODY>
 	$all_mes
 	</TBODY></TABLE>
 
-	$knameˆ¶‚Ä:($MES_MANŒ)
+	$knameå®›ã¦:($MES_MANä»¶)
 	<TABLE width=100% bgcolor=008800><TBODY>
 	$man_mes
 	</TBODY></TABLE>
 
-	$knameˆ¶‚Ä–§‘:($MES_MANŒ)
+	$knameå®›ã¦å¯†æ›¸:($MES_MANä»¶)
 	<TABLE width=100% bgcolor=008800><TBODY>
 	$man_mes2
 	</TBODY></TABLE>
 </TD><TD>
-	$xname‘ˆ¶‚Ä:($MES_COUŒ)
+	$xnameå›½å®›ã¦:($MES_COUä»¶)
 	<TABLE width=100% bgcolor=000088><TBODY>
 	$cou_mes
 	</TBODY></TABLE>
 
-	$uunit_name•”‘àˆ¶‚Ä:($MES_UNIŒ)
+	$uunit_nameéƒ¨éšŠå®›ã¦:($MES_UNIä»¶)
 	<TABLE width=100% bgcolor=AA8833><TBODY>
 	$unit_mes
 	</TBODY></TABLE>
@@ -498,10 +498,10 @@ $add_com
 </TD></TR>
 <TR><TD colspan=2>
 <TABLE width=100% bgcolor=$ELE_BG[$cou_ele[$kcon]]><TR><TD colspan=2 bgcolor=$ELE_C[$cou_ele[$kcon]]>$log_list</TD></TR><form action="./mylog.cgi" method="post">
-<TR><TD bgcolor=$ELE_C[$cou_ele[$kcon]]><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=submit value="“ssî•ñ"></TD></form><form action="./mycou.cgi" method="post">
+<TR><TD bgcolor=$ELE_C[$cou_ele[$kcon]]><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=submit value="éƒ½å¸‚æƒ…å ±"></TD></form><form action="./mycou.cgi" method="post">
 <TD bgcolor=$ELE_C[$cou_ele[$kcon]]><input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
-<input type=submit value="‘ƒf[ƒ^">
+<input type=submit value="å›½ãƒ‡ãƒ¼ã‚¿">
 </TD></TR>
 </TABLE></form>
 

@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#      W‡          #
+#      é›†åˆ          #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub SYUUGOU {
@@ -11,7 +11,7 @@ sub SYUUGOU {
 		if("$uid" eq "$kid" && $unit_id eq $kid){$uhit=1;last;}
 	}
 	if(!$uhit){
-		&K_LOG("$mmonthŒ:‘à’·‚µ‚©Às‚Å‚«‚Ü‚¹‚ñB");
+		&K_LOG("$mmonthæœˆ:éšŠé•·ã—ã‹å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");
 	}else{
 
 		foreach(@UNI_DATA){
@@ -23,7 +23,7 @@ sub SYUUGOU {
 				($eid,$epass,$ename,$echara,$estr,$eint,$elea,$echa,$esol,$egat,$econ,$egold,$erice,$ecex,$eclass,$earm,$ebook,$ebank,$esub1,$esub2,$epos,$emes,$ehost,$edate,$email,$eos) = split(/<>/,$E_DATA[0]);
 				$epos = $kpos;
 				if($eid ne ""){
-					&E_LOG2("$mmonthŒ:$uunit_name•”‘à‚Í‘à’·‚Ì–½—ß‚É‚æ‚è$town_name[$kpos]‚ÉW‡‚³‚¹‚ç‚ê‚Ü‚µ‚½B");
+					&E_LOG2("$mmonthæœˆ:$uunit_nameéƒ¨éšŠã¯éšŠé•·ã®å‘½ä»¤ã«ã‚ˆã‚Š$town_name[$kpos]ã«é›†åˆã•ã›ã‚‰ã‚Œã¾ã—ãŸã€‚");
 					&ENEMY_INPUT;
 				}
 			}elsif($unit_id eq $kid && $uid eq $unit_id){
@@ -33,7 +33,7 @@ sub SYUUGOU {
 		$klea_ex++;
 		$kcex+=10;
 		$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,";
-		&K_LOG("$mmonthŒ:$unit_name•”‘à‚ğ$town_name[$kpos]‚ÉW‡‚³‚¹‚Ü‚µ‚½B");
+		&K_LOG("$mmonthæœˆ:$unit_nameéƒ¨éšŠã‚’$town_name[$kpos]ã«é›†åˆã•ã›ã¾ã—ãŸã€‚");
 	}
 
 }

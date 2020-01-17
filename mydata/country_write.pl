@@ -1,5 +1,5 @@
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/       ‰ï‹cº‘‚«‚İ     _/#
+#_/       ä¼šè­°å®¤æ›¸ãè¾¼ã¿     _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub COUNTRY_WRITE{
@@ -9,12 +9,12 @@ sub COUNTRY_WRITE{
 	&HOST_NAME;
 	&COUNTRY_DATA_OPEN("$kcon");
 
-	if($xcid eq "0"){&ERR("–³Š‘®‘‚ÍÀs‚Å‚«‚Ü‚¹‚ñB");}
-	if(length($in{'title'}) > 40 || length($in{'ins'}) > 1000) { &ERR("‚à‚Á‚Æè’Z‚É“`Œ¾‚ğ“`‚¦‚Ä‚­‚¾‚³‚¢"); }
+	if($xcid eq "0"){&ERR("ç„¡æ‰€å±å›½ã¯å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚");}
+	if(length($in{'title'}) > 40 || length($in{'ins'}) > 1000) { &ERR("ã‚‚ã£ã¨æ‰‹çŸ­ã«ä¼è¨€ã‚’ä¼ãˆã¦ãã ã•ã„"); }
 
-	if(($in{'title'} eq "" && $in{'b_no'} eq "")|| $in{'ins'} eq "") { &ERR("ƒƒbƒZ[ƒW‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
+	if(($in{'title'} eq "" && $in{'b_no'} eq "")|| $in{'ins'} eq "") { &ERR("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
 
-	open(IN,"$BBS_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$BBS_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@BBS_DATA = <IN>;
 	close(IN);
 
@@ -23,7 +23,7 @@ sub COUNTRY_WRITE{
 
 	$numm = int($kclass / $LANK);
 	if($numm>20){$numm = 20;}
-	$bbname = "<B>$kname‚æ‚è</B> LANKu$LANK[$numm]v\[$xname‘\]";
+	$bbname = "<B>$knameã‚ˆã‚Š</B> LANKã€Œ$LANK[$numm]ã€\[$xnameå›½\]";
 	if($in{"type"} eq "all"){$bbtype = 1;$back = "COUNTRY_ALL_TALK"}else{$bbtype = 0;$back = "COUNTRY_TALK"}
 
 	($lbbid,$lbbtitle,$lbbmes,$lbbcharaimg,$lbbname,$lbbhost,$lbbtime,$lbbele,$lbbcon,$lbbtype,$lbbno,$lbbheap)=split(/<>/,$BBS_DATA[0]);
@@ -37,19 +37,19 @@ sub COUNTRY_WRITE{
 	}
 	unshift(@BBS_DATA,"$kid<>$in{'title'}<>$in{'ins'}<>$kchara<>$bbname<>$host<>$daytime<>$xele<>$kcon<>$bbtype<>$bno<>$b_heap<>\n");
 
-	open(OUT,">$BBS_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(OUT,">$BBS_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	print OUT @BBS_DATA;
 	close(OUT);
 
 	&HEADER;
 	print <<"EOM";
-<CENTER><hr size=0><h2>‰ï‹cº‚É‘‚«‚İ‚ğ‚µ‚Ü‚µ‚½B</h2><p>
+<CENTER><hr size=0><h2>ä¼šè­°å®¤ã«æ›¸ãè¾¼ã¿ã‚’ã—ã¾ã—ãŸã€‚</h2><p>
 
 <form action="./mydata.cgi" method="post">
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=$back>
-<input type=submit value="‚n‚j"></form></CENTER>
+<input type=submit value="ï¼¯ï¼«"></form></CENTER>
 EOM
 	&FOOTER;
 	exit;

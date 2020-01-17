@@ -5,41 +5,41 @@
 sub NEW_CHARA {
 
 	&CHEACKER;
-	if ($CHARA_STOP) { &ERR2("Œ»İV‹K“o˜^‚Íó‚¯•t‚¯‚Ä‚¨‚è‚Ü‚¹‚ñ"); }
-	if ($in{'id'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("ID‚É”¼Šp‰p”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
-	if ($in{'pass'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("ƒpƒXƒ[ƒh‚É”¼Šp‰p”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
-	if ($in{'mail'} =~ /yahoo/ || $in{'mail'} =~ /hotmail/) { &E_ERR("‚»‚Ìƒ[ƒ‹ƒAƒhƒŒƒX‚Íg—p‚Å‚«‚Ü‚¹‚ñB"); }
-# if ($in{'mail'} eq "" || $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("ƒ[ƒ‹‚Ì“ü—Í‚ª•s³‚Å‚·B");}
-  if ($in{'mail'} eq $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("ƒ[ƒ‹‚Ì“ü—Í‚ª•s³‚Å‚·B");}
-	if ($in{'id'} eq "" or length($in{'id'}) < 4 or length($in{'id'}) > 8) { &E_ERR("ID‚ÍA4•¶šˆÈãA8•¶šˆÈ‰º‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B"); }
-	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 8) { &E_ERR("ƒpƒXƒ[ƒh‚ÍA4•¶šˆÈãA8•¶šˆÈ‰º‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B"); }
-	elsif($in{'con'} eq "") { &E_ERR("‰ŠúˆÊ’u‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
-#	elsif($in{'mail'} eq "\@" || $in{'mail'} eq "") { &E_ERR("ƒ[ƒ‹‚Ì“ü—Í‚ª•s³‚Å‚·"); }
-	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 16) { &E_ERR("ƒLƒƒƒ‰ƒNƒ^[‚ÌƒpƒXƒ[ƒh‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
-	elsif($in{'chara_name'} eq "" || length($in{'chara_name'}) < 1 || length($in{'chara_name'}) > 20) { &E_ERR("ƒLƒƒƒ‰ƒNƒ^[‚Ì–¼‘O‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
-	elsif($in{'id'} eq $in{'pass'}) { &E_ERR("ID‚ÆƒpƒXƒ[ƒh‚ª“¯‚¶ê‡A“o˜^‚Í‚Å‚«‚Ü‚¹‚ñ"); }
-	if ($in{'str'} =~ m/[^0-9]/) { &E_ERR("—Í‚É”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
-	if ($in{'str'} eq "" || $in{'str'} < 5 || $in{'str'} > 100) { &E_ERR("—Í‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if ($in{'int'} =~ m/[^0-9]/) { &E_ERR("’m—Í‚É”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
-	if ($in{'int'} eq "" || $in{'int'} < 5 || $in{'int'} > 100) { &E_ERR("’m—Í‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
-	if ($in{'tou'} =~ m/[^0-9]/) { &E_ERR("“—¦—Í‚É”šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B"); }
-	if ($in{'chara'} =~ m/[^0-9]/) { &E_ERR("•s³‚Å‚·B"); }
-	if($in{'tou'} eq "" || $in{'tou'} < 5 || $in{'tou'} > 100) { &E_ERR("“—¦—Í‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");}
+	if ($CHARA_STOP) { &ERR2("ç¾åœ¨æ–°è¦ç™»éŒ²ã¯å—ã‘ä»˜ã‘ã¦ãŠã‚Šã¾ã›ã‚“"); }
+	if ($in{'id'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("IDã«åŠè§’è‹±æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
+	if ($in{'pass'} =~ m/[^0-9a-zA-Z]/) { &E_ERR("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«åŠè§’è‹±æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
+	if ($in{'mail'} =~ /yahoo/ || $in{'mail'} =~ /hotmail/) { &E_ERR("ãã®ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚"); }
+# if ($in{'mail'} eq "" || $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("ãƒ¡ãƒ¼ãƒ«ã®å…¥åŠ›ãŒä¸æ­£ã§ã™ã€‚");}
+  if ($in{'mail'} eq $in{'mail'} !~ /(.*)\@(.*)\.(.*)/){ &E_ERR("ãƒ¡ãƒ¼ãƒ«ã®å…¥åŠ›ãŒä¸æ­£ã§ã™ã€‚");}
+	if ($in{'id'} eq "" or length($in{'id'}) < 4 or length($in{'id'}) > 8) { &E_ERR("IDã¯ã€4æ–‡å­—ä»¥ä¸Šã€8æ–‡å­—ä»¥ä¸‹ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"); }
+	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 8) { &E_ERR("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ã€4æ–‡å­—ä»¥ä¸Šã€8æ–‡å­—ä»¥ä¸‹ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚"); }
+	elsif($in{'con'} eq "") { &E_ERR("åˆæœŸä½ç½®ãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
+#	elsif($in{'mail'} eq "\@" || $in{'mail'} eq "") { &E_ERR("ãƒ¡ãƒ¼ãƒ«ã®å…¥åŠ›ãŒä¸æ­£ã§ã™"); }
+	elsif($in{'pass'} eq "" || length($in{'pass'}) < 4 || length($in{'pass'}) > 16) { &E_ERR("ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
+	elsif($in{'chara_name'} eq "" || length($in{'chara_name'}) < 1 || length($in{'chara_name'}) > 20) { &E_ERR("ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®åå‰ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
+	elsif($in{'id'} eq $in{'pass'}) { &E_ERR("IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒåŒã˜å ´åˆã€ç™»éŒ²ã¯ã§ãã¾ã›ã‚“"); }
+	if ($in{'str'} =~ m/[^0-9]/) { &E_ERR("åŠ›ã«æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
+	if ($in{'str'} eq "" || $in{'str'} < 5 || $in{'str'} > 100) { &E_ERR("åŠ›ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if ($in{'int'} =~ m/[^0-9]/) { &E_ERR("çŸ¥åŠ›ã«æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
+	if ($in{'int'} eq "" || $in{'int'} < 5 || $in{'int'} > 100) { &E_ERR("çŸ¥åŠ›ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
+	if ($in{'tou'} =~ m/[^0-9]/) { &E_ERR("çµ±ç‡åŠ›ã«æ•°å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚"); }
+	if ($in{'chara'} =~ m/[^0-9]/) { &E_ERR("ä¸æ­£ã§ã™ã€‚"); }
+	if($in{'tou'} eq "" || $in{'tou'} < 5 || $in{'tou'} > 100) { &E_ERR("çµ±ç‡åŠ›ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");}
 
 	$max = $in{'str'} + $in{'int'} + $in{'tou'};
 	if($max ne "150"){
-		&E_ERR("‡Œv‚Ì\”\\—Í‚ª‚P‚T‚O‚Å‚Í‚ ‚è‚Ü‚¹‚ñBiŒvF$maxj");
+		&E_ERR("åˆè¨ˆã®\èƒ½\åŠ›ãŒï¼‘ï¼•ï¼ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ï¼ˆè¨ˆï¼š$maxï¼‰");
 	}
 
-	open(IN,"$TOWN_LIST") or &E_ERR("w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ªŠJ‚¯‚Ü‚¹‚ñB");
+	open(IN,"$TOWN_LIST") or &E_ERR("æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒé–‹ã‘ã¾ã›ã‚“ã€‚");
 	@TOWN_DATA = <IN>;
 	close(IN);
 
-	open(IN,"$COUNTRY_LIST") or &E_ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+	open(IN,"$COUNTRY_LIST") or &E_ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 	@COU_DATA = <IN>;
 	close(IN);
 
-	open(IN,"$COUNTRY_NO_LIST") or &E_ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country no');
+	open(IN,"$COUNTRY_NO_LIST") or &E_ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country no');
 	@COU_NO_DATA = <IN>;
 	close(IN);
 
@@ -47,9 +47,9 @@ sub NEW_CHARA {
 	($z2name,$z2con)=split(/<>/,$TOWN_DATA[$in{'con'}]);
 	if($z2con eq ""){
 		if($in{'ele'} eq ""){
-			&E_ERR("ŒNå‚Ìê‡‘‚ÌF‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			&E_ERR("å›ä¸»ã®å ´åˆå›½ã®è‰²ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");
 		}elsif($in{'cou_name'} eq "" || length($in{'cou_name'}) < 2 || length($in{'cou_name'}) > 8) {
-			&E_ERR("‘‚Ì–¼‘O‚ª³‚µ‚­“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+			&E_ERR("å›½ã®åå‰ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
 		}
 		$m_hit = 1;
 		$cou_name = $in{'cou_name'};
@@ -67,7 +67,7 @@ sub NEW_CHARA {
 	}
 
 	if(!$hit){
-		&E_ERR("‚»‚Ì‘‚Í‘¶İ‚µ‚Ü‚¹‚ñB");
+		&E_ERR("ãã®å›½ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
 	}
 
 	&SET_COOKIE;
@@ -84,7 +84,7 @@ sub NEW_CHARA {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&E_ERR("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&E_ERR("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -96,23 +96,23 @@ sub NEW_CHARA {
 	$hit=0;@new_chara=();
 	($rkid,$rkpass,$rkname,$rkchara,$rkstr,$rkint,$rklea,$rkcha,$rksol,$rkgat,$rkcon,$rkgold,$rkrice,$rkcex,$rkclass,$rkarm,$rkbook,$rkbank,$rksub1,$rksub2,$rkpos,$rkmes,$rkhost,$rkdate,$rkmail,$rkos) = split(/<>/,$NEWCHARA[0]);
 
-	if($rkid eq "$in{'id'}") {&E_ERR("‚»‚ÌID‚Í“o˜^Ï‚İ‚Å‚·Bˆá‚¤ID‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");}
+	if($rkid eq "$in{'id'}") {&E_ERR("ãã®IDã¯ç™»éŒ²æ¸ˆã¿ã§ã™ã€‚é•ã†IDã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");}
 
 	if($REFREE){
-		if($ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/$FILE_ENTRY" && $ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/$FILE_TOP" && $ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/"){ &E_ERR("ERR No.001<BR>‚»‚ÌƒLƒƒƒ‰ƒNƒ^[‚Íì‚ê‚Ü‚¹‚ñB<BR>ŠÇ—Ò‚É–â‚¢‡‚í‚¹‚Ä‰º‚³‚¢B<BR>P1:$ROSER_URL/$FILE_ENTRY<BR>P2$ENV{'HTTP_REFERER'}"); }
+		if($ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/$FILE_ENTRY" && $ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/$FILE_TOP" && $ENV{'HTTP_REFERER'} ne "$SANGOKU_URL/"){ &E_ERR("ERR No.001<BR>ãã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã¯ä½œã‚Œã¾ã›ã‚“ã€‚<BR>ç®¡ç†è€…ã«å•ã„åˆã‚ã›ã¦ä¸‹ã•ã„ã€‚<BR>P1:$ROSER_URL/$FILE_ENTRY<BR>P2$ENV{'HTTP_REFERER'}"); }
 	}
 	foreach(@REGIST_VI){
 		($rkid,$rkpass,$rkname,$rkchara,$rkstr,$rkint,$rklea,$rkcha,$rksol,$rkgat,$rkcon,$rkgold,$rkrice,$rkcex,$rkclass,$rkarm,$rkbook,$rkbank,$rksub1,$rksub2,$rkpos,$rkmes,$rkhost,$rkdate,$rkmail,$rkos) = split(/<>/);
 		if($ACCESS){
 			if($host eq $rkhost ){
-				&E_ERR("ˆêl‚É‚Â‚«‚PƒLƒƒƒ‰ƒNƒ^[‚Å‚·B‚à‚µ‚­‚Í“¯‚¶IP‚Ì•û‚ªŠù‚É“o˜^‚µ‚Ä‚¢‚Ü‚·B");
+				&E_ERR("ä¸€äººã«ã¤ãï¼‘ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã§ã™ã€‚ã‚‚ã—ãã¯åŒã˜IPã®æ–¹ãŒæ—¢ã«ç™»éŒ²ã—ã¦ã„ã¾ã™ã€‚");
 			}
 		}
 		if($rkname eq "$in{'chara_name'}"){
-			&E_ERR("‚»‚Ì–¼‘O‚ÍŠù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·Bˆá‚¤–¼‘O‚Å“o˜^‚µ‚Ä‚­‚¾‚³‚¢B");
+			&E_ERR("ãã®åå‰ã¯æ—¢ã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ã€‚é•ã†åå‰ã§ç™»éŒ²ã—ã¦ãã ã•ã„ã€‚");
 		}
 		if($rkmail eq !"\@" && "$in{'mail'}"){
-			&E_ERR("‚»‚Ìƒ[ƒ‹ƒAƒhƒŒƒX‚ÍŠù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B");
+			&E_ERR("ãã®ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã¯æ—¢ã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ã€‚");
 		}
 		if($kcon eq $rkcon){
 			$con_num++;
@@ -120,35 +120,35 @@ sub NEW_CHARA {
 	}
 
 	if($xmark < $BATTLE_STOP && $con_num >= $CON_ENTRY_MAX){
-		&E_ERR("‚»‚Ì‘‚Í’èˆõ‚ğ’´‚¦‚Ä‚¢‚é‚Ì‚Å“ü‘‚Å‚«‚Ü‚¹‚ñB");
+		&E_ERR("ãã®å›½ã¯å®šå“¡ã‚’è¶…ãˆã¦ã„ã‚‹ã®ã§å…¥å›½ã§ãã¾ã›ã‚“ã€‚");
 	}
 	if($m_hit){
 		$kcon = $new_cou_no;
 		$month_read = "$LOG_DIR/date_count.cgi";
-		open(IN,"$month_read") or &E_ERR('ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+		open(IN,"$month_read") or &E_ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 		@MONTH_DATA = <IN>;
 		close(IN);
 		($myear,$mmonth,$mtime) = split(/<>/,$MONTH_DATA[0]);
-		$old_date = sprintf("%02d\”N%02d\Œ", $F_YEAR+$myear, $mmonth);
+		$old_date = sprintf("%02d\å¹´%02d\æœˆ", $F_YEAR+$myear, $mmonth);
 
 		push(@COU_DATA,"$new_cou_no<>$in{'cou_name'}<>$in{'ele'}<>1<>$in{'id'}<><>$in{'chara_name'}<>1<>\n");
-		open(OUT,">$COUNTRY_LIST") or &E_ERR('COUNTRY ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+		open(OUT,">$COUNTRY_LIST") or &E_ERR('COUNTRY ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 		print OUT @COU_DATA;
 		close(OUT);
 
 		push(@COU_NO_DATA,"$new_cou_no<>$in{'cou_name'}<>$in{'ele'}<>1<>$in{'id'}<><><>1<>\n");
-		open(OUT,">$COUNTRY_NO_LIST") or &E_ERR('COUNTRY ƒf[ƒ^‚ğ‘‚«‚ß‚Ü‚¹‚ñB');
+		open(OUT,">$COUNTRY_NO_LIST") or &E_ERR('COUNTRY ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 		print OUT @COU_NO_DATA;
 		close(OUT);
 
 		&TOWN_DATA_OPEN("$in{'con'}");
 		$zcon = $new_cou_no;
 		&TOWN_DATA_INPUT;
-		&MAP_LOG2("<font color=000088><B>yŒš‘z</B></font>\[$old_date\]V‚µ‚­$in{'chara_name'}‚ª$cou_name‘‚ğŒš‘‚µ‚Ü‚µ‚½B");
-		&MAP_LOG("<font color=000088><B>yŒš‘z</B></font>V‚µ‚­$in{'chara_name'}‚ª$cou_name‘‚ğŒš‘‚µ‚Ü‚µ‚½B");
+		&MAP_LOG2("<font color=000088><B>ã€å»ºå›½ã€‘</B></font>\[$old_date\]æ–°ã—ã$in{'chara_name'}ãŒ$cou_nameå›½ã‚’å»ºå›½ã—ã¾ã—ãŸã€‚");
+		&MAP_LOG("<font color=000088><B>ã€å»ºå›½ã€‘</B></font>æ–°ã—ã$in{'chara_name'}ãŒ$cou_nameå›½ã‚’å»ºå›½ã—ã¾ã—ãŸã€‚");
 
 	}else{
-		&MAP_LOG("<font color=0088CC><B>\[dŠ¯\]</B></font>V‚µ‚­$in{'chara_name'}‚ª$cou_name‘‚ÉdŠ¯‚µ‚Ü‚µ‚½B");
+		&MAP_LOG("<font color=0088CC><B>\[ä»•å®˜\]</B></font>æ–°ã—ã$in{'chara_name'}ãŒ$cou_nameå›½ã«ä»•å®˜ã—ã¾ã—ãŸã€‚");
 	}
 
 	@NEW_COM=();
@@ -194,55 +194,55 @@ sub NEW_CHARA {
 
 
 #------------------#
-#  ƒ[ƒ‹‘—Mˆ—  #
+#  ãƒ¡ãƒ¼ãƒ«é€ä¿¡å‡¦ç†  #
 #------------------#
 sub mail_to {
-	unless (-e $SENDMAIL) { &E_ERR("sendmail‚ÌƒpƒX‚ª•s³‚Å‚·"); }
+	unless (-e $SENDMAIL) { &E_ERR("sendmailã®ãƒ‘ã‚¹ãŒä¸æ­£ã§ã™"); }
 
-	# ƒ[ƒ‹ƒ^ƒCƒgƒ‹
-	$mail_sub = " “o˜^Š®—¹’Ê’m";
+	# ãƒ¡ãƒ¼ãƒ«ã‚¿ã‚¤ãƒˆãƒ«
+	$mail_sub = " ç™»éŒ²å®Œäº†é€šçŸ¥";
 	&TIME_DATA;
 
 	$a_pass = crypt("$in{'pass'}", $ATTESTATION_ID);
-	# ƒ[ƒ‹–{•¶
+	# ãƒ¡ãƒ¼ãƒ«æœ¬æ–‡
 	$mail_msg = <<"EOM";
-$in{'chara_name'} —l
+$in{'chara_name'} æ§˜
 
-‚±‚Ì“x‚ÍA$GAME_TITLE ‚Ö‚Ì“o˜^‚ğ‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B
-“o˜^“à—e‚ÍˆÈ‰º‚Ì‚Æ‚¨‚è‚Å‚·‚Ì‚ÅA‚²Šm”F‚­‚¾‚³‚¢B
+ã“ã®åº¦ã¯ã€$GAME_TITLE ã¸ã®ç™»éŒ²ã‚’ã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã—ãŸã€‚
+ç™»éŒ²å†…å®¹ã¯ä»¥ä¸‹ã®ã¨ãŠã‚Šã§ã™ã®ã§ã€ã”ç¢ºèªãã ã•ã„ã€‚
 
-¡“o˜^“úF$daytime
-¡ƒzƒXƒg–¼F$host
-¡Q‰ÁÒ–¼F$in{'chara_name'}
-¡‚dƒ[ƒ‹F$in{'mail'}
-¡‚h‚c    F$in{'id'}
-¡‚o‚`‚r‚rF$in{'pass'}
-¡”FØƒL[F$a_pass
+â– ç™»éŒ²æ—¥æ™‚ï¼š$daytime
+â– ãƒ›ã‚¹ãƒˆåï¼š$host
+â– å‚åŠ è€…åï¼š$in{'chara_name'}
+â– ï¼¥ãƒ¡ãƒ¼ãƒ«ï¼š$in{'mail'}
+â– ï¼©ï¼¤    ï¼š$in{'id'}
+â– ï¼°ï¼¡ï¼³ï¼³ï¼š$in{'pass'}
+â– èªè¨¼ã‚­ãƒ¼ï¼š$a_pass
 
-”FØƒL[‚ğ“o˜^‚·‚é‚±‚Æ‚É‚æ‚Á‚ÄƒQ[ƒ€‚ÉQ‰Á‚·‚é‚±‚Æ‚ª‚Å
-‚«‚Ü‚·B
+èªè¨¼ã‚­ãƒ¼ã‚’ç™»éŒ²ã™ã‚‹ã“ã¨ã«ã‚ˆã£ã¦ã‚²ãƒ¼ãƒ ã«å‚åŠ ã™ã‚‹ã“ã¨ãŒã§
+ãã¾ã™ã€‚
 
-[”FØƒL[‚Ìİ’è]
+[èªè¨¼ã‚­ãƒ¼ã®è¨­å®š]
 $SANGOKU_URL/entry.cgi?mode=ATTESTATION
-(¦‚±‚¿‚ç‚©‚ç“o˜^‚ªo—ˆ‚Ü‚·B)
+(â€»ã“ã¡ã‚‰ã‹ã‚‰ç™»éŒ²ãŒå‡ºæ¥ã¾ã™ã€‚)
 
-‚æ‚­Q‰Á‹K–ñ‚ğ‚æ‚­“Ç‚ñ‚Å‚©‚çƒQ[ƒ€‚ğŠJn‚µ‚Ä‚­‚¾‚³‚¢B
-‚Ü‚½AƒpƒXƒ[ƒhA‚h‚c“™‚ÌÄ”­s‚Í’v‚µ‚Ü‚¹‚ñ‚Ì‚Å‘åØ‚É
-•ÛŠÇ‚µ‚Ä‚¨‚¢‚Ä‰º‚³‚¢B
+ã‚ˆãå‚åŠ è¦ç´„ã‚’ã‚ˆãèª­ã‚“ã§ã‹ã‚‰ã‚²ãƒ¼ãƒ ã‚’é–‹å§‹ã—ã¦ãã ã•ã„ã€‚
+ã¾ãŸã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€ï¼©ï¼¤ç­‰ã®å†ç™ºè¡Œã¯è‡´ã—ã¾ã›ã‚“ã®ã§å¤§åˆ‡ã«
+ä¿ç®¡ã—ã¦ãŠã„ã¦ä¸‹ã•ã„ã€‚
 
 _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
-$GAME_TITLEŠÇ—l
+$GAME_TITLEç®¡ç†äºº
   Home:   $HOME_URL
 EOM
-	# JISƒR[ƒh‚Ö•ÏŠ·
+	# JISã‚³ãƒ¼ãƒ‰ã¸å¤‰æ›
     	&jcode'convert(*mail_sub,'jis');
     	&jcode'convert(*mail_msg,'jis');
 
-	# ƒRƒƒ“ƒg“à‚Ì‰üs‚Æƒ^ƒO‚ğ•œŒ³
+	# ã‚³ãƒ¡ãƒ³ãƒˆå†…ã®æ”¹è¡Œã¨ã‚¿ã‚°ã‚’å¾©å…ƒ
 	$mail_msg =~ s/<br>/\n/ig;
 
-	# ƒ[ƒ‹ˆ—
-	open(MAIL,"| $SENDMAIL -t") || &E_ERR("ƒ[ƒ‹‘—M‚É¸”s‚µ‚Ü‚µ‚½");
+	# ãƒ¡ãƒ¼ãƒ«å‡¦ç†
+	open(MAIL,"| $SENDMAIL -t") || &E_ERR("ãƒ¡ãƒ¼ãƒ«é€ä¿¡ã«å¤±æ•—ã—ã¾ã—ãŸ");
 	print MAIL "To: $in{'mail'}\n";
 	print MAIL "Subject: $mail_sub\n";
 	print MAIL "MIME-Version: 1.0\n";
@@ -263,12 +263,12 @@ sub E_ERR {
 	if (-e $lockfile) { unlink($lockfile); }
 	print "<center><hr size=0><h3>ERROR !</h3>\n";
 	print "<P><font color=red><B>$_[0]</B></font>\n";
-	print "<form action=\"$FILE_ENTRY\" method=\"post\"><input type=hidden name=id value=$in{'id'}><input type=hidden name=pass value=$in{'pass'}><input type=hidden name=mail value=$in{'mail'}><input type=hidden name=url value=$in{'url'}><input type=hidden name=chara_name value=$in{'chara_name'}><input type=hidden name=mes value=$in{'mes'}><input type=hidden name=mode value=entry><input type=submit value=\"“ü—Í‚É–ß‚é\"></form>";
+	print "<form action=\"$FILE_ENTRY\" method=\"post\"><input type=hidden name=id value=$in{'id'}><input type=hidden name=pass value=$in{'pass'}><input type=hidden name=mail value=$in{'mail'}><input type=hidden name=url value=$in{'url'}><input type=hidden name=chara_name value=$in{'chara_name'}><input type=hidden name=mes value=$in{'mes'}><input type=hidden name=mode value=entry><input type=submit value=\"å…¥åŠ›ã«æˆ»ã‚‹\"></form>";
 	print "<P><hr size=0></center>\n</body></html>\n";
 	exit;
 }
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
-#_/   Q‰Á“o˜^ÒãŒÀƒ`ƒFƒbƒN   _/#
+#_/   å‚åŠ ç™»éŒ²è€…ä¸Šé™ãƒã‚§ãƒƒã‚¯   _/#
 #_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/#
 
 sub CHEACKER {
@@ -278,7 +278,7 @@ sub CHEACKER {
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"$dir/$file")){
-				&ERR2("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR2("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -291,7 +291,7 @@ sub CHEACKER {
 
 	if($ENTRY_MAX){
 		if($num > $ENTRY_MAX){
-			&ERR2("Å‘å“o˜^”\[$ENTRY_MAX\]‚ğ’´‚¦‚Ä‚¢‚Ü‚·BŒ»İV‹K“o˜^o—ˆ‚Ü‚¹‚ñB");
+			&ERR2("æœ€å¤§ç™»éŒ²æ•°\[$ENTRY_MAX\]ã‚’è¶…ãˆã¦ã„ã¾ã™ã€‚ç¾åœ¨æ–°è¦ç™»éŒ²å‡ºæ¥ã¾ã›ã‚“ã€‚");
 		}
 	}
 }

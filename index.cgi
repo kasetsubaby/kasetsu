@@ -1,11 +1,11 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓŽ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ðŽg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìŽÒ‚ÍˆêØ‚ÌÓ”C‚ð•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½Ý’u‚ÉŠÖ‚·‚éŽ¿–â‚ÍƒTƒ|[ƒgŒfŽ¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚éŽ¿–â‚ÍˆêØ‚¨Žó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæŽ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æŽ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
@@ -13,12 +13,12 @@ require './ini_file/index.ini';
 require 'suport.pl';
 require 'check_com.cgi';
 
-if($MENTE) { &ERR2("ƒXƒNƒŠƒvƒgƒ`ƒFƒbƒN‚Ìˆ×ˆêŽž“I‚É’âŽ~‚µ‚Ü‚·B"); }
+if($MENTE) { &ERR2("ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒã‚§ãƒƒã‚¯ã®ç‚ºä¸€æ™‚çš„ã«åœæ­¢ã—ã¾ã™ã€‚"); }
 &DECODE;
 &INDEX;
 
 #_/_/_/_/_/_/_/_/_/#
-#_/  INDEX‰æ–Ê   _/#
+#_/  INDEXç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub INDEX {
@@ -34,19 +34,19 @@ sub INDEX {
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$S_MES .= "<font color=008800>œ</font>$S_MOVE[$p]<BR>";$p++;}
+	while($p<5){$S_MES .= "<font color=008800>â—</font>$S_MOVE[$p]<BR>";$p++;}
 
 	open(IN,"$MAP_LOG_LIST2");
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$D_MES .= "<font color=000088>œ</font>$S_MOVE[$p]<BR>";$p++;}
+	while($p<5){$D_MES .= "<font color=000088>â—</font>$S_MOVE[$p]<BR>";$p++;}
 
 	$hit = 0;
 	@month_new=();
 
 	($myear,$mmonth,$mtime) = split(/<>/,$MONTH_DATA[0]);
-	$old_date = sprintf("%02d\”N%02d\ŒŽ", $F_YEAR+$myear, $mmonth);
+	$old_date = sprintf("%02d\å¹´%02d\æœˆ", $F_YEAR+$myear, $mmonth);
 
 	if($ACT_LOG){
 		$actfile = "$LOG_DIR/act_log.cgi";
@@ -55,7 +55,7 @@ sub INDEX {
 		close(IN);
 		($qsec,$qmin,$qhour,$qday) = localtime($date);
 		$p=0;
-		while($p<5){$A_MES .= "<font color=880000>œ</font>$ACT_DATA[$p]<BR>";$p++;}
+		while($p<5){$A_MES .= "<font color=880000>â—</font>$ACT_DATA[$p]<BR>";$p++;}
 		$ACT_MES = "<TR><TD bgcolor=#EFE0C0 colspan=\"2\" width=80% height=20><font color=#8E4C28 size=2>$A_MES</font></TD></TR>";
 
 	}
@@ -78,7 +78,7 @@ sub INDEX {
 	if($mtime + $TIME_REMAKE < $date){
 		if($mtime eq ""){
 			$mtime = $date;
-			&MAP_LOG("ƒQ[ƒ€ƒvƒƒOƒ‰ƒ€‚ðŠJŽn‚µ‚Ü‚µ‚½B");
+			&MAP_LOG("ã‚²ãƒ¼ãƒ ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’é–‹å§‹ã—ã¾ã—ãŸã€‚");
 		}else{
 			$mtime += $TIME_REMAKE;
 		}
@@ -90,10 +90,10 @@ sub INDEX {
 		unshift(@month_new,"$myear<>$mmonth<>$mtime<>\n");
 		if($ACT_LOG){
 			($qsec,$qmin,$qhour,$qday) = localtime($mtime);
-			unshift(@ACT_DATA,"===============\[$myear”N$mmonthŒŽ\]=================\n");
+			unshift(@ACT_DATA,"===============\[$myearå¹´$mmonthæœˆ\]=================\n");
 		}
 
-		open(IN,"$COUNTRY_LIST") or &ERR2('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country');
+		open(IN,"$COUNTRY_LIST") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country');
 		@COU_DATA = <IN>;
 		close(IN);
 		@NEW_COU_DATA=();
@@ -102,50 +102,50 @@ sub INDEX {
 			$xvmark++;
 			push(@NEW_COU_DATA,"$xvcid<>$xvname<>$xvele<>$xvmark<>$xvking<>$xvmes<>$xvsub<>$xvpri<>\n");
 		}
-		open(OUT,">$COUNTRY_LIST") or &ERR('COUNTRY ƒf[ƒ^‚ð‘‚«ž‚ß‚Ü‚¹‚ñB');
+		open(OUT,">$COUNTRY_LIST") or &ERR('COUNTRY ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚ã¾ã›ã‚“ã€‚');
 		print OUT @NEW_COU_DATA;
 		close(OUT);
 
 		$b_hit = 0;
 		if($mmonth eq "1"){
-			&MAP_LOG("$mmonthŒŽ:<font color=orange>Å‹à</font>‚ÅŠe•«‚É‹‹—^‚ªŽx•¥‚í‚ê‚Ü‚µ‚½B");
+			&MAP_LOG("$mmonthæœˆ:<font color=orange>ç¨Žé‡‘</font>ã§å„æ­¦å°†ã«çµ¦ä¸ŽãŒæ”¯æ‰•ã‚ã‚Œã¾ã—ãŸã€‚");
 			$b_hit = 1;
 		}elsif($mmonth eq "7"){
-			&MAP_LOG("$mmonthŒŽ:<font color=orange>ŽûŠn</font>‚ÅŠe•«‚É•Ä‚ªŽx•¥‚í‚ê‚Ü‚µ‚½B");
+			&MAP_LOG("$mmonthæœˆ:<font color=orange>åŽç©«</font>ã§å„æ­¦å°†ã«ç±³ãŒæ”¯æ‰•ã‚ã‚Œã¾ã—ãŸã€‚");
 			$b_hit = 1;
 		}
 
 		# EVENT ACTION
-		$eve_date = sprintf("%02d\”N%02d\ŒŽ", $F_YEAR+$myear, $mmonth);
+		$eve_date = sprintf("%02d\å¹´%02d\æœˆ", $F_YEAR+$myear, $mmonth);
 		$ihit=0;
 		if(!int(rand(40))){
 			$ihit=1;
 			$ino = int(rand(6));
 			if($ino eq 0){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‚¢‚È‚²‚Ì‘åŒQ‚ª”¨‚ðP‚¢‚Ü‚µ‚½I");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‚¢‚È‚²‚Ì‘åŒQ‚ª”¨‚ðP‚¢‚Ü‚µ‚½I");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ã„ãªã”ã®å¤§ç¾¤ãŒç•‘ã‚’è¥²ã„ã¾ã—ãŸï¼");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ã„ãªã”ã®å¤§ç¾¤ãŒç•‘ã‚’è¥²ã„ã¾ã—ãŸï¼");
 			}elsif($ino eq 1){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]^…‚ª‚¨‚±‚è‚Ü‚µ‚½IŠe’n‚Å”íŠQ‚ªo‚Ä‚¢‚Ü‚·I");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]^…‚ª‚¨‚±‚è‚Ü‚µ‚½IŠe’n‚Å”íŠQ‚ªo‚Ä‚¢‚Ü‚·I");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]æ´ªæ°´ãŒãŠã“ã‚Šã¾ã—ãŸï¼å„åœ°ã§è¢«å®³ãŒå‡ºã¦ã„ã¾ã™ï¼");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]æ´ªæ°´ãŒãŠã“ã‚Šã¾ã—ãŸï¼å„åœ°ã§è¢«å®³ãŒå‡ºã¦ã„ã¾ã™ï¼");
 			}elsif($ino eq 2){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‰u•a‚ª—¬s‚Á‚Ä‚¢‚é‚æ‚¤‚Å‚·BŠX‚ÌlX‚à‹ê‚µ‚ñ‚Å‚¢‚Ü‚·BB");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‰u•a‚ª—¬s‚Á‚Ä‚¢‚é‚æ‚¤‚Å‚·BŠX‚ÌlX‚à‹ê‚µ‚ñ‚Å‚¢‚Ü‚·BB");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ç–«ç—…ãŒæµè¡Œã£ã¦ã„ã‚‹ã‚ˆã†ã§ã™ã€‚è¡—ã®äººã€…ã‚‚è‹¦ã—ã‚“ã§ã„ã¾ã™ã€‚ã€‚");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ç–«ç—…ãŒæµè¡Œã£ã¦ã„ã‚‹ã‚ˆã†ã§ã™ã€‚è¡—ã®äººã€…ã‚‚è‹¦ã—ã‚“ã§ã„ã¾ã™ã€‚ã€‚");
 			}elsif($ino eq 3){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]¡”N‚Í–Lì‚É‚È‚è‚»‚¤‚Å‚·B");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]¡”N‚Í–Lì‚É‚È‚è‚»‚¤‚Å‚·B");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ä»Šå¹´ã¯è±Šä½œã«ãªã‚Šãã†ã§ã™ã€‚");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]ä»Šå¹´ã¯è±Šä½œã«ãªã‚Šãã†ã§ã™ã€‚");
 			}elsif($ino eq 4){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‘å’nk‚ª‚¨‚±‚è‚Ü‚µ‚½I");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]‘å’nk‚ª‚¨‚±‚è‚Ü‚µ‚½I");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]å¤§åœ°éœ‡ãŒãŠã“ã‚Šã¾ã—ãŸï¼");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]å¤§åœ°éœ‡ãŒãŠã“ã‚Šã¾ã—ãŸï¼");
 			}elsif($ino eq 5){
-				&MAP_LOG("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]Še’¬‚Ì¤“X‚ª“ö‚í‚Á‚Ä‚¢‚Ü‚·B");
-				&MAP_LOG2("<font color=red>yƒCƒxƒ“ƒgz</font>\[$eve_date\]Še’¬‚Ì¤“X‚ª“ö‚í‚Á‚Ä‚¢‚Ü‚·B");
+				&MAP_LOG("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]å„ç”ºã®å•†åº—ãŒè³‘ã‚ã£ã¦ã„ã¾ã™ã€‚");
+				&MAP_LOG2("<font color=red>ã€ã‚¤ãƒ™ãƒ³ãƒˆã€‘</font>\[$eve_date\]å„ç”ºã®å•†åº—ãŒè³‘ã‚ã£ã¦ã„ã¾ã™ã€‚");
 			}
 		}
 		if($b_hit){
 			@NEW_TOWN_DATA=();
 			foreach(@TOWN_DATA){
 				($zname,$zcon,$znum,$znou,$zsyo,$zshiro,$znou_max,$zsyo_max,$zshiro_max,$zpri,$zx,$zy,$zsouba,$zdef_att,$zsub1,$zsub2,$z[0],$z[1],$z[2],$z[3],$z[4],$z[5],$z[6],$z[7])=split(/<>/);
-				# ‘Šê•Ï“®
+				# ç›¸å ´å¤‰å‹•
 				if(!int(rand(2.0))){
 					$zsouba += int(rand(0.5)*100)/100;
 					if($zsouba > 1.2){
@@ -204,10 +204,10 @@ sub INDEX {
 		close(OUT);
 	}
 
-	$MESS1 = "<A href=\"$FILE_CONTNUE\">yCONTNUEz</a>";
-	$MESS2 = "<A href=\"$FILE_ENTRY\">yV‹K“o˜^z</a>";
+	$MESS1 = "<A href=\"$FILE_CONTNUE\">ã€CONTNUEã€‘</a>";
+	$MESS2 = "<A href=\"$FILE_ENTRY\">ã€æ–°è¦ç™»éŒ²ã€‘</a>";
 	&COUNTER;
-	$new_date = sprintf("%02d\”N%02d\ŒŽ", $F_YEAR+$myear, $mmonth);
+	$new_date = sprintf("%02d\å¹´%02d\æœˆ", $F_YEAR+$myear, $mmonth);
 	$next_time = int(($mtime + $TIME_REMAKE - $date) / 60);
 
 	&HEADER;
@@ -225,16 +225,16 @@ sub INDEX {
                   <table width=80% height=140 bgcolor=#DECCA8>
                     <tr>
                       <td align=center bgcolor=#EFE0C0>
-                        <h1><div style="position:relative;"><s><font color=442200>$GAME_TITLE</font></s></div><div style="margin-bottom:-40px;padding:10px;border:1px solid #999;display:inline-block;position:relative;top:-40px;left:-100px;background:#fff;font-size:12px;transform:rotate(-15deg);">‰¼Ý‚ÌŽO‘ŽuNET</div></h1>
+                        <h1><div style="position:relative;"><s><font color=442200>$GAME_TITLE</font></s></div><div style="margin-bottom:-40px;padding:10px;border:1px solid #999;display:inline-block;position:relative;top:-40px;left:-100px;background:#fff;font-size:12px;transform:rotate(-15deg);">ä»®è¨­ã®ä¸‰å›½å¿—NET</div></h1>
                         <p><font size=2 color=#9c5a4b></font></p>
                         <p><font size=2 color=#9c5a4b><b>[$new_date]</b><br>
-                          ŽŸ‰ñ‚ÌXV‚Ü‚Å <b>$next_time</b> •ª<br>
+                          æ¬¡å›žã®æ›´æ–°ã¾ã§ <b>$next_time</b> åˆ†<br>
                           <table bgcolor="#fff">
                             <tbody>
                               <tr>
                                 <td>
-                                  <font size="2">V‹K“o˜^i–³—¿j‚Í‚±‚¿‚çI¨</font><a href="entry.cgi"><b><font size="4">yšV‹K“o˜^šz</font></b></a><br>
-                                  <a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">“`à‚ÌŽO‘ŽuNETwiki-‰SŽÒŽw“ì</a><br>
+                                  <font size="2">æ–°è¦ç™»éŒ²ï¼ˆç„¡æ–™ï¼‰ã¯ã“ã¡ã‚‰ï¼â†’</font><a href="entry.cgi"><b><font size="4">ã€â˜…æ–°è¦ç™»éŒ²â˜…ã€‘</font></b></a><br>
+                                  <a href="http://www35.atwiki.jp/densetu0net/pages/65.html" target="_blank">ä¼èª¬ã®ä¸‰å›½å¿—NETwiki-åˆå¿ƒè€…æŒ‡å—</a><br>
                                 </td>
                               </tr>
                             </tbody>
@@ -242,7 +242,7 @@ sub INDEX {
                         </font></p>
                       </td>
                       <td align="center" bgcolor="#EFE0C0">
-                        [<s>Œg‘Ñ—p</s>]<br><br><br><br>
+                        [<s>æºå¸¯ç”¨</s>]<br><br><br><br>
                       </td>
                     </tr>
                   </table>
@@ -256,23 +256,23 @@ sub INDEX {
                             <tbody>
                               <tr>
                                 <td bgcolor="#EFE0C0">
-                                  <b>¡ƒQ[ƒ€Ú×</b>
+                                  <b>â– ã‚²ãƒ¼ãƒ è©³ç´°</b>
                                 </td>
                               </tr>
                               <tr>
                                 <td bgcolor="#EFE0C0">
-                                  <s>yHOME(“`à.NET)z</s><br><br>
-                                  <a href="entry.cgi">yV‹K“o˜^z</a> <br><br>
-                                  <a href="ranking.cgi" target="_blank">y“o˜^•«ˆê——z</a><br> <br>
-                                  <a href="manual.html" target="_blank">yà–¾‘z</a> <br><br>
-                                  <a href="./map.cgi" target="_blank">y¨—Í}z</a><br><br>
-                                  <a href="./ranking2.cgi" target="_blank">y–¼«ˆê——z</a><br><br>
-                                  <a href="ranking5.cgi" target="_blank">y“Œvî•ñz</a><br><br>
-                                  <s>yŽj‹Lz</s> <br><br>
-                                  <a href="https://jbbs.shitaraba.net/bbs/subject.cgi/netgame/16486/" target="_blank">ê—p‚a‚a‚r</a><br><br>
-                                  <a href="http://www35.atwiki.jp/densetu0net/" target="_blank">“`àŽIwiki</a><br><br>
-                                  <s>ŽO‘ŽuNETƒ‰ƒ“ƒLƒ“ƒO</s><br><br>
-                                  <s>–³—¿ƒuƒ‰ƒEƒUƒQ[ƒ€</s><br>
+                                  <s>ã€HOME(ä¼èª¬.NET)ã€‘</s><br><br>
+                                  <a href="entry.cgi">ã€æ–°è¦ç™»éŒ²ã€‘</a> <br><br>
+                                  <a href="ranking.cgi" target="_blank">ã€ç™»éŒ²æ­¦å°†ä¸€è¦§ã€‘</a><br> <br>
+                                  <a href="manual.html" target="_blank">ã€èª¬æ˜Žæ›¸ã€‘</a> <br><br>
+                                  <a href="./map.cgi" target="_blank">ã€å‹¢åŠ›å›³ã€‘</a><br><br>
+                                  <a href="./ranking2.cgi" target="_blank">ã€åå°†ä¸€è¦§ã€‘</a><br><br>
+                                  <a href="ranking5.cgi" target="_blank">ã€çµ±è¨ˆæƒ…å ±ã€‘</a><br><br>
+                                  <s>ã€å²è¨˜ã€‘</s> <br><br>
+                                  <a href="https://jbbs.shitaraba.net/bbs/subject.cgi/netgame/16486/" target="_blank">å°‚ç”¨ï¼¢ï¼¢ï¼³</a><br><br>
+                                  <a href="http://www35.atwiki.jp/densetu0net/" target="_blank">ä¼èª¬é¯–wiki</a><br><br>
+                                  <s>ä¸‰å›½å¿—NETãƒ©ãƒ³ã‚­ãƒ³ã‚°</s><br><br>
+                                  <s>ç„¡æ–™ãƒ–ãƒ©ã‚¦ã‚¶ã‚²ãƒ¼ãƒ </s><br>
                                 </td>
                               </tr>
                             </tbody>
@@ -283,44 +283,44 @@ sub INDEX {
                             <tbody>
                               <tr>
                                 <td bgcolor="#EFE0C0">
-                                  <b>¡‚¨’m‚ç‚¹•XV—š—ð</b>
+                                  <b>â– ãŠçŸ¥ã‚‰ã›ï¼†æ›´æ–°å±¥æ­´</b>
                                 </td>
                               </tr>
                               <tr>
                                 <td bgcolor="#EFE0C0">
-                                  <b>/*‚Q‚O‚P‚S”N*/</b><br>
-                                  <font size="2">‚T/‚Q‚RF<s>—ˆŠú‚Ì‰ü‘¢‚É‚Â‚¢‚Ä</s>B©‚±‚ñ‚ÈŠ´‚¶‚Åi‚ß‚Ä‚¢‚±‚¤‚ÆŽv‚¢‚Ü‚·B<br>
+                                  <b>/*ï¼’ï¼ï¼‘ï¼”å¹´*/</b><br>
+                                  <font size="2">ï¼•/ï¼’ï¼“ï¼š<s>æ¥æœŸã®æ”¹é€ ã«ã¤ã„ã¦</s>ã€‚â†ã“ã‚“ãªæ„Ÿã˜ã§é€²ã‚ã¦ã„ã“ã†ã¨æ€ã„ã¾ã™ã€‚<br>
                                   </font><br><br>
-                                  <font size="3" color="red">‚V/‚VF“¹ê‚Å“¾‚ç‚ê‚é‹Z”\‚ÌÚ×‚ð‚Ü‚Æ‚ß‚Ä‚Ý‚Ü‚µ‚½B’x‚­‚È‚Á‚Ä\‚µ–ó‚È‚·‚Å‚µ‚½B¨ <s>¡“¹ê“ÁŽê‹Z”\‚Ìˆê——¡</s></font><br><br>
-                                  <b>/*‚Q‚O‚P‚T”N*/</b><br><br><br>
-                                  <font size="3" color="red">‚W/‚P‚OF‘æ‚V‚SŠú<b>d—v</b>‚È•ÏX“_</font><br>
+                                  <font size="3" color="red">ï¼—/ï¼—ï¼šé“å ´ã§å¾—ã‚‰ã‚Œã‚‹æŠ€èƒ½ã®è©³ç´°ã‚’ã¾ã¨ã‚ã¦ã¿ã¾ã—ãŸã€‚é…ããªã£ã¦ç”³ã—è¨³ãªã™ã§ã—ãŸã€‚â†’ <s>â– é“å ´ç‰¹æ®ŠæŠ€èƒ½ã®ä¸€è¦§â– </s></font><br><br>
+                                  <b>/*ï¼’ï¼ï¼‘ï¼•å¹´*/</b><br><br><br>
+                                  <font size="3" color="red">ï¼˜/ï¼‘ï¼ï¼šç¬¬ï¼—ï¼”æœŸ<b>é‡è¦</b>ãªå¤‰æ›´ç‚¹</font><br>
                                   <table bgcolor="#ffffff">
                                     <tbody>
                                       <tr>
-                                        <td>¡‚Ö‚ñ‚±‚¤‚Ä‚ñ‚È‚Ç<br><br>
-                                          <font color="red" size="5">¨<s>‚V‚SŠú‰ü‘¢ˆê——</s></font><br><br><br>
-                                          ˆÈ‘O‚ÌXV—š—ð<br>
-                                          <a href="kousinnrireki.txt" target="_blank">‚±‚¿‚ç</a><br>
+                                        <td>â– ã¸ã‚“ã“ã†ã¦ã‚“ãªã©<br><br>
+                                          <font color="red" size="5">â†’<s>ï¼—ï¼”æœŸæ”¹é€ ä¸€è¦§</s></font><br><br><br>
+                                          ä»¥å‰ã®æ›´æ–°å±¥æ­´<br>
+                                          <a href="kousinnrireki.txt" target="_blank">ã“ã¡ã‚‰</a><br>
                                         </td>
                                       </tr>
                                     </tbody>
                                   </table>
-                                  ¡‚¨’m‚ç‚¹<br><br>
+                                  â– ãŠçŸ¥ã‚‰ã›<br><br>
                                   <table bgcolor="#fff">
                                     <tbody>
                                       <tr>
-                                        <td>¡V’…î•ñIi<a href="./ranking7.cgi" target="_blank">‰ß‹ŽƒƒO</a>j<br>
-                                          E<a href="ranking6.cgi?id=monamona" target="_blank">ƒ‚ƒi‚­‚ñ</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (12“ú0Žž0•ª)<br>
-                                          E<a href="ranking6.cgi?id=erwin" target="_blank">ƒƒ“ƒƒ‹«ŒR</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (11“ú21Žž17•ª)<br>
-                                          E<a href="ranking6.cgi?id=monamona" target="_blank">ƒ‚ƒi‚­‚ñ</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (11“ú19Žž14•ª)<br>
-                                          E<a href="ranking6.cgi?id=monamona" target="_blank">ƒ‚ƒi‚­‚ñ</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (9“ú1Žž40•ª)<br>
-                                          E<a href="ranking6.cgi?id=shian" target="_blank">‚µ‚ [‚ñ</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (8“ú19Žž19•ª)<br>
-                                          E<a href="ranking6.cgi?id=monamona" target="_blank">ƒ‚ƒi‚­‚ñ</a>‚ªƒvƒƒtƒB[ƒ‹‚ðXV‚µ‚Ü‚µ‚½B (8“ú0Žž36•ª)<br>
+                                        <td>â– æ–°ç€æƒ…å ±ï¼ï¼ˆ<a href="./ranking7.cgi" target="_blank">éŽåŽ»ãƒ­ã‚°</a>ï¼‰<br>
+                                          ãƒ»<a href="ranking6.cgi?id=monamona" target="_blank">ãƒ¢ãƒŠãã‚“</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (12æ—¥0æ™‚0åˆ†)<br>
+                                          ãƒ»<a href="ranking6.cgi?id=erwin" target="_blank">ãƒ­ãƒ³ãƒ¡ãƒ«å°†è»</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (11æ—¥21æ™‚17åˆ†)<br>
+                                          ãƒ»<a href="ranking6.cgi?id=monamona" target="_blank">ãƒ¢ãƒŠãã‚“</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (11æ—¥19æ™‚14åˆ†)<br>
+                                          ãƒ»<a href="ranking6.cgi?id=monamona" target="_blank">ãƒ¢ãƒŠãã‚“</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (9æ—¥1æ™‚40åˆ†)<br>
+                                          ãƒ»<a href="ranking6.cgi?id=shian" target="_blank">ã—ã‚ãƒ¼ã‚“</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (8æ—¥19æ™‚19åˆ†)<br>
+                                          ãƒ»<a href="ranking6.cgi?id=monamona" target="_blank">ãƒ¢ãƒŠãã‚“</a>ãŒãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’æ›´æ–°ã—ã¾ã—ãŸã€‚ (8æ—¥0æ™‚36åˆ†)<br>
                                         </td>
                                       </tr>
                                     </tbody>
                                   </table>
-                                  <font size="4" color="red">‚P/‚Q‚TF‚QŒŽ‚P“ú‚Q‚PŽž ‚ÉƒŠƒZƒbƒg‚ð—\’è‚µ‚Ä‚¨‚è‚Ü‚·B‚æ‚ë‚µ‚­‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·</font><br>
+                                  <font size="4" color="red">ï¼‘/ï¼’ï¼•ï¼šï¼’æœˆï¼‘æ—¥ï¼’ï¼‘æ™‚é ƒã«ãƒªã‚»ãƒƒãƒˆã‚’äºˆå®šã—ã¦ãŠã‚Šã¾ã™ã€‚ã‚ˆã‚ã—ããŠé¡˜ã„ã„ãŸã—ã¾ã™</font><br>
                                 </td>
                               </tr>
                             </tbody>
@@ -344,7 +344,7 @@ sub INDEX {
                               <td><input type="password" size="10" name="pass" value="$_pass"></td>
                             </tr>
                             <tr>
-                              <td bgcolor=$TD_C1 align=center colspan=2><input type="submit" value="ƒƒOƒCƒ“"></td>
+                              <td bgcolor=$TD_C1 align=center colspan=2><input type="submit" value="ãƒ­ã‚°ã‚¤ãƒ³"></td>
                             </tr>
                           </form>
                         </table>
@@ -354,16 +354,16 @@ sub INDEX {
                           <tbody>
                             <tr>
                               <td bgcolor="#EFE0C0">
-                                Œ»ÝŽc‚è<b>1</b>‘<br>
-                                Œ»Ý‚ÌƒƒOƒCƒ“l”F<b>2</b>l<br>
-                                ŽèŽ†‘¬“xF<b>1401</b>•biŽèŽ†‚P’Ê‚É‚Â‚«•½‹Ï‰½•b‚Å‚ ‚é‚©j<br>
-                                ŽèŽ†‘¬“xF<b>1</b>’Êi‰ß‹Ž‚PŽžŠÔ‚É‰½’Ê‚ÌŽèŽ†‚ªs‚«Œð‚Á‚½‚©j<br>
+                                ç¾åœ¨æ®‹ã‚Š<b>1</b>å›½<br>
+                                ç¾åœ¨ã®ãƒ­ã‚°ã‚¤ãƒ³äººæ•°ï¼š<b>2</b>äºº<br>
+                                æ‰‹ç´™é€Ÿåº¦ï¼š<b>1401</b>ç§’ï¼ˆæ‰‹ç´™ï¼‘é€šã«ã¤ãå¹³å‡ä½•ç§’ã§ã‚ã‚‹ã‹ï¼‰<br>
+                                æ‰‹ç´™é€Ÿåº¦ï¼š<b>1</b>é€šï¼ˆéŽåŽ»ï¼‘æ™‚é–“ã«ä½•é€šã®æ‰‹ç´™ãŒè¡Œãäº¤ã£ãŸã‹ï¼‰<br>
                                 <table bgcolor="#fff">
                                   <tbody>
                                     <tr>
-                                      <td>yHz<a href="./manual.html#14" target="_blank">¢‚Á‚½‚Æ‚«‚Í</a><br>
-                                        <font size="1">E‚h‚cA‚o‚v‚ð–Y‚ê‚½‚Æ‚«<br>
-                                          E’·ŠúŠÔƒvƒŒƒC‚Å‚«‚È‚¢ê‡‚Ìíœ’âŽ~‘[’uA‚È‚Ç‚È‚Ç<br>
+                                      <td>ã€ï¼Ÿã€‘<a href="./manual.html#14" target="_blank">å›°ã£ãŸã¨ãã¯</a><br>
+                                        <font size="1">ãƒ»ï¼©ï¼¤ã€ï¼°ï¼·ã‚’å¿˜ã‚ŒãŸã¨ã<br>
+                                          ãƒ»é•·æœŸé–“ãƒ—ãƒ¬ã‚¤ã§ããªã„å ´åˆã®å‰Šé™¤åœæ­¢æŽªç½®ã€ãªã©ãªã©<br>
                                         </font>
                                       </td>
                                     </tr>
@@ -394,7 +394,7 @@ sub INDEX {
 <form method=post action=./admin.cgi>
 ID:<input type=text name=id size=7>
 PASS:<input type=pass name=pass size=7>
-<input type=submit value=ŠÇ—ŽÒ>
+<input type=submit value=ç®¡ç†è€…>
 </form>
 
 </center>
@@ -406,12 +406,12 @@ EOM
 
 }
 # _/_/_/_/_/_/_/_#
-# ‘¦ÈƒJƒEƒ“ƒ^[ #
+# å³å¸­ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ #
 # _/_/_/_/_/_/_/_#
 sub COUNTER {
 
 	$file_read = "$LOG_DIR/counter.cgi";
-	open(IN,"$file_read") or &ERR2('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½B');
+	open(IN,"$file_read") or &ERR2('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚');
 	@reading = <IN>;
 	close(IN);
 

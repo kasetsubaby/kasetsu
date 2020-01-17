@@ -1,20 +1,20 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   �y�Ɛӎ����z                                                #
-#    ���̃X�N���v�g�̓t���[�\�t�g�ł��B���̃X�N���v�g���g�p���� #
-#    �����Ȃ鑹�Q�ɑ΂��č�҂͈�؂̐ӔC�𕉂��܂���B         #
-#    �܂��ݒu�Ɋւ��鎿��̓T�|�[�g�f���ɂ��肢�������܂��B   #
-#    ���ڃ��[���ɂ�鎿��͈�؂��󂯂������Ă���܂���B       #
+#   【免責事項】                                                #
+#    このスクリプトはフリーソフトです。このスクリプトを使用した #
+#    いかなる損害に対して作者は一切の責任を負いません。         #
+#    また設置に関する質問はサポート掲示板にお願いいたします。   #
+#    直接メールによる質問は一切お受けいたしておりません。       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR2("�����e�i���X���ł��B���΂炭���҂����������B"); }
+if($MENTE) { &ERR2("メンテナンス中です。しばらくお待ちください。"); }
 &DECODE;
-if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("�A�h���X�o�[�ɒl����͂��Ȃ��ł��������B"); }
+if($ENV{'HTTP_REFERER'} !~ /i/ && $CHEACKER){ &ERR2("アドレスバーに値を入力しないでください。"); }
 if($mode eq 'MES_SEND') { require 'mydata/mes_send.pl';&MES_SEND; }
 elsif($mode eq 'COUNTRY_TALK') { require 'mydata/country_talk.pl';&COUNTRY_TALK; }
 elsif($mode eq 'COUNTRY_WRITE') { require 'mydata/country_write.pl';&COUNTRY_WRITE; }
@@ -39,4 +39,4 @@ elsif($mode eq 'MAKE_UNIT') { require 'mydata/make_unit.pl';&MAKE_UNIT; }
 elsif($mode eq 'UNIT_DELETE') { require 'mydata/unit_delete.pl';&UNIT_DELETE; }
 elsif($mode eq 'UNIT_CHANGE') { require 'mydata/unit_change.pl';&UNIT_CHANGE; }
 
-else{&ERR('�������I������Ă��܂���B');}
+else{&ERR('正しく選択されていません。');}

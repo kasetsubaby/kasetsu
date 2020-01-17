@@ -1,23 +1,23 @@
 #!/usr/bin/env perl
 
 #################################################################
-#   y–ÆÓ–€z                                                #
-#    ‚±‚ÌƒXƒNƒŠƒvƒg‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚ÌƒXƒNƒŠƒvƒg‚ğg—p‚µ‚½ #
-#    ‚¢‚©‚È‚é‘¹ŠQ‚É‘Î‚µ‚ÄìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚¢‚Ü‚¹‚ñB         #
-#    ‚Ü‚½İ’u‚ÉŠÖ‚·‚é¿–â‚ÍƒTƒ|[ƒgŒf¦”Â‚É‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B   #
-#    ’¼Úƒ[ƒ‹‚É‚æ‚é¿–â‚ÍˆêØ‚¨ó‚¯‚¢‚½‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB       #
+#   ã€å…è²¬äº‹é …ã€‘                                                #
+#    ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ãƒ•ãƒªãƒ¼ã‚½ãƒ•ãƒˆã§ã™ã€‚ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’ä½¿ç”¨ã—ãŸ #
+#    ã„ã‹ãªã‚‹æå®³ã«å¯¾ã—ã¦ä½œè€…ã¯ä¸€åˆ‡ã®è²¬ä»»ã‚’è² ã„ã¾ã›ã‚“ã€‚         #
+#    ã¾ãŸè¨­ç½®ã«é–¢ã™ã‚‹è³ªå•ã¯ã‚µãƒãƒ¼ãƒˆæ²ç¤ºæ¿ã«ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚   #
+#    ç›´æ¥ãƒ¡ãƒ¼ãƒ«ã«ã‚ˆã‚‹è³ªå•ã¯ä¸€åˆ‡ãŠå—ã‘ã„ãŸã—ã¦ãŠã‚Šã¾ã›ã‚“ã€‚       #
 #################################################################
 
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';
 
-if($MENTE) { &ERR("ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B"); }
+if($MENTE) { &ERR("ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"); }
 &DECODE;
 &TOP;
 
 #_/_/_/_/_/_/_/_/_/#
-#_/    TOP‰æ–Ê   _/#
+#_/    TOPç”»é¢   _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub TOP {
@@ -80,14 +80,14 @@ sub TOP {
 
 	$p=0;
 	foreach(@LOG_DATA){
-		$log_list .= "<font color=navy>œ</font>$LOG_DATA[$p]<BR>";$p++;
+		$log_list .= "<font color=navy>â—</font>$LOG_DATA[$p]<BR>";$p++;
 	}
 
 	opendir(dirlist,"./charalog/main");
 	while($file = readdir(dirlist)){
 		if($file =~ /\.cgi/i){
 			if(!open(page,"./charalog/main/$file")){
-				&ERR2("ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“ƒGƒ‰[I");
+				&ERR2("ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚¨ãƒ©ãƒ¼ï¼");
 			}
 			@page = <page>;
 			close(page);
@@ -96,7 +96,7 @@ sub TOP {
 	}
 	closedir(dirlist);
 
-	$t_list = "<TR><TH>“ss</TH><TH>”_–¯</TH><TH>”_‹Æ</TH><TH>¤‹Æ</TH><TH>é</TH><TH>–¯’‰</TH><TH>‘Šê</TH><TH>‘Øİ•«</TH></TR>";
+	$t_list = "<TR><TH>éƒ½å¸‚</TH><TH>è¾²æ°‘</TH><TH>è¾²æ¥­</TH><TH>å•†æ¥­</TH><TH>åŸ</TH><TH>æ°‘å¿ </TH><TH>ç›¸å ´</TH><TH>æ»åœ¨æ­¦å°†</TH></TR>";
 
 
 
@@ -122,7 +122,7 @@ sub TOP {
 	print <<"EOM";
 <CENTER>
 <TABLE WIDTH="100%" height=100% cellpadding="0" cellspacing="0" border=0><tr><td align=center>
-<B>$xname‘ƒf[ƒ^</b>F
+<B>$xnameå›½ãƒ‡ãƒ¼ã‚¿</b>ï¼š
 <TABLE border=0 cellspacing=1 bgcolor=$TABLE_C>
     <TBODY bgcolor=FFFFFF>
 $t_list
@@ -130,14 +130,14 @@ $t_list
 <BR>
 <TABLE width=50% border=0 cellspacing=2 bgcolor=$ELE_BG[$xele]>
 <TBODY bgcolor=$ELE_C[$xele]>
-<TR><TH>–ğE</TH><TH colspan=2>–¼</TH></TR>
-<TR><TH NOWRAP> - ŒNå - </TH><TH width=100%>$king_name</TH><TH><img src=$IMG/$king_chara.gif></th></TR>
-<TR><TH NOWRAP> ŒR t </TH><TH>$tname[0]</TH><TH>$ximg[0]</th></TR>
-<TR><TH NOWRAP> ‘å « ŒR </TH><TH>$tname[1]</TH><TH>$ximg[1]</th></TR>
-<TR><TH NOWRAP> ‹R ”n « ŒR </TH><TH>$tname[2]</TH><TH>$ximg[2]</th></TR>
-<TR><TH NOWRAP> Œì ‰q « ŒR </TH><TH>$tname[3]</TH><TH>$ximg[3]</th></TR>
-<TR><TH NOWRAP> ‹| « ŒR </TH><TH>$tname[4]</TH><TH>$ximg[4]</th></TR>
-<TR><TH NOWRAP> « ŒR </TH><TH>$tname[5]</TH><TH>$ximg[5]</th></TR>
+<TR><TH>å½¹è·</TH><TH colspan=2>å</TH></TR>
+<TR><TH NOWRAP> - å›ä¸» - </TH><TH width=100%>$king_name</TH><TH><img src=$IMG/$king_chara.gif></th></TR>
+<TR><TH NOWRAP> è» å¸« </TH><TH>$tname[0]</TH><TH>$ximg[0]</th></TR>
+<TR><TH NOWRAP> å¤§ å°† è» </TH><TH>$tname[1]</TH><TH>$ximg[1]</th></TR>
+<TR><TH NOWRAP> é¨ é¦¬ å°† è» </TH><TH>$tname[2]</TH><TH>$ximg[2]</th></TR>
+<TR><TH NOWRAP> è­· è¡› å°† è» </TH><TH>$tname[3]</TH><TH>$ximg[3]</th></TR>
+<TR><TH NOWRAP> å¼“ å°† è» </TH><TH>$tname[4]</TH><TH>$ximg[4]</th></TR>
+<TR><TH NOWRAP> å°† è» </TH><TH>$tname[5]</TH><TH>$ximg[5]</th></TR>
 </TBODY></TABLE>
 
 
@@ -145,7 +145,7 @@ $t_list
     <TBODY>
           <TR>
 <TD>
-<form action=\"$FILE_STATUS\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"ŠX‚Ö–ß‚é\"></form>
+<form action=\"$FILE_STATUS\" method=\"post\"><input type=hidden name=id value=$kid><input type=hidden name=pass value=$kpass><input type=hidden name=mode value=STATUS><input type=submit value=\"è¡—ã¸æˆ»ã‚‹\"></form>
 </TD></TR>
 </TBODY></TABLE>
 

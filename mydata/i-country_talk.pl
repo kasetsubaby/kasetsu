@@ -1,16 +1,16 @@
 #_/_/_/_/_/_/_/_/_/#
-#_/    ‰ï‹cŽº    _/#
+#_/    ä¼šè­°å®¤    _/#
 #_/_/_/_/_/_/_/_/_/#
 
 sub COUNTRY_TALK {
 
 	&CHARA_MAIN_OPEN;
 	&COUNTRY_DATA_OPEN("$kcon");
-    if($xcid eq 0){&ERR("–³Š‘®‘‚ÍŽg—p‚Å‚«‚Ü‚¹‚ñB");}
+    if($xcid eq 0){&ERR("ç„¡æ‰€å±žå›½ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚");}
 	$sno = $kclass / 500;
 	if($sno > 20){$sno = 20;}
 
-	open(IN,"$BBS_LIST") or &ERR('ƒtƒ@ƒCƒ‹‚ðŠJ‚¯‚Ü‚¹‚ñ‚Å‚µ‚½Berr no :country_bbs');
+	open(IN,"$BBS_LIST") or &ERR('ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“ã§ã—ãŸã€‚err no :country_bbs');
 	@BBS_DATA = <IN>;
 	close(IN);
 
@@ -22,15 +22,15 @@ sub COUNTRY_TALK {
 <input type=hidden name=id value=$kid>
 <input type=hidden name=mode value=STATUS>
 <input type=hidden name=pass value=$kpass>
-<input type=submit value="–ß‚é"></form>
+<input type=submit value="æˆ»ã‚‹"></form>
 
 <form action="./i-command.cgi" method="post">
-‘è–¼<input type=text name=title size=40><BR>
-“à—e<input type=text name=ins size=40><p>
+é¡Œå<input type=text name=title size=40><BR>
+å†…å®¹<input type=text name=ins size=40><p>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
 <input type=hidden name=mode value=COUNTRY_WRITE>
-<input type=submit value="ŒfŽ¦">
+<input type=submit value="æŽ²ç¤º">
 </form>
 EOM
 	$BBS_NEXT_NUM = 2;
@@ -95,7 +95,7 @@ EOM
 <input type=hidden name=bbs_no value=$n_bbs>
 <input type=hidden name=id value=$kid>
 <input type=hidden name=pass value=$kpass>
-<input type=submit value=\"ŽŸ‚Ì$BBS_NEXT_NUMŒ\">
+<input type=submit value=\"æ¬¡ã®$BBS_NEXT_NUMä»¶\">
 </form>";
 	}
 print <<"EOM";

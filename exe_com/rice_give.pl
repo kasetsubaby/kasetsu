@@ -1,12 +1,12 @@
 #_/_/_/_/_/_/_/_/_/_/#
-#      •Ä { ‚µ      #
+#      ç±³ æ–½ ã—      #
 #_/_/_/_/_/_/_/_/_/_/#
 
 sub RICE_GIVE {
 
 	$ksub2=0;
 	if($krice<50){
-		&K_LOG("$mmonthŒ:•Ä•s‘«‚ÅÀs‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+		&K_LOG("$mmonthæœˆ:ç±³ä¸è¶³ã§å®Ÿè¡Œã§ãã¾ã›ã‚“ã§ã—ãŸã€‚");
 	}else{
 		$zpriadd = int($kcha/20 + rand($kcha) / 40);
 		$zpri += $zpriadd;
@@ -18,7 +18,7 @@ sub RICE_GIVE {
 		if("$zname" ne ""){
 			splice(@TOWN_DATA,$kpos,1,"$zname<>$zcon<>$znum<>$znou<>$zsyo<>$zshiro<>$znou_max<>$zsyo_max<>$zshiro_max<>$zpri<>$zx<>$zy<>$zsouba<>$zdef_att<>$zsub1<>$zsub2<>$z[0]<>$z[1]<>$z[2]<>$z[3]<>$z[4]<>$z[5]<>$z[6]<>$z[7]<>\n");
 		}
-		&K_LOG("$mmonthŒ:$zname‚Ì–¯’‰‚ª<font color=red>+$zpriadd</font>ã‚ª‚è‚Ü‚µ‚½B");
+		&K_LOG("$mmonthæœˆ:$znameã®æ°‘å¿ ãŒ<font color=red>+$zpriadd</font>ä¸ŠãŒã‚Šã¾ã—ãŸã€‚");
 		$kcha_ex++;
 		$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,";
 	}

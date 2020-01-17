@@ -1,26 +1,26 @@
 #_/_/_/_/_/_/_/_/#
-#      íbòB      #
+#      ÈçõÈå¨      #
 #_/_/_/_/_/_/_/_/#
 
 sub TANREN {
 
 	$ksub2=0;
 	if($kgold < 50){
-		&K_LOG("$mmonthåé:ã‡Ç™ë´ÇËÇ‹ÇπÇÒÅB");
+		&K_LOG("$mmonthÊúà:Èáë„ÅåË∂≥„Çä„Åæ„Åõ„Çì„ÄÇ");
 	}else{
 		if($cnum eq "1"){
 			$kstr_ex +=2;
-			$a_mes = "ïêóÕ";
+			$a_mes = "Ê≠¶Âäõ";
 		}elsif($cnum eq "2"){
 			$kint_ex +=2;
-			$a_mes = "ímóÕ";
+			$a_mes = "Áü•Âäõ";
 		}else{
 			$klea_ex +=2;
-			$a_mes = "ìùó¶óÕ";
+			$a_mes = "Áµ±ÁéáÂäõ";
 		}
 		$kgold-=50;
 		$ksub1 = "$kstr_ex,$kint_ex,$klea_ex,$kcha_ex,$ksub1_ex,$ksub2_ex,";
-		&K_LOG("$mmonthåé:$a_mesÇã≠âªÇµÇ‹ÇµÇΩÅB");
+		&K_LOG("$mmonthÊúà:$a_mes„ÇíÂº∑Âåñ„Åó„Åæ„Åó„Åü„ÄÇ");
 	}
 
 }
