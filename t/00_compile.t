@@ -4,7 +4,7 @@ use feature 'say';
 use Test::More;
 
 my @filenames = glob join ' ', (
-    '*.pl',
+    './*.pl',
     './command/*.pl',
     './entry/*.pl',
     './ini_file/*.ini',

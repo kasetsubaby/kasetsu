@@ -8,6 +8,9 @@
 #    直接メールによる質問は一切お受けいたしておりません。       #
 #################################################################
 
+use FindBin;
+use lib $FindBin::Bin;
+
 require 'jcode.pl';
 require './ini_file/index.ini';
 require 'suport.pl';

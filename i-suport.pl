@@ -1,3 +1,6 @@
+use FindBin;
+use lib $FindBin::Bin;
+
 #_/_/_/_/_/_/_/_/_/_/_/_/#
 #   CHARA MAIN OPEN      #
 #_/_/_/_/_/_/_/_/_/_/_/_/#
