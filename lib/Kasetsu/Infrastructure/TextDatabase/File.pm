@@ -5,6 +5,7 @@ use Type::Tiny;
 use Type::Params qw( validate );
 use Types::Standard qw( Str ClassName );
 use Function::Return;
+use namespace::autoclean;
 
 has name => (
   is       => 'ro',
@@ -18,7 +19,7 @@ has dto_class => (
   required => 1,
 );
 
-sub generate {
+sub touch {
   my $self = shift;
   open my $fh, '>', $self->name or die $!;
   $fh->close();

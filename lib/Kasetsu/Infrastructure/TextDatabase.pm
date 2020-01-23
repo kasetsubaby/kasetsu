@@ -66,18 +66,31 @@ TextDatabase::DTO::...
 あるデータをすべてまとめて1ファイルで保存しているものも,
 同じIFで扱える
 
-my $chara_db = $container->get('chara');
-$chara_db->create($chara);
-my $chara = $chara_db->fetch_row('id');
-my $charas = $chara_db->fetch_row_all();
-$chara_db->store($chara);
-$chara_db->store_all($charas);
-$chara_db->delete('id');
-$chara_db->delete_all();
-
-my $file = $chara_db->fetch_file($id);
-my $player = $file->read;
-$file->write($player);
+SingleFile
+->fetch_row
+->store_row($dto)
+MultipleRowsFile
+->fetch_row_of($id)
+->fetch_all_rows
+->store_row_of($dto)
+->store_all_rows($dto_collection)
+LogFile
+->fetch_rows($num);
+->fetch_all_rows
+->append_row
+->append_rows($dto_collection)
+rows ではコレクションクラスのインスタンスを返す,
+ 配列だと自由にいじれすぎて間違ったデータをstoreする危険性が高くなるため
+また各rowのidによる取得方法を統一したい
+Directory
+->file_of($id)
+->files
+my $files = Directory->files;
+# やりたい
+my $rows = SingleRowFileDirectory->fetch_all_rows;
+SingleRowFileDircetory->store_all_rows($rows);
+# コマンド系とかは?
+考えてみたが一度に保存したいことはないかもしれない・・・
 
 # 構成
 - テキストデータを統一して扱うモジュール

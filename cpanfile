@@ -9,6 +9,10 @@ requires 'Mouse', '== 2.5.9';
 requires 'Exception::Tiny', '== 0.2.1';
 requires 'CGI', '== 4.45';
 
+on test => sub {
+  requires 'Test2::Suite', '== 0.000127';
+};
+
 on develop => sub {
   requires 'Plack', '== 1.0047';
   requires 'CGI::Emulate::PSGI', '== 0.23';
