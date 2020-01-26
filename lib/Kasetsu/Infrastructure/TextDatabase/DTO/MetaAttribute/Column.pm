@@ -4,6 +4,4 @@ use Mouse;
 use namespace::autoclean;
 BEGIN { extends 'Mouse::Meta::Attribute' }
 
-sub constraint { shift->{isa} }
-
 1;

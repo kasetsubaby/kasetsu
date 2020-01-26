@@ -8,6 +8,7 @@ requires 'Function::Return', '== 0.07';
 requires 'Mouse', '== 2.5.9';
 requires 'Exception::Tiny', '== 0.2.1';
 requires 'CGI', '== 4.45';
+requires 'Cpanel::JSON::XS', '== 4.18';
 
 on test => sub {
   requires 'Test2::Suite', '== 0.000127';

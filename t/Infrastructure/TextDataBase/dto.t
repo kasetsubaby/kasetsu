@@ -73,27 +73,27 @@ is $row->get_all_column_attributes, array {
   item object {
     prop blessed => Column;
     call name => 'a';
-    call constraint => $cmp_type_tiny;
+    call type_constraint => $cmp_type_tiny;
   };
 
   item object {
     prop blessed => NestedColumn;
     call name => 'b';
-    call constraint => $cmp_type_tiny;
+    call type_constraint => $cmp_type_tiny;
     call separator => ',';
   };
 
   item object {
     prop blessed => NestedColumn;
     call name => 'b2';
-    call constraint => $cmp_type_tiny;
+    call type_constraint => $cmp_type_tiny;
     call separator => '|';
   };
 
   item object {
     prop blessed => JSONColumn;
     call name => 'c';
-    call constraint => $cmp_type_tiny;
+    call type_constraint => $cmp_type_tiny;
   };
 
   end;
@@ -105,7 +105,7 @@ is $row2->get_all_column_attributes, array {
   item object {
     prop blessed => Column;
     call name => 'a';
-    call constraint => $cmp_type_tiny;
+    call type_constraint => $cmp_type_tiny;
   };
 
   end;
