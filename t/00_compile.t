@@ -4,20 +4,20 @@ use feature 'say';
 use Test::More;
 
 my @filenames = glob join ' ', (
-    './*.pl',
-    './command/*.pl',
-    './entry/*.pl',
-    './ini_file/*.ini',
-    './map/*.pl',
-    './mydata/*.pl',
+    './script/*.pl',
+    './script/command/*.pl',
+    './script/entry/*.pl',
+    './script/ini_file/*.ini',
+    './script/map/*.pl',
+    './script/mydata/*.pl',
 );
 for my $filename (@filenames) {
     require_ok $filename;
 }
 
 @filenames = glob join ' ', (
-    '*.cgi',
-    './entry/*.cgi',
+    './script/*.cgi',
+    './script/entry/*.cgi',
 );
 for my $filename (@filenames) {
     ok !system { 'perl' } 'compile CGI', '-c', $filename;
