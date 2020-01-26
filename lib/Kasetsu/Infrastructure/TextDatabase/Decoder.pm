@@ -3,19 +3,28 @@ use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
 
+use Type::Params qw( compile Invocant );
 use Types::Standard qw( Str ClassName ArrayRef InstanceOf );
 use Cpanel::JSON::XS qw( decode_json );
 use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter;
 
+has separator => (
+  is      => 'ro',
+  isa     => Str,
+  default => DEFAULT_SEPARATOR,
+);
+
 has dto_class => (
   is       => 'ro',
-  isa      => ClassName,
+  isa      => DTOClassType,
   required => 1,
 );
 
 sub decode {
-  my ($self, $line) = @_;
-  my @fields = split /<>/, $line;
+  state $c = compile(Invocant, Str);
+  my ($self, $line) = $c->(@_);
+  my $separator = $self->separator;
+  my @fields = split /$separator/, $line;
   _build_params($self->dto_class, \@fields);
 }
 
