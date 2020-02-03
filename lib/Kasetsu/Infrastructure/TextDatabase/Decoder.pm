@@ -4,7 +4,7 @@ use Mouse;
 use namespace::autoclean;
 
 use Type::Params qw( compile Invocant );
-use Types::Standard qw( Str ClassName ArrayRef InstanceOf );
+use Types::Standard qw( Str Optional HashRef );
 use Cpanel::JSON::XS qw( decode_json );
 use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter;
 
@@ -21,15 +21,17 @@ has dto_class => (
 );
 
 sub decode {
-  state $c = compile(Invocant, Str);
-  my ($self, $line) = $c->(@_);
+  state $c = compile(Invocant, Str, Optional[HashRef]);
+  my ($self, $line, $extra) = $c->(@_);
   my $separator = $self->separator;
   my @fields = split /$separator/, $line;
-  _build_params($self->dto_class, \@fields);
+  _build_params($self->dto_class, \@fields, $extra);
 }
 
 sub _build_params {
-  my ($dto_class, $fields) = @_;
+  my ($dto_class, $fields, $extra) = @_;
+  $extra //= +{};
+
   my @columns = $dto_class->get_all_column_attributes->@*;
   my %param_of_column_name =
      map {
@@ -55,7 +57,7 @@ sub _build_params {
        };
      }
      0 .. $#columns;
-  $dto_class->new(\%param_of_column_name);
+  $dto_class->new(%param_of_column_name, %$extra);
 }
 
 __PACKAGE__->meta->make_immutable;

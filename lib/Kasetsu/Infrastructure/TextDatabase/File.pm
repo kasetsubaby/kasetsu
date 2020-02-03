@@ -1,11 +1,12 @@
 package Kasetsu::Infrastructure::TextDatabase::File;
 use Kasetsu::Base;
 use Mouse;
-use Type::Tiny;
-use Type::Params qw( validate );
-use Types::Standard qw( Str ClassName );
-use Function::Return;
 use namespace::autoclean;
+
+use Types::Standard qw( Str InstanceOf );
+use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter qw( DTOClassType );
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 
 has name => (
   is       => 'ro',
@@ -15,8 +16,28 @@ has name => (
 
 has dto_class => (
   is       => 'ro',
-  isa      => ClassName->where(sub { $_->isa('Kasetsu::Infrastructure::TextDatabase::DTO') }),
+  isa      => DTOClassType,
   required => 1,
+);
+
+has decoder => (
+  is      => 'ro',
+  isa     => InstanceOf[Decoder],
+  lazy    => 1,
+  default => sub {
+    my $self = shift;
+    Decoder->new(dto_class => $self->dto_class);
+  },
+);
+
+has encoder => (
+  is      => 'ro',
+  isa     => InstanceOf[Encoder],
+  lazy    => 1,
+  default => sub {
+    my $self = shift;
+    Encoder->new();
+  },
 );
 
 sub touch {
