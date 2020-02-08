@@ -47,12 +47,7 @@ sub store_all_rows {
   my ($self, $rows) = $checker_of_dto_class{ $_[0]->dto_class }->(@_);
 
   my @lines = map { encode_utf8( $self->encoder->encode($_) ) } @$rows;
-  my $temp = $self->path . $$ . int( rand( 2 ** 31 ) );
-  open my $fh, '>', $temp or die $!;
-  flock($fh, LOCK_EX) or die $!;
-  $fh->print(@lines);
-  $fh->close or die $!;
-  repath($temp, $self->path);
+  $self->data_saver->save_data(\@lines);
 }
 
 __PACKAGE__->meta->make_immutable;
