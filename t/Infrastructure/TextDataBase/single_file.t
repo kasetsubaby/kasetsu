@@ -31,7 +31,7 @@ package Row {
 
 my $fh = File::Temp->new;
 my $file = SingleFile->new(
-  name      => $fh->filename,
+  path      => $fh->filename,
   dto_class => 'Row',
 );
 

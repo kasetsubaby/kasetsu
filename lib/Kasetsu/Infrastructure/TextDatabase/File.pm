@@ -8,7 +8,7 @@ use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter qw( DTOClassType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 
-has name => (
+has path => (
   is       => 'ro',
   isa      => Str,
   required => 1,
@@ -42,18 +42,18 @@ has encoder => (
 
 sub touch {
   my $self = shift;
-  open my $fh, '>', $self->name or die $!;
+  open my $fh, '>', $self->path or die $!;
   $fh->close();
 }
 
 sub exists {
   my $self = shift;
-  -e $self->name;
+  -e $self->path;
 }
 
 sub remove {
   my $self = shift;
-  unlink $self->name or die $!;
+  unlink $self->path or die $!;
 }
 
 __PACKAGE__->meta->make_immutable;

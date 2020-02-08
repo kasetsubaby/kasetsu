@@ -12,7 +12,7 @@ use Encode qw( encode_utf8 decode_utf8 );
 sub fetch_row_of {
   state $c = compile(Invocant, Int);
   my ($self, $id) = $c->(@_);
-  open my $fh, '<', $self->name or die $!;
+  open my $fh, '<', $self->path or die $!;
   my $i = 0;
   while ( my $line = <$fh> ) {
     if ( $id == $i ) {
@@ -25,7 +25,7 @@ sub fetch_row_of {
 
 sub fetch_all_rows {
   my $self = shift;
-  open my $fh, '<', $self->name or die $!;
+  open my $fh, '<', $self->path or die $!;
   my @lines = <$fh>;
   my @rows = map { $self->decoder->decode(decode_utf8($lines[$_]), +{ index => $_ }) } 0 .. $#lines;
   \@rows;
@@ -47,12 +47,12 @@ sub store_all_rows {
   my ($self, $rows) = $checker_of_dto_class{ $_[0]->dto_class }->(@_);
 
   my @lines = map { encode_utf8( $self->encoder->encode($_) ) } @$rows;
-  my $temp = $self->name . $$ . int( rand( 2 ** 31 ) );
+  my $temp = $self->path . $$ . int( rand( 2 ** 31 ) );
   open my $fh, '>', $temp or die $!;
   flock($fh, LOCK_EX) or die $!;
   $fh->print(@lines);
   $fh->close or die $!;
-  rename($temp, $self->name);
+  repath($temp, $self->path);
 }
 
 __PACKAGE__->meta->make_immutable;
