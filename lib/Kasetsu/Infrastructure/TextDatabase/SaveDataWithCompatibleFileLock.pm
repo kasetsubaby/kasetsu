@@ -1,7 +1,8 @@
-package Kasetsu::Infrastructure::TextDatabase::FileLock;
+package Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock;
 use Kasetsu::Base;
 use Mouse;
 use Types::Standard qw( InstanceOf ArrayRef Str );
+use Type::Params qw( compile Invocant );
 use namespace::autoclean;
 
 use List::Util qw( any );
@@ -11,12 +12,6 @@ has path_str => (
   is       => 'ro',
   isa      => Str,
   init_arg => 'path',
-  required => 1,
-);
-
-has lines => (
-  is       => 'ro',
-  isa      => ArrayRef[Str],
   required => 1,
 );
 
@@ -56,20 +51,19 @@ sub tmpfiles {
   [ $self->lockfile_path, $self->tmpfile_path ];
 }
 
-sub is_locking {
+sub is_locked {
   my $self = shift;
+
   my @tmpfiles = $self->tmpfiles->@*;
-  my @remains_files =
-    grep {
-      my $path = $_;
-      any { $_ eq $path } @tmpfiles;
-    }
-    $self->path->parent->children;
+  my @remains_files = grep {
+    my $path = $_;
+    any { $_ eq $path } @tmpfiles;
+  } $self->path->parent->children;
 
   return !!0 unless @remains_files;
 
   my $mtime   = $self->lockfile_path->exists ? $self->lockfile_path->stat->mtime : 0;
-  my $at_last = time - 10 - $mtime;
+  my $at_last = time - $mtime - 10;
   if ($mtime && 0 < $at_last) {
     $self->unlock();
     0;
@@ -80,18 +74,20 @@ sub is_locking {
 }
 
 sub save_data {
-  my $self = shift;
+  state $c = compile(Invocant, ArrayRef[Str]);
+  my ($self, $lines) = $c->(@_);
 
-  die "ファイルがロックされています。" if $self->is_locking();
+  die "ファイルがロックされています。" if $self->is_locked();
 
   eval {
-    my ($lockfile_path, $tmpfile_path) = ($self->lockfile_path, $self->tmpfile_path);
-    $lockfile_path->touch();
-    $tmpfile_path->touch();
-    $tmpfile_path->chmod(0666);
-    $tmpfile_path->spew($self->lines->@*);
-    $tmpfile_path->move($self->path);
-    $lockfile_path->remove();
+    $self->lockfile_path->touch();
+    for ($self->tmpfile_path) {
+      $_->touch();
+      $_->chmod(0666);
+      $_->spew(@$lines);
+      $_->move($self->path);
+    }
+    $self->lockfile_path->remove();
   };
   if (my $e = $@) {
     $self->unlock();
