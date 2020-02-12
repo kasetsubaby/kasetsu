@@ -4,7 +4,6 @@ use Exporter qw( import );
 
 use Types::Standard ();
 
-use aliased 'Kasetsu::Infrastructure::TextDatabase::DTO::MetaAttribute::ID';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::DTO::MetaAttribute::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::DTO::MetaAttribute::NestedColumn';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::DTO::MetaAttribute::JSONColumn';

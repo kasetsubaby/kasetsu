@@ -31,15 +31,18 @@ package Row {
 
 my $fh = File::Temp->new;
 my $file = SingleFile->new(
-  path      => $fh->filename,
+  name      => $fh->filename,
   dto_class => 'Row',
 );
 
-subtest 'store and fetch row' => sub {
+subtest 'store row' => sub {
   my $row = Row->new(a => 1, b => 2);
-  $file->store_row($row);
-  my $fetched_row = $file->fetch_row();
-  is $fetched_row, object {
+  ok $file->store_row($row);
+};
+
+subtest 'fetch row' => sub {
+  my $row = $file->fetch_row();
+  is $row, object {
     prop blessed => 'Row';
     call a => 1;
     call b => 2;

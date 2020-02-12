@@ -46,7 +46,9 @@ sub store_all_rows {
   $checker_of_dto_class{ $_[0]->dto_class } //= compile(Invocant, ArrayRef[ InstanceOf[ $_[0]->dto_class ] ]);
   my ($self, $rows) = $checker_of_dto_class{ $_[0]->dto_class }->(@_);
 
-  my @lines = map { encode_utf8( $self->encoder->encode($_) ) } @$rows;
+  my @lines =
+    map { "$_\n" }
+    map { encode_utf8( $self->encoder->encode($_) ) } @$rows;
   $self->data_saver->save_data(\@lines);
 }
 
