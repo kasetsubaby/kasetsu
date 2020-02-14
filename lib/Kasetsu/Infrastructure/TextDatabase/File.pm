@@ -3,8 +3,7 @@ use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
 
-use Types::Standard qw( Str InstanceOf );
-use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter qw( DTOClassType );
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
@@ -17,7 +16,13 @@ has path => (
 
 has dto_class => (
   is       => 'ro',
-  isa      => DTOClassType,
+  isa      => ClassName,
+  required => 1,
+);
+
+has columns => (
+  is       => 'ro',
+  isa      => ArrayRef[ InstanceOf[Column] ],
   required => 1,
 );
 
@@ -27,7 +32,10 @@ has decoder => (
   lazy    => 1,
   default => sub {
     my $self = shift;
-    Decoder->new(dto_class => $self->dto_class);
+    Decoder->new(
+      dto_class => $self->dto_class,
+      columns   => $self->columns,
+    );
   },
 );
 
@@ -37,7 +45,10 @@ has encoder => (
   lazy    => 1,
   default => sub {
     my $self = shift;
-    Encoder->new();
+    Encoder->new(
+      dto_class => $self->dto_class,
+      columns   => $self->columns,
+    );
   },
 );
 

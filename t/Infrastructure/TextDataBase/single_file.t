@@ -3,24 +3,19 @@ use Test2::V0;
 
 use File::Temp;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 
 package Row {
+  use Kasetsu::Base;
   use Mouse;
-  BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::DTO' }
-
-  use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter;
-
-  use Types::Standard qw( Int );
 
   has a => (
-    metaclass => Column,
     is        => 'ro',
     isa       => Int,
     required  => 1,
   );
 
   has b => (
-    metaclass => Column,
     is        => 'ro',
     isa       => Int,
     required  => 1,
@@ -33,6 +28,18 @@ my $fh = File::Temp->new;
 my $file = SingleFile->new(
   path      => $fh->filename,
   dto_class => 'Row',
+  columns   => [
+    Column->new(
+      name            => 'a',
+      access_control  => 'ro',
+      type_constraint => Int,
+    ),
+    Column->new(
+      name            => 'b',
+      access_control  => 'ro',
+      type_constraint => Int,
+    ),
+  ],
 );
 
 subtest 'store and fetch row' => sub {

@@ -4,8 +4,7 @@ use Mouse;
 use namespace::autoclean;
 BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
 
-use Type::Params qw( compile Invocant );
-use Types::Standard qw( InstanceOf );
+use Type::Params qw( validate );
 use Encode qw( encode_utf8 decode_utf8 );
 
 sub fetch_row {
@@ -15,9 +14,18 @@ sub fetch_row {
   $self->decoder->decode(decode_utf8 $line);
 }
 
+has __store_row_args_validator => (
+  is      => 'ro',
+  isa     => CodeRef,
+  lazy    => 1,
+  default => sub {
+    my $self = shift;
+    compile(Invocant, InstanceOf[ $self->dto_class ]);
+  },
+);
+
 sub store_row {
-  my $c = compile(Invocant, InstanceOf[ $_[0]->dto_class ]);
-  my ($self, $row) = $c->(@_);
+  my ($self, $row) = $_[0]->__store_row_args_validator->(@_);
   my $line = encode_utf8( $self->encoder->encode($row) );
   $self->data_saver->save_data([$line]);
 }

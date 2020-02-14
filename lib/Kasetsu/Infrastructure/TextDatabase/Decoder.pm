@@ -3,10 +3,20 @@ use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
 
-use Type::Params qw( compile Invocant );
-use Types::Standard qw( Str Optional HashRef );
 use Cpanel::JSON::XS qw( decode_json );
-use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter;
+use Kasetsu::Infrastructure::TextDatabase::Exporter qw( DEFAULT_SEPARATOR :column_classes_alias );
+
+has dto_class => (
+  is       => 'ro',
+  isa      => ClassName,
+  required => 1,
+);
+
+has columns => (
+  is       => 'ro',
+  isa      => ArrayRef[ InstanceOf[Column] ],
+  required => 1,
+);
 
 has separator => (
   is      => 'ro',
@@ -14,50 +24,34 @@ has separator => (
   default => DEFAULT_SEPARATOR,
 );
 
-has dto_class => (
-  is       => 'ro',
-  isa      => DTOClassType,
-  required => 1,
-);
-
 sub decode {
-  state $c = compile(Invocant, Str, Optional[HashRef]);
+  state $c = compile(Invocant, Str, Optional[ArrayRef]);
   my ($self, $line, $extra) = $c->(@_);
-  my $separator = $self->separator;
-  my @fields = split /$separator/, $line;
-  _build_params($self->dto_class, \@fields, $extra);
+  _line_to_dto($line, quotemeta $self->separator, $self->columns, $self->dto_class, $extra);
 }
 
-sub _build_params {
-  my ($dto_class, $fields, $extra) = @_;
-  $extra //= +{};
+sub _line_to_dto {
+  my ($line, $separator, $columns, $dto_class, $maybe_extra) = @_;
 
-  my @columns = $dto_class->get_all_column_attributes->@*;
-  my %param_of_column_name =
-     map {
-       $columns[$_]->name => do {
-         if ( $columns[$_]->isa(NestedColumn) ) {
-           my $meta_attr     = $columns[$_];
-           my @nested_fields = do {
-             my $separator = quotemeta $meta_attr->separator;
-             split /$separator/, $fields->[$_];
-           };
-           # もし type_constraint が InstanceOf でなければ？
-           my $nested_dto_class = $columns[$_]->type_constraint->class;
-           _build_params($nested_dto_class, \@nested_fields);
-         }
-         elsif ( $columns[$_]->isa(JSONColumn) ) {
-           # もし type_constraint が InstanceOf でなければ？
-           my $nested_class = $columns[$_]->type_constraint->class;
-           $nested_class->new(decode_json $fields->[$_]);
-         }
-         else {
-           $fields->[$_];
-         }
-       };
-     }
-     0 .. $#columns;
-  $dto_class->new(%param_of_column_name, %$extra);
+  my @fields = split /$separator/, $line;
+
+  my %param_of_column_name = map {
+    my ($column, $field) = ($columns->[$_], $fields[$_]);
+
+    $column->name => do {
+      if ( $column->isa(NestedColumn) ) {
+        _line_to_dto($field, quotemeta $column->separator, $column->columns, $column->dto_class);
+      }
+      elsif ( $column->isa(JSONColumn) ) {
+        $column->dto_class->new(decode_json $field);
+      }
+      else {
+        $field;
+      }
+    };
+  } 0 .. $#$columns;
+
+  $dto_class->new(%param_of_column_name, defined $maybe_extra ? @$maybe_extra : ());
 }
 
 __PACKAGE__->meta->make_immutable;

@@ -9,9 +9,11 @@ use parent 'Import::Base';
 our @IMPORT_MODULES = (
     'utf8',
     '-bareword::filehandles',
-    'strictures' => [ version => 2 ],
-    'feature'    => [':5.30'],
-    '-indirect'  => ['fatal'],
+    'strictures'      => [ version => 2 ],
+    'feature'         => [':5.30'],
+    '-indirect'       => ['fatal'],
+    'Types::Standard' => ['-types'],
+    'Type::Params'    => [qw( compile Invocant )],
 );
 
 1;

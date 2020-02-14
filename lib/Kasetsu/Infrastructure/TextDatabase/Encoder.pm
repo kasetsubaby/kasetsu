@@ -3,9 +3,20 @@ use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
 
-use Types::Standard qw( Str );
-use Cpanel::JSON::XS ();
-use Kasetsu::Infrastructure::TextDatabase::DTO::Exporter;
+use Cpanel::JSON::XS qw( encode_json );
+use Kasetsu::Infrastructure::TextDatabase::Exporter qw( DEFAULT_SEPARATOR :column_classes_alias );
+
+has dto_class => (
+  is       => 'ro',
+  isa      => ClassName,
+  required => 1,
+);
+
+has columns => (
+  is       => 'ro',
+  isa      => ArrayRef[ InstanceOf[Column] ],
+  required => 1,
+);
 
 has separator => (
   is      => 'ro',
@@ -13,30 +24,40 @@ has separator => (
   default => DEFAULT_SEPARATOR,
 );
 
+has __encode_args_validator => (
+  is      => 'ro',
+  isa     => CodeRef,
+  lazy    => 1,
+  default => sub {
+    my $self = shift;
+    compile(Invocant, InstanceOf[ $self->dto_class ]);
+  },
+);
+
 sub encode {
-  my ($self, $dto) = @_;
-  _build_string($dto, $self->separator);
+  my ($self, $dto) = $_[0]->__encode_args_validator->(@_);
+  _dto_to_line($dto, $self->separator, $self->columns);
 }
 
-sub _build_string {
-  my ($dto, $separator) = @_;
-  my @columns = $dto->get_all_column_attributes->@*;
-  my @fields  = map { $dto->$_ } map { $_->name } @columns;
+sub _dto_to_line {
+  my ($dto, $separator, $columns) = @_;
+
+  my @fields = map { $dto->$_ } map { $_->name } @$columns;
+
   join $separator, map {
-    if ( $columns[$_]->isa(NestedColumn) ) {
-      my $nested_dto = $fields[$_];
-      my $separator  = $columns[$_]->separator;
-      _build_string($nested_dto, $separator);
+    my ($column, $field) = ($columns->[$_], $fields[$_]);
+
+    if ( $column->isa(NestedColumn) ) {
+      _dto_to_line($field, $column->separator, $column->columns);
     }
-    elsif ( $columns[$_]->isa(JSONColumn) ) {
-      my $json = Cpanel::JSON::XS->new;
-      $json->convert_blessed(!!1);
-      $json->encode($fields[$_]);
+    elsif ( $column->isa(JSONColumn) ) {
+      my %fields = map { $_ => $field->$_ } map { $_->name } $column->columns->@*;
+      encode_json \%fields;
     }
     else {
-      $fields[$_];
+      $field;
     }
-  } 0 .. $#columns;
+  } 0 .. $#$columns;
 }
 
 __PACKAGE__->meta->make_immutable;
