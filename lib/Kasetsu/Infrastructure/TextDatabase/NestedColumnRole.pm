@@ -2,7 +2,7 @@ package Kasetsu::Infrastructure::TextDatabase::NestedColumnRole;
 use Kasetsu::Base;
 use Mouse::Role;
 use namespace::autoclean;
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 
 has '+type_constraint' => (
   isa => InstanceOf['Type::Tiny::Class'],
@@ -10,7 +10,7 @@ has '+type_constraint' => (
 
 has columns => (
   is       => 'ro',
-  isa      => ArrayRef[ InstanceOf[Column] ],
+  isa      => InstanceOf[Columns],
   required => 1,
 );
 

@@ -4,6 +4,7 @@ use Mouse;
 use namespace::autoclean;
 
 use Cpanel::JSON::XS qw( encode_json );
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( DEFAULT_SEPARATOR :column_classes_alias );
 
 has dto_class => (
@@ -14,7 +15,7 @@ has dto_class => (
 
 has columns => (
   is       => 'ro',
-  isa      => ArrayRef[ InstanceOf[Column] ],
+  isa      => InstanceOf[Columns],
   required => 1,
 );
 

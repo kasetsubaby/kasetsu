@@ -3,7 +3,7 @@ use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
 
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
@@ -22,7 +22,7 @@ has dto_class => (
 
 has columns => (
   is       => 'ro',
-  isa      => ArrayRef[ InstanceOf[Column] ],
+  isa      => InstanceOf[Columns],
   required => 1,
 );
 
