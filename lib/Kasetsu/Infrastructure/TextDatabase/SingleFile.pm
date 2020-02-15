@@ -11,21 +11,16 @@ sub fetch_row {
   my $self = shift;
   open my $fh, '<', $self->path or die $!;
   my $line = <$fh>;
+  chomp $line;
   $self->decoder->decode(decode_utf8 $line);
 }
 
-has __store_row_args_validator => (
-  is      => 'ro',
-  isa     => CodeRef,
-  lazy    => 1,
-  default => sub {
-    my $self = shift;
-    compile(Invocant, InstanceOf[ $self->dto_class ]);
-  },
-);
-
 sub store_row {
-  my ($self, $row) = $_[0]->__store_row_args_validator->(@_);
+  my $self = shift;
+  state %validator_of_dto_class;
+  $validator_of_dto_class{ $self->dto_class } //= compile(InstanceOf[ $self->dto_class ]);
+  my ($row) = $validator_of_dto_class{ $self->dto_class }->(@_);
+
   my $line = encode_utf8( $self->encoder->encode($row) );
   $self->data_saver->save_data([$line]);
 }
