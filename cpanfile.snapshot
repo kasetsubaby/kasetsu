@@ -252,6 +252,12 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  File-ReadBackwards-1.05
+    pathname: U/UR/URI/File-ReadBackwards-1.05.tar.gz
+    provides:
+      File::ReadBackwards 1.05
+    requirements:
+      ExtUtils::MakeMaker 0
   File-ShareDir-1.116
     pathname: R/RE/REHSACK/File-ShareDir-1.116.tar.gz
     provides:
@@ -604,6 +610,22 @@ DISTRIBUTIONS
       Try::Tiny 0
       strict 0
       warnings 0
+  Module-Pluggable-5.2
+    pathname: S/SI/SIMONW/Module-Pluggable-5.2.tar.gz
+    provides:
+      Devel::InnerPackage 0.4
+      Module::Pluggable 5.2
+      Module::Pluggable::Object 5.2
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Find 0
+      File::Spec 3.00
+      File::Spec::Functions 0
+      if 0
+      perl 5.00503
+      strict 0
   Module-Runtime-0.016
     pathname: Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
     provides:
@@ -695,6 +717,32 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Path-Tiny-0.112
+    pathname: D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz
+    provides:
+      Path::Tiny 0.112
+      Path::Tiny::Error 0.112
+    requirements:
+      Carp 0
+      Cwd 0
+      Digest 1.03
+      Digest::SHA 5.45
+      Encode 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      File::Copy 0
+      File::Glob 0
+      File::Path 2.07
+      File::Spec 0.86
+      File::Temp 0.19
+      File::stat 0
+      constant 0
+      overload 0
+      perl 5.008001
+      strict 0
+      warnings 0
+      warnings::register 0
   Plack-1.0047
     pathname: M/MI/MIYAGAWA/Plack-1.0047.tar.gz
     provides:
@@ -794,6 +842,14 @@ DISTRIBUTIONS
       WWW::Form::UrlEncoded 0.23
       parent 0
       perl 5.008001
+  Scope-Guard-0.21
+    pathname: C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
+    provides:
+      Scope::Guard 0.21
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      perl 5.006001
   Scope-Upper-0.32
     pathname: V/VP/VPIT/Scope-Upper-0.32.tar.gz
     provides:
@@ -839,6 +895,23 @@ DISTRIBUTIONS
       Carp 0
       ExtUtils::MakeMaker 0
       Importer 0.024
+      perl 5.008001
+  Term-Table-0.015
+    pathname: E/EX/EXODIST/Term-Table-0.015.tar.gz
+    provides:
+      Term::Table 0.015
+      Term::Table::Cell 0.015
+      Term::Table::CellStack 0.015
+      Term::Table::HashBase 0.015
+      Term::Table::LineBreak 0.015
+      Term::Table::Spacer 0.015
+      Term::Table::Util 0.015
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Importer 0.024
+      List::Util 0
+      Scalar::Util 0
       perl 5.008001
   Test-Deep-1.128
     pathname: R/RJ/RJBS/Test-Deep-1.128.tar.gz
@@ -899,6 +972,15 @@ DISTRIBUTIONS
       List::Util 1.09
       Scalar::Util 1.09
       Test::Builder 0
+  Test-MockTime-0.17
+    pathname: D/DD/DDICK/Test-MockTime-0.17.tar.gz
+    provides:
+      Test::MockTime 0.17
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      Time::Local 0
+      Time::Piece 1.08
   Test-Requires-0.10
     pathname: T/TO/TOKUHIROM/Test-Requires-0.10.tar.gz
     provides:
@@ -936,6 +1018,150 @@ DISTRIBUTIONS
       Test::SharedFork 0.29
       Time::HiRes 0
       perl 5.008001
+  Test2-Suite-0.000127
+    pathname: E/EX/EXODIST/Test2-Suite-0.000127.tar.gz
+    provides:
+      Test2::AsyncSubtest 0.000127
+      Test2::AsyncSubtest::Event::Attach 0.000127
+      Test2::AsyncSubtest::Event::Detach 0.000127
+      Test2::AsyncSubtest::Formatter 0.000127
+      Test2::AsyncSubtest::Hub 0.000127
+      Test2::Bundle 0.000127
+      Test2::Bundle::Extended 0.000127
+      Test2::Bundle::More 0.000127
+      Test2::Bundle::Simple 0.000127
+      Test2::Compare 0.000127
+      Test2::Compare::Array 0.000127
+      Test2::Compare::Bag 0.000127
+      Test2::Compare::Base 0.000127
+      Test2::Compare::Bool 0.000127
+      Test2::Compare::Custom 0.000127
+      Test2::Compare::DeepRef 0.000127
+      Test2::Compare::Delta 0.000127
+      Test2::Compare::Event 0.000127
+      Test2::Compare::EventMeta 0.000127
+      Test2::Compare::Float 0.000127
+      Test2::Compare::Hash 0.000127
+      Test2::Compare::Meta 0.000127
+      Test2::Compare::Negatable 0.000127
+      Test2::Compare::Number 0.000127
+      Test2::Compare::Object 0.000127
+      Test2::Compare::OrderedSubset 0.000127
+      Test2::Compare::Pattern 0.000127
+      Test2::Compare::Ref 0.000127
+      Test2::Compare::Regex 0.000127
+      Test2::Compare::Scalar 0.000127
+      Test2::Compare::Set 0.000127
+      Test2::Compare::String 0.000127
+      Test2::Compare::Undef 0.000127
+      Test2::Compare::Wildcard 0.000127
+      Test2::Manual 0.000127
+      Test2::Manual::Anatomy 0.000127
+      Test2::Manual::Anatomy::API 0.000127
+      Test2::Manual::Anatomy::Context 0.000127
+      Test2::Manual::Anatomy::EndToEnd 0.000127
+      Test2::Manual::Anatomy::Event 0.000127
+      Test2::Manual::Anatomy::Hubs 0.000127
+      Test2::Manual::Anatomy::IPC 0.000127
+      Test2::Manual::Anatomy::Utilities 0.000127
+      Test2::Manual::Contributing 0.000127
+      Test2::Manual::Testing 0.000127
+      Test2::Manual::Testing::Introduction 0.000127
+      Test2::Manual::Testing::Migrating 0.000127
+      Test2::Manual::Testing::Planning 0.000127
+      Test2::Manual::Testing::Todo 0.000127
+      Test2::Manual::Tooling 0.000127
+      Test2::Manual::Tooling::FirstTool 0.000127
+      Test2::Manual::Tooling::Formatter 0.000127
+      Test2::Manual::Tooling::Nesting 0.000127
+      Test2::Manual::Tooling::Plugin::TestExit 0.000127
+      Test2::Manual::Tooling::Plugin::TestingDone 0.000127
+      Test2::Manual::Tooling::Plugin::ToolCompletes 0.000127
+      Test2::Manual::Tooling::Plugin::ToolStarts 0.000127
+      Test2::Manual::Tooling::Subtest 0.000127
+      Test2::Manual::Tooling::TestBuilder 0.000127
+      Test2::Manual::Tooling::Testing 0.000127
+      Test2::Mock 0.000127
+      Test2::Plugin 0.000127
+      Test2::Plugin::BailOnFail 0.000127
+      Test2::Plugin::DieOnFail 0.000127
+      Test2::Plugin::ExitSummary 0.000127
+      Test2::Plugin::SRand 0.000127
+      Test2::Plugin::Times 0.000127
+      Test2::Plugin::UTF8 0.000127
+      Test2::Require 0.000127
+      Test2::Require::AuthorTesting 0.000127
+      Test2::Require::EnvVar 0.000127
+      Test2::Require::Fork 0.000127
+      Test2::Require::Module 0.000127
+      Test2::Require::Perl 0.000127
+      Test2::Require::RealFork 0.000127
+      Test2::Require::Threads 0.000127
+      Test2::Suite 0.000127
+      Test2::Todo 0.000127
+      Test2::Tools 0.000127
+      Test2::Tools::AsyncSubtest 0.000127
+      Test2::Tools::Basic 0.000127
+      Test2::Tools::Class 0.000127
+      Test2::Tools::ClassicCompare 0.000127
+      Test2::Tools::Compare 0.000127
+      Test2::Tools::Defer 0.000127
+      Test2::Tools::Encoding 0.000127
+      Test2::Tools::Event 0.000127
+      Test2::Tools::Exception 0.000127
+      Test2::Tools::Exports 0.000127
+      Test2::Tools::GenTemp 0.000127
+      Test2::Tools::Grab 0.000127
+      Test2::Tools::Mock 0.000127
+      Test2::Tools::Ref 0.000127
+      Test2::Tools::Spec 0.000127
+      Test2::Tools::Subtest 0.000127
+      Test2::Tools::Target 0.000127
+      Test2::Tools::Tester 0.000127
+      Test2::Tools::Warnings 0.000127
+      Test2::Util::Grabber 0.000127
+      Test2::Util::Ref 0.000127
+      Test2::Util::Stash 0.000127
+      Test2::Util::Sub 0.000127
+      Test2::Util::Table 0.000127
+      Test2::Util::Table::Cell 0.000127
+      Test2::Util::Table::LineBreak 0.000127
+      Test2::Util::Term 0.000127
+      Test2::Util::Times 0.000127
+      Test2::V0 0.000127
+      Test2::Workflow 0.000127
+      Test2::Workflow::BlockBase 0.000127
+      Test2::Workflow::Build 0.000127
+      Test2::Workflow::Runner 0.000127
+      Test2::Workflow::Task 0.000127
+      Test2::Workflow::Task::Action 0.000127
+      Test2::Workflow::Task::Group 0.000127
+    requirements:
+      B 0
+      Carp 0
+      Data::Dumper 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Importer 0.024
+      Module::Pluggable 2.7
+      Scalar::Util 0
+      Scope::Guard 0
+      Sub::Info 0.002
+      Term::Table 0.013
+      Test2::API 1.302158
+      Time::HiRes 0
+      overload 0
+      perl 5.008001
+      utf8 0
+  Test2-Tools-Condition-0.03
+    pathname: A/AK/AKIYM/Test2-Tools-Condition-0.03.tar.gz
+    provides:
+      Test2::Compare::Condition undef
+      Test2::Tools::Condition 0.03
+    requirements:
+      Module::Build::Tiny 0.035
+      Test2 1.302160
+      Test2::Suite 0.000122
   TimeDate-2.31
     pathname: A/AT/ATOOMIC/TimeDate-2.31.tar.gz
     provides:
