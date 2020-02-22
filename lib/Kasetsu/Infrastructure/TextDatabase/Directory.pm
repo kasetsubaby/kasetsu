@@ -4,7 +4,8 @@ use Mouse;
 use Type::Tiny;
 use namespace::autoclean;
 
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
+use File::Spec;
+use aliased 'Kasetsu::Infrastructure::TextDatabase::File';
 use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 
 has path => (
@@ -13,20 +14,26 @@ has path => (
   required => 1,
 );
 
-my $FileClassType => Type::Tiny->new(
-  name       => 'FileClassType',
+use constant FileClassType => Type::Tiny->new(
   parent     => ClassName,
+  name       => 'FileClassType',
   constraint => sub {
-    my $got = shift;
-    $got->isa(Column);
+    my $value = shift;
+    $value->isa(File);
   },
 );
 
 # XXX: 拡張性が必要になれば file の Factory を作り差し替える
 has file_class => (
   is       => 'ro',
-  isa      => $FileClassType,
+  isa      => FileClassType,
   required => 1,
+);
+
+has file_extension => (
+  is      => 'ro',
+  isa     => Str,
+  default => 'cgi',
 );
 
 has record => (
@@ -35,12 +42,34 @@ has record => (
   required => 1,
 );
 
-sub file_of {
-  state $c = compile(Invocant, Str);
-  my ($self, $id) = $c->(@_);
+sub _make_file_path {
+  my ($self, $id) = @_;
+  File::Spec->catfile($self->path, $id . '.' . $self->file_extension);
 }
 
-sub files {
+sub file_of_id {
+  state $c = compile(Invocant, Str);
+  my ($self, $id) = $c->(@_);
+
+  $self->file_class->new(
+    path   => $self->_make_file_path($id),
+    record => $self->record,
+  );
+}
+
+sub all_exists_files {
+  my $self = shift;
+  opendir my $dh, $self->path or die $!;
+  my $file_extension = $self->file_extension;
+  my @files =
+    map {
+      $self->file_class->new(
+        path   => $self->_make_file_path($_),
+        record => $self->record,
+      );
+    }
+    map { ($_ =~ /^(.*?)\.$file_extension$/)[0] } readdir $dh;
+  \@files;
 }
 
 __PACKAGE__->meta->make_immutable;

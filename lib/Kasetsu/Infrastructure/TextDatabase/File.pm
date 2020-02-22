@@ -57,7 +57,7 @@ sub touch {
   $fh->close();
 }
 
-sub exists {
+sub is_exists {
   my $self = shift;
   -e $self->path;
 }

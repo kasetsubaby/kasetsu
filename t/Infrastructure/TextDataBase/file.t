@@ -32,10 +32,10 @@ my $file = File->new(
   ),
 );
 
-ok $file->exists;
+ok $file->is_exists;
 ok $file->remove;
-ok !$file->exists;
+ok !$file->is_exists;
 ok $file->touch;
-ok $file->exists;
+ok $file->is_exists;
 
 done_testing;

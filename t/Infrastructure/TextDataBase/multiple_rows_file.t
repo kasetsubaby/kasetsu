@@ -67,14 +67,14 @@ subtest 'store_all_rows and fetch_all_rows' => sub {
   is \@rows, $fetch_rows;
 };
 
-subtest 'store_row_of and fetch_row_of' => sub {
+subtest 'store_row and fetch_row_by_index' => sub {
   my $row = Row->new(
     index => 3,
     a     => 1,
     b     => 2,
   );
   $file->store_row($row);
-  my $fetch_row = $file->fetch_row_of($row->index);
+  my $fetch_row = $file->fetch_row_by_index($row->index);
   is $row, $fetch_row;
 };
 
@@ -87,7 +87,7 @@ subtest 'delete' => sub {
     );
   } 0 .. 3;
   $file->store_all_rows(\@rows);
-  $file->delete_row_of(2);
+  $file->delete_row_by_index(2);
   is $file->fetch_all_rows, array {
     item object {
       prop blessed => 'Row';

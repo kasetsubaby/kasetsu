@@ -21,7 +21,7 @@ has '+record' => (
   isa => RecordType[IndexedDTOClassType],
 );
 
-sub fetch_row_of {
+sub fetch_row_by_index {
   state $c = compile(Invocant, Int);
   my ($self, $index) = $c->(@_);
 
@@ -73,7 +73,7 @@ sub store_all_rows {
   $self->data_saver->save_data(\@lines);
 }
 
-sub delete_row_of {
+sub delete_row_by_index {
   state $c = compile(Invocant, Int);
   my ($self, $index) = $c->(@_);
 
