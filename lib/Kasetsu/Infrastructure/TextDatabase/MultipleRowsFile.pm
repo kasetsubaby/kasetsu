@@ -6,6 +6,7 @@ use namespace::autoclean;
 BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
 
 use Encode qw( encode_utf8 decode_utf8 );
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 
 use constant IndexedDTOClassType => Type::Tiny->new(
   name       => 'DTOClassType',
@@ -16,8 +17,8 @@ use constant IndexedDTOClassType => Type::Tiny->new(
   },
 );
 
-has '+dto_class' => (
-  isa => IndexedDTOClassType,
+has '+record' => (
+  isa => RecordType[IndexedDTOClassType],
 );
 
 sub fetch_row_of {
@@ -49,9 +50,10 @@ sub fetch_all_rows {
 
 sub store_row {
   my $self = shift;
+  my $dto_class = $self->record->dto_class;
   state %validator_of_dto_class;
-  $validator_of_dto_class{ $self->dto_class } //= compile(InstanceOf[ $self->dto_class ]);
-  my ($row) = $validator_of_dto_class{ $self->dto_class }->(@_);
+  $validator_of_dto_class{$dto_class} //= compile(InstanceOf[$dto_class]);
+  my ($row) = $validator_of_dto_class{$dto_class}->(@_);
 
   my $rows = $self->fetch_all_rows();
   $rows->[ $row->index ] = $row;
@@ -60,10 +62,10 @@ sub store_row {
 
 sub store_all_rows {
   my $self = shift;
+  my $dto_class = $self->record->dto_class;
   state %validator_of_dto_class;
-  $validator_of_dto_class{ $self->dto_class } //=
-    compile(ArrayRef[ InstanceOf[ $self->dto_class ] ]);
-  my ($rows) = $validator_of_dto_class{ $self->dto_class }->(@_);
+  $validator_of_dto_class{$dto_class} //= compile(ArrayRef[ InstanceOf[$dto_class] ]);
+  my ($rows) = $validator_of_dto_class{$dto_class}->(@_);
 
   my @lines =
     map { "$_\n" }

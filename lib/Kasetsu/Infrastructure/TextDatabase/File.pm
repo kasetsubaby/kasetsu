@@ -4,6 +4,7 @@ use Mouse;
 use namespace::autoclean;
 
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
@@ -14,15 +15,9 @@ has path => (
   required => 1,
 );
 
-has dto_class => (
+has record => (
   is       => 'ro',
-  isa      => ClassName,
-  required => 1,
-);
-
-has columns => (
-  is       => 'ro',
-  isa      => InstanceOf[Columns],
+  isa      => RecordType,
   required => 1,
 );
 
@@ -32,10 +27,7 @@ has decoder => (
   lazy    => 1,
   default => sub {
     my $self = shift;
-    Decoder->new(
-      dto_class => $self->dto_class,
-      columns   => $self->columns,
-    );
+    Decoder->new(record => $self->record);
   },
 );
 
@@ -45,10 +37,7 @@ has encoder => (
   lazy    => 1,
   default => sub {
     my $self = shift;
-    Encoder->new(
-      dto_class => $self->dto_class,
-      columns   => $self->columns,
-    );
+    Encoder->new(record => $self->record);
   },
 );
 

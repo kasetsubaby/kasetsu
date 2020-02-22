@@ -5,17 +5,12 @@ use namespace::autoclean;
 
 use Cpanel::JSON::XS qw( decode_json );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( DEFAULT_SEPARATOR :column_classes_alias );
 
-has dto_class => (
+has record => (
   is       => 'ro',
-  isa      => ClassName,
-  required => 1,
-);
-
-has columns => (
-  is       => 'ro',
-  isa      => InstanceOf[Columns],
+  isa      => RecordType,
   required => 1,
 );
 
@@ -28,23 +23,23 @@ has separator => (
 sub decode {
   state $c = compile(Invocant, Str, Optional[ArrayRef]);
   my ($self, $line, $extra) = $c->(@_);
-  _line_to_dto($line, quotemeta $self->separator, $self->columns, $self->dto_class, $extra);
+  _line_to_dto($line, quotemeta $self->separator, $self->record, $extra);
 }
 
 sub _line_to_dto {
-  my ($line, $separator, $columns, $dto_class, $maybe_extra) = @_;
+  my ($line, $separator, $record, $maybe_extra) = @_;
 
   my @fields = split /$separator/, $line;
-
-  my %param_of_column_name = map {
+  my $columns = $record->columns;
+  my %params_of_column_name = map {
     my ($column, $field) = ($columns->[$_], $fields[$_]);
 
     $column->name => do {
       if ( $column->isa(NestedColumn) ) {
-        _line_to_dto($field, quotemeta $column->separator, $column->columns, $column->dto_class);
+        _line_to_dto($field, quotemeta $column->separator, $column->record);
       }
       elsif ( $column->isa(JSONColumn) ) {
-        $column->dto_class->new(decode_json $field);
+        $column->record->dto_class->new(decode_json $field);
       }
       else {
         $field;
@@ -52,7 +47,7 @@ sub _line_to_dto {
     };
   } 0 .. $#$columns;
 
-  $dto_class->new(%param_of_column_name, defined $maybe_extra ? @$maybe_extra : ());
+  $record->dto_class->new(%params_of_column_name, defined $maybe_extra ? @$maybe_extra : ());
 }
 
 __PACKAGE__->meta->make_immutable;

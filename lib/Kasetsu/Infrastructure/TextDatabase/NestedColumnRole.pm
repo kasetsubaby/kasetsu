@@ -2,25 +2,23 @@ package Kasetsu::Infrastructure::TextDatabase::NestedColumnRole;
 use Kasetsu::Base;
 use Mouse::Role;
 use namespace::autoclean;
+
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Record' => 'Record', 'RecordType';
 
-has '+type_constraint' => (
-  isa => InstanceOf['Type::Tiny::Class'],
-);
-
-has columns => (
+has record => (
   is       => 'ro',
-  isa      => InstanceOf[Columns],
+  isa      => RecordType,
   required => 1,
 );
 
-has dto_class => (
-  is      => 'ro',
-  isa     => ClassName,
-  lazy    => 1,
-  default => sub {
+has '+type_constraint' => (
+  init_arg => undef,
+  isa      => InstanceOf['Type::Tiny::Class'],
+  lazy     => 1,
+  default  => sub {
     my $self = shift;
-    $self->type_constraint->class;
+    InstanceOf[ $self->record->dto_class ];
   },
 );
 

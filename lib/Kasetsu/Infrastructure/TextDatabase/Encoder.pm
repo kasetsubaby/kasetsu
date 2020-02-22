@@ -4,18 +4,12 @@ use Mouse;
 use namespace::autoclean;
 
 use Cpanel::JSON::XS qw( encode_json );
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( DEFAULT_SEPARATOR :column_classes_alias );
 
-has dto_class => (
+has record => (
   is       => 'ro',
-  isa      => ClassName,
-  required => 1,
-);
-
-has columns => (
-  is       => 'ro',
-  isa      => InstanceOf[Columns],
+  isa      => RecordType,
   required => 1,
 );
 
@@ -25,19 +19,14 @@ has separator => (
   default => DEFAULT_SEPARATOR,
 );
 
-has __encode_args_validator => (
-  is      => 'ro',
-  isa     => CodeRef,
-  lazy    => 1,
-  default => sub {
-    my $self = shift;
-    compile(Invocant, InstanceOf[ $self->dto_class ]);
-  },
-);
-
 sub encode {
-  my ($self, $dto) = $_[0]->__encode_args_validator->(@_);
-  _dto_to_line($dto, $self->separator, $self->columns);
+  my $self = shift;
+  my $dto_class = $self->record->dto_class;
+  state %validator_of_dto_class;
+  $validator_of_dto_class{$dto_class} //= compile(InstanceOf[$dto_class]);
+  my ($dto) = $validator_of_dto_class{$dto_class}->(@_);
+
+  _dto_to_line($dto, $self->separator, $self->record->columns);
 }
 
 sub _dto_to_line {
@@ -49,10 +38,10 @@ sub _dto_to_line {
     my ($column, $field) = ($columns->[$_], $fields[$_]);
 
     if ( $column->isa(NestedColumn) ) {
-      _dto_to_line($field, $column->separator, $column->columns);
+      _dto_to_line($field, $column->separator, $column->record->columns);
     }
     elsif ( $column->isa(JSONColumn) ) {
-      my %fields = map { $_ => $field->$_ } map { $_->name } $column->columns->@*;
+      my %fields = map { $_ => $field->$_ } map { $_->name } $column->record->columns->@*;
       encode_json \%fields;
     }
     else {

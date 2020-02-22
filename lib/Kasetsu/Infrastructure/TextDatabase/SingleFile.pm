@@ -17,9 +17,10 @@ sub fetch_row {
 
 sub store_row {
   my $self = shift;
+  my $dto_class = $self->record->dto_class;
   state %validator_of_dto_class;
-  $validator_of_dto_class{ $self->dto_class } //= compile(InstanceOf[ $self->dto_class ]);
-  my ($row) = $validator_of_dto_class{ $self->dto_class }->(@_);
+  $validator_of_dto_class{$dto_class} //= compile(InstanceOf[$dto_class]);
+  my ($row) = $validator_of_dto_class{$dto_class}->(@_);
 
   my $line = encode_utf8( $self->encoder->encode($row) );
   $self->data_saver->save_data([$line]);

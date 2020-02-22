@@ -5,6 +5,7 @@ use File::Temp;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::File';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
 
 package Row {
   use Mouse;
@@ -16,16 +17,18 @@ package Row {
 
 my $fh = File::Temp->new;
 my $file = File->new(
-  path      => $fh->filename,
-  dto_class => 'Row',
-  columns   => Columns->new(
-    contents => [
-      Column->new(
-        name            => 'a',
-        access_control  => 'ro',
-        type_constraint => Str,
-      ),
-    ],
+  path   => $fh->filename,
+  record => Record->new(
+    dto_class => 'Row',
+    columns   => Columns->new(
+      contents => [
+        Column->new(
+          name            => 'a',
+          access_control  => 'ro',
+          type_constraint => Str,
+        ),
+      ],
+    ),
   ),
 );
 

@@ -5,6 +5,7 @@ use File::Temp;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::MultipleRowsFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
 
 package Row {
   use Kasetsu::Base;
@@ -33,21 +34,23 @@ package Row {
 
 my $fh = File::Temp->new;
 my $file = MultipleRowsFile->new(
-  path      => $fh->filename,
-  dto_class => 'Row',
-  columns   => Columns->new(
-    contents => [
-      Column->new(
-        name            => 'a',
-        access_control  => 'ro',
-        type_constraint => Int,
-      ),
-      Column->new(
-        name            => 'b',
-        access_control  => 'ro',
-        type_constraint => Int,
-      ),
-    ],
+  path   => $fh->filename,
+  record => Record->new(
+    dto_class => 'Row',
+    columns   => Columns->new(
+      contents => [
+        Column->new(
+          name            => 'a',
+          access_control  => 'ro',
+          type_constraint => Int,
+        ),
+        Column->new(
+          name            => 'b',
+          access_control  => 'ro',
+          type_constraint => Int,
+        ),
+      ],
+    ),
   ),
 );
 

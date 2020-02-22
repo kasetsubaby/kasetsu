@@ -35,9 +35,10 @@ sub fetch_all_rows {
 
 sub append_row {
   my $self = shift;
+  my $dto_class = $self->record->dto_class;
   state %validator_of_dto_class;
-  $validator_of_dto_class{ $self->dto_class } //= compile(InstanceOf[ $self->dto_class ]);
-  my ($row) = $validator_of_dto_class{ $self->dto_class }->(@_);
+  $validator_of_dto_class{$dto_class} //= compile(InstanceOf[$dto_class]);
+  my ($row) = $validator_of_dto_class{$dto_class}->(@_);
 
   my $line = encode_utf8( $self->encoder->encode($row) ) . "\n";
   open my $fh, '>>', $self->path or die $!;
@@ -46,10 +47,10 @@ sub append_row {
 
 sub append_rows {
   my $self = shift;
+  my $dto_class = $self->record->dto_class;
   state %validator_of_dto_class;
-  $validator_of_dto_class{ $self->dto_class } //=
-    compile(ArrayRef[ InstanceOf[ $self->dto_class ] ]);
-  my ($rows) = $validator_of_dto_class{ $self->dto_class }->(@_);
+  $validator_of_dto_class{$dto_class} //= compile(ArrayRef[ InstanceOf[$dto_class] ]);
+  my ($rows) = $validator_of_dto_class{$dto_class}->(@_);
 
   my @lines =
     map { "$_\n" }
