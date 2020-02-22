@@ -5,8 +5,15 @@ use Type::Tiny;
 use namespace::autoclean;
 
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 
-use constant FileClassType => Type::Tiny->new(
+has path => (
+  is       => 'ro',
+  isa      => Str,
+  required => 1,
+);
+
+my $FileClassType => Type::Tiny->new(
   name       => 'FileClassType',
   parent     => ClassName,
   constraint => sub {
@@ -15,23 +22,18 @@ use constant FileClassType => Type::Tiny->new(
   },
 );
 
-has path => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1,
-);
-
 # XXX: 拡張性が必要になれば file の Factory を作り差し替える
 has file_class => (
   is       => 'ro',
-  isa      => FileClassType,
+  isa      => $FileClassType,
   required => 1,
 );
 
-# dto_class, columns
-# 上2つをまとめた何かを作る? = record class 作成
-# multiple rows
-# - そもそも dto に index は必要なのか? Townのことを考えると必要・・・
+has record => (
+  is       => 'ro',
+  isa      => RecordType,
+  required => 1,
+);
 
 sub file_of {
   state $c = compile(Invocant, Str);
