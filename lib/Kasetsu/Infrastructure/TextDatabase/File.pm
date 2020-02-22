@@ -2,24 +2,11 @@ package Kasetsu::Infrastructure::TextDatabase::File;
 use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
+BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
-use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
-
-has path => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1,
-);
-
-has record => (
-  is       => 'ro',
-  isa      => RecordType,
-  required => 1,
-);
 
 has decoder => (
   is      => 'ro',

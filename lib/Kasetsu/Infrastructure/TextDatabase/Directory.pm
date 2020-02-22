@@ -3,16 +3,10 @@ use Kasetsu::Base;
 use Mouse;
 use Type::Tiny;
 use namespace::autoclean;
+BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
 use File::Spec;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::File';
-use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
-
-has path => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1,
-);
 
 use constant FileClassType => Type::Tiny->new(
   parent     => ClassName,
@@ -34,12 +28,6 @@ has file_extension => (
   is      => 'ro',
   isa     => Str,
   default => 'cgi',
-);
-
-has record => (
-  is       => 'ro',
-  isa      => RecordType,
-  required => 1,
 );
 
 sub _make_file_path {
