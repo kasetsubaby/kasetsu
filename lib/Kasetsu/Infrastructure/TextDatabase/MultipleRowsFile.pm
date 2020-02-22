@@ -71,6 +71,20 @@ sub store_all_rows {
   $self->data_saver->save_data(\@lines);
 }
 
+sub delete_row_of {
+  state $c = compile(Invocant, Int);
+  my ($self, $index) = $c->(@_);
+
+  my $rows = $self->fetch_all_rows();
+  splice(@$rows, $index, 1) or die 'The index row doe not exists.';
+  $self->store_all_rows($rows);
+}
+
+sub delete_all_rows {
+  my $self = shift;
+  $self->data_saver->save_data([]);
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;

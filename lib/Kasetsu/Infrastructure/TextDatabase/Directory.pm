@@ -31,8 +31,7 @@ has file_class => (
 # dto_class, columns
 # 上2つをまとめた何かを作る? = record class 作成
 # multiple rows
-# - delete も必要では
-# - そもそも dto に index は必要なのか?
+# - そもそも dto に index は必要なのか? Townのことを考えると必要・・・
 
 sub file_of {
   state $c = compile(Invocant, Str);
