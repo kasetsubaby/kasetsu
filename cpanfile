@@ -13,6 +13,7 @@ requires 'File::ReadBackwards', '== 1.05';
 requires 'Path::Tiny', '== 0.112';
 
 on test => sub {
+  requires 'Test2::Harness', '== 0.001099';
   requires 'Test2::Suite', '== 0.000127';
   requires 'Test2::Tools::Condition', '== 0.03';
   requires 'Test::MockTime', '== 0.17';
