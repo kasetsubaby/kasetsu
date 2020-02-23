@@ -2,7 +2,7 @@ use Kasetsu::Base;
 use Test2::V0;
 
 use File::Temp;
-use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleRowFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
@@ -27,7 +27,7 @@ package Row {
 }
 
 my $fh = File::Temp->new;
-my $file = SingleFile->new(
+my $file = SingleRowFile->new(
   path   => $fh->filename,
   record => Record->new(
     dto_class => 'Row',

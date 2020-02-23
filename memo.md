@@ -1,3 +1,4 @@
+- SingleFile = SingleRowFile では?
 - Database(コンテナ) と Declare(DSL) を実装し TextDatabase で定義できるようにする
   - File と Directory をまとめてあつかう概念の名前何にしよう
 - decoder, encoder で使っているテストクラスをまとめる

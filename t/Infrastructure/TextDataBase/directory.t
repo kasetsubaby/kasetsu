@@ -6,7 +6,7 @@ use File::Spec;
 use Mouse::Meta::Class;
 use Mouse::Meta::Attribute;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Directory';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleRowFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
@@ -47,7 +47,7 @@ my $row_class = create_class('Row' => $columns);
 my $tmpdir = File::Temp->newdir();
 my $dir = Directory->new(
   path       => $tmpdir->dirname,
-  file_class => SingleFile,
+  file_class => SingleRowFile,
   record     => Record->new(
     dto_class => 'Row',
     columns   => $columns,
@@ -59,7 +59,7 @@ is $file->path, File::Spec->catfile($dir->path, 'some_id.cgi');
 my @files = map { $dir->file_of_id($_) } 'a' .. 'e';
 $_->touch() for @files;
 is $dir->all_exists_files, array {
-  item object { prop blessed => SingleFile } for 1 .. 5;
+  item object { prop blessed => SingleRowFile } for 1 .. 5;
   end;
 };
 
