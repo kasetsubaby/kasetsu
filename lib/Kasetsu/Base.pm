@@ -13,7 +13,7 @@ our @IMPORT_MODULES = (
     'feature'         => [':5.30'],
     '-indirect'       => ['fatal'],
     'Types::Standard' => ['-types'],
-    'Type::Params'    => [qw( compile Invocant )],
+    'Type::Params'    => [qw( compile compile_named Invocant )],
 );
 
 1;
