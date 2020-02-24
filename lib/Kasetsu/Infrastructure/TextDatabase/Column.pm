@@ -1,8 +1,11 @@
 package Kasetsu::Infrastructure::TextDatabase::Column;
 use Kasetsu::Base;
 use Mouse;
+use Exporter qw( import );
+
 use Type::Tiny;
-use namespace::autoclean;
+
+our @EXPORT_OK = qw( AccessControlType TypeConstraintType );
 
 use constant AccessControlType => Type::Tiny->new(
   name       => 'AccessControlType',
@@ -12,6 +15,8 @@ use constant AccessControlType => Type::Tiny->new(
     $got eq 'ro' || $got eq 'rw';
   },
 );
+
+use constant TypeConstraintType => HasMethods[qw( check get_message )];
 
 has name => (
   is       => 'ro',
@@ -27,10 +32,11 @@ has access_control => (
 
 has type_constraint => (
   is       => 'ro',
-  isa      => HasMethods[qw( check get_message )],
+  isa      => TypeConstraintType,
   required => 1,
 );
 
+no Mouse;
 __PACKAGE__->meta->make_immutable;
 
 1;

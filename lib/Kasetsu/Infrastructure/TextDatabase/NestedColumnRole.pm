@@ -4,7 +4,7 @@ use Mouse::Role;
 use namespace::autoclean;
 
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Record' => 'Record', 'RecordType';
+use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
 
 has record => (
   is       => 'ro',
