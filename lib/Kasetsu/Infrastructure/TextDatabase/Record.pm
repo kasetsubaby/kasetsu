@@ -38,9 +38,11 @@ sub RecordType(;$) {
   }
 }
 
+use constant MaybeClassName => StrMatch[qr/^(\w+(?:(?:::|')\w+)*)$/];
+
 has dto_class => (
   is       => 'ro',
-  isa      => ClassName,
+  isa      => MaybeClassName,
   required => 1,
 );
 
