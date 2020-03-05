@@ -1,107 +1,149 @@
 package Kasetsu::Infrastructure::TextDatabase;
 use Kasetsu::Base;
-use Type::Params qw( compile Invocant );
-use Types::Standard qw( Str Map );
-use Function::Return;
-use Type::Utils qw( duck_type enum );
+use Kasetsu::Infrastructure::TextDatabase::Declare;
 
-use constant TextDatabase => duck_type([qw(
-  create
-  fetch
-  fetch_all
-  store
-  store_all
-  delete
-  delete_all
-)]);
-
-# ログ系の場合
-my @a = qw(
-  append
-  fetch
-  fetch_all
-  delete
-  delete_all
-);
-
-# コマンド系の場合
-my @b = qw(
-);
-
-my %NAME_TO_DATABASE = (
-);
-
-my $DatabaseNames = enum([ keys %NAME_TO_DATABASE ]);
-
-sub get :Return(Str) {
-  state $v = compile(Invocant, $DatabaseNames);
-  my ($class, $name) = $v->(@_);
-  $NAME_TO_DATABASE{$name};
-}
+directory user => collection {
+  path       './script/charalog/main';
+  file_class SingleRowFile;
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::User';
+    columns {
+      column id => (
+        is  => 'ro',
+        isa => Str,
+      );
+      column pass => (
+        is  => 'rw',
+        isa => Str,
+      );
+      column name => (
+        is  => 'rw',
+        isa => Str,
+      );
+      column icon => (
+        is  => 'rw',
+        isa => Str,
+      );
+      column force => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column intellect => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column leadership => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column popular => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column soldier_num => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column soldier_training => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column country_id => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column money => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column rice => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column contribute => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column class => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column weapon_index => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column book_index => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column loyalty => (
+        is  => 'rw',
+        isa => Int,
+      );
+      nested_column ability_exp => (
+        is     => 'ro',
+        record => record {
+          dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::User::AbilityExp';
+          columns {
+            column force => (
+              is  => 'rw',
+              isa => Int,
+            );
+            column intellect => (
+              is  => 'rw',
+              isa => Int,
+            );
+            column leadership => (
+              is  => 'rw',
+              isa => Int,
+            );
+            column popular => (
+              is  => 'rw',
+              isa => Int,
+            );
+            column soldier_id => (
+              is  => 'rw',
+              isa => Int,
+            );
+            column unknown => (
+              is  => 'ro',
+              isa => Str,
+            );
+          };
+        },
+      );
+      column delete_turn => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column town_index => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column unknown => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column host => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column updated_at => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column mail => (
+        is  => 'rw',
+        isa => Int,
+      );
+      column is_authed => (
+        is  => 'rw',
+        isa => Int,
+      );
+    };
+  };
+};
 
 1;
 
 __END__
-
-TextDatabase - Containter
-TextDatabase::Interface
-TextDatabase::SingleFile
-TextDatabase::SingleFile::DTO
-TextDatabase::MultipleFiles
-TextDatabase::MultipleFiles::DTO
-TextDatabase::DTO
-
-TextDatabase::Decoder - テキスト行データをDTOにする処理
-TextDatabase::Encoder - DTOをテキスト行データにする処理
-TextDatabase::File - データベースファイルを操作するための基礎処理を提供
-TextDatabase::SingleRowFile
-TextDatabase::MultipleRowsFile
-TextDatabase::LogFile
-TextDatabase::Directory
-TextDatabase::DTO
-TextDatabase::DTO::...
-
-# 機能要求
-あるデータを1つ1つ別ファイルで保存しているものも,
-あるデータをすべてまとめて1ファイルで保存しているものも,
-同じIFで扱える
-
-SingleFile
-->fetch_row
-->store_row($dto)
-MultipleRowsFile
-->fetch_row_of($id)
-->fetch_all_rows
-->store_row_of($dto)
-->store_all_rows($dto_collection)
-LogFile
-->fetch_rows($num);
-->fetch_all_rows
-->append_row
-->append_rows($dto_collection)
-rows ではコレクションクラスのインスタンスを返す,
- 配列だと自由にいじれすぎて間違ったデータをstoreする危険性が高くなるため
-また各rowのidによる取得方法を統一したい
-Directory
-->file_of($id)
-->files
-my $files = Directory->files;
-# やりたい
-my $rows = SingleRowFileDirectory->fetch_all_rows;
-SingleRowFileDircetory->store_all_rows($rows);
-# コマンド系とかは?
-考えてみたが一度に保存したいことはないかもしれない・・・
-
-# 構成
-- テキストデータを統一して扱うモジュール
-
-sub get {
-  my ($self, $name, $id) = @_;
-  +{
-    players => Directory->new(
-      name => 'charalog',
-      dto  => 'DTO::Player',
-    ),
-  };
-}
-

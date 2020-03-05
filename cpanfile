@@ -11,6 +11,8 @@ requires 'CGI', '== 4.45';
 requires 'Cpanel::JSON::XS', '== 4.18';
 requires 'File::ReadBackwards', '== 1.05';
 requires 'Path::Tiny', '== 0.112';
+requires 'Module::Runtime', '== 0.016';
+requires 'Class::Load', '== 0.25';
 
 on test => sub {
   requires 'Test2::Harness', '== 0.001099';
