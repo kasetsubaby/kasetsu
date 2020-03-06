@@ -15,9 +15,8 @@ use aliased 'Kasetsu::Infrastructure::TextDatabase::NestedColumn';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::JSONColumn';
 use Kasetsu::Infrastructure::TextDatabase::MetaDTOClassCreator qw( create_meta_dto_class );
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( MaybeClassName );
-use Class::Load qw( is_class_loaded );
-
 use Hash::Util qw( lock_ref_keys );
+use Class::Load qw( is_class_loaded );
 
 my @class_methods = qw( database );
 
@@ -80,8 +79,8 @@ sub collection (&) { shift }
 
     my $file = do {
       local $Building_data{collection_params} = lock_ref_keys({
-        path       => undef,
-        record     => undef,
+        path   => undef,
+        record => undef,
       });
       $code->();
       SingleRowFile->new($Building_data{collection_params});
@@ -99,8 +98,8 @@ sub collection (&) { shift }
 
     my $file = do {
       local $Building_data{collection_params} = lock_ref_keys({
-        path       => undef,
-        record     => undef,
+        path   => undef,
+        record => undef,
       });
       $code->();
       MultipleRowsFile->new($Building_data{collection_params});
@@ -118,8 +117,8 @@ sub collection (&) { shift }
 
     my $file = do {
       local $Building_data{collection_params} = lock_ref_keys({
-        path       => undef,
-        record     => undef,
+        path   => undef,
+        record => undef,
       });
       $code->();
       LogFile->new($Building_data{collection_params});
