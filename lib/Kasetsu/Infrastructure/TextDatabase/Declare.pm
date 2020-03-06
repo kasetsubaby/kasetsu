@@ -30,8 +30,8 @@ use Class::Load qw( is_class_loaded );
     file_class
     record
     dto_class
-    columns
     column
+    attribute
     nested_column
     json_column
   );
@@ -150,24 +150,50 @@ sub collection (&) { shift }
     my $code = shift;
 
     local $Building_data{record_params} = lock_ref_keys({
-      dto_class => undef,
-      columns   => undef,
+      dto_class        => undef,
+      attributes       => [],
+      columns_contents => [],
     });
+    local $Building_data{record_dto_class_attributes} = [];
     $code->();
 
-    my ($dto_class, $columns) = $Building_data{record_params}->@{qw( dto_class columns )};
+    my ($dto_class, $attributes, $columns_contents) =
+      $Building_data{record_params}->@{qw( dto_class attributes columns_contents )};
+
     # dto_class が loaded ならそのまま渡す, loaded でないなら動的にクラスを作って型を作る
     unless ( is_class_loaded($dto_class) ) {
-      my $klass = create_meta_dto_class($dto_class, $columns);
+      my @attributes_params = (
+        @$attributes,
+        map {
+          +{
+            name => $_->name,
+            is   => $_->access_control,
+            isa  => $_->type_constraint,
+          };
+        } @$columns_contents
+      );
+
+      my $klass = create_meta_dto_class($dto_class, \@attributes_params);
       state %dto_klass_of;
       $dto_klass_of{ $klass->name } //= $klass;
     }
 
     my $record = Record->new(
       dto_class => $dto_class,
-      columns   => $columns,
+      columns   => Columns->new(contents => $columns_contents),
     );
     $Building_data{collection_params}{record} = $record;
+  }
+
+  sub attribute {
+    my $name = shift;
+    state $c = compile_named(
+      is  => AccessControlType,
+      isa => TypeConstraintType,
+    );
+    my $args = $c->(@_);
+
+    push $Building_data{record_params}{attributes}->@*, +{ name => $name, %$args };
   }
 
   sub dto_class($) {
@@ -175,24 +201,16 @@ sub collection (&) { shift }
     my ($dto_class) = $c->(@_);
     $Building_data{record_params}{dto_class} = $dto_class;
   }
-
-  sub columns(&) {
-    my $code = shift;
-    local $Building_data{columns_params} = [];
-    $code->();
-    my $columns = Columns->new(contents => $Building_data{columns_params});
-    $Building_data{record_params}{columns} = $columns;
-  }
   
   sub column {
     my $name = shift;
     state $c = compile_named(
-      is        => AccessControlType,
-      isa       => TypeConstraintType,
+      is  => AccessControlType,
+      isa => TypeConstraintType,
     );
     my $args = $c->(@_);
 
-    push $Building_data{columns_params}->@*, Column->new(
+    push $Building_data{record_params}{columns_contents}->@*, Column->new(
       name            => $name,
       access_control  => $args->{is},
       type_constraint => $args->{isa},
@@ -208,9 +226,9 @@ sub collection (&) { shift }
     );
     my $args = $c->(@_);
 
-    push $Building_data{columns_params}->@*, NestedColumn->new(
+    push $Building_data{record_params}{columns_contents}->@*, NestedColumn->new(
       name           => $name,
-      access_control => $$args->{is},
+      access_control => $args->{is},
       record         => $args->{record},
       exists $args->{separator} ? ( separator => $args->{separator} ) : (),
     );
@@ -224,7 +242,7 @@ sub collection (&) { shift }
     );
     my $args = $c->(@_);
 
-    push $Building_data{columns_params}->@*, JSONColumn->new(
+    push $Building_data{record_params}{columns_contents}->@*, JSONColumn->new(
       name           => $name,
       access_control => $args->{is},
       record         => $args->{record},
