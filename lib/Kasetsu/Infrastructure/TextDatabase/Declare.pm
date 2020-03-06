@@ -9,8 +9,7 @@ use aliased 'Kasetsu::Infrastructure::TextDatabase::MultipleRowsFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::LogFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record' => 'Record', qw( RecordType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Column' => 'Column',
-  qw( AccessControlType TypeConstraintType );
+use aliased 'Kasetsu::Infrastructure::TextDatabase::Column' => 'Column', qw( AccessControlType TypeConstraintType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::NestedColumn';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::JSONColumn';
 use Kasetsu::Infrastructure::TextDatabase::MetaDTOClassCreator qw( create_meta_dto_class );
@@ -18,28 +17,33 @@ use Kasetsu::Infrastructure::TextDatabase::Exporter qw( MaybeClassName );
 use Hash::Util qw( lock_ref_keys );
 use Class::Load qw( is_class_loaded );
 
-my @class_methods = qw( database );
+{
+  my @class_methods = qw( database );
 
-my @dsls = qw(
-  directory
-  single_row_file
-  multiple_rows_file
-  log_file
-  collection
-  path
-  file_class
-  SingleRowFile
-  MultipleRowsFile
-  LogFile
-  record
-  dto_class
-  columns
-  column
-  nested_column
-  json_column
-);
+  my @dsls = qw(
+    directory
+    single_row_file
+    multiple_rows_file
+    log_file
+    collection
+    path
+    file_class
+    record
+    dto_class
+    columns
+    column
+    nested_column
+    json_column
+  );
 
-our @EXPORT = (@class_methods, @dsls);
+  my @file_classes_alias = qw(
+    SingleRowFile
+    MultipleRowsFile
+    LogFile
+  );
+
+  our @EXPORT = (@class_methods, @dsls, @file_classes_alias);
+}
 
 sub database {
   state $c = compile(ClassName);
@@ -137,8 +141,7 @@ sub collection (&) { shift }
   }
 
   sub file_class($) {
-    # TODO: file_class のしか受け取らないような型にする
-    state $c = compile(Str); 
+    state $c = compile(Enum[ SingleRowFile, MultipleRowsFile, LogFile ]); 
     my ($file_class) = $c->(@_);
     $Building_data{collection_params}{file_class} = shift;
   }
@@ -233,37 +236,3 @@ sub collection (&) { shift }
 
 __END__
 
-directory name => (
-  path       => '',
-  file_class => '',
-  record     => record(
-    dto_class => '',
-    columns   => columns(
-      column name => (
-        is => 'ro',
-        isa => Str,
-      ),
-      column name2 => (
-        is => 'ro',
-        isa => Str,
-      ),
-    ),
-  ),
-);
-
-single_row_file user => (
-  path       => '',
-  record     => record(
-    dto_class => '',
-    columns   => columns(
-      column name => (
-        is => 'ro',
-        isa => Str,
-      ),
-      column name2 => (
-        is => 'ro',
-        isa => Str,
-      ),
-    ),
-  ),
-);
