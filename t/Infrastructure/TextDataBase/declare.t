@@ -10,16 +10,14 @@ package SomeDatabse {
     file_class SingleRowFile;
     record {
       dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::User';
-      columns {
-        column id => (
-          is  => 'ro',
-          isa => Str,
-        );
-        column pass => (
-          is  => 'rw',
-          isa => Str,
-        );
-      };
+      column id => (
+        is  => 'ro',
+        isa => Str,
+      );
+      column pass => (
+        is  => 'rw',
+        isa => Str,
+      );
     };
   };
 
