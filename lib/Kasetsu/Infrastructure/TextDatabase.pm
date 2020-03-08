@@ -2,8 +2,12 @@ package Kasetsu::Infrastructure::TextDatabase;
 use Kasetsu::Base;
 use Kasetsu::Infrastructure::TextDatabase::Declare;
 
+use Kasetsu::Infrastructure::Config::GlobalVars qw( load );
+
+my $INDEX_INI = load('script/ini_file/index.ini');
+
 directory users => collection {
-  path       './script/charalog/main';
+  path       "script/$INDEX_INI->{CHARA_DATA}";
   file_class SingleRowFile;
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::User';
@@ -47,8 +51,69 @@ directory users => collection {
   };
 };
 
+single_row_file access_counter => collection {
+  path 'script/log_file/counter.cgi';
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::AccessCounter';
+    column num => ( is => 'rw', isa => Int );
+  };
+};
+
+# ユーザ行動ログ
+log_file act_logs => collection {
+  path 'script/log_file/act_log.cgi';
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
+    column line => ( is => 'ro', isa => Str );
+  };
+};
+
+# 解雇された人のブラックリスト
+multiple_rows_file black_list => collection {
+  path 'script/log_file/black_list.cgi';
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::BlackList';
+    attribute index => ( is => 'ro', isa => Int );
+    column 'user_id'       => ( is => 'ro', isa => Str );
+    column 'country_index' => ( is => 'ro', isa => Str );
+    column 'user_name'     => ( is => 'ro', isa => Str );
+  };
+};
+
+multiple_rows_file weapons => collection {
+  path "script/$INDEX_INI->{ARM_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Weapon';
+    attribute index => ( is => 'ro', isa => Int );
+    column name       => ( is => 'ro', isa => Str );
+    column price      => ( is => 'ro', isa => Int );
+    column power      => ( is => 'ro', isa => Num );
+    column _unknown_1 => ( is => 'ro', isa => Str );
+    column _unknown_2 => ( is => 'ro', isa => Str );
+    column _unknown_3 => ( is => 'ro', isa => Str );
+    column _unknown_4 => ( is => 'ro', isa => Str );
+    column _unknown_5 => ( is => 'ro', isa => Str );
+  };
+};
+
+multiple_rows_file books => collection {
+  path "script/$INDEX_INI->{PRO_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Book';
+    attribute index => ( is => 'ro', isa => Int );
+    column name       => ( is => 'ro', isa => Str );
+    column price      => ( is => 'ro', isa => Int );
+    column power      => ( is => 'ro', isa => Num );
+    column _unknown_1 => ( is => 'ro', isa => Str );
+    column _unknown_2 => ( is => 'ro', isa => Str );
+    column _unknown_3 => ( is => 'ro', isa => Str );
+    column _unknown_4 => ( is => 'ro', isa => Str );
+    column _unknown_5 => ( is => 'ro', isa => Str );
+  };
+};
+
 multiple_rows_file countries => collection {
-  path './script/log_file/country.cgi';
+  path "script/$INDEX_INI->{COUNTRY_LIST}";
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Country';
     attribute index => ( is => 'ro', isa => Int );
@@ -74,16 +139,238 @@ multiple_rows_file countries => collection {
   };
 };
 
-log_file act_logs => collection {
-  path './script/log_file/act_log.cgi';
+# ゲーム時刻
+single_row_file game_date => collection {
+  path 'script/log_file/date_count.cgi';
   record {
-    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::GameDate';
+    column elapsed_year => ( is => 'rw', isa => Int );
+    column month        => ( is => 'rw', isa => Int );
+    column time         => ( is => 'rw', isa => Int );
+  };
+};
+
+# 国アピールメッセージ
+multiple_rows_file countries_appeal_messages => collection {
+  path "script/$INDEX_INI->{COUNTRY_MES}";
+  record {
+
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryAppealMessage';
+    attribute index => ( is => 'ro', isa => Int );
+    column new_country_id   => ( is => 'ro', isa => Str );
+    column country_color_id => ( is => 'ro', isa => Str );
+  };
+};
+
+# 建国リスト
+multiple_rows_file founded_countries => collection {
+  path "script/$INDEX_INI->{COUNTRY_MES}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::FoundedCountry';
+    attribute index => ( is => 'ro', isa => Int );
+    column country_id           => ( is => 'ro', isa => Int );
+    column country_name         => ( is => 'rw', isa => Str );
+    column country_color_id     => ( is => 'rw', isa => Str );
+    column _unknown_2           => ( is => 'rw', isa => Str );
+    column country_king_user_id => ( is => 'ro', isa => Str );
+    column _unknown_3           => ( is => 'rw', isa => Str );
+    column _unknown_4           => ( is => 'ro', isa => Str );
+    column _unknown_5           => ( is => 'ro', isa => Str );
+  };
+};
+
+# 守備データ
+multiple_rows_file towns_defenders => collection {
+  path "script/$INDEX_INI->{DEF_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::TownDefender';
+    attribute index => ( is => 'ro', isa => Int );
+    column user_id         => ( is => 'ro', isa => Str );
+    column user_name       => ( is => 'ro', isa => Str );
+    column town_index      => ( is => 'ro', isa => Str );
+    column _unknown        => ( is => 'ro', isa => Str );
+    column user_country_id => ( is => 'ro', isa => Int );
+  };
+};
+
+for my $pair (
+  [ towns         => "script/$INDEX_INI->{TOWN_LIST}" ],
+  [ initial_towns => "script/$INDEX_INI->{F_TOWN_LIST}" ]
+) {
+  my ($name, $path) = @$pair;
+
+  multiple_rows_file $name => collection {
+    path $path;
+    record {
+      dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Town';
+      attribute index => ( is => 'ro', isa => Int );
+      column name         => ( is => 'ro', isa => Str );
+      column country_id   => ( is => 'rw', isa => Str );
+      column farmer       => ( is => 'rw', isa => Int );
+      column farm         => ( is => 'rw', isa => Int );
+      column business     => ( is => 'rw', isa => Int );
+      column wall         => ( is => 'rw', isa => Int );
+      column farm_max     => ( is => 'rw', isa => Int );
+      column business_max => ( is => 'rw', isa => Int );
+      column wall_max     => ( is => 'rw', isa => Int );
+      column loyalty      => ( is => 'rw', isa => Int );
+      column x            => ( is => 'ro', isa => Int );
+      column y            => ( is => 'ro', isa => Int );
+      column price        => ( is => 'rw', isa => Num );
+      column wall_power   => ( is => 'rw', isa => Int );
+      column technology   => ( is => 'rw', isa => Int );
+      column farmer_max   => ( is => 'rw', isa => Int );
+      # 隣接都市のID
+      # このデータがなくでも座標から都市間の距離求めて移動できる都市を判定できるので不要にできる
+      column next_town_index_0 => ( is => 'ro', isa => Int );
+      column next_town_index_1 => ( is => 'ro', isa => Int );
+      column next_town_index_2 => ( is => 'ro', isa => Int );
+      column next_town_index_3 => ( is => 'ro', isa => Int );
+      column next_town_index_4 => ( is => 'ro', isa => Int );
+      column next_town_index_5 => ( is => 'ro', isa => Int );
+      column next_town_index_6 => ( is => 'ro', isa => Int );
+      column next_town_index_7 => ( is => 'ro', isa => Int );
+    };
+  };
+}
+
+# 現在参加しているプレーヤリスト
+multiple_rows_file online_users => collection {
+  path "script/$INDEX_INI->{GUEST_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::OnlineUser';
+    attribute index => ( is => 'ro', isa => Int );
+    column onlined_at      => ( is => 'ro', isa => Num );
+    column user_name       => ( is => 'ro', isa => Str );
+    column user_country_id => ( is => 'ro', isa => Str );
+    column user_town_index => ( is => 'ro', isa => Str );
+  };
+};
+
+# local_rule.cgi (国法)
+multiple_rows_file countries_rules => collection {
+  path "script/$INDEX_INI->{LOCAL_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryRule';
+    attribute index => ( is => 'ro', isa => Int );
+    column user_id            => ( is => 'ro', isa => Str );
+    column no                 => ( is => 'ro', isa => Int );
+    column message            => ( is => 'ro', isa => Str );
+    column user_icon          => ( is => 'ro', isa => Int );
+    column user_name          => ( is => 'ro', isa => Str );
+    column _unknown_1         => ( is => 'ro', isa => Str );
+    column wrote_at_formatted => ( is => 'ro', isa => Str );
+    column country_color_id   => ( is => 'ro', isa => Int );
+    column country_id         => ( is => 'ro', isa => Int );
+    column _unknown_2         => ( is => 'ro', isa => Str );
+  };
+};
+
+# 国会議室
+multiple_rows_file countries_bbs => collection {
+  path "script/$INDEX_INI->{BBS_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryBBS';
+    attribute index => ( is => 'ro', isa => Int );
+    column title              => ( is => 'ro', isa => Str );
+    column message            => ( is => 'ro', isa => Str );
+    column user_icon          => ( is => 'ro', isa => Int );
+    column user_name          => ( is => 'ro', isa => Str );
+    column _unknown           => ( is => 'ro', isa => Str );
+    column wrote_at_formatted => ( is => 'ro', isa => Str );
+    column country_color_id   => ( is => 'ro', isa => Int );
+    column country_id         => ( is => 'ro', isa => Int );
+    column type               => ( is => 'ro', isa => Enum[0, 1] ); # thread or reply
+    column no                 => ( is => 'ro', isa => Int );
+    column maybe_thread_id    => ( is => 'ro', isa => Int );
+  };
+};
+
+# マップログ
+log_file map_log => collection {
+  path "script/$INDEX_INI->{MAP_LOG_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::MapLog';
     column line => ( is => 'ro', isa => Str );
   };
 };
 
+# 史記
+log_file history_log => collection {
+  path "script/$INDEX_INI->{MAP_LOG_LIST2}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::HistoryLog';
+    column line => ( is => 'ro', isa => Str );
+  };
+};
+
+# 手紙
+log_file letters => collection {
+  path "script/$INDEX_INI->{MESSAGE_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Letter';
+    column type              => ( is => 'ro', isa => Str ); # country_id or receiver_id or 333(都市宛) or 111(部隊宛)
+    column sender_id         => ( is => 'ro', isa => Str );
+    column sender_town_index => ( is => 'ro', isa => Str );
+    column sender_name       => ( is => 'ro', isa => Str );
+    column message           => ( is => 'ro', isa => Str );
+    column receiver_name     => ( is => 'ro', isa => Str );
+    column send_at_formatted => ( is => 'ro', isa => Str );
+    column sender_icon       => ( is => 'ro', isa => Int );
+    column sender_country_id => ( is => 'ro', isa => Int );
+    column sender_unit_id    => ( is => 'ro', isa => Str );
+  };
+};
+
+# 密書
+log_file offer_letters => collection {
+  path "script/$INDEX_INI->{MESSAGE_LIST2}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::OfferLetter';
+    column receiver_id       => ( is => 'ro', isa => Str );
+    column sender_id         => ( is => 'ro', isa => Str );
+    column sender_town_index => ( is => 'ro', isa => Str );
+    column sender_name       => ( is => 'ro', isa => Str );
+    column message           => ( is => 'ro', isa => Str );
+    column receiver_name     => ( is => 'ro', isa => Str );
+    column send_at_formatted => ( is => 'ro', isa => Str );
+    column sender_icon       => ( is => 'ro', isa => Int );
+    column sender_country_id => ( is => 'ro', isa => Int );
+  };
+};
+
+# 負荷防止のためのhost記録ファイル
+multiple_rows_file recently_accessed_hosts => collection {
+  path "script/log_file/stop.cgi";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::RecentlyAccessedHost';
+    attribute index => ( is => 'ro', isa => Int );
+    column accessed_at => ( is => 'ro', isa => Int );
+    column host        => ( is => 'ro', isa => Str );
+  };
+};
+
+# unit_list.cgi (部隊)
+multiple_rows_file units => collection {
+  path "script/$INDEX_INI->{UNIT_LIST}";
+  record {
+    dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Unit';
+    attribute index => ( is => 'ro', isa => Int );
+    column id               => ( is => 'ro', isa => Str );
+    column name             => ( is => 'rw', isa => Str );
+    column country_id       => ( is => 'rw', isa => Int );
+    column is_member_leader => ( is => 'rw', isa => Bool );
+    column member_id        => ( is => 'ro', isa => Str );
+    column member_name      => ( is => 'rw', isa => Str );
+    column member_icon      => ( is => 'rw', isa => Int );
+    column message          => ( is => 'rw', isa => Str );
+    column can_join         => ( is => 'rw', isa => Bool );
+  };
+};
+
+# 管理画面行動ログ
 log_file admin_logs => collection {
-  path './script/log_file/admin_log.cgi';
+  path "script/$INDEX_INI->{ADMIN_LIST}";
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
     column line => ( is => 'ro', isa => Str );
