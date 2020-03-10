@@ -53,7 +53,7 @@ directory users => collection {
 };
 
 single_row_file access_counter => collection {
-  path 'log_file/counter.cgi';
+  path 'huge_log_file/counter.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::AccessCounter';
     column num => ( is => 'rw', isa => Int );
@@ -61,8 +61,8 @@ single_row_file access_counter => collection {
 };
 
 # ユーザ行動ログ
-log_file act_logs => collection {
-  path 'log_file/act_log.cgi';
+huge_log_file act_logs => collection {
+  path 'huge_log_file/act_log.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
     column line => ( is => 'ro', isa => Str );
@@ -71,7 +71,7 @@ log_file act_logs => collection {
 
 # 解雇された人のブラックリスト
 multiple_rows_file black_list => collection {
-  path 'log_file/black_list.cgi';
+  path 'huge_log_file/black_list.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::BlackList';
     attribute index => ( is => 'ro', isa => Int );
@@ -142,7 +142,7 @@ multiple_rows_file countries => collection {
 
 # ゲーム時刻
 single_row_file game_date => collection {
-  path 'log_file/date_count.cgi';
+  path 'huge_log_file/date_count.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::GameDate';
     column elapsed_year => ( is => 'rw', isa => Int );
@@ -288,7 +288,7 @@ multiple_rows_file countries_bbs => collection {
 };
 
 # マップログ
-log_file map_log => collection {
+huge_log_file map_log => collection {
   path $INDEX_INI->{MAP_LOG_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::MapLog';
@@ -297,7 +297,7 @@ log_file map_log => collection {
 };
 
 # 史記
-log_file history_log => collection {
+huge_log_file history_log => collection {
   path $INDEX_INI->{MAP_LOG_LIST2};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::HistoryLog';
@@ -306,7 +306,7 @@ log_file history_log => collection {
 };
 
 # 手紙
-log_file letters => collection {
+huge_log_file letters => collection {
   path $INDEX_INI->{MESSAGE_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Letter';
@@ -324,7 +324,7 @@ log_file letters => collection {
 };
 
 # 密書
-log_file offer_letters => collection {
+huge_log_file offer_letters => collection {
   path $INDEX_INI->{MESSAGE_LIST2};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::OfferLetter';
@@ -342,7 +342,7 @@ log_file offer_letters => collection {
 
 # 負荷防止のためのhost記録ファイル
 multiple_rows_file recently_accessed_hosts => collection {
-  path 'log_file/stop.cgi';
+  path 'huge_log_file/stop.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::RecentlyAccessedHost';
     attribute index => ( is => 'ro', isa => Int );
@@ -370,7 +370,7 @@ multiple_rows_file units => collection {
 };
 
 # 管理画面行動ログ
-log_file admin_logs => collection {
+huge_log_file admin_logs => collection {
   path $INDEX_INI->{ADMIN_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';

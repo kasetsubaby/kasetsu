@@ -6,7 +6,7 @@ use aliased 'Kasetsu::Infrastructure::TextDatabase::Database';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Directory';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleRowFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::MultipleRowsFile';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::LogFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::HugeLogFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record' => 'Record', qw( RecordType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column' => 'Column', qw( AccessControlType TypeConstraintType );
@@ -25,7 +25,7 @@ use Kasetsu::Home qw( detect_home_dir );
     directory
     single_row_file
     multiple_rows_file
-    log_file
+    huge_log_file
     collection
     path
     file_class
@@ -116,7 +116,7 @@ sub collection (&) { shift }
     %Building_data = ();
   }
   
-  sub log_file {
+  sub huge_log_file {
     state $c = compile(Str, CodeRef);
     my ($name, $code) = $c->(@_);
 
@@ -126,7 +126,7 @@ sub collection (&) { shift }
         record => undef,
       });
       $code->();
-      LogFile->new($Building_data{collection_params});
+      HugeLogFile->new($Building_data{collection_params});
     };
 
     my $klass = caller;
@@ -148,7 +148,7 @@ sub collection (&) { shift }
   }
 
   sub file_class($) {
-    state $c = compile(Enum[ SingleRowFile, MultipleRowsFile, LogFile ]); 
+    state $c = compile(Enum[ SingleRowFile, MultipleRowsFile, HugeLogFile ]); 
     my ($file_class) = $c->(@_);
     $Building_data{collection_params}{file_class} = shift;
   }

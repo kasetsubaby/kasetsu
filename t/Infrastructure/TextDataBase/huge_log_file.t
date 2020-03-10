@@ -2,7 +2,7 @@ use Kasetsu::Base;
 use Test2::V0;
 
 use File::Temp;
-use aliased 'Kasetsu::Infrastructure::TextDatabase::LogFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::HugeLogFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Column';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
@@ -47,7 +47,7 @@ my %logfile_params = (
 );
 
 subtest 'append_row and fetch_rows' => sub {
-  my $file = LogFile->new(
+  my $file = HugeLogFile->new(
     path => File::Temp->new->filename,
     %logfile_params,
   );
@@ -63,7 +63,7 @@ subtest 'append_row and fetch_rows' => sub {
 };
 
 subtest 'append_rows and fetch_all_rows' => sub {
-  my $file = LogFile->new(
+  my $file = HugeLogFile->new(
     path => File::Temp->new->filename,
     %logfile_params,
   );

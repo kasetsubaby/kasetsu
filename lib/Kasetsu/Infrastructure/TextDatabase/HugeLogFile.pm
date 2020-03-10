@@ -1,4 +1,4 @@
-package Kasetsu::Infrastructure::TextDatabase::LogFile;
+package Kasetsu::Infrastructure::TextDatabase::HugeLogFile;
 use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
