@@ -12,7 +12,7 @@ sub L_RULE_WRITE{
 	if($xcid eq "0"){&ERR("無所属国は実行できません。");}
 	if(length($in{'title'}) > 40 || length($in{'ins'}) > 500) { &ERR("もっと手短に国法を伝えてください"); }
 	if($in{'ins'} eq "") { &ERR("メッセージが記入されていません。"); }
-	if($kclass < 500){&ERR("国への貢献値が足りません(500以上)");}
+  # if($kclass < 500){&ERR("国への貢献値が足りません(500以上)");}
 
 	open(IN,"$LOCAL_LIST") or &ERR2('ファイルを開けませんでした。err no :country');
 	@LOCAL_DATA = <IN>;

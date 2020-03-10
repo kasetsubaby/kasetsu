@@ -9,7 +9,18 @@
 #################################################################
 
 use FindBin;
+use File::Spec;
 use lib $FindBin::Bin;
+use lib File::Spec->catfile($FindBin::Bin, '../lib');
+use aliased 'Kasetsu::Infrastructure::TextDatabase';
+
+my $db = TextDatabase->database;
+my $dir = $db->get_collection('users');
+my $file = $dir->file_of_id('ybrliiu');
+my $user = $file->fetch_row;
+warn $user->name;
+$user->money( $user->money + 1 );
+$file->store_row($user);
 
 require 'jcode.pl';
 require './ini_file/index.ini';

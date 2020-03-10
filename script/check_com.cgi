@@ -11,6 +11,9 @@ sub CHECK_COM{
 	# Command list
 	require './ini_file/com_list.ini';
 
+  # ディレクトリの有無でファイルロック的な機能を実現している
+  # 多分これがないと index.cgi が連打された時に
+  # プレイヤーがひと月に複数回コマンド実行できたりするのではないか
 	&D_F_LOCK;
 	if (!-e $lockfile2) {&ERR2("ファイルロックされていません。");}
 
@@ -466,13 +469,13 @@ sub lock #($file_name, $use_lock)
 	local($lock_flag) = $file_name . ".lock";
 
 	if ($use_lock) {
-	local($i) = 0;
+	  local($i) = 0;
 #	return -1 if (!-f $file_name);
-	rmdir($lock_flag) if (-d $lock_flag && time - (stat($lock_flag))[9] > 60);
-	while(!mkdir($lock_flag, 0755)) {
-	select(undef, undef, undef, 0.05);
-		return 0 if (++ $i >= 100);
-		}
+	  rmdir($lock_flag) if (-d $lock_flag && time - (stat($lock_flag))[9] > 60);
+	  while(!mkdir($lock_flag, 0755)) {
+	    select(undef, undef, undef, 0.05);
+	  	return 0 if ++$i >= 100;
+    }
 		return 1;
  	}
  	return 1;
