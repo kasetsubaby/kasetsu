@@ -16,6 +16,7 @@ use Kasetsu::Infrastructure::TextDatabase::MetaDTOClassCreator qw( create_meta_d
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( MaybeClassName );
 use Hash::Util qw( lock_ref_keys );
 use Class::Load qw( is_class_loaded );
+use Kasetsu::Home qw( detect_home_dir );
 
 {
   my @class_methods = qw( database );
@@ -137,7 +138,13 @@ sub collection (&) { shift }
   sub path($) {
     state $c = compile(Str);
     my ($path) = $c->(@_);
-    $Building_data{collection_params}{path} = $path;
+
+    # script ディレクトリ以下で起動したcgiから使う場合と
+    # プロジェクトルートから起動した場合の差異を埋めるため
+    # 絶対パス指定にする
+    my $abs_path = File::Spec->catfile(detect_home_dir(), 'script', $path);
+
+    $Building_data{collection_params}{path} = $abs_path;
   }
 
   sub file_class($) {

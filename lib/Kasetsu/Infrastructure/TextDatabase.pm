@@ -3,11 +3,13 @@ use Kasetsu::Base;
 use Kasetsu::Infrastructure::TextDatabase::Declare;
 
 use Kasetsu::Infrastructure::Config::GlobalVars qw( load );
+use File::Spec;
+use Kasetsu::Home qw( detect_home_dir );
 
-my $INDEX_INI = load('script/ini_file/index.ini');
+my $INDEX_INI = load( File::Spec->catfile( detect_home_dir(), qw( script ini_file index.ini ) ) );
 
 directory users => collection {
-  path       "script/$INDEX_INI->{CHARA_DATA}";
+  path       $INDEX_INI->{CHARA_DATA};
   file_class SingleRowFile;
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::User';
@@ -38,21 +40,20 @@ directory users => collection {
         column leadership => ( is => 'rw', isa => Int );
         column popular    => ( is => 'rw', isa => Int );
         column soldier_id => ( is => 'rw', isa => Int );
-        column _unknown   => ( is => 'ro', isa => Str );
       },
     );
     column delete_turn => ( is => 'rw', isa => Int );
     column town_index  => ( is => 'rw', isa => Int );
-    column _unknown    => ( is => 'ro', isa => Str );
-    column host        => ( is => 'rw', isa => Int );
+    column _unknown    => ( is => 'ro', isa => Any );
+    column host        => ( is => 'rw', isa => Str );
     column updated_at  => ( is => 'rw', isa => Int );
-    column mail        => ( is => 'rw', isa => Int );
+    column mail        => ( is => 'rw', isa => Str );
     column is_authed   => ( is => 'rw', isa => Int );
   };
 };
 
 single_row_file access_counter => collection {
-  path 'script/log_file/counter.cgi';
+  path 'log_file/counter.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::AccessCounter';
     column num => ( is => 'rw', isa => Int );
@@ -61,7 +62,7 @@ single_row_file access_counter => collection {
 
 # ユーザ行動ログ
 log_file act_logs => collection {
-  path 'script/log_file/act_log.cgi';
+  path 'log_file/act_log.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
     column line => ( is => 'ro', isa => Str );
@@ -70,7 +71,7 @@ log_file act_logs => collection {
 
 # 解雇された人のブラックリスト
 multiple_rows_file black_list => collection {
-  path 'script/log_file/black_list.cgi';
+  path 'log_file/black_list.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::BlackList';
     attribute index => ( is => 'ro', isa => Int );
@@ -81,7 +82,7 @@ multiple_rows_file black_list => collection {
 };
 
 multiple_rows_file weapons => collection {
-  path "script/$INDEX_INI->{ARM_LIST}";
+  path $INDEX_INI->{ARM_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Weapon';
     attribute index => ( is => 'ro', isa => Int );
@@ -97,7 +98,7 @@ multiple_rows_file weapons => collection {
 };
 
 multiple_rows_file books => collection {
-  path "script/$INDEX_INI->{PRO_LIST}";
+  path $INDEX_INI->{PRO_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Book';
     attribute index => ( is => 'ro', isa => Int );
@@ -113,7 +114,7 @@ multiple_rows_file books => collection {
 };
 
 multiple_rows_file countries => collection {
-  path "script/$INDEX_INI->{COUNTRY_LIST}";
+  path $INDEX_INI->{COUNTRY_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Country';
     attribute index => ( is => 'ro', isa => Int );
@@ -141,7 +142,7 @@ multiple_rows_file countries => collection {
 
 # ゲーム時刻
 single_row_file game_date => collection {
-  path 'script/log_file/date_count.cgi';
+  path 'log_file/date_count.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::GameDate';
     column elapsed_year => ( is => 'rw', isa => Int );
@@ -152,7 +153,7 @@ single_row_file game_date => collection {
 
 # 国アピールメッセージ
 multiple_rows_file countries_appeal_messages => collection {
-  path "script/$INDEX_INI->{COUNTRY_MES}";
+  path $INDEX_INI->{COUNTRY_MES};
   record {
 
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryAppealMessage';
@@ -164,7 +165,7 @@ multiple_rows_file countries_appeal_messages => collection {
 
 # 建国リスト
 multiple_rows_file founded_countries => collection {
-  path "script/$INDEX_INI->{COUNTRY_MES}";
+  path $INDEX_INI->{COUNTRY_MES};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::FoundedCountry';
     attribute index => ( is => 'ro', isa => Int );
@@ -181,7 +182,7 @@ multiple_rows_file founded_countries => collection {
 
 # 守備データ
 multiple_rows_file towns_defenders => collection {
-  path "script/$INDEX_INI->{DEF_LIST}";
+  path $INDEX_INI->{DEF_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::TownDefender';
     attribute index => ( is => 'ro', isa => Int );
@@ -194,8 +195,8 @@ multiple_rows_file towns_defenders => collection {
 };
 
 for my $pair (
-  [ towns         => "script/$INDEX_INI->{TOWN_LIST}" ],
-  [ initial_towns => "script/$INDEX_INI->{F_TOWN_LIST}" ]
+  [ towns         => $INDEX_INI->{TOWN_LIST} ],
+  [ initial_towns => $INDEX_INI->{F_TOWN_LIST} ]
 ) {
   my ($name, $path) = @$pair;
 
@@ -236,7 +237,7 @@ for my $pair (
 
 # 現在参加しているプレーヤリスト
 multiple_rows_file online_users => collection {
-  path "script/$INDEX_INI->{GUEST_LIST}";
+  path $INDEX_INI->{GUEST_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::OnlineUser';
     attribute index => ( is => 'ro', isa => Int );
@@ -249,7 +250,7 @@ multiple_rows_file online_users => collection {
 
 # local_rule.cgi (国法)
 multiple_rows_file countries_rules => collection {
-  path "script/$INDEX_INI->{LOCAL_LIST}";
+  path $INDEX_INI->{LOCAL_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryRule';
     attribute index => ( is => 'ro', isa => Int );
@@ -268,7 +269,7 @@ multiple_rows_file countries_rules => collection {
 
 # 国会議室
 multiple_rows_file countries_bbs => collection {
-  path "script/$INDEX_INI->{BBS_LIST}";
+  path $INDEX_INI->{BBS_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::CountryBBS';
     attribute index => ( is => 'ro', isa => Int );
@@ -288,7 +289,7 @@ multiple_rows_file countries_bbs => collection {
 
 # マップログ
 log_file map_log => collection {
-  path "script/$INDEX_INI->{MAP_LOG_LIST}";
+  path $INDEX_INI->{MAP_LOG_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::MapLog';
     column line => ( is => 'ro', isa => Str );
@@ -297,7 +298,7 @@ log_file map_log => collection {
 
 # 史記
 log_file history_log => collection {
-  path "script/$INDEX_INI->{MAP_LOG_LIST2}";
+  path $INDEX_INI->{MAP_LOG_LIST2};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::HistoryLog';
     column line => ( is => 'ro', isa => Str );
@@ -306,7 +307,7 @@ log_file history_log => collection {
 
 # 手紙
 log_file letters => collection {
-  path "script/$INDEX_INI->{MESSAGE_LIST}";
+  path $INDEX_INI->{MESSAGE_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Letter';
     column type              => ( is => 'ro', isa => Str ); # country_id or receiver_id or 333(都市宛) or 111(部隊宛)
@@ -324,7 +325,7 @@ log_file letters => collection {
 
 # 密書
 log_file offer_letters => collection {
-  path "script/$INDEX_INI->{MESSAGE_LIST2}";
+  path $INDEX_INI->{MESSAGE_LIST2};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::OfferLetter';
     column receiver_id       => ( is => 'ro', isa => Str );
@@ -341,7 +342,7 @@ log_file offer_letters => collection {
 
 # 負荷防止のためのhost記録ファイル
 multiple_rows_file recently_accessed_hosts => collection {
-  path "script/log_file/stop.cgi";
+  path 'log_file/stop.cgi';
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::RecentlyAccessedHost';
     attribute index => ( is => 'ro', isa => Int );
@@ -352,7 +353,7 @@ multiple_rows_file recently_accessed_hosts => collection {
 
 # unit_list.cgi (部隊)
 multiple_rows_file units => collection {
-  path "script/$INDEX_INI->{UNIT_LIST}";
+  path $INDEX_INI->{UNIT_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::Unit';
     attribute index => ( is => 'ro', isa => Int );
@@ -370,7 +371,7 @@ multiple_rows_file units => collection {
 
 # 管理画面行動ログ
 log_file admin_logs => collection {
-  path "script/$INDEX_INI->{ADMIN_LIST}";
+  path $INDEX_INI->{ADMIN_LIST};
   record {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::ActLog';
     column line => ( is => 'ro', isa => Str );

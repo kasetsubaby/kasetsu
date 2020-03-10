@@ -1,8 +1,8 @@
-use v5.20;
-use warnings;
-
 use FindBin;
 use File::Spec;
+use lib File::Spec->catfile($FindBin::Bin, 'lib');
+use Kasetsu::Base;
+
 use Plack::Builder;
 use Plack::App::CGIBin;
  
