@@ -6,6 +6,7 @@ use aliased 'Kasetsu::Infrastructure::TextDatabase::Database';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Directory';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::SingleRowFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::MultipleRowsFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::LogFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::HugeLogFile';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record' => 'Record', qw( RecordType );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
@@ -25,10 +26,12 @@ use Kasetsu::Home qw( detect_home_dir );
     directory
     single_row_file
     multiple_rows_file
+    log_file
     huge_log_file
     collection
     path
     file_class
+    max_lines
     record
     dto_class
     column
@@ -116,6 +119,26 @@ sub collection (&) { shift }
     %Building_data = ();
   }
   
+  sub log_file {
+    state $c = compile(Str, CodeRef);
+    my ($name, $code) = $c->(@_);
+
+    my $file = do {
+      local $Building_data{collection_params} = lock_ref_keys({
+        path      => undef,
+        max_lines => undef,
+        record    => undef,
+      });
+      $code->();
+      LogFile->new($Building_data{collection_params});
+    };
+
+    my $klass = caller;
+    $klass->database->add_collection($name => $file);
+
+    %Building_data = ();
+  }
+  
   sub huge_log_file {
     state $c = compile(Str, CodeRef);
     my ($name, $code) = $c->(@_);
@@ -150,7 +173,13 @@ sub collection (&) { shift }
   sub file_class($) {
     state $c = compile(Enum[ SingleRowFile, MultipleRowsFile, HugeLogFile ]); 
     my ($file_class) = $c->(@_);
-    $Building_data{collection_params}{file_class} = shift;
+    $Building_data{collection_params}{file_class} = $file_class;
+  }
+
+  sub max_lines($) {
+    state $c = compile(Int); 
+    my ($max_lines) = $c->(@_);
+    $Building_data{collection_params}{max_lines} = $max_lines;
   }
 
   sub record(&) {
