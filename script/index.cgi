@@ -37,13 +37,13 @@ sub INDEX {
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$S_MES .= "<font color=008800>●</font>$S_MOVE[$p]<BR>";$p++;}
+	while($p<8){$S_MES .= "<font color=008800>●</font>$S_MOVE[$p]<BR>";$p++;}
 
 	open(IN,"$MAP_LOG_LIST2");
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$D_MES .= "<font color=000088>●</font>$S_MOVE[$p]<BR>";$p++;}
+	while($p<8){$D_MES .= "<font color=000088>●</font>$S_MOVE[$p]<BR>";$p++;}
 
 	$hit = 0;
 	@month_new=();

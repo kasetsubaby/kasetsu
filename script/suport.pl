@@ -65,7 +65,7 @@ sub MAP_LOG {
 
 	unshift(@S_MOVE,"$_[0]($mday日$hour時$min分)\n");
 
-	splice(@S_MOVE,20);
+	splice(@S_MOVE, $MAP_LOG_LIST_MAX_LINES);
 
 	open(OUT,">$MAP_LOG_LIST") or &ERR2('LOG 新しいデータを書き込めません。');
 	print OUT @S_MOVE;
@@ -86,7 +86,7 @@ sub MAP_LOG2 {
 
 	unshift(@S_MOVE,"<b>$_[0]</b>($mday日$hour時$min分)\n");
 
-	splice(@S_MOVE,20);
+	splice(@S_MOVE, $MAP_LOG_LIST2_MAX_LINES);
 
 	open(OUT,">$MAP_LOG_LIST2") or &ERR2('LOG 新しいデータを書き込めません。');
 	print OUT @S_MOVE;
