@@ -110,7 +110,10 @@ sub STATUS {
 	@S_MOVE = <IN>;
 	close(IN);
 	$p=0;
-	while($p<5){$S_MES .= "<font color=green>●</font>$S_MOVE[$p]<BR>";$p++;}
+	while ($p<10) {
+    $S_MES .= "<font color=green>●</font>$S_MOVE[$p]<BR>";
+    $p++;
+  }
 
 	&TIME_DATA;
 
