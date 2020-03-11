@@ -10,6 +10,7 @@
 
 use FindBin;
 use lib $FindBin::Bin;
+use CGI::Carp qw( fatalsToBrowser );
 
 require 'jcode.pl';
 require './ini_file/index.ini';

@@ -12,15 +12,9 @@ use FindBin;
 use File::Spec;
 use lib $FindBin::Bin;
 use lib File::Spec->catfile($FindBin::Bin, '../lib');
-use aliased 'Kasetsu::Infrastructure::TextDatabase';
+use CGI::Carp qw( fatalsToBrowser );
 
-my $db = TextDatabase->database;
-my $dir = $db->get_collection('users');
-my $file = $dir->file_of_id('ybrliiu');
-my $user = $file->fetch_row;
-warn $user->name;
-$user->money( $user->money + 1 );
-$file->store_row($user);
+use aliased 'Kasetsu::Infrastructure::TextDatabase';
 
 require 'jcode.pl';
 require './ini_file/index.ini';
@@ -52,6 +46,14 @@ sub STATUS {
 	open(IN,"$LOG_DIR/date_count.cgi") or &ERR('ファイルを開けませんでした。');
 	@MONTH_DATA = <IN>;
 	close(IN);
+
+  # こんなふうにユーザデータいじれるよーっていう例
+  # my $db = TextDatabase->database;
+  # my $dir = $db->get_collection('users');
+  # my $file = $dir->file_of_id($kid);
+  # my $user = $file->fetch_row;
+  # $user->money( $user->money + 1 );
+  # $file->store_row($user);
 
 	($myear,$mmonth,$mtime) = split(/<>/,$MONTH_DATA[0]);
 	$new_date = sprintf("%02d\年%02d\月", $F_YEAR+$myear, $mmonth);
