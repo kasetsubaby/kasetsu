@@ -10,7 +10,7 @@ sub OPEN_MAP {
 	close(IN);
 
 	$p=0;
-	while($p<15){
+	while ($p < $MAP_LOG_LIST_MAX_LINES) {
 		$S_MES .= "・$S_MOVE[$p]<BR>";
 		$p++;
 	}
@@ -20,7 +20,7 @@ sub OPEN_MAP {
 	close(IN);
 
 	$p=0;
-	while($p<20){
+	while ($p < $MAP_LOG_LIST2_MAX_LINES) {
 		$D_MES .= "・$S_MOVE[$p]<BR>";
 		$p++;
 	}
@@ -49,7 +49,7 @@ print <<"EOM";
 <TABLE bgcolor=$TABLE_C width=100% border="0">
   <TBODY>
     <TR>
-      <TD bgcolor=$TD_C4 width=40%>
+      <TD bgcolor=$TD_C4 width=40% valign="top">
       <TABLE bgcolor=$TD_C2 background="$IMG/mapbg.gif" width=100% height=5 border="0" cellspacing=1>
         <TBODY>
           <TR>
