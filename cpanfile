@@ -1,4 +1,5 @@
 requires 'perl', '5.030001';
+requires 'Gazelle', '0.49';
 requires 'strictures';
 requires 'Import::Base';
 requires 'aliased';
