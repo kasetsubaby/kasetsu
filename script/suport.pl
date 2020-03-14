@@ -262,9 +262,6 @@ sub DECODE {
 		$value =~ tr/+/ /;
 		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 
-		# 文字コードをシフトJIS変換
-		&jcode'convert(*value, "sjis", "", "z");
-
 		# タグ処理
 		$value =~ s/</&lt;/g;
 		$value =~ s/>/&gt;/g;
@@ -348,6 +345,7 @@ sub ERR2 {
 sub SAVE_DATA (\$\@){
 
 	local($datafile, @data) = @_;
+
 	if($LOCK){
 		if($_[2]){
 			local($datadir) = $CHARA_DATA;
