@@ -15,6 +15,9 @@ requires 'File::ReadBackwards', '== 1.05';
 requires 'Path::Tiny', '== 0.112';
 requires 'Module::Runtime', '== 0.016';
 requires 'Class::Load', '== 0.25';
+requires 'Plack', '== 1.0047';
+requires 'CGI::Compile', '== 0.23';
+requires 'CGI::Emulate::PSGI', '== 0.23';
 
 on test => sub {
   requires 'Test2::Harness', '== 0.001099';
@@ -24,8 +27,5 @@ on test => sub {
 };
 
 on develop => sub {
-  requires 'Plack', '== 1.0047';
-  requires 'CGI::Emulate::PSGI', '== 0.23';
-  requires 'CGI::Compile', '== 0.23';
   requires 'Data::Printer', '== 0.40';
 };
