@@ -45,9 +45,24 @@ sub _dto_to_line {
       encode_json \%fields;
     }
     else {
-      $field;
+      # $field に $separator と同じ文字が含まれていると次 decode するときに正しくパースできなくなるので, エスケープ処理を行う
+      my $escaped_sepatator = _to_html_special_characters($separator);
+      $field =~ s/\Q$separator/$escaped_sepatator/gr;
     }
   } 0 .. $#$columns;
+}
+
+sub _to_html_special_characters {
+  my $str = shift;
+  state %cache;
+  return $cache{$str} if exists $cache{$str};
+
+  # https://html-css-js.com/html/character-codes/all/
+  $cache{$str} = join '', map {
+    my $ord = ord($_);
+    die "'$_' can't transform to html special chacaters." if $ord > ord('~') || $ord < ord('!');
+    '&#' . ( ord($_) - 16 ) . ';';
+  } split //, $str;
 }
 
 __PACKAGE__->meta->make_immutable;

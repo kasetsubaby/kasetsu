@@ -48,7 +48,7 @@ my $nested_row_columns = Columns->new(
     Column->new(
       name            => 'a',
       access_control  => 'ro',
-      type_constraint => Int,
+      type_constraint => Str,
     ),
     JSONColumn->new(
       name           => 'b',
@@ -108,7 +108,7 @@ my $row = Row->new(
   a => 1,
   b => 2,
   c => NestedRow->new(
-    a => 3,
+    a => 'hoge|hoge|hoge',
     b => JSONRow->new(
       a => 1,
       b => 2,
@@ -126,7 +126,8 @@ my $encoder = Encoder->new(
 );
 my $string = $encoder->encode($row);
 is $string, condition {
-  $_ eq q{1<>2<>3|{"a":1,"b":2}<>4<>5<>hoge} || $_ eq q{1<>2<>3|{"b":2,"a":1}<>4<>5<>hoge};
+  $_ eq q{1<>2<>hoge&#108;hoge&#108;hoge|{"a":1,"b":2}<>4<>5<>hoge}
+    || $_ eq q{1<>2<>hoge&#108;hoge&#108;hoge|{"b":2,"a":1}<>4<>5<>hoge};
 };
 
 done_testing;

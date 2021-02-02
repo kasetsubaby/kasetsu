@@ -1,15 +1,4 @@
 # TODO
-- マスタデータに相当するファイルを Infrastructure で扱えるようにする
-  - Perlの配列リファレンスをdumpしたものをマスタデータとして扱う
-  - DSL作ってDTOとマッピング
-    - dto_class, 配列要素の型定義が必要
-  - 名前は Infrastructure::MasterData 
-  - 兵士、武器、書物データなどが該当
-  - 設定ファイルの型チェックはなるべく早期にしたい
-    - 容量そんなに多くないだろうしDSL宣言時に同時にロードして型チェックしていいかも
-  - メモ
-    - 兵士の攻撃力や守備力の計算は別でモジュール作ってやらせる
-    - 初期都市データはマスタデータとして扱うほうが適切そう
 - check_com.cgi のようなディレクトリを利用したロックの仕組みを汎用的に利用する方法を考える
   - 一連の処理を排他ロックしているので名前は ProcessExclusiveLocker とかで良さそう
 - 機能実装
@@ -18,20 +7,6 @@
 - テンプレートエンジンはxslateを使う
   - macroが関数なのが良い
   - 高速
-
-マスタデータDSL
-```
-collection soldiers {
-  path '';
-  record {
-    dto_class 'Kasetsu::Infrastructure::DTO::Soldier';
-    structure Dict[
-      name => Str,
-      attribute => Enum[qw( 歩 馬 弓 )],
-    ];
-  };
-}
-```
 
 # リファクタリングしたいところ
 - decoder, encoder で使っているテストクラスをまとめる
