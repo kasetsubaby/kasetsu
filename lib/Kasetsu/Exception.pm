@@ -8,11 +8,10 @@ use overload (
   fallback => 1,
 );
 
-has message => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1,
-);
+# abstract
+sub message {
+  die 'Can not call abstract method.';
+}
 
 has frames => (
   is       => 'ro',
@@ -20,13 +19,8 @@ has frames => (
 );
 
 sub throw {
-  state $c = compile(Invocant, Str);
-  my ($class, $message) = $c->(@_);
-
-  die $class->new(
-    message => $message,
-    frames  => $class->trace(1),
-  );
+  my $class = shift;
+  die $class->new(frames => $class->trace(1), @_);
 }
 
 sub trace {
@@ -46,7 +40,7 @@ sub to_string {
   my $str = $self->message;
   my $frames = $self->frames;
 
-  # 例外クラスから例外投げたときはメッセージのあとにに例外を投げた場所を追記する
+  # 例外クラスから例外投げたときはメッセージのあとに例外を投げた場所を追記する
   if ($str !~ /\n$/) {
     $str .= @$frames ? " at $frames->[0][1] line $frames->[0][2].\n" : "\n";
   }

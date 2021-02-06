@@ -455,8 +455,7 @@ sub D_F_LOCK {
 	}
 
 	while (!mkdir($lockfile2, 0755)) {
-		if (--$retry <= 0) { &ERR2("File lock error!<BR>データ更新中です。しばらくお待ちください。");
-}
+		if (--$retry <= 0) { &ERR2("File lock error!<BR>データ更新中です。しばらくお待ちください。"); }
 		sleep(1);
 	}
 }
