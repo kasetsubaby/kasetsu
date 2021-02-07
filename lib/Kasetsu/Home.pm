@@ -19,14 +19,14 @@ sub search {
   }
 }
 
-my sub package_name_to_pash {
+my sub package_name_to_path {
   my $package_name = shift;
   $package_name =~ s!::!/!gr . '.pm';
 }
 
 sub detect_home_dir {
   my $package_name = shift // __PACKAGE__;
-  my $abs_path = abs_path $INC{ package_name_to_pash($package_name) };
+  my $abs_path = abs_path $INC{ package_name_to_path($package_name) };
   my @splited_path = split m!/!, $abs_path;
   search(\@splited_path);
 }
