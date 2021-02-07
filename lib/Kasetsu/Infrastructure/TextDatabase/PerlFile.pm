@@ -2,7 +2,7 @@ package Kasetsu::Infrastructure::TextDatabase::PerlFile;
 use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
-BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
+BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::TextFile' }
 
 use Kasetsu::Infrastructure::TextDatabase::IndexedDTOClassRecordType qw( IndexedDTOClassRecordType );
 

@@ -2,7 +2,7 @@ package Kasetsu::Infrastructure::TextDatabase::SingleRowFile;
 use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
-BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
+BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::TextFile' }
 
 use Type::Params qw( validate );
 use Encode qw( encode_utf8 decode_utf8 );

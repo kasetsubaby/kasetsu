@@ -3,7 +3,7 @@ use Kasetsu::Base;
 use Mouse;
 use Type::Tiny;
 use namespace::autoclean;
-BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
+BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::TextFile' }
 
 use Encode qw( encode_utf8 decode_utf8 );
 use Kasetsu::Infrastructure::TextDatabase::IndexedDTOClassRecordType qw( IndexedDTOClassRecordType );

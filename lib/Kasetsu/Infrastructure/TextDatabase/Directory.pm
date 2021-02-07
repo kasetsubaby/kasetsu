@@ -6,14 +6,14 @@ use namespace::autoclean;
 BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
 use File::Spec;
-use aliased 'Kasetsu::Infrastructure::TextDatabase::File';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile';
 
 use constant FileClassType => Type::Tiny->new(
   parent     => ClassName,
   name       => 'FileClassType',
   constraint => sub {
     my $value = shift;
-    $value->isa(File);
+    $value->isa(TextFile);
   },
 );
 
