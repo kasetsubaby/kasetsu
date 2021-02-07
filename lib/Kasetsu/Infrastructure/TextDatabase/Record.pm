@@ -8,7 +8,8 @@ use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 
 our @EXPORT_OK = qw( RecordType );
 
-# dto_class の型を外部から拡張したいときのために使用
+# dto_class の型を外部から拡張したいときのために使用する総称型
+# この型を使うことで dto_class だけを override したクラスを新しく作らなくて済む
 # Type::Library を使わないのは meta が conflict するため
 sub RecordType(;$) {
   state $c = compile(Optional[ Tuple[ InstanceOf['Type::Tiny'] ] ]);
