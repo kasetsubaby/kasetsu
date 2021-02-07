@@ -6,7 +6,7 @@ use Mouse::Meta::Attribute;
 use Kasetsu::Infrastructure::TextDatabase::Exporter qw( :column_classes_alias );
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Columns';
 use aliased 'Kasetsu::Infrastructure::TextDatabase::Record';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile::Decoder';
 
 sub create_class {
   my ($class_name, $columns) = @_;

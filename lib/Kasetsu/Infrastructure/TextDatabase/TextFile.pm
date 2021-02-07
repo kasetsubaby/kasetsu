@@ -4,9 +4,9 @@ use Mouse;
 use namespace::autoclean;
 BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Decoder';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::Encoder';
-use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile::Decoder';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile::Encoder';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile::SaveDataWithCompatibleFileLock';
 
 has decoder => (
   is      => 'ro',

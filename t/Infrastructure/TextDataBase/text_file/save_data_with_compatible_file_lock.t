@@ -4,7 +4,7 @@ use Test2::V0;
 use File::Temp;
 use Test::MockTime qw( set_fixed_time );
 use Path::Tiny qw( path );
-use aliased 'Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile::SaveDataWithCompatibleFileLock';
 
 my $file = SaveDataWithCompatibleFileLock->new(
   path          => File::Temp->new->filename,

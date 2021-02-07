@@ -2,7 +2,7 @@ package Kasetsu::Infrastructure::TextDatabase::PerlFile;
 use Kasetsu::Base;
 use Mouse;
 use namespace::autoclean;
-BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::TextFile' }
+BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
 use Kasetsu::Infrastructure::TextDatabase::IndexedDTOClassRecordType qw( IndexedDTOClassRecordType );
 
@@ -28,3 +28,6 @@ sub delete_all_rows {
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+# Encoder, Decoder, SaveDataWithCompatibleFileLock を TextFile:: の名前空間に移動
+# PerlFile::Encoder, PerlFile::Decoder を準備

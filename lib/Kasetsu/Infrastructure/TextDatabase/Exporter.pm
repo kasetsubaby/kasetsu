@@ -28,6 +28,8 @@ our %EXPORT_TAGS = (
 
 use constant DEFAULT_SEPARATOR => '<>';
 
+# Types::Standard の ClassName はロード済みのクラスである必要があるので,
+# MetaDTOClassCreator で作ったクラスをチェックしたいときに使えないから作った型
 use constant MaybeClassName => Type::Tiny->new(
   name       => 'MaybeClassName',
   constraint => sub {

@@ -1,4 +1,4 @@
-package Kasetsu::Infrastructure::TextDatabase::SaveDataWithCompatibleFileLock;
+package Kasetsu::Infrastructure::TextDatabase::TextFile::SaveDataWithCompatibleFileLock;
 use Kasetsu::Base;
 use Mouse;
 use Types::Standard qw( InstanceOf ArrayRef Str );
