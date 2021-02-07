@@ -42,13 +42,13 @@ directory users => collection {
         column soldier_id => ( is => 'rw', isa => Int );
       },
     );
-    column delete_turn => ( is => 'rw', isa => Int );
-    column town_index  => ( is => 'rw', isa => Int );
-    column _unknown    => ( is => 'ro', isa => Any );
-    column host        => ( is => 'rw', isa => Str );
-    column updated_at  => ( is => 'rw', isa => Int );
-    column mail        => ( is => 'rw', isa => Str );
-    column is_authed   => ( is => 'rw', isa => Int );
+    column delete_turn        => ( is => 'rw', isa => Int );
+    column town_index         => ( is => 'rw', isa => Int );
+    column _unknown           => ( is => 'ro', isa => Any );
+    column host               => ( is => 'rw', isa => Str );
+    column command_execute_at => ( is => 'rw', isa => Int );
+    column mail               => ( is => 'rw', isa => Str );
+    column is_authed          => ( is => 'rw', isa => Int );
   };
 };
 
@@ -148,7 +148,7 @@ single_row_file game_date => collection {
     dto_class 'Kasetsu::Infrastructure::TextDatabase::DTO::GameDate';
     column elapsed_year => ( is => 'rw', isa => Int );
     column month        => ( is => 'rw', isa => Int );
-    column time         => ( is => 'rw', isa => Int );
+    column month_end_at => ( is => 'rw', isa => Int );
   };
 };
 

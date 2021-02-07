@@ -6,20 +6,9 @@ use namespace::autoclean;
 BEGIN { extends 'Kasetsu::Infrastructure::TextDatabase::File' }
 
 use Encode qw( encode_utf8 decode_utf8 );
-use Kasetsu::Infrastructure::TextDatabase::Record qw( RecordType );
+use Kasetsu::Infrastructure::TextDatabase::IndexedDTOClassRecordType qw( IndexedDTOClassRecordType );
 
-use constant IndexedDTOClassType => Type::Tiny->new(
-  name       => 'DTOClassType',
-  parent     => ClassName,
-  constraint => sub {
-    my $got = shift;
-    $got->can('index');
-  },
-);
-
-has '+record' => (
-  isa => RecordType[IndexedDTOClassType],
-);
+has '+record' => ( isa => IndexedDTOClassRecordType );
 
 sub fetch_row_by_index {
   state $c = compile(Invocant, Int);

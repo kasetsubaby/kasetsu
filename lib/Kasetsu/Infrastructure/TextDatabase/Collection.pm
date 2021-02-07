@@ -17,5 +17,4 @@ has record => (
   required => 1,
 );
 
-
 1;
