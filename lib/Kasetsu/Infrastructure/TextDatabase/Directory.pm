@@ -7,13 +7,14 @@ BEGIN { with 'Kasetsu::Infrastructure::TextDatabase::Collection' }
 
 use File::Spec;
 use aliased 'Kasetsu::Infrastructure::TextDatabase::TextFile';
+use aliased 'Kasetsu::Infrastructure::TextDatabase::PerlFile';
 
 use constant FileClassType => Type::Tiny->new(
   parent     => ClassName,
   name       => 'FileClassType',
   constraint => sub {
     my $value = shift;
-    $value->isa(TextFile);
+    $value->isa(TextFile) || $value->isa(PerlFile);
   },
 );
 
