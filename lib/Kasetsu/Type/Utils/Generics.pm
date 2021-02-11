@@ -2,16 +2,29 @@ package Kasetsu::Type::Utils::Generics;
 use Kasetsu::Base;
 use Exporter qw( import );
 
-use List::Util qw( all );
+our @EXPORT_OK = qw( generics T );
+our %EXPORT_TAGS = ( all => \@EXPORT_OK );
 
-our @EXPORT_OK = qw( generics );
+use List::Util qw( all );
+use constant TypeParameterType => 'Kasetsu::Type::Utils::Generics::TypeParameterType';
+
+sub T {
+  TypeParameterType
+}
 
 sub generics {
-  state $c = compile(Str, ClassName, ArrayRef[ Str | Tuple[ Str, Dict[ optional => Bool ] ] ]);
-  my ($name, $class_name, $attributes) = $c->(@_);
+  state $c = do {
+    my $NamedOptionsType = Dict[
+      class_name => ClassName,
+      attributes => HashRef[ InstanceOf['Type::Tiny'] ],
+    ];
+    compile(Str, slurpy $NamedOptionsType);
+  };
+  my ($name, $args) = $c->(@_);
+  my ($class_name, $template_of) = $args->@{qw( class_name attributes )};
 
   sub {
-    state $c = compile(ArrayRef[ InstanceOf['Type::Tiny'] ]);
+    state $c = compile(ArrayRef);
     my ($type_parameters) = $c->(@_);
 
     Type::Tiny->new(

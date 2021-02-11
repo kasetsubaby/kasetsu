@@ -12,7 +12,7 @@ our @IMPORT_MODULES = (
   'strictures'      => [ version => 2 ],
   'feature'         => [':5.30'],
   '-indirect'       => ['fatal'],
-  'Types::Standard' => ['-types'],
+  'Types::Standard' => [qw( -types slurpy )],
   'Type::Params'    => [qw( compile compile_named Invocant )],
 );
 
