@@ -25,7 +25,7 @@ package Columns {
 my $ColumnsType = generics Columns => 'Columns', ['contents'];
 my $ParameterizeType = $ColumnsType->([ ArrayRef[InstanceOf['Column']] ]);
 
-my $columns = Columns->new(contents => [ Column->new(name => '雫') ]);
+my $columns = Columns->new(contents => [ Column->new(name => '日野森雫') ]);
 ok $ParameterizeType->check($columns);
 
 done_testing;
